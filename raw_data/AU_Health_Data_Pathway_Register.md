@@ -1,0 +1,1998 @@
+# Australian Health Data Access Map — Custodian Pathway Register
+
+> **Version:** 1.0 (Draft for Validation)  
+> **Date:** February 2026  
+> **Purpose:** This register documents the data access pathway for each major Australian health data custodian. Each card covers: key datasets, step-by-step access process, ethics requirements, TRE/secure access options, contact details, indicative timelines, and connections to other custodians. Cards are intended as the foundational content layer for an Australian Health Data Access Map (modelled on the UK Health Data Research Alliance Tube Map).  
+> **Note:** All timelines and process details should be verified directly with each custodian before publication.
+
+---
+
+## Table of Contents
+
+1. [AIHW](#aihw) — Commonwealth | Commonwealth
+2. [Australian Bureau of Statistics](#australian-bureau-of-statistics) — Commonwealth | Commonwealth
+3. [Services Australia](#services-australia) — Commonwealth | Commonwealth
+4. [Department of Health and Aged Care](#department-of-health-and-aged-care) — Commonwealth | Commonwealth
+5. [TGA](#tga) — Commonwealth | Commonwealth
+6. [APRA](#apra) — Commonwealth | Commonwealth
+7. [NSW Health — Ministry of Health NSW](#nsw-health-—-ministry-of-health-nsw) — State — NSW | New South Wales
+8. [CHeReL](#cherel) — State — NSW / State — ACT / Cross-jurisdictional | New South Wales, Australian Capital Territory
+9. [Cancer Institute NSW](#cancer-institute-nsw) — State - NSW | New South Wales
+10. [VAHI](#vahi) — State - VIC | Victoria
+11. [Victorian Cancer Registry](#victorian-cancer-registry) — State - VIC / Private/NGO | Victoria
+12. [Centre for Victorian Data Linkage (CVDL)](#centre-for-victorian-data-linkage-cvdl) — State - VIC | Victoria
+13. [Queensland Health](#queensland-health) — State - QLD | Queensland
+14. [QCIF](#qcif) — TRE/SDE | Queensland
+15. [WA Health / Data Linkage Services WA](#wa-health--data-linkage-services-wa) — State — WA | Western Australia
+16. [SA Health / SA NT DataLink](#sa-health--sa-nt-datalink) — Cross-jurisdictional | South Australia, Northern Territory
+17. [Tasmanian Department of Health / Tasmanian Data Linkage Unit (TDLU)](#tasmanian-department-of-health--tasmanian-data-linkage-unit-tdlu) — State — TAS | Tasmania
+18. [ACT Health](#act-health) — State — ACT | Australian Capital Territory
+19. [NT Health / NT Health Research Governance Office](#nt-health--nt-health-research-governance-office) — State — NT | Northern Territory
+20. [PHRN](#phrn) — Cross-jurisdictional | Commonwealth
+21. [SURE — Secure Unified Research Environment](#sure-—-secure-unified-research-environment) — TRE/SDE | New South Wales, Cross-jurisdictional
+22. [ABS DataLab](#abs-datalab) — TRE/SDE, Commonwealth | Commonwealth
+23. [AIHW Data Integration Services](#aihw-data-integration-services) — Commonwealth / TRE/SDE | Commonwealth
+24. [ADHA](#adha) — Commonwealth | Commonwealth
+25. [PHN Cooperative / Primary Health Insights](#phn-cooperative--primary-health-insights) — Private/NGO | Commonwealth
+26. [MedicineInsight (NPS MedicineWise)](#medicineinsight-nps-medicinewise) — Commonwealth | Commonwealth
+27. [NHMRC / HRECs](#nhmrc--hrecs) — Ethics Body | Commonwealth
+28. [AIATSIS](#aiatsis) — Commonwealth | Commonwealth
+29. [NACCHO / Aboriginal Community Controlled Health Organisations (ACCHOs)](#naccho--aboriginal-community-controlled-health-organisations-acchos) — Private/NGO | National (Australia), with operations across all states and territories
+30. [ACSQHC](#acsqhc) — Commonwealth | Commonwealth
+31. [ARDC](#ardc) — Commonwealth | Commonwealth
+32. [Private Hospital Data Bureau (PHDB) via AIHW / Department of Health](#private-hospital-data-bureau-phdb-via-aihw--department-of-health) — Commonwealth | Commonwealth
+
+---
+
+## Pathway Card: Australian Institute of Health and Welfare (AIHW)
+
+**Custodian Type:** Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** The Australian Institute of Health and Welfare (AIHW) is the Commonwealth data custodian for national health and welfare statistics, including data on cancer, mortality, hospitals, aged care, disability, and Indigenous health. It securely and ethically manages Australia's health and welfare data holdings to provide statistical information for policymakers, service providers, and researchers to improve health and welfare outcomes for Australians.
+
+**Key Data Holdings:**
+A table with columns: Dataset Name | Description | Identifiable? | Linkable?
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| National Health and Welfare Data Collections | Over 150 datasets covering diverse fields like health, welfare, aged care, disability, and Indigenous health. | (verify with custodian) | (verify with custodian) |
+| Australian Cancer Database | National data on cancer incidence and mortality. | (verify with custodian) | (verify with custodian) |
+| National Death Index | National data on causes of death. | (verify with custodian) | (verify with custodian) |
+| National Hospitals Data Collection | Data on hospitalisations and procedures. | (verify with custodian) | (verify with custodian) |
+| National Aged Care Data Clearinghouse | Data related to aged care services. | (verify with custodian) | (verify with custodian) |
+| Specialist Homelessness Services Collection | Data on homelessness services. | (verify with custodian) | (verify with custodian) |
+| National Key Performance Indicators for First Nations-specific primary health care | Data on health outcomes for First Nations people. | (verify with custodian) | (verify with custodian) |
+
+**Data Access Pathway — Step by Step:**
+1. Check Publicly Available Data — researcher — AIHW website topic areas and data tables — ongoing
+2. Review Our Data Collections — researcher — AIHW 'Our data collections' section — ongoing
+3. Contact Experts — researcher — email experts via email address provided in data collections of interest — (verify with custodian)
+4. Complete Data on Request Form — researcher — AIHW data on request form (URL to be verified) — (verify with custodian)
+5. Ethical Review — AIHW Ethics Committee / relevant HREC — project proposal, ethics application (considered at quarterly meetings) — (verify with custodian)
+6. Data Access Agreement — researcher, custodian — data access agreement — (verify with custodian)
+7. Data Provision — custodian — data provided via secure environment — 2 weeks to several months (depending on complexity)
+
+**Ethics and Governance Requirements:**
+- Which HREC or ethics body must approve: AIHW Ethics Committee (at scheduled quarterly meetings) or other relevant HREC. All data linking requests must be approved by the AIHW Ethics Committee.
+- Relevant legislation: Australian Institute of Health and Welfare Act 1987 (AIHW Act), Privacy Act 1988 (Cwlth).
+- Data governance framework applied: Five Safes Framework, AIHW Data Governance Framework 2022, National Statement on Ethical Conduct in Human research, Australian Code for the Responsible Conduct of Research.
+- Any special requirements: Strong emphasis on privacy and confidentiality, especially for sensitive data like Indigenous health data. Some requests may be subject to a Five Safes assessment. Fees may apply for ethics applications.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+- Is a TRE required or available?: Yes, a secure environment is used for data provision.
+- Which TRE platform: AIHW Secure Environment (platform name to be verified). For DATA Scheme requests, Dataplace is used.
+- Remote access or on-site only?: (verify with custodian)
+
+**Contact and Application Portal:**
+- Primary contact: info@aihw.gov.au
+- Application portal URL: (verify with custodian for general data requests); Dataplace (for DATA Scheme requests).
+- Key documents / forms: "Accessing data" corporate brochure (PDF, 925kB) (URL to be verified), Data on request form (URL to be verified).
+
+**Indicative Timeline:**
+| Stage | Typical Duration |
+|---|---|
+| Initial Inquiry & Expert Consultation | (verify with custodian) |
+| Data Request Submission & Assessment | (verify with custodian) |
+| Ethical Review | Aligned with quarterly AIHW Ethics Committee meetings (verify specific dates) |
+| Data Access Agreement | (verify with custodian) |
+| Data Provision | 2 weeks to several months (depending on complexity) |
+
+**Known Gaps / Verify with Custodian:**
+*   Specific URL for the general "data on request form".
+*   Specific URL for the "Accessing data" corporate brochure.
+*   Detailed indicative timelines for each stage of data access.
+*   Whether datasets are identifiable or linkable.
+*   Specific TRE platform name for AIHW Secure Environment and access type (remote/on-site).
+*   Specific dates for quarterly AIHW Ethics Committee meetings.
+
+**Connections to Other Custodians / Pathways:**
+Department of Social Services (DSS) (makes Data Over Multiple Individual Occurrences (DOMINO) accessible through the AIHW).
+
+**Source URLs:**
+https://www.aihw.gov.au/about-our-data/accessing-data-through-the-aihw
+https://www.aihw.gov.au/about-our-data/our-data-collections
+https://www.aihw.gov.au/about-our-data/data-governance
+https://www.aihw.gov.au/getmedia/3117bc9c-46ee-4891-a423-2ec0d66e12e7/aihw-data-governance-framework-2022.pdf.aspx
+https://www.aihw.gov.au/about-our-data/accessing-data-through-the-aihw/data-on-request
+
+---
+
+## Pathway Card: Australian Bureau of Statistics
+
+**Custodian Type:** Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** The Australian Bureau of Statistics (ABS) is Australia's national statistical agency, responsible for the collection and dissemination of a wide range of statistics. It is a primary custodian for health data collected through national surveys, the Census of Population and Housing, and causes of death data, providing access to detailed microdata for research and analysis through services like TableBuilder and the DataLab.
+
+**Key Data Holdings:**
+| Dataset Name | Description | Identifiable? | Linkable? |
+| :--- | :--- | :--- | :--- |
+| National Health Survey | Provides a rich source of information on a wide range of health conditions, risk factors, and health service use. | No (CURF) | Yes (in DataLab) |
+| National Aboriginal and Torres Strait Islander Health Survey | Collects information about the health of Aboriginal and Torres Strait Islander people, including long-term health conditions, risk factors, and social and emotional wellbeing. | No (CURF) | Yes (in DataLab) |
+| Australian Health Survey | A comprehensive survey that collected a range of information about health status, risk factors, and health service use. | No (CURF) | Yes (in DataLab) |
+| Disability, Ageing and Carers, Australia | Provides information about disability prevalence, the need for support, and the provision of care in Australia. | No (CURF) | Yes (in DataLab) |
+| Causes of Death, Australia | Contains information on all deaths registered in Australia, including demographic information and cause of death. | No (CURF) | Yes (in DataLab) |
+| Census of Population and Housing | Provides a snapshot of Australia's people and their housing, with some health-related information. | No (CURF) | Yes (in DataLab) |
+
+**Data Access Pathway — Step by Step:**
+1. **Determine Data Needs & Service** - Researcher - Review available microdata and choose between TableBuilder (for custom tables) and DataLab (for in-depth analysis) - 1-2 weeks
+2. **Register as a User** - Researcher - Register for an account in the ABS Registration Centre - 1-2 days
+3. **Submit Project Proposal (DataLab only)** - Researcher - Submit a detailed project proposal via the myDATA portal, outlining the research project, data requirements, and justification - 2-4 weeks
+4. **Project Assessment (DataLab only)** - Custodian - The ABS assesses the project proposal against the Five Safes framework - 4-8 weeks (verify with custodian)
+5. **Sign Undertakings** - Researcher - Sign an individual undertaking to use the data responsibly - 1 week
+6. **Access Data** - Researcher - Access data via TableBuilder or the secure DataLab environment - Immediate (TableBuilder) or upon project approval (DataLab)
+
+**Ethics and Governance Requirements:**
+- **HREC Approval:** Approval from a registered Human Research Ethics Committee (HREC) is required for all DataLab projects.
+- **Legislation:** Access to and use of ABS data is governed by the *Census and Statistics Act 1905* and the *Census and Statistics (Information Release and Access) Determination 2018*.
+- **Data Governance Framework:** The ABS uses the Five Safes Framework (Safe People, Safe Projects, Safe Settings, Safe Data, Safe Outputs) to manage data access and mitigate disclosure risk.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+- **TRE:** The ABS DataLab is a secure Trusted Research Environment (TRE) for accessing detailed microdata.
+- **Platform:** ABS DataLab
+- **Access:** Remote access is provided to approved users from approved organisations.
+
+**Contact and Application Portal:**
+- **Primary Contact:** microdata.access@abs.gov.au
+- **Application Portal:** [ABS Registration Centre](https://www.abs.gov.au/registration) and [myDATA](https://mydata.abs.gov.au/)
+
+**Indicative Timeline:**
+| Stage | Typical Duration |
+| :--- | :--- |
+| Project Proposal and Assessment | 6-12 weeks (verify with custodian) |
+| Data Access | 1-2 weeks after approval |
+
+**Known Gaps / Verify with Custodian:**
+- Specific timelines for project assessment can vary depending on complexity.
+- Costs associated with DataLab access should be confirmed with the ABS.
+- Availability of specific data items and the feasibility of data linkage for a given project should be discussed with the ABS.
+
+**Connections to Other Custodians / Pathways:**
+- The ABS frequently collaborates with other data custodians, such as the Australian Institute of Health and Welfare (AIHW), Services Australia (for MBS/PBS data), and state and territory health departments, to enable data linkage projects.
+
+**Source URLs:**
+- https://www.abs.gov.au/statistics/microdata-tablebuilder
+- https://www.abs.gov.au/statistics/microdata-tablebuilder/available-microdata-tablebuilder
+- https://www.abs.gov.au/statistics/microdata-tablebuilder/responsible-use-abs-microdata
+
+---
+
+## Pathway Card: Services Australia — Medicare Benefits Schedule (MBS) and Pharmaceutical Benefits Schedule (PBS) data custodian
+
+**Custodian Type:** Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** Services Australia administers Medicare and Pharmaceutical Benefits Scheme (PBS) programs, collecting and holding sensitive health data. They support researchers and the public to access this data for health and welfare research outcomes, ensuring data provision aligns with legislative and privacy requirements.
+
+**Key Data Holdings:**
+Dataset Name | Description | Identifiable? | Linkable?
+---|---|---|---
+Medicare Benefits Schedule (MBS) | Information on services that qualify for a benefit under the Health Insurance Act 1973 | Yes (with consent/strict conditions) | Yes (with consent/strict conditions)
+Pharmaceutical Benefits Scheme (PBS) | Information on prescription medicines that qualify for a benefit under the National Health Act 1953 | Yes (with consent/strict conditions) | Yes (with consent/strict conditions)
+
+**Data Access Pathway — Step by Step:**
+1. Initial Inquiry — researcher — Email external.information.release@servicesaustralia.gov.au or post to Information Release Assurance, Data and Analytics Engagement Branch, Services Australia, PO Box 7788, Canberra BC ACT 2610, Australia — (verify timeline)
+2. Request Registration & Assessment — custodian — Reference number and documents to complete — (verify timeline)
+3. Document Submission — researcher — Completed documents — (verify timeline)
+4. Compliance Check — custodian — (verify what is needed) — (verify timeline)
+5. Decision & Data Release — custodian — (verify what is needed) — (verify timeline)
+6. Data Extraction & Quote — custodian — Quote for customized data extraction — (verify timeline)
+7. Quote Acceptance & Data Extraction — researcher/custodian — Acceptance of quote — (verify timeline)
+8. Quality Assurance & Invoicing — custodian — Invoice for payment — (verify timeline)
+9. Payment & Data Provision — researcher/custodian — Payment of invoice — (verify timeline)
+
+**Ethics and Governance Requirements:**
+Any research involving humans or requiring access to personal information will require ethics approval. A Human Research Ethics Committee (HREC) registered with the National Health and Medical Research Council (NHMRC) is required. Services Australia's External Request Evaluation Committee may also be involved in internal review. Relevant legislation includes the National Health Act 1953 (particularly s 135AA), the Privacy Act 1988 (particularly s 13), the Health Insurance Act 1973, and the National Health (Privacy) Rules 2025 (which replace the 2021 Rules). Data governance is guided by Services Australia's internal privacy policy and the broader Australian Government Data Governance Framework. Key principles include data minimisation, data sharing agreements to restrict re-identification, and enhanced traceability requirements. (verify specific HREC requirements and if Services Australia has its own ethics committee for external data requests)
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Not explicitly stated that Services Australia provides a dedicated TRE for external researchers. Data is released under strict privacy and security controls. (verify if a specific TRE is required or available, e.g., through AIHW or other linked data custodians)
+
+**Contact and Application Portal:**
+Primary contact: Information Release Assurance, Data and Analytics Engagement Branch
+Email: external.information.release@servicesaustralia.gov.au
+Application portal URL: (No specific application portal URL found, initial contact via email/post)
+Key documents / forms: (Specific form names not found, generally provided after initial inquiry)
+
+**Indicative Timeline:**
+Stage: Initial assessment and processing: (verify duration)
+Stage: Data extraction, liaison, consent/committee activities, quality assurance: (hourly time and materials fee applies, duration varies)
+Stage: Clearance, approvals, invoicing: (verify duration)
+
+**Known Gaps / Verify with Custodian:**
+*   Exact application forms and their URLs.
+*   Specific HREC requirements for different types of data access.
+*   Detailed timelines for each step of the data access process.
+*   Whether a specific Trusted Research Environment (TRE) is provided or mandated for accessing unit-record data, or if researchers are expected to use their own secure environments.
+*   The specific criteria and process for determining if data is 'identifiable' or 'linkable' for research purposes.
+
+**Connections to Other Custodians / Pathways:**
+Australian Institute of Health and Welfare (AIHW) — often links with Services Australia MBS/PBS data for broader health research and reporting; Department of Health and Aged Care — policy department involved in data release decisions; Other state/territory health departments — for cross-jurisdictional data linkage projects
+
+**Source URLs:**
+https://www.servicesaustralia.gov.au/statistical-information-and-data?context=22, https://www.oaic.gov.au/privacy/privacy-legislation/related-legislation/medicare-and-pharmaceutical-benefits
+
+---
+
+## Pathway Card: Department of Health and Aged Care
+
+**Custodian Type:** Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** The Department of Health and Aged Care is responsible for collecting, managing, and providing access to a wide range of health and aged care data to inform policy, research, and service delivery in Australia.
+
+**Key Data Holdings:**
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Private Hospital Data Bureau (PHDB) data | De-identified information from private hospitals, including patient demographics, hospital episodes, clinical information, and hospital charges. | No | No |
+| Hospital Casemix Protocol (HCP) data | Clinical, demographic, and financial information for privately insured admitted patients. | Yes | Yes |
+| General Treatment Dental (GTD) data | Dental service records for which private health insurers have paid benefits. | No (verify with custodian) | No (verify with custodian) |
+| National Notifiable Diseases Surveillance System (NNDSS) | Coordinates data on over 70 diseases that pose a public health risk in Australia. | No (generally de-identified for public reporting) | Yes (for internal linkage, verify with custodian) |
+| Health Workforce Data | Reports and summary tables on the health workforce in Australia. | Yes (protected by Privacy Act) | Yes (protected by Privacy Act) |
+| Australian Secondary School Students Alcohol and Drug (ASSAD) Surveys | National data on substance use by students aged 12 to 17, collected every 3 years. | No | No |
+| Immunisation Coverage Data | Data tables, surveys, reports, journals, and Australian Immunisation Register (AIR) data. | No (can be de-identified) | Yes (can be linked) |
+| Medicare Statistics | Statistics on the use of the Medicare Benefits Schedule (MBS) and Pharmaceutical Benefits Scheme (PBS). | Yes | Yes |
+| National Integrated Health Services Information (NIHSI) / National Health Data Hub (NHDH) | Integrates state, territory, and national administrative datasets (MBS, PBS, residential aged care, National Death Index) for health planning, monitoring, evaluation, and policy development. NIHSI transitioned to NHDH in May 2024. | (verify with custodian) | Yes |
+| Enterprise Data Warehouse (EDW) | A large government holding of primary care data, providing secure data storage, reporting, analytics, and visualisation capabilities for research and policy development. | (verify with custodian) | (verify with custodian) |
+
+**Data Access Pathway — Step by Step:**
+1. Initial Inquiry for MBS/PBS data — researcher — email to statistics@humanservices.gov.au — (verify with custodian)
+2. Initial Inquiry for other Commonwealth health data — researcher — email to data.release@health.gov.au — (verify with custodian)
+3. Ethics Approval (if required) — researcher/ethics committee — Human Research Ethics Committee approval — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+- Ethics Body: Human Research Ethics Committee (HREC) approval is required for research involving humans or personal information.
+- Legislation: Privacy Act 1988, Australian Privacy Principles, Health Insurance Act 1973, National Health Act 1953.
+- Frameworks: NHMRC National Statement on Ethical Conduct in Human Research, Department of Health and Aged Care Data Governance Framework Placemat 2025.
+- Special Requirements: Research must comply with relevant health and privacy legislation to ensure confidentiality and privacy of information.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+- Is a TRE required or available? Yes, for NHDH data.
+- Which TRE platform? AIHW managed instance of the Australian Bureau of Statistics (ABS) Secure Environment for Analysing Data (SEAD).
+- Remote access or on-site only? Remote access (verify with custodian)
+
+**Contact and Application Portal:**
+- Primary contact (MBS/PBS data): statistics@humanservices.gov.au
+- Primary contact (other Commonwealth health data): data.release@health.gov.au
+- Application portal URL: (verify with custodian)
+- Key documents / forms: (verify with custodian)
+
+**Indicative Timeline:**
+Stage: (verify with custodian); Stage: (verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+*   Specific data access pathway steps and required forms/documents.
+*   Whether specific datasets are identifiable or linkable.
+*   Details on ethics body approval and relevant legislation.
+*   Information on the use of Trusted Research Environments (TREs).
+*   Primary contact details and application portal URLs.
+*   Indicative timelines for data access.
+
+**Connections to Other Custodians / Pathways:**
+*   Australian Institute of Health and Welfare (AIHW) (for NIHSI/NHDH, GTD data)
+*   Services Australia (for Medicare statistics, MBS/PBS data)
+*   State and territory health authorities (for NIHSI/NHDH)
+
+**Source URLs:**
+*   https://www.health.gov.au/topics/health-data-and-medical-research/our-data-collections?language=en
+*   https://www.health.gov.au/topics/health-data-and-medical-research/data-strategy?language=en
+*   https://www.health.gov.au/resources/publications/data-access-and-release-policy?language=en
+*   https://hwd.health.gov.au/using-our-website/privacy.html
+*   https://www.aihw.gov.au/reports-data/nhdh/access
+
+---
+
+## Pathway Card: Therapeutic Goods Administration (TGA)
+
+**Custodian Type:** Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** The TGA is Australia's government authority responsible for evaluating, assessing, and monitoring therapeutic goods. It regulates medicines, medical devices, and biologicals to help Australians stay healthy and safe.
+
+**Key Data Holdings:**
+A table with columns: Dataset Name | Description | Identifiable? | Linkable?
+| Australian Register of Therapeutic Goods (ARTG) | Register of therapeutic goods lawfully supplied in Australia | (verify with custodian) | (verify with custodian)
+| Database of Adverse Event Notifications (DAEN) | Searchable database of adverse events reported to TGA | (verify with custodian) | (verify with custodian)
+| Regulatory data | Data related to the regulation of therapeutic goods, including manufacturing, advertising, and compliance | (verify with custodian) | (verify with custodian)
+| Medicinal cannabis Special Access Scheme data | Dashboards displaying SAS Category A notifications and SAS Category B applications for medicinal cannabis products | (verify with custodian) | (verify with custodian)
+| Medicinal cannabis Authorised Prescriber Scheme data | Dashboard displaying Authorised Prescriber applications for medicinal cannabis products | (verify with custodian) | (verify with custodian)
+| Australian Unique Device Identification Database (AusUDID) | Public database for medical devices supplied in Australia | (verify with custodian) | (verify with custodian)
+| Freedom of Information (FOI) disclosure log | Information released in response to FOI requests | (verify with custodian) | (verify with custodian)
+
+**Data Access Pathway — Step by Step:**
+1. Initial Inquiry — Researcher — Contact TGA (email/phone) — (verify timeline)
+2. Formal Application — Researcher — (verify form/portal) — (verify timeline)
+3. Data Provision — Custodian — (verify method) — (verify timeline)
+
+**Ethics and Governance Requirements:**
+Ethics body: (verify with custodian)
+Relevant legislation: Therapeutic Goods Act 1989 (The Act) (verify specific sections)
+Data governance framework applied: (verify with custodian)
+Any special requirements: (verify with custodian, e.g., Indigenous data, identifiable data, cross-jurisdictional)
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Is a TRE required or available? (verify with custodian)
+Which TRE platform? Not applicable (based on current information)
+Remote access or on-site only? (verify with custodian)
+
+**Contact and Application Portal:**
+Primary contact: TGA Contact Us (general inquiry) - https://www.tga.gov.au/contact-us (verify specific team/email for data access)
+Application portal URL: TGA Business Services (TBS) for some regulatory interactions, but not explicitly for research data access (verify with custodian)
+Key documents / forms: (verify with custodian)
+
+**Indicative Timeline:**
+Stage: Typical Duration
+(verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+*   Specific forms or portals for research data access.
+*   Detailed step-by-step data access pathway.
+*   Indicative timelines for data access.
+*   Whether a TRE is required or available for research data.
+*   Specific ethics bodies that must approve research involving TGA data.
+*   Specific sections of the Therapeutic Goods Act 1989 relevant to data access.
+*   Data governance frameworks applied to research data.
+*   Requirements for identifiable or sensitive data.
+*   Contact details for a dedicated data access team.
+*   Identifiable and Linkable status for all datasets.
+*   Connections to other custodians.
+
+**Connections to Other Custodians / Pathways:**
+(verify with custodian)
+
+**Source URLs:**
+https://www.tga.gov.au/about-us/role-tga
+https://www.tga.gov.au/search?keywords=data+access&submit=Search
+https://www.tga.gov.au/safety/shortages-and-supply-disruptions/medicine-shortages/data-sharing-help-manage-serious-shortages-hospital-medicines/medicine-shortages-data-sharing-framework
+https://www.tga.gov.au/products/regulations-all-products/manufacturing/data-management-and-data-integrity-dmdi
+
+---
+
+## Pathway Card: Australian Prudential Regulation Authority (APRA)
+
+**Custodian Type:** Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** APRA is the prudential regulator of the Australian financial services industry, including private health insurers. It collects and publishes aggregated statistics on private health insurance to ensure financial stability and consumer protection, and to inform policy development.
+
+**Key Data Holdings:**
+
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Quarterly private health insurance statistics | Aggregated data on membership, coverage, benefits paid, medical gap, medical devices/human tissue products, and medical services. | No | No |
+| Annual private health insurance statistics | Industry aggregate summaries and data on private health insurance operations. | No | No |
+| National Claims and Policies Database statistics | Aggregated data on claims trends and affordability of liability insurance. | No | No |
+
+**Data Access Pathway — Step by Step:**
+1. Initial Inquiry — researcher — Email to dataanalytics@apra.gov.au for general data inquiries — (verify with custodian)
+2. Formal Request — researcher — No specific formal application process for granular health data access by researchers is publicly available (verify with custodian) — (verify with custodian)
+3. Data Provision — custodian — APRA primarily publishes aggregated statistics; direct provision of granular health data for research is not publicly documented (verify with custodian) — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+Not applicable for direct granular health data access by researchers from APRA. APRA's data collection is primarily for prudential regulation. Any research use of APRA-sourced data would likely involve aggregated public statistics or data obtained via other custodians (verify with custodian). General Australian privacy legislation (Privacy Act) and data governance principles would apply to any linked data. Specific HREC or ethics body approval would depend on the nature of the research and the custodian providing the linked data (verify with custodian).
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Not applicable for direct granular health data access from APRA (verify with custodian). APRA's focus is on collecting data from regulated entities for prudential oversight, not on providing a TRE for external researchers to access granular health data.
+
+**Contact and Application Portal:**
+*   **Primary contact:** Manager, External Data Reporting, dataanalytics@apra.gov.au
+*   **Application portal URL:** Not applicable for research data access (verify with custodian)
+*   **Key documents / forms:** No specific forms for research data access publicly available (verify with custodian)
+
+**Indicative Timeline:**
+Not applicable for direct granular health data access (verify with custodian).
+
+**Known Gaps / Verify with Custodian:**
+*   Specific process for researchers to access granular or microdata from APRA for health research.
+*   Existence of any de-identified unit-record data for research purposes.
+*   Formal data sharing agreements with other health data custodians for research purposes involving granular data.
+*   Applicable ethics and governance frameworks for research data access to granular data.
+*   Availability of a Trusted Research Environment for APRA data for research.
+
+**Connections to Other Custodians / Pathways:**
+Australian Institute of Health and Welfare (AIHW) — AIHW uses APRA data to compute the proportion of total private health insurance provider revenue paid out as health benefits and spent as health administration for health expenditure reporting.
+
+**Source URLs:**
+*   https://www.apra.gov.au/quarterly-private-health-insurance-statistics
+*   https://www.apra.gov.au/operations-of-private-health-insurers-annual-report
+*   https://www.apra.gov.au/data-and-statistics
+*   https://www.apra.gov.au/statistics
+*   https://www.apra.gov.au/national-claims-and-policies-database-statistics
+*   https://www.aihw.gov.au/reports/health-welfare-expenditure/health-expenditure-australia-2023-24/contents/overview-of-data-sources-and-methodology/data-processing-the-australian-government
+
+---
+
+## Pathway Card: NSW Health — Ministry of Health NSW
+
+**Custodian Type:** State — NSW
+
+**Jurisdiction:** New South Wales
+
+**Primary Role:** The NSW Ministry of Health is responsible for the overall stewardship of the NSW health system, including setting policy, planning, and managing the state's health data assets to ensure effective and consistent management for public health benefit [1], [2].
+
+**Key Data Holdings:**
+
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| NSW Admitted Patient Data Collection (APDC) | Records all admitted patient services provided by NSW public hospitals, public psychiatric hospitals, public multi-purpose services, and private hospitals [3], [4]. | Yes (verify with custodian) | Yes (verify with custodian) |
+| Emergency Department Data Collection (EDDC) | Collects data on presentations to emergency departments in NSW public hospitals (verify with custodian) | Yes (verify with custodian) | Yes (verify with custodian) |
+| Perinatal Data Collection | Collects information on all births in NSW, including maternal and infant health outcomes (verify with custodian) | Yes (verify with custodian) | Yes (verify with custodian) |
+| Mental Health data | Various collections related to mental health services and outcomes in NSW (verify with custodian) | Yes (verify with custodian) | Yes (verify with custodian) |
+
+**Data Access Pathway — Step by Step:**
+
+1.  **Initial Inquiry/Discussion** — Researcher — Discuss request and requirements with the relevant data steward (name automatically populates in the form) — (verify with custodian)
+2.  **Complete Data Request and Approval Form** — Researcher — Data Request and Approval Form (online form via ACI) [2] — (verify with custodian)
+3.  **Assessment of Request** — Data Steward/Custodian — Review of request against NSW data sharing principles, risk assessment — 3-5 weeks for non 'back-to-notifier' requests; up to 5 business days for 'back-to-notifier' requests [2]
+4.  **Ethics Approval (if required)** — Researcher/Ethics Committee — Approval from relevant HREC (e.g., NSW Aboriginal Health and Medical Research Council (AH&MRC) Ethics Committee for Indigenous data) [2] — (verify with custodian)
+5.  **Data Release and Confidentiality Undertaking** — Data Steward/Custodian & Researcher — Compliance with conditions of release, signing of confidentiality undertaking [2] — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+- Ethics approval may be required from a Human Research Ethics Committee (HREC). For requests involving Aboriginal and/or Torres Strait Islander people as a primary focus, approval from the NSW Aboriginal Health and Medical Research Council (AH&MRC) Ethics Committee is required [2].
+- Relevant legislation includes the Health Records and Information Privacy Act 2002 (HRIP Act) (verify with custodian).
+- Data governance framework applied: NSW Health Data Governance Framework (GL2019_002) [1], [2].
+- Special requirements: For Aboriginal and Torres Strait Islander data, disaggregated data may be provided, and specific ethics approval from AH&MRC is needed if certain criteria are met [2].
+
+**Trusted Research Environment (TRE) / Secure Access:**
+- NSW Health developed minimum requirements for secure access environments (SAEs) for disclosing sensitive data [5].
+- Specific TRE platform: (verify with custodian, e.g., NSW Population Health Data Linkage Unit, CHeReL for linked data) [6].
+- Access type: (verify with custodian, likely remote access for approved projects).
+
+**Contact and Application Portal:**
+- Primary contact: ACI-Trauma@health.nsw.gov.au (for NSW Trauma Registry data requests) [7], aci-info@health.nsw.gov.au (general ACI inquiries) [2]
+- Application portal URL: Data Request and Approval Form (online form via ACI) [2] (URL for the form itself needs to be verified, it's mentioned as an online form)
+- Key documents / forms: Data Request and Approval Form [2], Disclosure of Unit Record Data for Research or Management of Health Services (PD2015_037) [2], Data Governance Framework (GL2019_002) [1], [2].
+
+**Indicative Timeline:**
+
+| Stage | Typical Duration |
+|---|---|
+| 'Back-to-notifier' data request assessment | Up to 5 business days [2] |
+| Non 'back-to-notifier' data request assessment and approval | 3 to 5 weeks [2] |
+| Ethics approval | (verify with custodian) |
+| Data release | (verify with custodian) |
+
+**Known Gaps / Verify with Custodian:**
+- Exact forms and direct URLs for the Data Request and Approval Form.
+- Specific TRE platforms used for different data collections (e.g., APDC, EDDC, Perinatal, Mental Health data).
+- Whether data is identifiable or linkable by default for each collection.
+- Detailed timelines for ethics approval and data release.
+- Specific legislation sections for HRIP Act.
+- Full contact details for data access teams beyond general ACI inquiries.
+
+**Connections to Other Custodians / Pathways:**
+- Centre for Health Record Linkage (CHeReL) for data linkage projects within NSW [6].
+- NSW Aboriginal Health and Medical Research Council (AH&MRC) Ethics Committee for Indigenous data requests [2].
+
+**Source URLs:**
+[1] https://www1.health.nsw.gov.au/pds/Pages/doc.aspx?dn=GL2019_002 - NSW Health Data Governance Framework
+[2] https://aci.health.nsw.gov.au/support-for-innovation/data-requests - Data requests | Agency for Clinical Innovation
+[3] https://metadata.phrn.org.au/dataset/APDC-nsw - nsw - PHRN Metadata Toolbox (APDC)
+[4] https://atlaslongitudinaldatasets.ac.uk/datasets/apdc - NSW Admitted Patient Data Collection (APDC)
+[5] https://www.health.nsw.gov.au/data/sharing/Pages/secure-access-environments.aspx - Secure access environments - NSW Health
+[6] https://pmc.ncbi.nlm.nih.gov/articles/PMC8142947/ - A profile of the Centre for Health Record Linkage - PMC
+[7] https://aci.health.nsw.gov.au/networks/trauma/data/request - NSW trauma registry data request
+
+---
+
+## Pathway Card: Centre for Health Record Linkage (CHeReL)
+
+**Custodian Type:** State — NSW / State — ACT (Cross-jurisdictional)
+
+**Jurisdiction:** New South Wales, Australian Capital Territory
+
+**Primary Role:** The Centre for Health Record Linkage (CHeReL) links multiple sources of data and maintains a record linkage system that protects privacy, enabling a better understanding of health and wellbeing through linked data for research, planning, and policy making.
+
+**Key Data Holdings:**
+Dataset Name | Description | Identifiable? | Linkable?
+---|---|---|---
+NSW Admitted Patient Data Collection (APDC) | Hospital admissions data for NSW | Yes (indirectly) | Yes
+NSW Ambulance Data Collections | Ambulance service data for NSW | Yes (indirectly) | Yes
+NSW Birth Registration Data Collection | Birth registration data for NSW | Yes (indirectly) | Yes
+NSW Cancer Registry (NSWCR) | Cancer incidence and mortality data for NSW | Yes (indirectly) | Yes
+NSW Emergency Department Data Collection (EDDC) | Emergency department visit data for NSW | Yes (indirectly) | Yes
+NSW Mental Health Ambulatory Data Collection | Mental health outpatient service data for NSW | Yes (indirectly) | Yes
+NSW Mortality Data | Death registration data for NSW | Yes (indirectly) | Yes
+NSW Notifiable Conditions Information Management System (NCIMS) | Notifiable infectious disease data for NSW | Yes (indirectly) | Yes
+NSW Pap Test Register | Cervical screening data for NSW | Yes (indirectly) | Yes
+NSW Perinatal Data Collection (PDC) | Perinatal data for NSW | Yes (indirectly) | Yes
+NSW Perinatal Death Review Database | Perinatal death review data for NSW | Yes (indirectly) | Yes
+The 45 and Up Study | Longitudinal study of health and ageing in NSW | Yes (indirectly) | Yes
+ACT Admitted Patient Care | Hospital admissions data for ACT | Yes (indirectly) | Yes
+ACT Birth Registration Data | Birth registration data for ACT | Yes (indirectly) | Yes
+ACT Cancer Registry | Cancer incidence and mortality data for ACT | Yes (indirectly) | Yes
+ACT Emergency Department Data Collection | Emergency department visit data for ACT | Yes (indirectly) | Yes
+ACT Mortality Data | Death registration data for ACT | Yes (indirectly) | Yes
+ACT Notifiable Diseases Management System | Notifiable infectious disease data for ACT | Yes (indirectly) | Yes
+ACT Maternal & Perinatal Data Collection | Maternal and perinatal data for ACT | Yes (indirectly) | Yes
+The Australian Early Development Census (AEDC) | Child development data | Yes (indirectly) | Yes
+BreastScreen NSW | Breast cancer screening data for NSW | Yes (indirectly) | Yes
+ACT Kindergarten Health Check | Kindergarten health check data for ACT | Yes (indirectly) | Yes
+The Australian and New Zealand Dialysis and Transplant Registry (ANZDATA) | Dialysis and transplant data | Yes (indirectly) | Yes
+NSW Controlled Drugs Data Collection (CoDDaC) | Controlled drugs data for NSW | Yes (indirectly) | Yes
+The NSW Bureau of Crime Statistics and Research Reoffending Data Collection (BOCSAR ROD) | Reoffending data for NSW | Yes (indirectly) | Yes
+NSW Non-admitted Patient Data Collection (NAP) | Non-admitted patient data for NSW | Yes (indirectly) | Yes
+ACT Ambulance Data Collections | Ambulance service data for ACT | Yes (indirectly) | Yes
+
+**Data Access Pathway — Step by Step:**
+1. Plan your study — Researcher — Review CHeReL website for dataset and variable information — (Timeline varies)
+2. Start your application — Researcher — Submit an Expression of Interest via CheckApp and complete application forms — (Timeline varies)
+3. Submit your application forms to CHeReL — Researcher — Email completed forms to Research Project Managers — (Timeline varies)
+4. Technical feasibility review — CHeReL — Review of project for technical feasibility — (Timeline varies)
+5. Data custodian approval — CHeReL — CHeReL seeks approval from data custodians for MLK datasets — 2-4 weeks for MLK data custodian approvals (verify with custodian)
+6. Ready for the Ethics Committee — Researcher — Submit data custodian approvals, technical feasibility letter, and all application documents to PHSREC — (Timeline varies)
+7. Notify the CHeReL of your approval — Researcher — Send ethics approval letter and listed documents to CHeReL — (Timeline varies)
+
+**Ethics and Governance Requirements:**
+Ethics approval is typically required from a Human Research Ethics Committee (HREC), with the Population Health Services Research Ethics Committee (PHSREC) being a key body for NSW data. Multi-jurisdictional studies involving NSW Health data may be reviewed by specialist NMA data linkage HRECs. CHeReL's data governance and technical operations draw on international best practice. The Lumos Data Governance Framework (NSW Health) is relevant. (Specific legislation and detailed governance frameworks like Five Safes or AIATSIS Code need to be verified with custodian).
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Data linkage facilities like CHeReL upload data to Secure Unified Research Environment (SURE) CUPL Workspace using new PPNs. (Access type - remote/on-site - needs to be verified with custodian).
+
+**Contact and Application Portal:**
+Primary contact: Research Project Managers (email to be verified with custodian)
+Application portal URL: CheckApp (URL to be verified with custodian)
+Key documents / forms: PHSREC-CHeReL Combined Protocol Application for Data (DOCX) (URL to be verified with custodian)
+
+**Indicative Timeline:**
+Stage: Typical Duration
+Planning Study: Varies
+Starting Application: Varies
+Submitting Forms to CHeReL: Varies
+Technical Feasibility Review: Varies
+Data Custodian Approval: 2-4 weeks (for MLK datasets) (verify with custodian)
+Ethics Committee Review: Varies
+Notifying CHeReL of Approval: Varies
+
+**Known Gaps / Verify with Custodian:**
+* Specific legislation governing CHeReL's data access.
+* Detailed data governance framework applied (e.g., Five Safes, AIATSIS Code).
+* Exact email for Research Project Managers.
+* Direct URL for CheckApp application portal.
+* Direct URL for PHSREC-CHeReL Combined Protocol Application for Data (DOCX).
+* Whether SURE access is remote or on-site only.
+* Detailed timelines for each stage of the application process, as they vary significantly.
+
+**Connections to Other Custodians / Pathways:**
+Australian Bureau of Statistics (ABS) for cross-jurisdictional projects; Australian Early Development Census (AEDC) data custodians for linked AEDC data.
+
+**Source URLs:**
+https://www.cherel.org.au/,
+https://www.cherel.org.au/datasets,
+https://www.cherel.org.au/apply,
+https://www.cherel.org.au/media/54397/guide-to-applying-for-linked-data_v1_published17jan2025.pdf,
+https://www.saxinstitute.org.au/wp-content/uploads/CUPL-Governance-Framework.pdf,
+https://www.health.nsw.gov.au/lumos/Publications/data-governance-framework.pdf,
+https://www.phrn.org.au/data/how-to-apply/application/
+
+---
+
+## Pathway Card: Cancer Institute NSW
+
+**Custodian Type:** State — NSW
+
+**Jurisdiction:** New South Wales
+
+**Primary Role:** The Cancer Institute NSW is the New South Wales government's cancer control agency, responsible for reducing the incidence of cancer, increasing survival rates, and improving the quality of life for people affected by cancer. It collects and manages data from the NSW Cancer Registry and BreastScreen NSW to monitor cancer trends, evaluate programs, and support research.
+
+**Key Data Holdings:**
+
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| NSW Cancer Registry (NSWCR) | Demographic, incidence, and death details for people diagnosed with cancer in NSW since 1972. Includes clinical data for episodes of care (currently available for 2013 onwards, with some clinical data from 2008-2012 in the NSW Clinical Cancer Registry). | Yes | Yes |
+| BreastScreen NSW | Information on breast screening services for women aged 40 and over in NSW, including program activity, participation, cancer data, de-identified unit record data, and de-identified mammography image data. Data available from 1991-present. | Yes (de-identified versions available) | Yes |
+| Cancer Institute Tobacco Tracking Survey (CITTS) | Data on tobacco use, campaign recall, recognition, and diagnostics among smokers and recent quitters in NSW. | No | No |
+
+**Data Access Pathway — Step by Step:**
+
+1.  Initial Inquiry/Application — Researcher — Complete data request form (available on Cancer Institute NSW website) — (Timeline: Not specified, but approval processing is 5 business days after ethics approval)
+2.  Ethics Approval — Ethics Committee (Researcher initiates) — Approval from relevant Human Research Ethics Committee (HREC), potentially NSW Population and Health Services Research Ethics Committee — (Timeline: Varies by HREC)
+3.  Custodian Approval — Custodian — Review of data request form and ethics approval — (Timeline: 5 business days after receipt of ethics approval)
+4.  Data Provision — Custodian — Data provided via Cancer Institute NSW Secure File Sharing System — (Timeline: CITTS data updated every six months, other data timelines not specified, verify with custodian)
+
+**Ethics and Governance Requirements:**
+
+Approval from relevant Human Research Ethics Committee (HREC), potentially NSW Population and Health Services Research Ethics Committee. Relevant legislation includes the Public Health Act 2010 (for cancer notification). Data governance principles are implied through terms and conditions: data must be used only for the approved project, not provided to third parties, kept secure, destroyed upon project completion, confidentiality undertaking required, Cancer Institute NSW acknowledged in publications, copy of publication provided prior to release, no matching with other individual data sources, no attempt to identify individuals. (Verify if Five Safes or similar framework is formally applied).
+
+**Trusted Research Environment (TRE) / Secure Access:**
+
+Data provided via Cancer Institute NSW Secure File Sharing System. (Verify if this is a full TRE or a secure transfer mechanism).
+
+**Contact and Application Portal:**
+
+Primary Contact: General Data Access Enquiries: CINSW-DARenquiries@health.nsw.gov.au; NSW Cancer Registry (full systems data dictionary): CINSW-CCR@health.nsw.gov.au; BreastScreen NSW (screening and prevention data): CINSW-ScreeningAndPreventionData@health.nsw.gov.au. Application forms are available on the Cancer Institute NSW website (URL: https://www.cancer.nsw.gov.au/research-and-data/cancer-data-and-statistics/data-available-on-request). Key documents include data dictionaries for NSWCR and BreastScreen Australia.
+
+**Indicative Timeline:**
+
+Stage: Custodian Approval: 5 business days (after ethics approval); CITTS Data Updates: Every six months (30 April for July-Dec data, 31 October for Jan-June data); Other data provision: (verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+
+*   Specific names and direct URLs for all data request forms.
+*   Formal application of a data governance framework like Five Safes.
+*   Whether the "Secure File Sharing System" constitutes a full Trusted Research Environment (TRE) or is solely for secure data transfer.
+*   Detailed timelines for data provision for NSWCR and BreastScreen NSW (beyond CITTS).
+*   Specific HREC requirements for all data types, not just CITTS.
+*   Potential for linked data projects with other NSW Health entities.
+
+**Connections to Other Custodians / Pathways:**
+
+Not explicitly stated, but potential connections with other NSW Health entities for linked data projects (verify with custodian)
+
+**Source URLs:**
+
+https://www.cancer.nsw.gov.au/about-cancer/document-library/data-access-policy, https://www.cancer.nsw.gov.au/research-and-data/cancer-data-and-statistics/data-available-on-request, https://www.cancer.nsw.gov.au/research-and-data/cancer-data-and-statistics/data-available-on-request/request-unit-record-data-for-research/nsw-cancer-registry, https://www.cancer.nsw.gov.au/research-and-data/cancer-data-and-statistics/data-available-on-request/request-unit-record-data-for-research/breastscreen-nsw
+
+---
+
+## Pathway Card: Victorian Agency for Health Information (VAHI)
+
+**Custodian Type:** State — VIC
+
+**Jurisdiction:** Victoria
+
+**Primary Role:** The Victorian Agency for Health Information (VAHI) supports the development, collection, and use of Victoria’s health datasets. Its role is to ensure high-quality and accurate data are available to inform planning, policy development, and monitoring of healthcare quality, while meeting state and national reporting obligations.
+
+**Key Data Holdings:**
+
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Victorian Admitted Episodes Dataset (VAED) | Data relating to hospital admissions | Yes (indirectly) | Yes |
+| Victorian Emergency Minimum Dataset (VEMD) | Data relating to emergency department attendances | Yes (indirectly) | Yes |
+| Victorian Perinatal Data Collection | Data relating to births | Yes (indirectly) | Yes |
+| Victorian Integrated Non-Admitted Health (VINAH) dataset | Non-admitted patient-level data | Yes (indirectly) | Yes |
+| Victorian Linkage Map (VLM) and Integrated Data Resource (IDR) | Collection of almost 40 linked Victorian government datasets | Yes (indirectly) | Yes |
+
+**Data Access Pathway — Step by Step:**
+
+1.  **Initial Inquiry** — Researcher — VAHI Data Request Hub (https://vahi.freshdesk.com/support/home) — (verify with custodian)
+2.  **Data Linkage Request (if applicable)** — Researcher — CVDL Online Application Form (https://vahi.vic.gov.au/ourwork/data-linkage) — (verify with custodian)
+3.  **Ethics Approval** — Researcher/Ethics Committee — Relevant Human Research Ethics Committee (HREC) application — (verify with custodian)
+4.  **Data Provision (via VALT)** — Custodian — VALT secure research environment — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+Ethics approval from a Human Research Ethics Committee (HREC) is required for data access. Data governance frameworks applied include principles of privacy and data security. Special requirements may apply for identifiable or linked data (verify with custodian).
+
+**Trusted Research Environment (TRE) / Secure Access:**
+VALT (Victorian Assisted Linkage Tool) is the secure research environment used by CVDL to provide access to linked, de-identified data for approved projects. Access type: Remote access.
+
+**Contact and Application Portal:**
+- Primary contact: VAHI Data Request Hub
+- Application portal URL: https://vahi.freshdesk.com/support/home
+- Key documents / forms: CVDL Online Application Form (https://vahi.vic.gov.au/ourwork/data-linkage), VALT application and administration form (https://vahi.vic.gov.au/ourwork/data-linkage)
+
+**Indicative Timeline:**
+Stage: Initial Inquiry: (verify with custodian); Stage: Data Linkage Request: (verify with custodian); Stage: Ethics Approval: (verify with custodian); Stage: Data Provision: (verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+*   Specific forms for direct data requests (outside of data linkage) are not clearly outlined, as VAHI currently does not process new data requests from individuals and organisations outside of the Department of Health.
+*   Detailed timelines for each step of the data access process.
+*   Specific legislation governing data access beyond general privacy principles.
+*   Detailed information on data identifiability and linkability for each dataset.
+*   Exact process for applying for non-linked data directly from VAHI (if any future changes occur).
+
+**Connections to Other Custodians / Pathways:**
+Centre for Victorian Data Linkage (CVDL) for data linkage requests; Australian Institute of Health and Welfare (AIHW) and Independent Hospital and Aged Care Pricing Authority (IHACPA) for alternative data sources.
+
+**Source URLs:**
+https://vahi.vic.gov.au/ourwork/data-acquisition-and-management, https://vahi.freshdesk.com/support/home, https://vahi.vic.gov.au/ourwork/data-linkage, https://vahi.vic.gov.au/
+
+---
+
+## Pathway Card: Victorian Cancer Registry — Cancer Council Victoria
+
+**Custodian Type:** State - VIC / Private/NGO
+
+**Jurisdiction:** Victoria
+
+**Primary Role:** The Victorian Cancer Registry (VCR) collects and maintains a record of cancer incidence and mortality data in Victoria, mandated by legislation, to support cancer control research and policy. It is a world leader in collecting and providing data to cancer clinicians, policy makers and researchers.
+
+**Key Data Holdings:**
+Dataset Name | Description | Identifiable? | Linkable?
+---|---|---|---
+Victorian cancer incidence and mortality data | Comprehensive data on cancer diagnoses and deaths in Victoria | Yes (re-identifiable/identifiable) | Yes
+VCR annual statistics & trends report | Statistical report on trends in cancer presentation, incidence, survival and mortality | No | No
+VCR Data Explorer | Interactive report using statistics from Victorian Cancer Registry | No | No
+
+**Data Access Pathway — Step by Step:**
+1. Initial Inquiry — Researcher — Check publicly available sources (VCR annual statistics & trends report, VCR Data Explorer) — (verify timeline)
+2. Data Request (Non-identifiable) — Researcher — Complete Data Access Form — (verify timeline)
+3. Initial Inquiry (Identifiable/Re-identifiable) — Researcher — (verify what is needed) — (verify timeline)
+4. Ethics Approval — Researcher/Ethics Committee — Approval from a Human Research Ethics Committee (HREC) recognised by NHMRC — (verify timeline)
+5. VCR Director Approval — Custodian — Approval from the VCR Director — (verify timeline)
+6. Data Request (Identifiable/Re-identifiable) — Researcher — Complete Data Access Form — (verify timeline)
+7. Cost Discussion — Custodian — Discussion on complexity and size of request, Data access cost information — (verify timeline)
+8. Data Provision — Custodian — Data provided — (verify timeline)
+
+**Ethics and Governance Requirements:**
+Requests for identifiable or re-identifiable data require approval from a Human Research Ethics Committee (HREC) recognised by the National Health and Medical Research Council (NHMRC) and the VCR Director. All requests must comply with the National Statement on Ethical Conduct in Human Research 2007. The VCR operates under the Improving Cancer Outcomes Act 2014 and the Cancer Act 1958, which mandate data collection and outline its use for medical research. Data governance frameworks applied are not explicitly stated but implied through compliance with national ethical guidelines. Special requirements include HREC approval for identifiable data and adherence to privacy principles.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Not explicitly stated that VCR data is accessed via a dedicated TRE. However, VCCC Data Connect is a platform facilitating access to various Victorian health data sources, which may include VCR data. (verify with custodian if VCR data is directly accessible via VCCC Data Connect or other TREs).
+
+**Contact and Application Portal:**
+Primary contact: vcr@cancervic.org.au
+Application portal URL: https://www.cancervic.org.au/research/our-research/victoria-cancer-registry/data-requests
+Key documents / forms: Data Access Form (available on the portal), Request for Documents form (.doc) for accessing own information.
+
+**Indicative Timeline:**
+Stage | Typical Duration
+---|---
+Initial Inquiry | (verify with custodian)
+Ethics Approval | (varies by HREC, verify with custodian)
+Data Request Processing | (varies by complexity, verify with custodian)
+Data Provision | (varies by complexity, verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+*   Specific forms for identifiable/re-identifiable data requests beyond the general 'Data Access Form'.
+*   Detailed step-by-step process and timelines for identifiable data access.
+*   Explicit data governance framework (e.g., Five Safes) applied to VCR data.
+*   Whether VCR data is directly accessible through VCCC Data Connect or other TREs, and if so, the access type (remote/on-site).
+*   Specific legislation sections for data access.
+*   Typical durations for each stage of the data access pathway.
+
+**Connections to Other Custodians / Pathways:**
+Australian Institute of Health and Welfare (AIHW) — for compiling national cancer figures; Family Cancer Centres — to assess cancer risk; Department of Health and Human Services (Victoria) — (reason to verify); Victorian Comprehensive Cancer Centre (VCCC) Data Connect — for linked health data access
+
+**Source URLs:**
+https://www.cancervic.org.au/research/our-research/victoria-cancer-registry/data-requests, https://www.cancervic.org.au/research/our-research/victoria-cancer-registry/legal-and-governance, https://www.health.vic.gov.au/cancer-care/improving-cancer-outcomes-regulations-2025, https://www.cancervic.org.au/research/our-research/victoria-cancer-registry, https://vcccalliance.org.au/research/data-connect, https://pmc.ncbi.nlm.nih.gov/articles/PMC10749758/
+
+---
+
+## Pathway Card: Centre for Victorian Data Linkage (CVDL)
+
+**Custodian Type:** State - VIC
+
+**Jurisdiction:** Victoria
+
+**Primary Role:** The Centre for Victorian Data Linkage (CVDL) is Victoria's specialist data linkage unit, providing services to researchers and other Victorian Government departments. It facilitates the linking of study cohorts to the Victorian Linkage Map (VLM) and assigns linkage keys to records, enabling comprehensive health data analysis.
+
+**Key Data Holdings:**
+A table with columns: Dataset Name | Description | Identifiable? | Linkable?
+Victorian Linkage Map (VLM) | A comprehensive map of linked health and human services data for Victoria | No (de-identified extracts) | Yes
+Various Victorian health and human services datasets | Linked data from various Victorian government sources | No (de-identified extracts) | Yes
+
+**Data Access Pathway — Step by Step:**
+1. Initial Inquiry — researcher — project proposal outline — (verify with custodian)
+2. Application Submission — researcher — formal application form, ethics approval documentation — (verify with custodian)
+3. Data Linkage and Preparation — custodian — linked data extracts — (verify with custodian)
+4. Data Access — researcher — secure virtual machine access — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+Ethics approval is required, typically from a Human Research Ethics Committee (HREC) that conducts ethical and scientific review of research proposals in line with the NHMRC National Guidelines. Data governance frameworks applied include principles for data governance and security. Special requirements may apply for Indigenous data and identifiable data (verify with custodian).
+
+**Trusted Research Environment (TRE) / Secure Access:**
+A secure cloud environment with analysis undertaken via Virtual Machines is required for accessing de-identified linked data. The CVDL is moving towards providing access via a Secure Data Exchange.
+
+**Contact and Application Portal:**
+Victorian Agency for Health Information (VAHI) Data Linkage Team, data.linkage@vahi.vic.gov.au, https://vahi.vic.gov.au/ourwork/data-linkage
+
+**Indicative Timeline:**
+Stage: (verify with custodian) | Typical Duration: (verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+*   Specific names of application forms and portals.
+*   Detailed step-by-step process for application submission and approval.
+*   Exact indicative timelines for each stage of the data access pathway.
+*   Specific legislation governing data linkage and access in Victoria.
+*   Details on any specific data governance frameworks (e.g., Five Safes) explicitly adopted by CVDL.
+*   Specific requirements for Indigenous data or identifiable data access.
+
+**Connections to Other Custodians / Pathways:**
+Population Health Research Network (PHRN) (part of the national data linkage network), other Victorian Government departments (data providers), Australian Bureau of Statistics (ABS) (for mapping and concordance tables)
+
+**Source URLs:**
+https://vahi.vic.gov.au/ourwork/data-linkage, https://www.monash.edu/__data/assets/pdf_file/0018/2033190/centre-for-victorian-data-linkage-may-2019.pdf, https://vahi.vic.gov.au/ourwork/data-linkage/about, https://iht.deakin.edu.au/wp-content/uploads/sites/153/2022/01/cvdl-virtual-machine-access-model.pdf, http://www.med.monash.edu.au/assets/docs/creps/2016/2016datalinkageaug-yingchen.pdf, https://www.sciencedirect.com/science/article/pii/S1326020024000645, https://www.phrn.org.au/resources/data-linkage-units/, https://vahi.vic.gov.au/ourwork/data-linkage/data-custodians, https://www.clinicaltrialsandresearch.vic.gov.au/__data/assets/pdf_file/0013/171130/Jurisdictional-Legislative-Requirements-December-2023.pdf
+
+---
+
+## Pathway Card: Queensland Health
+
+**Custodian Type:** State — QLD
+
+**Jurisdiction:** Queensland
+
+**Primary Role:** Queensland Health is the principal health authority in Queensland, responsible for the management and provision of health services. It acts as a custodian for various health data collections, facilitating their access and use for research and public health purposes under strict privacy and legislative frameworks.
+
+**Key Data Holdings:**
+
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Queensland Hospital Admitted Patient Data Collection (QHAPDC) | Collects demographic data and clinical information on all admitted patients. | Yes | Yes |
+| Queensland Perinatal Data Collection (PDC) | Collects information on all births in Queensland. | Yes | Yes |
+| Queensland Cancer Register (QCR) | Maintains a register of all cases of cancer diagnosed in Queensland since 1982 (excluding primary basal and squamous cell carcinomas). | Yes | Yes |
+
+**Data Access Pathway — Step by Step:**
+
+1.  **Contact the data custodian** — Researcher — Confirm data availability, resources, and fees. (PHA application form, data custodian PDF) — (verify with custodian)
+2.  **Apply for Human Research Ethics Committee (HREC) approval** — Researcher — HREC decision letter, approval of any subsequent amendments. (HREC application) — (verify with custodian)
+3.  **Get data custodian authorisation** — Researcher/Custodian — Data custodian review and signature on application form. (PHA application form) — (verify with custodian)
+4.  **Submit your application** — Researcher — Signed and dated PHA application form, evidence of HREC approval, HREC amendment approvals. (PHA@health.qld.gov.au) — (verify with custodian)
+5.  **Application review and decision** — Custodian — (Director General or delegate review) — (verify with custodian)
+6.  **Submit progress and final reports** — Researcher — Progress report every 12 months, final report upon completion. (progress report DOC, final report DOC) — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+
+Human Research Ethics Committee (HREC) approval is required. Relevant legislation: Public Health Act 2005 (Section 280). Data governance framework: (verify with custodian). Special requirements: Applications must be typed, define all acronyms. All patient pathology information must be approved by the Pathology Queensland data custodian.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+
+Not applicable (direct TRE not explicitly stated as provided by Queensland Health, but data linkage services are available. UQ provides a TRE that can utilize Queensland Health data.)
+
+**Contact and Application Portal:**
+
+PHA@health.qld.gov.au, Application portal URL: (verify with custodian)
+
+**Indicative Timeline:**
+
+Stage: (verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+
+*   Specific timelines for each step of the data access pathway.
+*   Detailed data governance framework applied by Queensland Health.
+*   Specific fees for data access.
+*   Directly provided Trusted Research Environment (TRE) by Queensland Health.
+*   Application portal URL.
+*   Full list of key documents/forms and their URLs.
+
+**Connections to Other Custodians / Pathways:**
+
+Statistical Analysis and Linkage Unit (Data Linkage Queensland, DLQ) for data linkage services, other custodians for cross-jurisdictional projects (verify with custodian)
+
+**Source URLs:**
+
+https://www.health.qld.gov.au/research-reports/research/data-requests, https://www.health.qld.gov.au/research-reports/research/researchers/how-to/confidential-information/apply-for-information, https://www.health.qld.gov.au/hsu/collections/qhapdc, https://www.health.qld.gov.au/hsu/collections/pdc, https://cancerallianceqld.health.qld.gov.au/queensland-cancer-register-qcr/, https://www.health.qld.gov.au/hsu/link/datalink
+
+---
+
+## Pathway Card: Queensland Cyber Infrastructure Foundation (QCIF)
+
+**Custodian Type:** TRE/SDE
+
+**Jurisdiction:** Queensland
+
+**Primary Role:** QCIF's KeyPoint service provides a secure and trusted environment for researchers to access, analyze, manage, and share sensitive research data with strong governance controls.
+
+**Key Data Holdings:**
+A table with columns: Dataset Name | Description | Identifiable? | Linkable?
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Various research data | Sensitive research data from any domain (life, environmental, social sciences, humanities) | (varies by project) | (varies by project) |
+
+**Data Access Pathway — Step by Step:**
+1. Initial Inquiry and Project Discussion — Researcher — Contact QCIF (enquiries@qcif.edu.au) — (verify with custodian)
+2. Risk Assessment — Researcher/Custodian — Project-specific risk assessment to confirm platform suitability — (verify with custodian)
+3. Data Custodian Approval — Data Custodian — Agreement for data sharing with KeyPoint — (verify with custodian)
+4. Onboarding to KeyPoint — Custodian/Researcher — Setup of secure environment and access for approved users — (verify with custodian)
+5. Data Analysis — Researcher — Access to infrastructure, software, systems, and analytical tools within KeyPoint — Ongoing
+
+**Ethics and Governance Requirements:**
+KeyPoint enforces data governance and security consistent with the Five Data Sharing Principles: Safe Project, Safe People, Safe Settings, Safe Data, and Safe Outputs. It is currently suitable for de-identified sensitive research data. The platform is working towards ISO 27001 Certification. Enhancements are planned to enact CARE (Collective benefits, Authority to control, Responsibility, and Ethics) principles for Indigenous data during data ingress and egress.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+KeyPoint is a required TRE platform. It provides workstation-scale analytics environments, including high-memory virtual desktops and GPU-enabled virtual desktops. It is deployed on the QCIF-managed Queensland node of the ARDC Nectar Research Cloud. Remote access is available via institutional credentials (Australian Access Federation - AAF) and Virtual Home capability for non-AAF users.
+
+**Contact and Application Portal:**
+- Primary contact: QCIF Enquiries, enquiries@qcif.edu.au
+- Application portal URL: keypoint.edu.au (platform URL, verify for application portal)
+- Key documents / forms: (verify with custodian)
+
+**Indicative Timeline:**
+A table: Stage | Typical Duration
+| Stage | Typical Duration |
+|---|---|
+| Initial Inquiry to Onboarding | (varies by project, verify with custodian) |
+
+**Known Gaps / Verify with Custodian:**
+- Specific application forms and detailed access procedures.
+- Exact timelines for each step of the data access pathway.
+- Specific datasets available through KeyPoint.
+- Whether KeyPoint can host identifiable data (currently suitable for de-identified data, but aiming for higher classifications).
+
+**Connections to Other Custodians / Pathways:**
+Australian Access Federation (AAF) — for researcher authentication; Australian state and federal data custodians — for sensitive data provision
+
+**Source URLs:**
+https://www.qcif.edu.au/news/secure-sensitive-data-platform-now-live, https://www.qcif.edu.au/products/keypoint, https://keypoint.edu.au/
+
+---
+
+## Pathway Card: WA Health / Data Linkage Services WA
+
+**Custodian Type:** State — WA
+
+**Jurisdiction:** Western Australia
+
+**Primary Role:** WA Health's Data Linkage Services manages the Western Australian Data Linkage System (WADLS), one of the world's largest and most comprehensive population-based linked data systems. It facilitates access to linked health and other administrative data for research, policy, and planning to improve the health and wellbeing of Western Australians.
+
+**Key Data Holdings:**
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Hospital Morbidity Data Collection | Inpatient hospital admissions | Yes | Yes |
+| Emergency Department Data Collection | Presentations to emergency departments | Yes | Yes |
+| WA Cancer Registry | Cancer registrations | Yes | Yes |
+| Midwives Notification System | Notifications of births | Yes | Yes |
+| WA Notifiable Infectious Diseases Database | Notifications of infectious diseases | Yes | Yes |
+| Death Registrations | Records of all deaths in WA | Yes | Yes |
+| Birth Registrations | Records of all births in WA | Yes | Yes |
+| Electoral Roll | Enrolment for state and federal elections | Yes | Yes |
+| PeopleWA | A linked data asset offering a powerful tool for research, government policy and service improvement. | Yes | Yes |
+
+**Data Access Pathway — Step by Step:**
+1. **Initial Enquiry & Planning** - Researcher - Contact Client Services to discuss project feasibility - (verify with custodian)
+2. **Application Submission** - Researcher - Complete and submit Application Form, Cover Sheet, and relevant variable lists (Module 1, 2, and 3 forms) via the application portal - (verify with custodian)
+3. **Application Review** - Custodian - Application is reviewed for completeness and feasibility - (verify with custodian)
+4. **Ethics & Governance Approval** - Researcher/Ethics Committee - Obtain HREC approval from a WA Health accredited HREC - (verify with custodian)
+5. **Data Custodian Approval** - Custodian - Data custodians review and approve the data request - (verify with custodian)
+6. **Data Linkage & Provision** - Custodian - Data is linked, de-identified, and provided to the researcher in a secure environment - (verify with custodian)
+
+**Ethics and Governance Requirements:**
+- Approval from a Western Australian Department of Health Human Research Ethics Committee (HREC) is required for all research projects.
+- Data access and use are governed by the *Health Services Act 2016 (WA)* and the *Privacy Act 1988 (Cth)*.
+- The Five Safes Framework is applied to manage disclosure risk.
+- Specific requirements apply for research involving Aboriginal people, and for access to identifiable or cross-jurisdictional data.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+- A secure data access environment is provided for researchers to access the data. The specific TRE is not explicitly named, but it is a secure environment. (verify with custodian)
+- Remote access is available, but conditions may apply. (verify with custodian)
+
+**Contact and Application Portal:**
+- Primary contact: Client Services, Data Linkage Services, WA Health
+- Email: DOH.DataLinkage@health.wa.gov.au (verify with custodian)
+- Application portal: The specific URL for the application portal is not readily available, but applications are submitted online. (verify with custodian)
+- Key documents/forms: Application Form, Cover Sheet, and variable lists (available on the WA Health website).
+
+**Indicative Timeline:**
+| Stage | Typical Duration |
+|---|---|
+| Application to data provision | Varies significantly depending on project complexity, data availability, and ethics approval times. (verify with custodian) |
+
+**Known Gaps / Verify with Custodian:**
+- Specific timelines for each stage of the data access pathway.
+- The name of the specific TRE platform used.
+- The direct URL for the application portal.
+- The primary contact email for data linkage services.
+
+**Connections to Other Custodians / Pathways:**
+- Data Linkage Services WA links data from various WA government agencies, including the Department of Transport, Main Roads WA, and the Insurance Commission of WA.
+- For cross-jurisdictional research, linkage can be facilitated with other state and territory data linkage units and the Australian Institute of Health and Welfare (AIHW) through the Population Health Research Network (PHRN).
+
+**Source URLs:**
+- https://www.health.wa.gov.au/articles/a_e/data-linkage
+- https://www.health.wa.gov.au/Articles/A_E/data-linkage/How-to-apply-for-data
+- https://www.health.wa.gov.au/Articles/A_E/data-linkage/How-to-apply-for-data/data-collections
+- https://www.health.wa.gov.au/Articles/A_E/data-linkage/How-to-apply-for-data/data-forms
+- https://www.wa.gov.au/organisation/department-of-the-premier-and-cabinet/office-of-digital-government/peoplewa
+
+
+---
+
+## Pathway Card: SA Health / SA NT DataLink
+
+**Custodian Type:** Cross-jurisdictional
+
+**Jurisdiction:** South Australia, Northern Territory
+
+**Primary Role:** SA NT DataLink provides a high-quality data linkage service for South Australia and the Northern Territory, supporting research, policy development, and service planning. It is a key node in the national Population Health Research Network (PHRN), enabling cross-jurisdictional data linkage.
+
+**Key Data Holdings:**
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| SA Public Hospital Admitted Patient Care | Inpatient activity data from SA public hospitals | Yes | Yes |
+| NT Inpatient Activity | Inpatient activity data from NT public hospitals | Yes | Yes |
+| SA Perinatal Statistics Collection | Data on births in SA | Yes | Yes |
+| NT Perinatal Trends | Data on births in NT | Yes | Yes |
+| SA Cancer Register | Notifications of cancer diagnoses in SA | Yes | Yes |
+| NT Cancer Register | Notifications of cancer diagnoses in NT | Yes | Yes |
+| SA and NT Death Registers | Records of all deaths in SA and NT | Yes | Yes |
+
+**Data Access Pathway — Step by Step:**
+1. **Initial Inquiry & Application** - Researcher completes the PHRN online application.
+2. **Scoping & Feasibility** - SA NT DataLink reviews the application, provides feedback, and prepares a quote and Letter of Feasibility.
+3. **In-Principle Approval** - Data Custodians grant in-principle approval.
+4. **Ethics Approval** - Researcher obtains HREC approval.
+5. **Final Approval** - Researcher submits all documents to Data Custodians for final approval.
+6. **Linkage Key Creation** - SA NT DataLink creates project-specific linkage keys.
+7. **Data Extraction** - Data Custodians extract approved data variables.
+8. **Data Provision** - De-identified data is provided to the researcher.
+
+**Ethics and Governance Requirements:**
+- Approval is required from a Human Research Ethics Committee (HREC).
+- For research involving Aboriginal people, approval from the Aboriginal Health Council of South Australia may be required.
+- All applications are managed through the PHRN online application system, and researchers must sign Deeds of Confidentiality and Compliance.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+- Access to Australian Government data (MBS, PBS, etc.) is provided via a secure data laboratory.
+- The specific TRE platform is not explicitly stated and should be verified with the custodian.
+
+**Contact and Application Portal:**
+- **Primary contact:** SA NT DataLink - health.santdatalink@sa.gov.au
+- **Application portal:** [PHRN Online Application System](https://online.phrn.org.au/)
+
+**Indicative Timeline:**
+| Stage | Typical Duration |
+|---|---|
+| Application to final approval | Varies significantly by project complexity (verify with custodian) |
+| Data extraction and provision | Varies by data custodian (verify with custodian) |
+
+**Known Gaps / Verify with Custodian:**
+- Specific timelines for each stage of the application and data provision process.
+- Details of the secure data laboratory/TRE platform used for accessing Australian Government data.
+- Specific costs associated with data linkage services.
+
+**Connections to Other Custodians / Pathways:**
+- Australian Government data custodians (for MBS, PBS, Centrelink, Aged Care, NDIS data).
+- Aboriginal Health Council of South Australia (for projects requiring waiver of consent).
+
+**Source URLs:**
+- https://www.santdatalink.org.au/
+- https://www.sahealth.sa.gov.au/wps/wcm/connect/public+content/sa+health+internet/resources/provision+of+sa+health+data+via+santdl+process+flow
+- https://www.santdatalink.org.au/available_datasets
+- https://www.santdatalink.org.au/for_researchers/application_process
+- https://www.santdatalink.org.au/files/PDF_Files/InventoryOfLinkedData.pdf
+
+---
+
+## Pathway Card: Tasmanian Department of Health / Tasmanian Data Linkage Unit (TDLU)
+
+**Custodian Type:** State — TAS
+
+**Jurisdiction:** Tasmania
+
+**Primary Role:** The Tasmanian Data Linkage Unit (TDLU) provides linked-data services in Tasmania, creating and maintaining links between state-wide health data collections and other approved data sources for research purposes. It operates as part of the Menzies Institute for Medical Research.
+
+**Key Data Holdings:**
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| The Tasmanian Public Hospital Admitted Patient Care Data Collection | Contains patient episodes from Tasmanian public facilities. | Yes (for linkage) | Yes |
+| The Tasmanian Private Hospital Admitted Patient Care Data Collection | Contains patient episodes from licensed Tasmanian private facilities. | Yes (for linkage) | Yes |
+| The Tasmanian Emergency Department Dataset | Contains patient episodes from Tasmanian Emergency Departments. | Yes (for linkage) | Yes |
+| RBDM Death registrations | Records of deaths registered in Tasmania. | Yes (for linkage) | Yes |
+| Cause of Death (Tasmania) | Compilation of death records with cause of death codes. | Yes (for linkage) | Yes |
+| The Tasmanian Perinatal Data Collection (TPDC) | Information on maternal and infant health for births in Tasmania. | Yes (for linkage) | Yes |
+| RBDM Birth registrations | Records of births registered in Tasmania. | Yes (for linkage) | Yes |
+| Australian Early Development Census (AEDC) | Census of children’s health and development in their first year of school. | Yes (for linkage) | Yes |
+| Tasmanian Cancer Registry (TCR) | Population-based statistics about cancer incidence and mortality for Tasmanian residents. | Yes (for linkage) | Yes |
+| Tasmanian Cancer Registry Non-Melanoma Skin Cancer (NMSC)* | Registry of histologically-confirmed NMSCs in Tasmania. | Yes (for linkage) | Yes |
+| The Tasmanian Mental Health Services Collection | Episodes of mental health treatment in the public system. | Yes (for linkage) | Yes |
+| Ambulance Tasmania Emergency Incidents* | Tasmanian emergency ambulance care incidents. | Yes (for linkage) | Yes |
+| Prostate Cancer Outcomes Registry - Tasmania (PCOR-TAS)* | Information on treatments and outcomes for men diagnosed with prostate cancer. | Yes (for linkage) | Yes |
+| Australia New Zealand Dialysis and Transplant Registry (ANZDATA)* | Data on patients receiving renal replacement therapy. | Yes (for linkage) | Yes |
+
+**Data Access Pathway — Step by Step:**
+1.  **Design Phase** — Researcher, TDLU — Discussion with TDLU, optional Project Proposal Form, Quote Request (Online Application System) — (verify with custodian)
+2.  **Application Phase** — Researcher, TDLU, HREC — TDLU Online Application (Expression of Interest), Ethics Application to NHMRC registered HREC (University of Tasmania's HREC via Integrity IQ, or NMA HREC), Department of Health Research Governance Application (REGIS) if applicable — (verify with custodian)
+3.  **Approvals Phase** — TDLU, Data Custodians, Researcher — HREC approval uploaded to TDLU online, Data Custodian approvals (managed by TDLU), Data Access Agreement (signed by PI), TDLU final approval — (verify with custodian)
+4.  **Data Linkage Phase** — TDLU, Data Custodians — Supply of data for linkage, probabilistic linkage by TDLU, provision of linkage key files to data custodians via Kiteworks — (verify with custodian)
+5.  **Data Provision Phase** — Data Custodians, Researcher — Researchers receive de-identified linked data directly from data custodians — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+Approval from an NHMRC registered Human Research Ethics Committee (HREC) is required. Single jurisdictional Tasmanian projects can use the University of Tasmania's HREC via Integrity IQ. Multi-jurisdictional projects may use a specialist National Mutual Acceptance (NMA) Data Linkage HREC. If data from the Tasmanian Department of Health or Tasmanian Health Services is required, Research Governance Approvals must be obtained from the Health Research Office via the Research Ethics and Governance Information System (REGIS). Consistency between the TDLU Online Application and HREC applications is vital for researchers, datasets, date ranges, data variable lists, cohort description, and data storage. The TDLU will only supply data as approved in the HREC application. (verify with custodian)
+
+**Trusted Research Environment (TRE) / Secure Access:**
+SURE (Secure Unified Research Environment) - remote access (for some data provision, verify with custodian)
+
+**Contact and Application Portal:**
+Tasmanian Data Linkage Unit, menzies.tdlu@utas.edu.au (verify), Online Application System (OAS) URL: https://www.utas.edu.au/menzies/research/data-linkage-unit/how-to-apply (link to apply here: Online TDLU application)
+
+**Indicative Timeline:**
+Stage: Design Phase: Varies; Stage: Application Phase: Varies; Stage: Approvals Phase: Can be lengthy; Stage: Data Linkage Phase: Varies; Stage: Data Provision Phase: Varies (verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+*   Exact timelines for each stage of the application process.
+*   Specific fees for data linkage services and data extraction from custodians.
+*   Whether all listed datasets are routinely linked or require additional approval.
+*   Detailed process for sharing draft ethics applications for feedback.
+*   Specific requirements for data storage and security post-provision.
+*   Full list of documents required for REGIS submission (link provided but not extracted).
+*   Confirmation of the primary contact email address.
+
+**Connections to Other Custodians / Pathways:**
+Data Custodians (for each dataset involved), NHMRC registered Human Research Ethics Committees (HREC), Tasmanian Department of Health (DoH) Research Office (for DoH/Tasmanian Health Service datasets)
+
+**Source URLs:**
+https://www.utas.edu.au/menzies/research/data-linkage-unit/how-to-apply, https://www.utas.edu.au/menzies/research/data-linkage-unit/datasets
+
+---
+
+## Pathway Card: ACT Health
+
+**Custodian Type:** State — ACT
+
+**Jurisdiction:** Australian Capital Territory
+
+**Primary Role:** ACT Health is the primary custodian of health data collections for the Australian Capital Territory, responsible for managing and providing access to data for public health monitoring, research, and service planning. It collaborates with the Centre for Health Record Linkage (CHeReL) for data linkage services to support comprehensive health research.
+
+**Key Data Holdings:**
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| ACT General Health Survey | Population health data | (verify with custodian) | (verify with custodian) |
+| Year 7 Health Survey | Health data for Year 7 students | (verify with custodian) | (verify with custodian) |
+| ACT Physical Activity and Nutrition Survey | Population health data on physical activity and nutrition | (verify with custodian) | (verify with custodian) |
+| Australian Secondary Students’ Alcohol and Drug survey (ACT data only) | Data on alcohol and drug use among secondary students | (verify with custodian) | (verify with custodian) |
+| ACT Cancer Registry | Cancer incidence and mortality data | (verify with custodian) | (verify with custodian) |
+| ACT Prostate Cancer Outcomes Registry | Outcomes data for prostate cancer patients | (verify with custodian) | (verify with custodian) |
+| ACT Maternal and Perinatal Data Collection | Data related to maternal and perinatal health | (verify with custodian) | (verify with custodian) |
+| ACT Admitted Patient Care Collection | Data on admitted patient episodes in ACT hospitals | (verify with custodian) | Yes (via CHeReL) |
+| ACT Emergency Department data | Data on emergency department presentations in ACT | (verify with custodian) | Yes (via CHeReL) |
+
+**Data Access Pathway — Step by Step:**
+1.  **Plan your study** — Researcher — Dataset and variable information can be found on the CHeReL website. — (verify with custodian)
+2.  **Complete your application forms** — Researcher — Forms for NSW and ACT linked data (via CHeReL) or online data request form (for unlinked ACT Health data) — (verify with custodian)
+3.  **Submit your application forms to CHeReL** — Researcher — Email completed forms to Research Project Managers at moh-cherel@health.nsw.gov.au (for linked data) — (verify with custodian)
+4.  **Technical feasibility review** — CHeReL — Review of project feasibility by Research Project Manager — (verify with custodian)
+5.  **Submit to the Ethics Committee** — Researcher — Data custodian approvals, technical feasibility letters, application documents and other supporting documents to the appropriate ethics committee (PHSREC mentioned by CHeReL) — (verify with custodian)
+6.  **Data custodian approval** — Custodian (ACT Health) — Sign off for ACT data sets — (verify with custodian)
+7.  **Data provision** — Custodian (ACT Health) / CHeReL — Data provided to researcher — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+Ethics approval is required for research involving linked data, typically through a Human Research Ethics Committee (HREC) such as the Population Health Services Research Ethics Committee (PHSREC) mentioned by CHeReL. Specific legislation and data governance frameworks (e.g., Five Safes) should be verified with the custodian, as well as any special requirements for identifiable or cross-jurisdictional data.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Not explicitly stated as a TRE for analysis. CHeReL is a data linkage facility. Access to linked data may be provided through secure means, but a specific TRE platform is not detailed. (verify with custodian)
+
+**Contact and Application Portal:**
+*   **For linked data via CHeReL:**
+    *   Primary contact: CHeReL Research Project Managers (moh-cherel@health.nsw.gov.au)
+    *   Application portal: CheckApp (via CHeReL website) (verify URL)
+*   **For unlinked ACT Health data:**
+    *   Primary contact: Data Analytics Branch (via online data request form)
+    *   Kindergarten Health Check data: Kindergarten Health Check Research Nurse (02 5124 4949 or KindyHealthAUGP@act.gov.au)
+    *   Application portal: Online data request form (URL: https://www.act.gov.au/directorates-and-agencies/act-health/data-statistics-and-surveys/healthstats-act/data-collections/how-to-request-data)
+
+**Indicative Timeline:**
+Application process (CHeReL): Varies significantly depending on complexity and feedback cycles; Technical Feasibility Review: (verify with custodian); Data Custodian Review and Approval: (verify with custodian); Ethical Review and Approval: (verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+*   Exact forms and their URLs for both linked and unlinked data requests.
+*   Specific HREC required for all ACT Health data access, and whether PHSREC is the only one.
+*   Detailed legislation and data governance frameworks applied by ACT Health.
+*   Whether a specific TRE is mandated for data analysis, and if so, which platform.
+*   Timelines for each step of the data access pathway for both linked and unlinked data.
+*   Whether datasets are identifiable and linkable by default, or if de-identification processes are applied.
+
+**Connections to Other Custodians / Pathways:**
+Centre for Health Record Linkage (CHeReL) for data linkage, particularly with NSW health data. (verify with custodian)
+
+**Source URLs:**
+*   https://www.act.gov.au/directorates-and-agencies/act-health/data-statistics-and-surveys/healthstats-act/data-collections/how-to-request-data
+*   https://www.cherel.org.au/apply
+*   https://www.cherel.org.au/datasets
+
+---
+
+## Pathway Card: NT Health / NT Health Research Governance Office
+
+**Custodian Type:** State — NT
+
+**Jurisdiction:** Northern Territory
+
+**Primary Role:** NT Health maintains health data collections for the Northern Territory, supporting health service planning, evaluation, and research. The NT Health Research Governance Office ensures research adheres to ethical principles, responsible conduct guidelines, relevant legislation, and NT Health policies.
+
+**Key Data Holdings:**
+
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Emergency Department Data | Presentations to emergency departments at NT public hospitals, including activity, patient episode, and waiting time data. | Yes (with justification) | Yes |
+| Outpatient Care Data | Attendances at outpatient departments at NT public hospitals, including allied health. | Yes (with justification) | Yes |
+| Urban Primary Health Care Data | Occasions of service provided by public health clinics in urban areas. | Yes (with justification) | Yes |
+| Remote Primary Health Care Data | Occasions of service provided by public health clinics in remote communities. | Yes (with justification) | Yes |
+| Inpatient Care Data | Attendances at inpatient departments at NT public hospitals based on date of discharge. | Yes (with justification) | Yes |
+| Northern Territory Cancer Registry | All reported instances of cancer. | Yes (with justification) | Yes |
+| Perinatal Registry | Information from attending midwives on all births in hospital or home settings. | Yes (with justification) | Yes |
+| Termination of Pregnancy (Abortion) Data | Data related to termination of pregnancy. | Yes (with justification) | Yes |
+| Cervical Screening Data | Results of Pap smear and cervical biopsy tests in NT women. | Yes (with justification) | Yes |
+| NT Notifiable Diseases Register | Reported instances of 90 notifiable conditions. | Yes (with justification) | Yes |
+| NT Aboriginal Health Key Performance Indicators | Indicators to improve primary health care services for Aboriginal Australians in the NT. | Yes (with justification) | Yes |
+
+**Data Access Pathway — Step by Step:**
+1. Initial Document Submission — Researcher — Data release request form, Appendix A - data specification, HREC applications, research protocol, project proposal, data flow diagram, consent forms, questionnaires, associated documentation — (verify with custodian)
+2. Ethical Approval — NT Human Research Ethics Committees — Relevant and current HREC approvals — (verify with custodian)
+3. Data Owner Approval — NT Health — Research data release application — (verify with custodian)
+4. Final Document Submission for Release — Researcher — Relevant and current HREC approvals, Appendix B - deed of confidentiality and compliance, Appendix C - conditions of publication (if relevant) — (verify with custodian)
+5. Data Release — NT Health Data Quality and Governance Unit — Approved data — Simple request: < 2 months; Complex request: up to 12 months
+
+**Ethics and Governance Requirements:**
+All requests for the use of NT Health data for research must have approval from one or both NT Human Research Ethics Committees (HREC). The collection of information is authorized by the _Health Services Act 2011_, the _Information Act 2002_, and the NT Information Privacy Principles (IPP). NT Health is guided by its privacy policy. Special Indigenous data governance requirements apply, particularly for the NT Aboriginal Health Key Performance Indicators, which are governed by the NT AHKPI Steering Committee. Use and disclosure of health information for research and statistical purposes must be consistent with Information Privacy Principle 2.1(ca) and guidelines from the NT Information Commissioner. Requests for identifiable information require additional justification and may require approval from the department’s Chief Health Officer.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Not explicitly stated (verify with custodian). Data is stored in secure systems in secure locations. Access to personal information is only disclosed for research purposes if all requirements of IPP 2.1(ca)(iv) and section 86(1)(a)(iv) are met.
+
+**Contact and Application Portal:**
+NT Health Data Quality and Governance Unit, datareleaserequests.doh@nt.gov.au, Phone: (08) 8999 2770. Application portal URL not explicitly provided; application is via submission of documents.
+
+**Indicative Timeline:**
+| Stage | Typical Duration |
+|---|---|
+| Simple data request (single dataset, aggregate, non-identifiable) | < 2 months |
+| Complex data request (multiple sources, cohort generated by analyst) | up to 12 months |
+
+**Known Gaps / Verify with Custodian:**
+*   Specific forms for initial inquiry and data owner approval (e.g., 
+research data release application form name) 
+*   Exact details of the 'Research Data Release - Application Workflow Flowchart' content and its accessibility. 
+*   Specific Indigenous data governance frameworks applied beyond the NT AHKPI Steering Committee (e.g., CARE Principles, OCAP®). 
+*   Whether a formal Trusted Research Environment (TRE) is required or available, and if so, which platform. 
+*   Specific portal URL for application submission, if any exists beyond email submission of documents.
+
+**Connections to Other Custodians / Pathways:**
+SA NT DataLink (for linked data across South Australia and Northern Territory, including health, education, criminal justice, and other data sources).
+
+**Source URLs:**
+https://health.nt.gov.au/data-and-research/nt-health-research/research-governance
+https://health.nt.gov.au/data-and-research/health-data
+https://health.nt.gov.au/data-and-research/health-data/how-to-request-data-for-secondary-use
+https://www.santdatalink.org.au/Governance
+https://www.santdatalink.org.au/available_datasets
+
+---
+
+## Pathway Card: Population Health Research Network (PHRN)
+
+**Custodian Type:** Cross-jurisdictional
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** The Population Health Research Network (PHRN) is a national collaboration that securely links data across Australia to support world-class population health research and improve health outcomes. It integrates health and human services data across Australia.
+
+**Key Data Holdings:**
+A table with columns: Dataset Name | Description | Identifiable? | Linkable?
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Birth records | (verify with custodian) | (verify with custodian) | (verify with custodian) |
+| Hospital admission data | (verify with custodian) | (verify with custodian) | (verify with custodian) |
+| Prescription data | (verify with custodian) | (verify with custodian) | (verify with custodian) |
+| Medical benefits data | (verify with custodian) | (verify with custodian) | (verify with custodian) |
+| Aged care data | (verify with custodian) | (verify with custodian) | (verify with custodian) |
+| Disability data | (verify with custodian) | (verify with custodian) | (verify with custodian) |
+| Child development data | (verify with custodian) | (verify with custodian) | (verify with custodian) |
+| Child protection data | (verify with custodian) | (verify with custodian) | (verify with custodian) |
+| Justice data | (verify with custodian) | (verify with custodian) | (verify with custodian) |
+
+**Data Access Pathway — Step by Step:**
+1. Consultation — Researcher — Research question and data needs — (verify with custodian)
+2. Application — Researcher — Expression of interest (EOI) or quote request using the PHRN Online Application System (OAS) — (verify with custodian)
+3. Approval — Data custodians, Ethics Committee — Conditional approval from data custodians, technical feasibility letter from DLU, ethics approval — (verify with custodian)
+4. Data linkage — Data Linkage Units (DLUs) — Linkage of health and human services datasets — (verify with custodian)
+5. Data access and analysis — Researcher — Access to linked data in a secure access environment — (verify with custodian)
+6. Publication — Researcher — Data sharing agreement/s outlining approvals and acknowledgement statements — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+Researchers are required to apply for ethics approval. The relevant Data Linkage Unit’s (DLU) client services officer will provide guidance on ethics and governance approval requirements. (verify specific HREC or ethics body, relevant legislation, and data governance framework applied)
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Secure access environment (verify specific platform name like SURE, ABS DataLab, or AIHW Secure Environment, and access type)
+
+**Contact and Application Portal:**
+PHRN Client Services team, phrn-oas@uwa.edu.au (Research enquiries), phrn@uwa.edu.au (General enquiries), PHRN Online Application System (OAS) URL: https://www.phrn.org.au/resources/online-application-system/
+
+**Indicative Timeline:**
+| Stage | Typical Duration |
+|---|---|
+| (verify with custodian) | (verify with custodian) |
+
+**Known Gaps / Verify with Custodian:**
+* Comprehensive list of key datasets
+* Specific HREC or ethics body required for approval
+* Relevant legislation (Act name and section)
+* Data governance framework applied (e.g., Five Safes, AIATSIS Code)
+* Specific TRE platform name (e.g., SURE, ABS DataLab, or AIHW Secure Environment) and access type (remote/on-site)
+* Indicative timelines for each stage of the data access pathway
+
+**Connections to Other Custodians / Pathways:**
+State and Territory Data Linkage Units (DLUs), National Health Data Hub (NHDH@aihw.gov.au), AIHW (for NHDH)
+
+**Source URLs:**
+https://www.phrn.org.au/, https://www.phrn.org.au/data/how-to-apply/, https://www.phrn.org.au/resources/online-application-system/, https://www.phrn.org.au/data/types-of-data/
+
+---
+
+## Pathway Card: SURE — Secure Unified Research Environment
+
+**Custodian Type:** TRE/SDE
+
+**Jurisdiction:** New South Wales, Cross-jurisdictional
+
+**Primary Role:** SURE (Secure Unified Research Environment) is a secure and powerful platform for the sharing and analysis of sensitive health and other data. It offers custodians a flexible and trusted way to share health data with the research community, while also giving researchers access to approved linked data.
+
+**Key Data Holdings:**
+
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Linked health data | From hospitals, Medicare, cancer registries | (verify with custodian) | (verify with custodian) |
+| DSS data | From AIHW | (verify with custodian) | (verify with custodian) |
+| CanDLe Data | From Cancer Institute NSW | (verify with custodian) | (verify with custodian) |
+| 45 and Up Study | Large-scale cohort study data | (verify with custodian) | (verify with custodian) |
+
+**Data Access Pathway — Step by Step:**
+1. Obtain and submit Ethics Approval(s) (required) — Researcher — National Ethics Application Form/s, approval letter/s from Human Research Ethics Committee — (verify with custodian)
+2. Obtain and submit Data Custodian Approval(s) (required) — Researcher — Approval/s from data custodian for use of the data in the research study — (verify with custodian)
+3. Each investigator to complete SURE training — Researcher — (verify with custodian) — (verify with custodian)
+4. Research Organisation Head Agreement with SURE — Research Organisation and Sax Institute — General Terms for SURE Access — (verify with custodian)
+5. SURE Virtual Project Workspace Registration Form — Research Organisation and Sax Institute — Service Terms for each project — (verify with custodian)
+6. User Deeds — Researcher — SURE Access Terms — (verify with custodian)
+7. SURE Invoice generated — Sax Institute — Based upon service terms requested in the Virtual Workspace Application and number of users training Online — (verify with custodian)
+8. Project Requirements to access SURE — Researcher — Citrix Receiver, Digital Client Certificate & Internet Browser (Mozilla, Safari or Chrome) — (verify with custodian)
+9. Credentials for accessing SURE — Sax Institute — Unique username, password & Yubikey — (verify with custodian)
+10. Delegation of review permission for the SURE curated gateway — Sax Institute — (verify with custodian) — (verify with custodian)
+11. Ongoing (project amendments, User support, user changes, data updates, Annual renewal of user charges etc.) — Researcher/Sax Institute — (verify with custodian) — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+- **Ethics body:** Human Research Ethics Committee (HREC) approval required.
+- **Legislation/Frameworks:** Australian Code for the Responsible Conduct of Research (2007) developed by the NHMRC [1]. Adherence to the Five Safes framework – safe people, projects, settings, data and outputs [2].
+- **Special requirements:** Approval of data custodian/s, compliance with conditions of human research ethics approval.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+- **TRE required or available?** Yes, SURE is a TRE.
+- **Which TRE platform?** SURE (Secure Unified Research Environment).
+- **Remote access or on-site only?** Remote access.
+- **Features:** Hardware available for as little as one month. Windows or Linux virtual machines. Standard analysis software (SAS, Stata, R, Python, SPSS), SQL server software.
+
+**Contact and Application Portal:**
+- **Primary contact:** sure-admin@saxinstitute.org.au
+- **Application portal URL:** (verify with custodian)
+- **Key documents / forms:** SURE project workspace application form [3], National Ethics Application Form, Data Custodian Approval forms, SURE Head Agreement, SURE Virtual Workspace Agreement, SURE Researcher Agreement (Deed). (URLs for forms to be verified)
+
+**Indicative Timeline:**
+
+| Stage | Typical Duration |
+|---|---|
+| Hardware availability | As little as one month |
+| User and project charges renewal | 12 month basis |
+| Overall application process | (verify with custodian) |
+
+**Known Gaps / Verify with Custodian:**
+- Jurisdiction (clarify if primarily NSW or Cross-jurisdictional for specific projects)
+- Specific application portal URL
+- Specific URLs for all key forms (National Ethics Application Form, Data Custodian Approval forms, SURE Head Agreement, SURE Virtual Workspace Agreement, SURE Researcher Agreement)
+- Detailed indicative timeline for the entire data access process, from initial inquiry to data provision
+- Identifiable/Linkable status for each specific dataset listed under Key Data Holdings
+
+**Connections to Other Custodians / Pathways:**
+- Population Health Research Network (PHRN)
+- Australian Government National Collaborative Research Infrastructure Strategy (NCRIS)
+- NSW Government
+- AIHW (for DSS data)
+- Cancer Institute NSW (for CanDLe data)
+- Hosts data from 25 data custodians from all Australian states and territories.
+
+**Source URLs:**
+1. [Australian Code for the Responsible Conduct of Research (2007) developed by the NHMRC](http://www.nhmrc.gov.au/publications/synopses/r39syn.htm)
+2. [SURE, Australia’s most trusted research platform | SURE | Sax Institute](https://www.saxinstitute.org.au/solutions/sure/)
+3. [Information for establishing a SURE project workspace](https://www.saxinstitute.org.au/wp-content/uploads/20151010-Registration-information-for-SURE-virtual-project-V2.1.pdf)
+4. [Data available from the Department of Social Services - AIHW](https://www.aihw.gov.au/about-our-data/accessing-australian-government-data/dss-data)
+5. [CanDLe Data | Cancer Institute NSW](https://www.cancer.nsw.gov.au/research-and-data/cancer-data-and-statistics/data-available-on-request/candle-program/how-to-access-the-candle-data/candle-data)
+6. [Data and technical information - 45 and Up Study](https://www.saxinstitute.org.au/solutions/45-and-up-study/use-the-45-and-up-study/data-and-technical-information/)
+
+
+---
+
+## Pathway Card: ABS DataLab — Australian Bureau of Statistics
+
+**Custodian Type:** TRE/SDE, Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** The ABS DataLab provides a secure research environment for high-end users to undertake complex analysis of detailed microdata for statistical research or modelling, contributing to public benefit.
+
+**Key Data Holdings:**
+
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Census | Detailed population and housing data | No (direct identifiers removed) | Yes (within DataLab, verify with custodian) |
+| Health | Data from health surveys and administrative sources | No (direct identifiers removed) | Yes (within DataLab, verify with custodian) |
+| Education | Data related to educational outcomes and participation | No (direct identifiers removed) | Yes (within DataLab, verify with custodian) |
+| Labour Force | Employment, unemployment, and labour market statistics | No (direct identifiers removed) | Yes (within DataLab, verify with custodian) |
+| Aboriginal and Torres Strait Islander Peoples | Data specific to Indigenous Australians | No (direct identifiers removed) | Yes (within DataLab, verify with custodian) |
+| Migrants | Data related to migration and settlement | No (direct identifiers removed) | Yes (within DataLab, verify with custodian) |
+| Crime | Data on criminal justice and victimisation | No (direct identifiers removed) | Yes (within DataLab, verify with custodian) |
+| Business | Data on Australian businesses and economic activity | No (direct identifiers removed) | Yes (within DataLab, verify with custodian) |
+| Disabilities, Ageing and Carers | Data on individuals with disabilities, older persons, and carers | No (direct identifiers removed) | Yes (within DataLab, verify with custodian) |
+| ABS Survey Results | Microdata from various ABS surveys | No (direct identifiers removed) | Yes (within DataLab, verify with custodian) |
+| Administrative Data | Data collected by other organisations | No (direct identifiers removed) | Yes (within DataLab, verify with custodian) |
+| Integrated Datasets | Datasets linked from multiple sources | No (direct identifiers removed) | Yes (within DataLab, verify with custodian) |
+
+**Data Access Pathway — Step by Step:**
+
+1.  **Ensure you meet requirements** — Researcher/Organisation — Organisation Responsible Officer Undertaking (ROU), Researcher commitment to confidentiality, Project for statistical/research purposes and public benefit — (verify with custodian)
+2.  **Register and activate account** — Researcher — myDATA Portal registration, agreement to Conditions of use, account authentication — (verify with custodian)
+3.  **Submit project proposal** — Researcher — myDATA user portal project proposal — (verify with custodian)
+4.  **Complete DataLab safe onboarding** — Researcher — Individual Undertaking and DataLab Declaration of Compliance, DataLab quiz, additional documents (if requested) — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+Projects must be for statistical and/or research purposes and provide public benefit. Projects for or about Aboriginal and/or Torres Strait Islander peoples may be subject to a Cultural Review by the Centre of Aboriginal and Torres Strait Islander Statistics at the ABS. Some projects also require consideration and approval by data custodians. The ABS DataLab operates under the Five Safes Framework, ensuring data confidentiality and security.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+TRE required: Yes
+Which TRE platform: ABS DataLab (hosted in Microsoft Azure)
+Remote access or on-site only: Remote access (unless approved by ABS to access from overseas)
+
+**Contact and Application Portal:**
+Primary contact: myDATA Portal Team, mydataportal@abs.gov.au
+Application portal URL: https://www.abs.gov.au/statistics/microdata-tablebuilder/datalab (Login via myDATA Portal)
+Key documents / forms: Responsible Officer Undertaking (ROU), Individual Undertaking and DataLab Declaration of Compliance, DataLab Referral (if needed) — (URLs not explicitly provided, verify with custodian)
+
+**Indicative Timeline:**
+Stage: (Not explicitly stated, verify with custodian) | Typical Duration: (Not explicitly stated, verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+*   Specific forms and their direct URLs for ROU, Individual Undertaking, and DataLab Referral.
+*   Detailed indicative timelines for each step of the access pathway.
+*   Exact criteria for when a project is considered 'identifiable' or 'linkable' beyond the general statement of direct identifiers being removed.
+*   Specific requirements for international researchers accessing microdata from overseas.
+
+**Connections to Other Custodians / Pathways:**
+Other data custodians (for integrated datasets and project approvals)
+
+**Source URLs:**
+https://www.abs.gov.au/statistics/microdata-tablebuilder/datalab
+
+---
+
+## Pathway Card: AIHW Data Integration Services
+
+**Custodian Type:** Commonwealth / TRE/SDE
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** The AIHW's Data Integration Services Centre integrates and links data from multiple Commonwealth and state custodians for research and policy purposes, providing richer analytical datasets to improve health and welfare insights.
+
+**Key Data Holdings:**
+Dataset Name | Description | Identifiable? | Linkable?
+---|---|---|---
+National Bowel Cancer Screening Program | Data related to bowel cancer screening | (verify with custodian) | Yes
+Data Over Multiple Individual Occurrences (DOMINO) | Data from Department of Social Services | (verify with custodian) | Yes
+Medicare Benefits Schedule (MBS) data | Data on Medicare services claimed | (verify with custodian) | Yes
+Pharmaceutical Benefits Scheme (PBS) data | Data on subsidised prescription medicines | (verify with custodian) | Yes
+AIHW data collections | Various health and welfare datasets held by AIHW | (verify with custodian) | Yes
+
+**Data Access Pathway — Step by Step:**
+1. Prepare — Researcher — Clear, well-defined research question/s or aims — (verify with custodian)
+2. Research proposal — Researcher — Research proposal outlining project details — (verify with custodian)
+3. Data custodian approvals — Researcher/Custodian — Approval from relevant data custodians — (verify with custodian)
+4. Ethics committee approvals — Researcher/Ethics Committee — HREC approval — (verify with custodian)
+5. Public Interest Certificate — Custodian — Public Interest Certificate (if required) — (verify with custodian)
+6. Suitable analysis environment — Researcher/Custodian — Access to a suitable analysis environment — (verify with custodian)
+7. Linkage — Custodian — Data linkage performed by AIHW — (verify with custodian)
+8. Secure data file transfer — Custodian — Secure transfer of linked data — (verify with custodian)
+9. Merge, analyse, interpret, report — Researcher — Analysis and reporting of results — (verify with custodian)
+10. Destroy data and close project — Researcher/Custodian — Destruction of data and project closure — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+Approval from the AIHW Human Research Ethics Committee (HREC) or other relevant HRECs is required. Relevant legislation includes the Privacy Act 1988 (Commonwealth) and the Australian Institute of Health and Welfare Act 1987 (Commonwealth) (verify specific sections). The Five Safes Framework is applied for data governance. Special requirements apply for projects involving identifiable data or cross-jurisdictional data.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Is a TRE required or available? Yes
+Which TRE platform? AIHW Secure Environment (verify specific platform name)
+Remote access or on-site only? Remote access (verify access type)
+
+**Contact and Application Portal:**
+Primary contact: Data Integration Services Centre, linkage@aihw.gov.au
+Application portal URL: (verify application portal URL)
+Key documents / forms: Data on request form (verify specific form for data integration services)
+
+**Indicative Timeline:**
+Stage | Typical Duration
+---|---
+Overall process | Varies significantly by project complexity and approvals (verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+* Specific names of commonly linked datasets (beyond examples).
+* Exact legislation and sections.
+* Specific TRE platform name and access type (remote/on-site).
+* Application portal URL and specific forms for data integration services.
+* Detailed indicative timelines for each step.
+
+**Connections to Other Custodians / Pathways:**
+Services Australia (for MBS/PBS data), state and territory health departments, other Commonwealth agencies
+
+**Source URLs:**
+https://www.aihw.gov.au/about-our-data/accessing-data-through-the-aihw, https://www.aihw.gov.au/our-services/data-linkage/data-linkage-services, https://www.aihw.gov.au/getmedia/09289a1a-494b-4521-8cb9-912f51ac8e95/ten-steps-to-linkage.pdf.aspx
+
+---
+
+## Pathway Card: Australian Digital Health Agency
+
+**Custodian Type:** Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** The Australian Digital Health Agency (ADHA) is the System Operator for My Health Record. It is responsible for enabling a connected healthcare system and managing the My Health Record system, which facilitates the secure sharing of health information to improve health outcomes for Australians.
+
+**Key Data Holdings:**
+Dataset Name | Description | Identifiable? | Linkable?
+---|---|---|---
+My Health Record Data | Comprehensive digital health records of Australians | Yes (with consent) / No (de-identified) | Yes (with consent) / No (de-identified)
+
+**Data Access Pathway — Step by Step:**
+1. Initial Inquiry — researcher — (verify with custodian) — (verify with custodian)
+2. Application Submission — researcher — (verify with custodian for forms/portal) — (verify with custodian)
+3. Data Governance Board Review — My Health Record Data Governance Board (still to be established) — Application meeting privacy, assurance, and risk mitigation requirements — (verify with custodian)
+4. Ethics Approval — ethics committee — (strict ethics approvals for identified data) — (verify with custodian)
+5. Data Provision — Australian Institute of Health and Welfare (AIHW) — De-identified or identified data (with consent) — (release only after necessary infrastructure is in place, verify timeline)
+
+**Ethics and Governance Requirements:**
+Applications for identified data will be subject to strict ethics approvals. The My Health Record Data Governance Board (still to be established) will review applications. Relevant legislation includes the My Health Records Act 2012. A framework to guide the use of My Health Record system data for research or public health purposes is applied. Special requirements include: no use for commercial and non-health related purposes, no access for insurance agencies, data cannot be used to assess eligibility for benefits, high standards for privacy protection, and data released for research or public health purposes must not be sold.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+(verify with custodian) — (verify with custodian) — (verify with custodian)
+
+**Contact and Application Portal:**
+My Health Record help line, 1800 723 471, (Application portal URL: verify with custodian)
+
+**Indicative Timeline:**
+Stage: (verify with custodian); Stage: (verify with custodian); Stage: (verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+*   Specific application forms and portal for data access.
+*   Detailed step-by-step data access pathway.
+*   Indicative timelines for data access.
+*   Specific TRE platform used for data access.
+*   Exact composition and establishment date of the My Health Record Data Governance Board.
+
+**Connections to Other Custodians / Pathways:**
+Australian Institute of Health and Welfare (AIHW) — appointed as Data Custodian for My Health Record system data for research or public health purposes; My Health Record Data Governance Board — includes representatives from AIHW, ADHA, Aboriginal and Torres Strait Islander Peoples’ Advisory Panel, and independent experts.
+
+**Source URLs:**
+https://www.digitalhealth.gov.au/initiatives-and-programs/my-health-record/manage-your-record/privacy-and-access/secondary-use-of-data
+
+---
+
+## Pathway Card: PHN Cooperative / Primary Health Insights
+
+**Custodian Type:** Private/NGO
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** The PHN Cooperative facilitates activities and engagement for Primary Health Networks (PHNs) across Australia. Primary Health Insights (PHI) is a shared data platform that brings together data governance, advanced analytics, and informatics expertise to improve population health outcomes by securing and managing primary health care data.
+
+**Key Data Holdings:**
+
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Aggregated General Practice and Primary Care Data | De-identified patient-level, practice-level, and regional-level data extracted from Practice Management Systems. Used for service planning, quality improvement, and program evaluation. | No (de-identified) | Yes (with controls to prevent re-identification) |
+
+**Data Access Pathway — Step by Step:**
+
+1.  Initial Inquiry — researcher — Contact PHN Cooperative Executive Officer (execoffice@phncooperative.org.au) — (verify with custodian)
+2.  Data Request Submission — researcher — (verify specific forms/portal with custodian) — (verify with custodian)
+3.  Data Governance Review — custodian (PHN Cooperative National Data Governance Committee) — Compliance with PHN National Data Governance Policy and Framework — (verify with custodian)
+4.  Ethics Approval — researcher/ethics committee — Approval from relevant HREC/ethics body (verify with custodian) — (verify with custodian)
+5.  Data Access Agreement — custodian/researcher — Formal data sharing agreement — (verify with custodian)
+6.  Data Provision — custodian (Primary Health Insights) — Access via secure data platform — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+PHNs operate under the Australian Privacy Principles (APPs) in the Privacy Act 1988 (Cwlth) and applicable state-based privacy legislation. The PHN Cooperative's National Data Governance Framework guides data management, leveraging frameworks from AIHW, NSW Ministry of Health, and OAIC. Principles of Indigenous Data Sovereignty are acknowledged and embedded. Access to the shared data platform is tightly controlled, emphasizing de-identified data. Specific HREC or ethics body approval requirements for external research need to be verified with the custodian.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Primary Health Insights (PHI) is a shared and secure data platform for PHNs. Access to data within PHI is tightly controlled. Platform name and access type: Primary Health Insights (secure data platform, tightly controlled access).
+
+**Contact and Application Portal:**
+Primary contact: PHN Cooperative Executive Officer, execoffice@phncooperative.org.au
+Application portal URL: (verify with custodian)
+Key documents / forms: PHN National Data Governance Policy [2]
+
+**Indicative Timeline:**
+Stage: (verify with custodian) | Typical Duration: (verify with custodian)
+
+**Known Gaps / Verify with Custodian:**
+*   Specific step-by-step data access pathway for external researchers.
+*   Formal application portal or forms for data requests.
+*   Indicative timelines for data access requests.
+*   Specific ethics committee requirements for external research.
+*   Details on how data linkage is managed for de-identified data.
+
+**Connections to Other Custodians / Pathways:**
+Individual Primary Health Networks (PHNs) (data collection), General Practices (data source), Software Vendors (data extraction tools), Australian Institute of Health and Welfare (AIHW) (governance framework reference), Department of Health (policy guidance)
+
+**Source URLs:**
+[1] https://www.primaryhealthinsights.org.au/governance-and-privacy
+[2] https://phinsights.squarespace.com/s/PHNs-National-Data-Governance-Policy.pdf
+[3] https://www.phncooperative.org.au/
+
+---
+
+## Pathway Card: MedicineInsight (NPS MedicineWise)
+
+**Custodian Type:** Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** MedicineInsight is a primary care quality improvement program that uses de-identified longitudinal GP prescribing and patient data from Australian general practices to support best practice, inform policy development, and improve healthcare decisions.
+
+**Key Data Holdings:**
+Dataset Name | Description | Identifiable? | Linkable?
+---|---|---|---
+MedicineInsight Data | Longitudinal de-identified GP prescribing and patient data from Australian general practices. Includes information on patient demographics, diagnoses, medications, and other clinical data. | No | Yes (via encrypted SLK 581 linkage key - verify with custodian)
+
+**Data Access Pathway — Step by Step:**
+1. Enquire to determine the MedicineInsight data required for your project — Researcher — Email: QUMprogram@safetyandquality.gov.au — (timeline not specified)
+2. Work with you to confirm the MedicineInsight data requirements for your project and determine pricing — Custodian — (details not specified) — Timeframe: 2 to 3 weeks.
+3. Determine if your project needs to be reviewed and approved by our independent Data Governance Committee — Custodian — (details not specified) — Timeframe: Committee meets every 2 months.
+4. Grant you access to MedicineInsight reports or data — Custodian — Delivered based on your specifications and in accordance with our data security requirements — Timeframe: As agreed.
+
+**Ethics and Governance Requirements:**
+Projects are reviewed and approved by an independent Data Governance Committee. The program applies a 'Five Safes' assessment approach for data sharing, ensuring safe data, safe outputs, safe projects, safe people, and safe settings. It also adheres to the National Statement on Ethical Conduct in Human Research, 2007 (updated 2018) and RACGP’s guiding principles. (Specific legislation and HREC details to be verified with custodian).
+
+**Trusted Research Environment (TRE) / Secure Access:**
+MedicineInsight data is securely stored and accessed, with a focus on secure environments and secure transfer within Australia. The specific TRE platform used is not explicitly named, but the 'Five Safes' framework implies a secure access environment. (TRE platform name and access type to be verified with custodian).
+
+**Contact and Application Portal:**
+Primary contact: MedicineInsight team, QUMprogram@safetyandquality.gov.au or MedicineInsight@safetyandquality.gov.au, Phone: 1300 721 726 (Monday to Friday, 8:00 am to 4:00 pm).
+Application portal URL: Not explicitly stated, but an Expression of Interest form is available (URL to be verified).
+Key documents / forms: MedicineInsight Program Changes Document, patient poster, patient information sheets (URLs to be verified).
+
+**Indicative Timeline:**
+Stage: Confirm data requirements and pricing; Typical Duration: 2 to 3 weeks
+Stage: Data Governance Committee review; Typical Duration: Committee meets every 2 months
+Stage: Data provision; Typical Duration: As agreed
+
+**Known Gaps / Verify with Custodian:**
+*   Exact form names and URLs for application.
+*   Specific HREC or ethics body that must approve projects.
+*   Relevant legislation (Act name and section).
+*   Specific TRE platform used for data access.
+*   Details on linkage keys (e.g., encrypted SLK 581 linkage key).
+*   Full details of the Expression of Interest form URL.
+
+**Connections to Other Custodians / Pathways:**
+Not explicitly mentioned in the reviewed sources. (Verify with custodian).
+
+**Source URLs:**
+https://www.nps.org.au/medicine-insight
+https://www.nps.org.au/about-us/services/health-insights/medicineinsight/how-to-access
+https://www.safetyandquality.gov.au/our-work/indicators-measurement-and-reporting/medicineinsight
+https://www.nps.org.au/medicine-insight/privacy-security-governance
+https://www.safetyandquality.gov.au/newsroom/latest-news/custodianship-medicineinsight-data-collection
+https://www.hisa.org.au/slides/hda/19/YuenAiLee.pdf
+
+---
+
+## Pathway Card: National Health and Medical Research Council (NHMRC) / Human Research Ethics Committees (HRECs)
+
+**Custodian Type:** Ethics Body
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** In Australia, Human Research Ethics Committees (HRECs), guided by the National Health and Medical Research Council (NHMRC) ethics framework, review research proposals involving human participants to ensure they meet ethical standards and guidelines. This process is crucial for safeguarding the welfare and rights of research participants, including those whose health data is used.
+
+**Key Data Holdings:** HRECs do not directly hold health data. Their role is to review and approve research proposals that may involve access to data held by other custodians. Therefore, this section is not applicable to HRECs as data holders.
+
+**Data Access Pathway — Step by Step:**
+1. Preparation of Research Proposal and Application — Researcher — Research protocol, data management plan, consent forms, and completion of the Human Research Ethics Application (HREA) form — Varies by project complexity
+2. Submission to HREC — Researcher — Completed HREA and supporting documents (e.g., research protocol, participant information sheet, consent form, data collection tools) via HREC's preferred submission method (e.g., online portal, email) — Typically by a monthly deadline
+3. HREC Review — Ethics Committee — Assessment against the National Statement on Ethical Conduct in Human Research and other relevant guidelines — Approximately 20 working days from submission deadline to initial review (verify with specific HREC)
+4. Clarifications/Revisions — Researcher/Ethics Committee — Response to HREC queries or requests for revisions — Varies depending on the nature of revisions
+5. Final Approval — Ethics Committee — Formal approval letter issued — After all conditions are met
+6. Ongoing Reporting — Researcher — Annual progress reports, amendment requests, final reports — As per HREC requirements
+
+**Ethics and Governance Requirements:**
+Approval must be obtained from an NHMRC-registered Human Research Ethics Committee (HREC). The primary ethical framework is the National Statement on Ethical Conduct in Human Research (2023/2025). Other relevant guidelines include the Australian Code for the Responsible Conduct of Research and specific guidelines for research with Aboriginal and Torres Strait Islander Peoples. Governance frameworks such as the Five Safes are often considered by data custodians in conjunction with HREC approval. Special requirements apply for research involving Indigenous data, identifiable data, or cross-jurisdictional projects, requiring careful consideration of consent, privacy, and cultural appropriateness.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Not directly applicable to HRECs. HRECs review proposals for research that may or may not require a TRE. If a TRE is required by a data custodian, the HREC will assess the ethical implications of data access within that environment. (verify with specific HREC and data custodian)
+
+**Contact and Application Portal:**
+Primary contact: Contact details vary by individual HREC. General NHMRC ethics information: ethics@nhmrc.gov.au (verify)
+Application portal URL: The Human Research Ethics Application (HREA) form is available at https://www.nhmrc.gov.au/research-policy/ethics/human-research-ethics-application-form. Specific HREC portals or submission methods vary by institution (verify with specific HREC).
+Key documents / forms: Human Research Ethics Application (HREA) form (https://www.nhmrc.gov.au/research-policy/ethics/human-research-ethics-application-form); National Statement on Ethical Conduct in Human Research (https://www.nhmrc.gov.au/research-policy/ethics/national-statement-ethical-conduct-human-research)
+
+**Indicative Timeline:**
+Stage: HREC Review (initial) — Typical Duration: ~20 working days from submission deadline (verify with specific HREC)
+Stage: Revisions/Clarifications — Typical Duration: Varies (verify)
+Stage: Final Approval — Typical Duration: Varies (verify)
+
+**Known Gaps / Verify with Custodian:**
+*   Specific HREC submission deadlines and meeting dates vary by institution.
+*   Exact timelines for review and approval can differ significantly between HRECs and project complexity.
+*   The specific portal or submission method for HREA varies by HREC.
+*   Requirements for specific supporting documents may vary slightly between HRECs.
+*   Whether a TRE is required is determined by the data custodian, not the HREC directly, though the HREC will review the ethical aspects of its use.
+
+**Connections to Other Custodians / Pathways:**
+Data custodians (e.g., AIHW, state health departments, Services Australia) — HREC approval is a prerequisite for accessing data from these custodians; Research institutions/universities — HRECs are often affiliated with these institutions; Funding bodies — May require HREC approval as a condition of funding
+
+**Source URLs:**
+https://www.nhmrc.gov.au/research-policy/ethics/human-research-ethics-committees, https://www.nhmrc.gov.au/research-policy/ethics/national-statement-ethical-conduct-human-research, https://www.nhmrc.gov.au/about-us/publications/national-statement-ethical-conduct-human-research-2025, https://www.nhmrc.gov.au/research-policy/ethics/human-research-ethics-application-form, https://www.nhmrc.gov.au/about-us/resources/human-research-ethics-committee-hrec-registration-guide, https://australianclinicaltrials.gov.au/researchers/principles-and-governance, https://pmc.ncbi.nlm.nih.au/articles/PMC12202549/, https://www.ahmrc.org.au/wp-content/uploads/2023/10/HREC-Review-Timelines.pdf, https://bellberry.com.au/im-a-researcher/
+
+---
+
+## Pathway Card: AIATSIS — Australian Institute of Aboriginal and Torres Strait Islander Studies
+
+**Custodian Type:** Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** AIATSIS is Australia's only national institution focused exclusively on the diverse history, cultures, and heritage of Aboriginal and Torres Strait Islander peoples. It provides leadership in ethics and protocols for research related to Aboriginal and Torres Strait Islander peoples and collections, and is the custodian of Indigenous research data.
+
+**Key Data Holdings:**
+A table with columns: Dataset Name | Description | Identifiable? | Linkable?
+| AIATSIS Collection | Over 1 million items related to Australian Aboriginal and Torres Strait Islander peoples, including cultural, historical, linguistic, and social research materials. Can contain health-related information within broader research contexts. | Yes (verify with custodian) | Potentially (verify with custodian)
+
+**Data Access Pathway — Step by Step:**
+1. Initial Inquiry/Search — Researcher — Search the AIATSIS Collection catalogue (Mura) or Collections Online — Ongoing
+2. Request Submission — Researcher — Complete the "Request Collection access" online form (https://aiatsis.gov.au/form/request-collection-access). Specify type of request (material to be sent, or onsite visit). Provide personal details, organisation (if applicable), and details of collection items to access (list from Mura/Collections Online, URLs, or copy-pasted catalogue records). — N/A
+3. Acknowledgement and Waiting Time Notification — Custodian (AIATSIS) — Contact researcher, advise approximate waiting time for Access Officer. — Shortly after request
+4. Indemnity Form & Permissions Advice — Custodian (AIATSIS) — Send indemnity form for signature, advise if permissions are required from copyright owners (depositor, Aboriginal/Torres Strait Islander person/family/community representatives) and if fees apply. — N/A
+5. Indemnity Form Return & Payment — Researcher — Return signed indemnity form, complete permission clearance, make payment if applicable. — N/A
+6. Material Supply — Custodian (AIATSIS) — Supply requested material. — Once signed indemnity, permission clearance, and payment received.
+
+**Ethics and Governance Requirements:**
+The AIATSIS Research Ethics Committee (REC) is the primary ethics body for research involving Aboriginal and Torres Strait Islander peoples. All requests must comply with the Copyright Act 1968. The core data governance framework applied is the AIATSIS Code of Ethics for Aboriginal and Torres Strait Islander Research, which supersedes the Guidelines for Ethical Research in Australian Indigenous Studies (GERAIS). Special requirements include adherence to Indigenous Data Governance and Sovereignty principles, ensuring meaningful engagement and reciprocity with Indigenous peoples, and obtaining permissions from copyright owners and relevant Aboriginal and/or Torres Strait Islander persons, families, or community representatives.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Not applicable (AIATSIS provides access to its collection, not a TRE for external data analysis. Data security for its own holdings is maintained internally.)
+
+**Contact and Application Portal:**
+- Primary contact: AIATSIS Collection Access Team, collections@aiatsis.gov.au (verify with custodian)
+- Application portal URL: https://aiatsis.gov.au/form/request-collection-access
+- Key documents / forms: Request Collection access form (online), Indemnity form (provided by AIATSIS), AIATSIS Code of Ethics for Aboriginal and Torres Strait Islander Research (https://aiatsis.gov.au/sites/default/files/2020-10/aiatsis-code-ethics.pdf), Guide to Applying the AIATSIS Code of Ethics (https://aiatsis.gov.au/sites/default/files/2020-10/aiatsis-guide-applying-code-ethics.pdf)
+
+**Indicative Timeline:**
+A table: Stage | Typical Duration
+| Initial Contact/Request Submission | N/A
+| Acknowledgement & Waiting Time Notification | Shortly after request
+| Ethics Approval (if applicable) | May take three months (verify with custodian)
+| Material Supply | Once signed indemnity, permission clearance, and payment received (variable)
+
+**Known Gaps / Verify with Custodian:**
+- Specific details on health-related datasets within the broader AIATSIS Collection.
+- Exact process and timeline for obtaining permissions from copyright owners and Indigenous communities.
+- Whether specific health-related data within the collection is identifiable or linkable.
+- Specific contact email for data access requests (collections@aiatsis.gov.au is inferred for general collection access).
+
+**Connections to Other Custodians / Pathways:**
+AIHW (Australian Institute of Health and Welfare) — for national health data linkage; ABS (Australian Bureau of Statistics) — for national statistical data linkage; Other Indigenous community organisations and research bodies — for collaborative research and data governance.
+
+**Source URLs:**
+https://aiatsis.gov.au/collection/using-collection/accessing-items-collection, https://aiatsis.gov.au/form/request-collection-access, https://aiatsis.gov.au/research/ethical-research, https://aiatsis.gov.au/sites/default/files/2020-10/aiatsis-code-ethics.pdf, https://aiatsis.gov.au/sites/default/files/2020-10/aiatsis-guide-applying-code-ethics.pdf, https://aiatsis.gov.au/about/connect-us/contact-us
+
+---
+
+## Pathway Card: NACCHO / Aboriginal Community Controlled Health Organisations (ACCHOs)
+
+**Custodian Type:** Private/NGO
+
+**Jurisdiction:** National (Australia), with operations across all states and territories
+
+**Primary Role:** NACCHO is the national peak body representing the Aboriginal Community Controlled Health Organisation (ACCHO) sector. ACCHOs provide comprehensive, culturally safe primary health care services to Aboriginal and Torres Strait Islander peoples, and play a critical role in data governance and sovereignty for Indigenous health data.
+
+**Key Data Holdings:**
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Primary health care data collected by ACCHOs | Patient demographics, clinical encounters, health outcomes, service utilisation | Identifiable | Linkable |
+| Aggregate health data for reporting and planning | De-identified aggregate data for sectoral planning and advocacy | De-identified | Linkable (verify with custodian) |
+
+**Data Access Pathway — Step by Step:**
+1. Initial Inquiry — Researcher — Direct contact with relevant ACCHO or NACCHO (verify with custodian) — (verify with custodian)
+2. Proposal Submission — Researcher — Research proposal outlining objectives, methodology, data requirements, and ethical considerations (verify with custodian) — (verify with custodian)
+3. Community Engagement & Approval — ACCHO/Community — Engagement with relevant Aboriginal communities and ACCHO boards for approval, ensuring cultural appropriateness and benefit sharing (verify with custodian) — (verify with custodian)
+4. Ethics Review — Ethics Committee (HREC) — Submission to appropriate Human Research Ethics Committee (HREC), potentially including an Indigenous-specific HREC (verify with custodian) — (verify with custodian)
+5. Data Sharing Agreement — Custodian/Researcher — Formal data sharing agreement outlining terms of access, use, storage, and destruction of data (verify with custodian) — (verify with custodian)
+6. Data Provision — Custodian — Provision of approved data, potentially within a secure environment (verify with custodian) — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+Approval from a Human Research Ethics Committee (HREC) is required, often with specific requirements for research involving Aboriginal and Torres Strait Islander peoples (e.g., Aboriginal Health & Medical Research Council (AH&MRC) Ethics Committee). Key legislation includes relevant privacy acts (e.g., Privacy Act 1988 (Cth)) and potentially state/territory health acts. The data governance framework applied is strongly guided by Indigenous Data Sovereignty principles, such as the Maiam nayri Wingara Indigenous Data Sovereignty Communiqué and the AIATSIS Code of Ethics for Aboriginal and Torres Strait Islander Research. Special requirements include genuine community control, benefit sharing, and adherence to cultural protocols for data related to Indigenous individuals and communities.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Not explicitly defined as a single platform; access typically managed by individual ACCHOs or through agreements with data linkage units. Secure data transfer and storage protocols are paramount. (verify with custodian)
+
+**Contact and Application Portal:**
+NACCHO (National Aboriginal Community Controlled Health Organisation), research@naccho.org.au (general research inquiries - verify for data access specifics), https://www.naccho.org.au/governance/ (general governance information, not a data portal). Key documents/forms are likely specific to individual ACCHOs or research projects. (verify with custodian)
+
+**Indicative Timeline:**
+| Stage | Typical Duration |
+|---|---|
+| Initial Inquiry | Varies |
+| Proposal Submission | Varies |
+| Community Engagement & Approval | Varies |
+| Ethics Review | Varies |
+| Data Sharing Agreement | Varies |
+| Data Provision | Varies |
+
+**Known Gaps / Verify with Custodian:**
+* Specific data access forms and application portals for individual ACCHOs.
+* Detailed timelines for each step of the data access process.
+* Exact procedures for community engagement and approval.
+* Specific data sharing agreements or templates.
+* Availability and requirements for Trusted Research Environments (TREs) or secure data access platforms.
+* Contact details for data access inquiries at individual ACCHOs.
+
+**Connections to Other Custodians / Pathways:**
+State and Territory Health Departments (for linked data, policy alignment); Australian Institute of Health and Welfare (AIHW) (for national data linkage and reporting); Australian Bureau of Statistics (ABS) (for population data linkage); Indigenous-specific Human Research Ethics Committees (HRECs) (for ethical oversight); Other ACCHOs (for multi-site studies or aggregated data)
+
+**Source URLs:**
+https://www.naccho.org/uploads/full-width-images/25-01-Data-Strategy.pdf, https://www.naccho.org.au/governance/, https://pmc.ncbi.nlm.nih.gov/articles/PMC7716440/, https://www.naccho.org.au/aboriginal-community-controlled-health/, https://www.aph.gov.au/DocumentStore.ashx?id=a10d9ecd-6346-42c3-aec6-bb0219df0efa&subId=704106, https://engage.dss.gov.au/wp-content/uploads/2025/12/NACCHO-Redacted.pdf, https://pmc.ncbi.nlm.nih.gov/articles/PMC8355598/, https://www.health.vic.gov.au/aboriginal-health/strengthening-lifelong-aboriginal-health-and-wellbeing-of-aboriginal-victorians, https://www.sciencedirect.com/science/article/pii/S1326020023007458, https://sahmri.blob.core.windows.net/communications/CREATE-Policy-Briefs-All.pdf, https://thephn.com.au/what-we-do/digital-health/health-e-together-for-accho, https://www.health.wa.gov.au/About-us/Policy-frameworks/Information-Management/Mandatory-requirements/Governance/Aboriginal-Data-Governance-Policy, https://www.lowitja.org.au/wp-content/uploads/2023/10/328550_data-governance-and-sovereignty.pdf, https://www.niaa.gov.au/resource-centre/framework-governance-indigenous-data, https://pmc.ncbi.nlm.nih.gov/articles/PMC12102749/
+
+---
+
+## Pathway Card: Australian Commission on Safety and Quality in Health Care (ACSQHC)
+
+**Custodian Type:** Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** The Australian Commission on Safety and Quality in Health Care (ACSQHC) leads and coordinates national improvements in safety and quality in health care. It is responsible for clinical quality registry data and safety and quality indicator data, which are crucial for monitoring and improving healthcare outcomes across Australia.
+
+**Key Data Holdings:**
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Clinical Quality Registry data | Data from various clinical conditions | (verify with custodian) | (verify with custodian) |
+| Safety and Quality Indicator data | Hospital-acquired complications, mortality, readmissions, patient experience, patient safety culture, maternity indicators | (verify with custodian) | (verify with custodian) |
+
+**Data Access Pathway — Step by Step:**
+1. Initial Inquiry — researcher — informal contact via email/phone (verify with custodian) — (verify timeline)
+2. Formal Application — researcher — data request form (verify with custodian) — (verify timeline)
+3. Ethics Approval — researcher/ethics committee — HREC approval (verify specific HREC) — (verify timeline)
+4. Data Access Agreement — researcher/custodian — formal data sharing agreement (verify with custodian) — (verify timeline)
+5. Data Provision — custodian — data provided via secure environment (verify TRE platform) — (verify timeline)
+
+**Ethics and Governance Requirements:**
+Ethics approval from a Human Research Ethics Committee (HREC) is generally required. Relevant legislation includes the Privacy Act 1988 and potentially specific health acts. The ACSQHC operates under its own Data Governance Framework and the Australian Framework for Clinical Quality Registries. The 'Five Safes' framework is likely applied. Special requirements may include de-identification of data, secure data access, and considerations for Indigenous data (verify with custodian).
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Likely required for sensitive health data. Specific platform names are not directly mentioned for ACSQHC in public snippets, but common Australian TREs include SURE or ABS DataLab. (verify with custodian for platform name and access type, or 'Not applicable')
+
+**Contact and Application Portal:**
+(verify with custodian for team name, email, and URL)
+
+**Indicative Timeline:**
+| Stage | Typical Duration |
+|---|---|
+| (verify with custodian) | (verify with custodian) |
+
+**Known Gaps / Verify with Custodian:**
+*   Specific data request forms and application portals.
+*   Detailed step-by-step access pathway with exact requirements and timelines.
+*   Specific Human Research Ethics Committees (HRECs) that must approve.
+*   Exact legislation and sections governing data access.
+*   Confirmation of data governance frameworks applied (e.g., Five Safes).
+*   Details on identifiable and linkable aspects of key datasets.
+*   Specific Trusted Research Environment (TRE) platforms used and access types (remote/on-site).
+*   Contact details (team name, email) and application portal URL.
+*   Typical durations for each stage of the data access process.
+*   Specific requirements for Indigenous data or cross-jurisdictional projects.
+
+**Connections to Other Custodians / Pathways:**
+AIHW (for broader health and welfare data), State/Territory Health Departments (for jurisdictional health data), Services Australia (for MBS/PBS data if linked to patient outcomes)
+
+**Source URLs:**
+https://www.safetyandquality.gov.au/sites/default/files/2021-06/acsqhc_-_data_governance_framework_-_dec_2016.pdf, https://www.safetyandquality.gov.au/publications-and-resources/resource-library/acsqhc-data-governance-framework, https://www.safetyandquality.gov.au/our-work/indicators-measurement-and-reporting/national-guidance-clinical-quality-registries, https://www.health.gov.au/our-work/national-clinical-quality-registry-program, https://www.aihw.gov.au/about-our-data/accessing-data-through-the-aihw, https://www.nhmrc.gov.au/about-us/publications/national-statement-ethical-conduct-human-research-2023, https://www.australiangenomics.org.au/publications/framework-for-australian-clinical-quality-registries-second-edition/
+
+---
+
+## Pathway Card: Australian Research Data Commons (ARDC)
+
+**Custodian Type:** Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** ARDC, through Health Data Australia, provides national research data infrastructure to facilitate the discovery, access, sharing, and reuse of Australian health data for research. It acts as a catalogue and intermediary, connecting researchers with data providers.
+
+**Key Data Holdings:**
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Clinical Trials Data | Datasets from over 70 Australian health research organisations (universities, medical research institutes, clinical trials networks, health services) | (verify with custodian) | (verify with custodian) |
+
+**Data Access Pathway — Step by Step:**
+1. Discover Data — Researcher — Health Data Australia portal — (timeline varies)
+2. Log in — Researcher — AAF credentials (Australian Access Federation) — (instant)
+3. Initiate Request — Researcher — "Access the data" button on dataset record view page — (instant)
+4. Complete Expression of Interest (EOI) Form — Researcher — EOI form (multiple tabs, mandatory fields, ethics approval upload if applicable) — (timeline varies by researcher)
+5. Submit Request — Researcher — EOI form submission — (instant)
+6. Receive Email Confirmation — Researcher — Email notification — (instant)
+7. Track Progress — Researcher — MyHDA profile page — (ongoing)
+8. Receive Updates — Researcher — Email notifications — (as updates occur)
+
+**Ethics and Governance Requirements:**
+Ethics approval is required for projects, uploaded via EOI form. Data governance framework applied: Standards designed by the Australian clinical trials community (verify specific framework like Five Safes). Special requirements: Indigenous data, identifiable data, cross-jurisdictional (verify with custodian).
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Not applicable (ARDC primarily facilitates access to data held by other custodians; verify if ARDC provides a TRE for analysis).
+
+**Contact and Application Portal:**
+- Primary contact: HESANDA Support Team, hesanda@ardc.edu.au
+- Application portal URL: https://researchdata.edu.au/health/
+- Key documents / forms: Expression of Interest (EOI) form (online within HDA portal)
+
+**Indicative Timeline:**
+Stage: Discover Data; Typical Duration: Varies
+Stage: Log in; Typical Duration: Instant
+Stage: Initiate Request; Typical Duration: Instant
+Stage: Complete EOI Form; Typical Duration: Varies by researcher
+Stage: Submit Request; Typical Duration: Instant
+Stage: Receive Email Confirmation; Typical Duration: Instant
+Stage: Track Progress; Typical Duration: Ongoing
+Stage: Receive Updates; Typical Duration: As updates occur
+
+**Known Gaps / Verify with Custodian:**
+- Specific frameworks for data governance (e.g., Five Safes).
+- Whether ARDC provides a TRE for data analysis or if it's solely a cataloguing and access request platform.
+- Details on identifiable and linkable aspects of datasets.
+- Specific legislation relevant to ARDC's operations.
+- Indicative timelines for review and data provision by data owners.
+- Process for data provision after approval (e.g., direct from data owner, via ARDC).
+
+**Connections to Other Custodians / Pathways:**
+Data providers (universities, medical research institutes, clinical trials networks, health services) via HeSANDA (Health Studies Australian National Data Asset program).
+
+**Source URLs:**
+https://ardc.edu.au/services/health-data-australia/, https://documentation.ardc.edu.au/hda/how-to-request-access-to-a-health-dataset
+
+---
+
+## Pathway Card: Private Hospital Data Bureau (PHDB) via AIHW / Department of Health
+
+**Custodian Type:** Commonwealth
+
+**Jurisdiction:** Commonwealth
+
+**Primary Role:** The Private Hospital Data Bureau (PHDB), managed by the Australian Institute of Health and Welfare (AIHW) and the Department of Health, collects and manages private hospital episode data to inform health policy, support health service planning, and contribute to national health reporting and pricing mechanisms.
+
+**Key Data Holdings:**
+
+| Dataset Name | Description | Identifiable? | Linkable? |
+|---|---|---|---|
+| Private Hospital Data Bureau (PHDB) data | Episode-level records from admitted patient morbidity data, including patient demographics, clinical information, and hospital charges. Collected since 1997. | De-identified (verify with custodian) | (verify with custodian) |
+
+**Data Access Pathway — Step by Step:**
+1. Initial Inquiry — researcher — Check publicly available data and AIHW data collections; contact AIHW experts if unsure — (verify with custodian)
+2. Data Request Submission — researcher — Complete a data on request form (specific form name to be verified) — (verify with custodian)
+3. Ethical Review — ethics committee / custodian — Ethical approval by AIHW Ethics Committee (for sensitive data or data linkage requests) at quarterly meetings — (verify with custodian)
+4. Data Access Decision — custodian — AIHW assesses requests against legislation, privacy principles, and agreements, applying the Five Safes framework — (verify with custodian)
+5. Data Provision — custodian — Data provided; charges may apply — (verify with custodian)
+
+**Ethics and Governance Requirements:**
+AIHW Ethics Committee approves projects, especially for sensitive data and data linkage. The AIHW adheres to the National Statement on Ethical Conduct in Human Research, Australian Code for the Responsible Conduct of Research, and Privacy Act 1988 (Cwlth). The Five Safes framework is embedded in data sharing and release decisions. All data linking requests must be approved by the AIHW Ethics Committee.
+
+**Trusted Research Environment (TRE) / Secure Access:**
+Some data may be accessible via the Data Availability and Transparency Scheme (DATA Scheme) through Dataplace for accredited users. For other data, secure access methods are used, but specific TRE platforms (e.g., AIHW Secure Environment) and access types (remote/on-site) need to be verified with the custodian.
+
+**Contact and Application Portal:**
+Primary contact: info@aihw.gov.au. Application portal URL: For DATA Scheme requests, submit via Dataplace (URL to be verified). For other data on request, a form is completed after expert consultation (specific form URL to be verified). Key documents/forms: AIHW corporate brochure: Accessing data (PDF, 925kB) [https://www.aihw.gov.au/getmedia/acc67a88-1b4d-4caa-832e-6c83218cc722/brochure_accessing_data-final-04-06-2021.pdf.aspx]
+
+**Indicative Timeline:**
+Stage: Initial Inquiry: (verify duration); Stage: Formal Request Submission: (verify duration); Stage: Ethical Review: quarterly meetings (verify duration); Stage: Data Access Decision: (verify duration); Stage: Data Provision: 2 weeks to several months (depending on complexity)
+
+**Known Gaps / Verify with Custodian:**
+*   Exact identifiable/linkable status of PHDB data for specific research projects.
+*   Specific names and URLs for data request forms and application portals (other than DATA Scheme).
+*   Detailed step-by-step process and indicative timelines for data access for non-DATA Scheme requests.
+*   Specific legislation sections relevant to PHDB data access.
+*   Whether PHDB data is directly accessible via a TRE like SURE or if it's managed within an AIHW-specific secure environment.
+*   Remote vs. on-site access details for secure environments.
+*   Cost estimate for data requests (minimum $300 + GST, but project-specific).
+
+**Connections to Other Custodians / Pathways:**
+Department of Social Services (DSS) for Data Over Multiple Individual Occurrences (DOMINO) accessible through AIHW. Independent Health and Aged Care Pricing Authority (IHACPA) uses PHDB data for National Efficient Price (NEP) calculations. Potentially other Commonwealth or State health data custodians for linked data projects, as AIHW is a national data integration body.
+
+**Source URLs:**
+https://www.aihw.gov.au/about-our-data/accessing-data-through-the-aihw, https://www.health.gov.au/topics/hospital-care/our-role/phdb-data?language=en, https://www.aihw.gov.au/about-our-data/accessing-data-through-the-aihw/data-on-request
+
+---

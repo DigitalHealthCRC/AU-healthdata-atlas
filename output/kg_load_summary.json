@@ -1,0 +1,42 @@
+{
+  "validation": {
+    "data_modeling": {
+      "resource_count": 12,
+      "tool_count": 16,
+      "example_call_ok": true
+    },
+    "cypher": {
+      "tools": [
+        "get_neo4j_schema",
+        "read_neo4j_cypher",
+        "write_neo4j_cypher"
+      ],
+      "read_probe": "[{\"ok\": 1}]"
+    }
+  },
+  "load": {
+    "loaded_counts": {
+      "custodians": 32,
+      "datasets": 180,
+      "pathwaySteps": 180,
+      "processLines": 32,
+      "sourceUrls": 146,
+      "connectedTo": 36,
+      "connectionReviews": 57
+    },
+    "input_counts": {
+      "custodians": 32,
+      "datasets": 180,
+      "pathway_steps": 180,
+      "accepted_connections": 36,
+      "review_connections": 57
+    }
+  },
+  "matching": {
+    "override_rule_count": 25
+  },
+  "artifacts": {
+    "review_csv": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\output\\connection_match_review.csv",
+    "override_csv": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\config\\connection_alias_overrides.csv"
+  }
+}
