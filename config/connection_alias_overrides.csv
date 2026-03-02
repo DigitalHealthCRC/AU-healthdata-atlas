@@ -24,10 +24,19 @@ custodian:sa-health-sa-nt-datalink,australian government data custodians,force_a
 custodian:australian-institute-of-aboriginal-and-torres-strait-islander-studies,other indigenous community organisations and research bodies,force_accept,custodian:national-aboriginal-community-controlled-health-organisation,AIATSIS governance relationship is with NACCHO rather than generic Indigenous organisations
 custodian:cancer-institute-nsw,nsw health,force_accept,custodian:nsw-health-ministry-of-health-nsw,Cancer Institute NSW sits within the NSW Health portfolio
 custodian:population-health-research-network,nsw health,force_accept,custodian:nsw-health-ministry-of-health-nsw,PHRN partner reference should resolve to NSW Health
+custodian:population-health-research-network,wa health,force_accept,custodian:wa-health-data-linkage-services-wa,PHRN partner reference should resolve to WA Health / Data Linkage Services WA
 custodian:australian-institute-of-health-and-welfare-data-integration-services-centre,nsw health,force_accept,custodian:nsw-health-ministry-of-health-nsw,NHDH partner reference should resolve to NSW Health
 custodian:nsw-health-ministry-of-health-nsw,cherel,force_accept,custodian:centre-for-health-record-linkage,CHeReL is the named linkage partner for NSW Health
 custodian:nsw-health-ministry-of-health-nsw,bureau of health information,force_reject,,Bureau of Health Information is not represented as a custodian node in this graph
 custodian:centre-for-health-record-linkage,nsw health,force_accept,custodian:nsw-health-ministry-of-health-nsw,CHeReL works directly with NSW Health
+custodian:medicineinsight-australian-commission-on-safety-and-quality-in-health-care,racgp,force_reject,,RACGP is a partner organisation but not a custodian node in this graph
+custodian:national-aboriginal-community-controlled-health-organisation,acchos,force_reject,,ACCHOs refers to the sector collectively rather than the NACCHO organisation node
+custodian:national-aboriginal-community-controlled-health-organisation,icspr,force_reject,,ICSPR repository is not represented as a custodian node in this graph
+custodian:phn-cooperative-primary-health-insights,primary health networks phns,force_reject,,PHNs refers to the collective network rather than a single custodian node
+custodian:australian-prudential-regulation-authority,reserve bank of australia rba,force_reject,,RBA is outside the graph scope and not represented as a custodian node
+custodian:australian-prudential-regulation-authority,private health insurers,force_reject,,Private health insurers are a class of regulated entities rather than a single custodian node
+custodian:centre-for-victorian-data-linkage,registry of births deaths and marriages,force_reject,,Registry of Births Deaths and Marriages is not represented as a custodian node in this graph
+custodian:queensland-cyber-infrastructure-foundation,university of queensland,force_reject,,University of Queensland is a collaborating institution but not a custodian node in this graph
 custodian:services-australia,other state territory health departments,review_only,,Still too broad for safe automatic linkage
 custodian:queensland-cyber-infrastructure-foundation,australian access federation aaf,force_reject,,External authentication service not represented as a custodian node
 custodian:queensland-cyber-infrastructure-foundation,australian state and federal data custodians,force_reject,,Generic structural note rather than a single custodian

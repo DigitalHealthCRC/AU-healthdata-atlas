@@ -21,19 +21,19 @@
       "pathwaySteps": 160,
       "processLines": 33,
       "sourceUrls": 161,
-      "connectedTo": 95,
+      "connectedTo": 96,
       "connectionReviews": 107
     },
     "input_counts": {
       "custodians": 33,
       "datasets": 231,
       "pathway_steps": 163,
-      "accepted_connections": 95,
+      "accepted_connections": 96,
       "review_connections": 107
     }
   },
   "matching": {
-    "override_rule_count": 32,
+    "override_rule_count": 41,
     "gap_custodian_count": 1
   },
   "artifacts": {

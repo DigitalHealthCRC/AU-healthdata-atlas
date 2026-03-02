@@ -133,6 +133,12 @@ Decision flow:
 Accepted edges become `CONNECTED_TO`.
 All evaluated candidates are logged as `ConnectionReview` nodes and exported to CSV for manual QA.
 
+Intentional exclusions:
+
+- References to collective groups or sectors such as `State and Territory Health Authorities`, `Primary Health Networks (PHNs)`, `ACCHOs`, and `Private Health Insurers` are not converted to `CONNECTED_TO` when there is no single target custodian node.
+- References to partner organisations or external institutions not represented as custodian nodes, such as `RACGP`, `Reserve Bank of Australia`, `University of Queensland`, `Bureau of Health Information`, `Registry of Births Deaths and Marriages`, and `ICSPR`, are explicitly rejected in `config/connection_alias_overrides.csv`.
+- These exclusions still appear in `output/connection_match_review.csv` for auditability, but they are expected rejects rather than unresolved matching failures.
+
 ## 7) Output artifacts (QA and audit)
 
 After a successful run:
@@ -146,11 +152,11 @@ After a successful run:
 
 Latest sample summary in this repo shows:
 
-- 32 custodians
-- 180 datasets
-- 180 pathway steps
-- 36 accepted `CONNECTED_TO` edges
-- 57 connection review records
+- 33 custodians
+- 231 datasets
+- 160 stored pathway steps (`163` parsed input steps before graph deduplication)
+- 96 accepted `CONNECTED_TO` edges
+- 107 connection review records
 
 ## 8) Send data to the platform
 
