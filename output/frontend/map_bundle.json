@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-03-02T03:01:14.589006+00:00",
+  "generatedAt": "2026-03-02T03:20:20.933122+00:00",
   "summary": {
     "lineCount": 33,
     "laneCount": 3,
-    "branchCount": 92
+    "branchCount": 93
   },
   "lanes": [
     {
@@ -537,6 +537,15 @@
       "matchScore": 1.01
     },
     {
+      "fromStepId": "step:custodian:tasmanian-department-of-health-tasmanian-data-linkage-unit:1",
+      "toStepId": "step:custodian:national-health-and-medical-research-council-nhmrc-human-research-ethics-committees-hrecs:1",
+      "fromLineId": "line:custodian:tasmanian-department-of-health-tasmanian-data-linkage-unit",
+      "toLineId": "line:custodian:national-health-and-medical-research-council-nhmrc-human-research-ethics-committees-hrecs",
+      "reasonSegment": "NHMRC: Approves ethics applications for data linkage projects",
+      "matchType": "alias_leading",
+      "matchScore": 1.01
+    },
+    {
       "fromStepId": "step:custodian:australian-commission-on-safety-and-quality-in-health-care:1",
       "toStepId": "step:custodian:national-health-and-medical-research-council-nhmrc-human-research-ethics-committees-hrecs:1",
       "fromLineId": "line:custodian:australian-commission-on-safety-and-quality-in-health-care",
@@ -564,15 +573,6 @@
       "matchScore": 1.01
     },
     {
-      "fromStepId": "step:custodian:tasmanian-department-of-health-tasmanian-data-linkage-unit:1",
-      "toStepId": "step:custodian:national-health-and-medical-research-council-nhmrc-human-research-ethics-committees-hrecs:1",
-      "fromLineId": "line:custodian:tasmanian-department-of-health-tasmanian-data-linkage-unit",
-      "toLineId": "line:custodian:national-health-and-medical-research-council-nhmrc-human-research-ethics-committees-hrecs",
-      "reasonSegment": "NHMRC: Approves ethics applications for data linkage projects",
-      "matchType": "alias_leading",
-      "matchScore": 1.01
-    },
-    {
       "fromStepId": "step:custodian:nt-health-nt-health-research-governance-office:1",
       "toStepId": "step:custodian:national-health-and-medical-research-council-nhmrc-human-research-ethics-committees-hrecs:1",
       "fromLineId": "line:custodian:nt-health-nt-health-research-governance-office",
@@ -582,20 +582,20 @@
       "matchScore": 1.01
     },
     {
-      "fromStepId": "step:custodian:private-hospital-data-bureau:1",
-      "toStepId": "step:custodian:population-health-research-network:1",
-      "fromLineId": "line:custodian:private-hospital-data-bureau",
-      "toLineId": "line:custodian:population-health-research-network",
-      "reasonSegment": "PHRN: The Population Health Research Network (PHRN) supports researcher requests to access linked data, which could include PHDB data",
-      "matchType": "alias_leading",
-      "matchScore": 1.01
-    },
-    {
       "fromStepId": "step:custodian:tasmanian-department-of-health-tasmanian-data-linkage-unit:1",
       "toStepId": "step:custodian:population-health-research-network:1",
       "fromLineId": "line:custodian:tasmanian-department-of-health-tasmanian-data-linkage-unit",
       "toLineId": "line:custodian:population-health-research-network",
       "reasonSegment": "PHRN: Provides the Online Application System (OAS) for submitting expressions of interest",
+      "matchType": "alias_leading",
+      "matchScore": 1.01
+    },
+    {
+      "fromStepId": "step:custodian:private-hospital-data-bureau:1",
+      "toStepId": "step:custodian:population-health-research-network:1",
+      "fromLineId": "line:custodian:private-hospital-data-bureau",
+      "toLineId": "line:custodian:population-health-research-network",
+      "reasonSegment": "PHRN: The Population Health Research Network (PHRN) supports researcher requests to access linked data, which could include PHDB data",
       "matchType": "alias_leading",
       "matchScore": 1.01
     },
@@ -708,20 +708,20 @@
       "matchScore": 1.0
     },
     {
-      "fromStepId": "step:custodian:nsw-health-ministry-of-health-nsw:1",
-      "toStepId": "step:custodian:centre-for-health-record-linkage:1",
-      "fromLineId": "line:custodian:nsw-health-ministry-of-health-nsw",
-      "toLineId": "line:custodian:centre-for-health-record-linkage",
-      "reasonSegment": "CHeReL: NSW Health partners with CHeReL for secure record linkage of health data for research and policy development [3]",
-      "matchType": "override_force_accept",
-      "matchScore": 1.0
-    },
-    {
       "fromStepId": "step:custodian:act-health:1",
       "toStepId": "step:custodian:centre-for-health-record-linkage:1",
       "fromLineId": "line:custodian:act-health",
       "toLineId": "line:custodian:centre-for-health-record-linkage",
       "reasonSegment": "CHeReL: ACT Health is a founding partner of the Centre for Health Record Linkage (CHeReL) at the NSW Ministry of Health and facilitates the provision of data to researchers and government agencies",
+      "matchType": "override_force_accept",
+      "matchScore": 1.0
+    },
+    {
+      "fromStepId": "step:custodian:nsw-health-ministry-of-health-nsw:1",
+      "toStepId": "step:custodian:centre-for-health-record-linkage:1",
+      "fromLineId": "line:custodian:nsw-health-ministry-of-health-nsw",
+      "toLineId": "line:custodian:centre-for-health-record-linkage",
+      "reasonSegment": "CHeReL: NSW Health partners with CHeReL for secure record linkage of health data for research and policy development [3]",
       "matchType": "override_force_accept",
       "matchScore": 1.0
     },
@@ -839,6 +839,15 @@
       "fromLineId": "line:custodian:australian-bureau-of-statistics",
       "toLineId": "line:custodian:services-australia",
       "reasonSegment": "Services Australia: The ABS links its data with data from Services Australia to create integrated datasets for research and statistical purposes",
+      "matchType": "override_force_accept",
+      "matchScore": 1.0
+    },
+    {
+      "fromStepId": "step:custodian:population-health-research-network:1",
+      "toStepId": "step:custodian:wa-health-data-linkage-services-wa:1",
+      "fromLineId": "line:custodian:population-health-research-network",
+      "toLineId": "line:custodian:wa-health-data-linkage-services-wa",
+      "reasonSegment": "WA Health: PHRN delivers coordinated data linkage infrastructure through partners in state governments, including WA Health",
       "matchType": "override_force_accept",
       "matchScore": 1.0
     },
