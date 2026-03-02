@@ -21,6 +21,302 @@ OVERRIDE_PATH = ROOT / "config" / "connection_alias_overrides.csv"
 OUT_DIR = ROOT / "output"
 REVIEW_CSV = OUT_DIR / "connection_match_review.csv"
 SUMMARY_JSON = OUT_DIR / "kg_load_summary.json"
+GAP_JSON = OUT_DIR / "gap_custodians.json"
+
+MOJIBAKE_EN_DASH = "\u00e2\u20ac\u201c"
+MOJIBAKE_EM_DASH = "\u00e2\u20ac\u201d"
+DASH_VARIANTS = ("\u2013", "\u2014", MOJIBAKE_EN_DASH, MOJIBAKE_EM_DASH)
+STEP_SPLIT_PATTERN = r"\s+(?:\u2013|\u2014|" + re.escape(MOJIBAKE_EN_DASH) + "|" + re.escape(MOJIBAKE_EM_DASH) + r"|-)\s+"
+FUZZY_ACCEPT_THRESHOLD = 0.90
+GENERIC_ACRONYM_ALIASES = {"ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA"}
+
+NOT_A_CUSTODIAN_PATTERNS = (
+    "family cancer centres",
+    "university",
+    "universities",
+    "research institution",
+    "research institutions",
+    "medical research institute",
+    "medical research institutes",
+    "clinical trials network",
+    "clinical trials networks",
+    "clinical network",
+    "clinical networks",
+    "aaf",
+    "australian access federation",
+    "funding bodies",
+    "insurance commission",
+    "department of transport",
+    "main roads wa",
+    "other acchos",
+)
+
+STRUCTURAL_NOTE_PATTERNS = (
+    "other data custodians",
+    "other commonwealth agencies",
+    "other state and territory",
+    "other state territory",
+    "state and territory health authorities",
+    "state and federal data custodians",
+    "australian state and federal data custodians",
+    "australian government data custodians",
+    "verify with custodian",
+    "not explicitly mentioned",
+    "not explicitly stated",
+)
+
+GAP_ENTITY_PATTERNS = {
+    "victorian comprehensive cancer centre": "Victorian Comprehensive Cancer Centre (VCCC) Data Connect",
+    "vccc data connect": "Victorian Comprehensive Cancer Centre (VCCC) Data Connect",
+}
+
+SEEDED_GAP_CUSTODIANS = [
+    {
+        "sourceId": "custodian:victorian-cancer-registry",
+        "sourceName": "Victorian Cancer Registry",
+        "segment": "Victorian Comprehensive Cancer Centre (VCCC) Data Connect",
+        "gapName": "Victorian Comprehensive Cancer Centre (VCCC) Data Connect",
+    }
+]
+
+EXTRA_ALIASES_BY_NAME = {
+    "Australian Commission on Safety and Quality in Health Care": {"ACSQHC"},
+    "Australian Bureau of Statistics": {"ABS"},
+    "Australian Institute of Health and Welfare": {"AIHW"},
+    "Australian Institute of Health and Welfare Data Integration Services Centre": {"AIHW DISC", "AIHW Data Integration Services", "Dataplace"},
+    "Australian Government Department of Health and Aged Care": {"Department of Health and Aged Care", "DoHAC"},
+    "Australian Research Data Commons": {"ARDC", "HeSANDA", "Health Data Australia"},
+    "Centre for Health Record Linkage": {"CHeReL"},
+    "National Aboriginal Community Controlled Health Organisation": {"NACCHO"},
+    "Population Health Research Network": {"PHRN"},
+    "Queensland Health": {"Data Linkage Queensland", "DLQ", "SALUD", "Statistical Analysis and Linkage Unit"},
+    "Department of Social Services": {"DSS", "DOMINO"},
+    "Secure Unified Research Environment": {"SURE"},
+    "Tasmanian Department of Health / Tasmanian Data Linkage Unit": {"Tasmanian DoH", "TDLU"},
+    "Victorian Agency for Health Information": {"VAHI", "Department of Health and Human Services Victoria", "DHHS Victoria"},
+}
+
+SPECIAL_TYPES_BY_NAME = {
+    "APRA": "Statistical Publisher",
+    "ARDC": "Data Discovery Service",
+    "NACCHO / Aboriginal Community Controlled Health Organisations (ACCHOs)": "Governance Body",
+}
+
+SPECIAL_PRIMARY_ROLES_BY_NAME = {
+    "APRA": (
+        "APRA is a statistical publisher for private health insurance industry reporting. "
+        "It publishes aggregate private health insurance statistics for public download and does not operate "
+        "a researcher-facing application process for individual-level data access."
+    ),
+    "ARDC": (
+        "ARDC operates Health Data Australia (HeSANDA) as a national health data discovery service. "
+        "It helps researchers find datasets and identify the holding custodian, but does not itself hold or release "
+        "research data directly."
+    ),
+    "NACCHO / Aboriginal Community Controlled Health Organisations (ACCHOs)": (
+        "NACCHO is the national peak body for the Aboriginal Community Controlled Health Organisation sector. "
+        "It serves as both a data governance body for Indigenous health research and an indirect data custodian "
+        "through its member ACCHOs, with a central role in consent, ethics, sovereignty, and sector-wide reporting."
+    ),
+    "Department of Social Services": (
+        "DSS is the Commonwealth custodian of welfare, disability, and social services administrative data. "
+        "Key datasets include DOMINO, payment and programme data, NDIS-related holdings via NDIA, and aged care "
+        "program data used in policy and linked-data research."
+    ),
+}
+
+SPECIAL_ACCESS_STEPS_BY_NAME = {
+    "APRA": (
+        "1. Download published statistics - Researcher - APRA private health insurance statistics pages - 1-2 weeks"
+    ),
+    "ARDC": (
+        "1. Search HeSANDA catalogue - Researcher - Health Data Australia portal search - 1-2 weeks\n"
+        "2. Identify holding custodian - Researcher - Review dataset metadata, access conditions, and contact details - 1-2 weeks\n"
+        "3. Follow custodian access pathway - Researcher - Apply directly to the identified custodian - 1-4 weeks"
+    ),
+    "Department of Social Services": (
+        "1. Initial inquiry - Researcher - Contact DSS Data Governance team or confirm whether AIHW Data Integration Services is the correct intermediary - 1-2 weeks\n"
+        "2. Project and governance submission - Researcher - Submit research proposal, governance materials, and data requirements - 1-4 weeks\n"
+        "3. Ethics and custodian review - Researcher/Custodian - Obtain HREC approval and DSS data governance approval where required - 4-12 weeks\n"
+        "4. Data preparation and provision - Custodian - DSS or AIHW prepares approved extracts for secure access - 2-12 weeks"
+    ),
+}
+
+SPECIAL_CONNECTIONS_BY_NAME = {
+    "Department of Health and Aged Care": [
+        "Australian Institute of Health and Welfare (AIHW) (for NIHSI/NHDH, GTD data)",
+        "Services Australia (for Medicare statistics, MBS/PBS data)",
+    ],
+    "TGA": [
+        "Services Australia (PBS adverse event linkage and pharmacovigilance context)",
+        "AIHW (therapeutic goods reporting and linked health data context)",
+        "Department of Health and Aged Care (regulatory policy and portfolio oversight)",
+    ],
+    "Cancer Institute NSW": [
+        "NSW Health - Ministry of Health NSW (Cancer Institute NSW is a statutory body within the NSW Health portfolio)",
+    ],
+    "Victorian Cancer Registry": [
+        "Australian Institute of Health and Welfare (AIHW) (for compiling national cancer figures)",
+        "VAHI (Victorian Agency for Health Information) (Victorian health system reporting and governance alignment)",
+    ],
+    "Queensland Health": [
+        "Australian Institute of Health and Welfare (AIHW) (national hospital data reporting)",
+        "QCIF (secure infrastructure used by Queensland researchers working with Queensland Health data)",
+        "PHRN (through Data Linkage Queensland / SALUD for linkage)",
+        "Cancer Institute NSW (cross-state cancer registry comparison work)",
+    ],
+    "QCIF": [
+        "Queensland Health (secure research infrastructure for Queensland Health data users)",
+        "PHRN (national linkage network peer infrastructure)",
+        "SURE - Secure Unified Research Environment (TRE infrastructure peer)",
+    ],
+    "WA Health / Data Linkage Services WA": [
+        "Australian Institute of Health and Welfare (AIHW) (cross-jurisdictional research and reporting)",
+        "Population Health Research Network (PHRN) (national linkage network membership)",
+    ],
+    "SA Health / SA NT DataLink": [
+        "Services Australia (for MBS, PBS, and Centrelink data used in linked projects)",
+        "Population Health Research Network (PHRN) (national linkage network membership)",
+    ],
+    "ABS DataLab": [
+        "AIHW (linked data projects via AIHW Data Integration Services)",
+        "Services Australia (MBS, PBS, and Centrelink linkage in approved projects)",
+        "PHRN (national data linkage ecosystem)",
+        "Department of Health and Aged Care (Commonwealth health data access context)",
+    ],
+    "AIHW Data Integration Services": [
+        "Services Australia (for MBS/PBS data)",
+        "AIHW (host agency and data integration service operator)",
+    ],
+    "MedicineInsight (NPS MedicineWise)": [
+        "NHMRC / HRECs (ethics approval and governance requirements for research use)",
+        "Department of Health and Aged Care (primary care policy reporting)",
+        "PHN Cooperative / Primary Health Insights (PHN-level data aggregation and service planning)",
+        "Services Australia (MBS/PBS cross-reference in primary care analysis)",
+    ],
+    "NHMRC / HRECs": [
+        "AIHW (HREC approval is commonly required for AIHW data access)",
+        "Services Australia (HREC approval is commonly required for linked MBS/PBS access)",
+    ],
+    "AIATSIS": [
+        "AIHW (national health data linkage and reporting context)",
+        "Australian Bureau of Statistics (ABS) (national statistical linkage context)",
+        "NACCHO / Aboriginal Community Controlled Health Organisations (ACCHOs) (Indigenous data governance alignment)",
+    ],
+    "NACCHO / Aboriginal Community Controlled Health Organisations (ACCHOs)": [
+        "AIHW (national Indigenous health reporting and linkage)",
+        "Australian Bureau of Statistics (ABS) (population and community linkage context)",
+        "NSW Health - Ministry of Health NSW (policy alignment and linked data projects)",
+        "VAHI (Victorian Agency for Health Information) (policy alignment and linked data projects)",
+        "Queensland Health (policy alignment and linked data projects)",
+        "WA Health / Data Linkage Services WA (policy alignment and linked data projects)",
+        "SA Health / SA NT DataLink (policy alignment and linked data projects)",
+        "ACT Health (policy alignment and linked data projects)",
+        "NT Health / NT Health Research Governance Office (policy alignment and linked data projects)",
+        "Tasmanian Department of Health / Tasmanian Data Linkage Unit (TDLU) (policy alignment and linked data projects)",
+    ],
+    "ARDC": [
+        "AIHW (Health Data Australia catalogue includes AIHW collections)",
+        "Australian Bureau of Statistics (ABS) (ABS datasets are discoverable through Health Data Australia)",
+        "NHMRC / HRECs (research data management and governance alignment)",
+    ],
+    "AIHW": [
+        "Department of Social Services (DSS) (DOMINO accessible via AIHW Data Integration Services)",
+    ],
+    "Private Hospital Data Bureau (PHDB) via AIHW / Department of Health": [
+        "Department of Social Services (DSS) (DOMINO upstream provider for linked work via AIHW)",
+        "Australian Institute of Health and Welfare (AIHW) (PHDB management and access coordination)",
+        "Department of Health and Aged Care (policy and stewardship context)",
+    ],
+}
+
+SPECIAL_DATASETS_BY_NAME = {
+    "APRA": [
+        {
+            "name": "Private health insurance statistics",
+            "description": "Published aggregate private health insurance tables and industry statistics.",
+            "identifiable": "No",
+            "linkable": "No (aggregate only)",
+            "source": "remediation",
+        }
+    ],
+    "ARDC": [
+        {
+            "name": "Health Data Australia (HeSANDA) catalogue",
+            "description": "Metadata catalogue for Australian health datasets discoverable through ARDC infrastructure.",
+            "identifiable": "No",
+            "linkable": "No",
+            "source": "remediation",
+        }
+    ],
+    "NACCHO / Aboriginal Community Controlled Health Organisations (ACCHOs)": [
+        {
+            "name": "NACCHO Member Organisation Health Data",
+            "description": "Aggregated primary care data from ACCHO member services.",
+            "identifiable": "Yes (de-identified for reporting)",
+            "linkable": "Yes (via AIHW Data Integration Services)",
+            "source": "remediation",
+        },
+        {
+            "name": "QAIHC Health Data Collections",
+            "description": "Queensland Aboriginal and Islander Health Council member data.",
+            "identifiable": "Yes (de-identified)",
+            "linkable": "Yes (verify with custodian)",
+            "source": "remediation",
+        },
+        {
+            "name": "AMSANT Health Data",
+            "description": "Aboriginal Medical Services Alliance NT member data.",
+            "identifiable": "Yes (de-identified)",
+            "linkable": "Yes (verify with custodian)",
+            "source": "remediation",
+        },
+        {
+            "name": "Close the Gap data",
+            "description": "National progress data on Indigenous health targets.",
+            "identifiable": "No",
+            "linkable": "No (aggregate only)",
+            "source": "remediation",
+        },
+    ],
+    "Department of Social Services": [
+        {
+            "name": "DOMINO",
+            "description": "Data Over Multiple Individual Occurrences covering income support and welfare payments.",
+            "identifiable": "Yes",
+            "linkable": "Yes (via AIHW Data Integration Services)",
+            "source": "remediation",
+        },
+        {
+            "name": "DSS Payment and Programme Data",
+            "description": "Administrative data on Commonwealth welfare payments and program participation.",
+            "identifiable": "Yes",
+            "linkable": "Yes",
+            "source": "remediation",
+        },
+        {
+            "name": "NDIS participant data",
+            "description": "Participant-level NDIS administrative data managed with NDIA involvement.",
+            "identifiable": "Yes",
+            "linkable": "Yes",
+            "source": "remediation",
+        },
+    ],
+}
+
+LINKAGE_PLATFORM_BY_NAME = {
+    "Queensland Health": "Data Linkage Queensland",
+    "WA Health / Data Linkage Services WA": "Data Linkage Services WA",
+    "SA Health / SA NT DataLink": "SA NT DataLink",
+    "Tasmanian Department of Health / Tasmanian Data Linkage Unit (TDLU)": "Tasmanian Data Linkage Unit",
+    "ACT Health": "CHeReL",
+    "Centre for Victorian Data Linkage (CVDL)": "Centre for Victorian Data Linkage",
+    "CHeReL": "CHeReL",
+    "PHRN": "PHRN",
+    "AIHW": "AIHW Data Integration Services",
+    "AIHW Data Integration Services": "AIHW Data Integration Services",
+    "ABS DataLab": "ABS DataLab",
+}
 
 
 CONSTRAINT_QUERIES = [
@@ -52,8 +348,15 @@ class ConnectionOverrideRule:
     notes: str
 
 
+def replace_dash_variants(value: str) -> str:
+    out = value or ""
+    for dash in DASH_VARIANTS:
+        out = out.replace(dash, "-")
+    return out
+
+
 def normalize_text(value: str) -> str:
-    value = value or ""
+    value = replace_dash_variants(value or "")
     value = unicodedata.normalize("NFKD", value)
     value = value.encode("ascii", "ignore").decode("ascii")
     value = value.lower()
@@ -106,14 +409,121 @@ def extract_subject_short(subject: str) -> str:
 def split_delimited(text: str) -> list[str]:
     if not text:
         return []
-    parts = re.split(r"[/,;]\s*", text)
+    parts = re.split(r"\s+/\s+|[;,]\s*", replace_dash_variants(text))
     return [p.strip() for p in parts if p.strip()]
+
+
+def normalize_custodian_type_name(value: str) -> str:
+    value = replace_dash_variants(value)
+    value = re.sub(r"\bState\s*-\s*([A-Za-z]{2,3})\b", lambda m: f"State - {m.group(1).upper()}", value)
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def looks_like_placeholder(value: str) -> bool:
+    norm = normalize_text(value)
+    if not norm:
+        return True
+    placeholder_terms = (
+        "verify with custodian",
+        "not specified",
+        "to be verified",
+        "n a",
+        "not applicable",
+        "timeline varies",
+        "varies by",
+        "as agreed",
+    )
+    return any(term in norm for term in placeholder_terms)
+
+
+def infer_step_timeline(text: str, actor: str, channel: str, timeline: str) -> str:
+    if timeline and not looks_like_placeholder(timeline):
+        return timeline.strip()
+
+    basis = normalize_text(" ".join([text, actor, channel]))
+    if any(term in basis for term in ("linkage", "linked data", "data linkage")):
+        return "3-6 months"
+    if any(term in basis for term in ("ethic", "hrec")):
+        return "4-12 weeks"
+    if any(
+        term in basis
+        for term in (
+            "onboarding",
+            "register and activate account",
+            "account setup",
+            "activate account",
+            "safe onboarding",
+        )
+    ):
+        return "1-2 weeks"
+    if any(
+        term in basis
+        for term in (
+            "decision",
+            "approval",
+            "review",
+            "feasibility",
+            "governance",
+            "board",
+            "risk assessment",
+        )
+    ):
+        return "2-8 weeks"
+    if any(
+        term in basis
+        for term in (
+            "provision",
+            "grant access",
+            "transfer",
+            "extract",
+            "supply",
+            "download published statistics",
+        )
+    ):
+        return "2-12 weeks"
+    if any(term in basis for term in ("submit", "application", "proposal", "request", "expression of interest", "eoi")):
+        return "1-4 weeks"
+    if any(
+        term in basis
+        for term in (
+            "initial inquiry",
+            "initial enquiry",
+            "contact",
+            "discover",
+            "search",
+            "check publicly available",
+            "review our data collections",
+            "identify holding custodian",
+        )
+    ):
+        return "1-2 weeks"
+    if any(term in basis for term in ("close project", "destroy data", "progress report", "final report")):
+        return "1-2 weeks"
+    return "2-8 weeks"
 
 
 def parse_urls(text: str) -> list[str]:
     if not text:
         return []
     return sorted(set(re.findall(r"https?://[^\s)]+", text)))
+
+
+def build_step_record(number: int, text: str, actor: str = "", channel: str = "", timeline: str = "") -> dict[str, Any]:
+    lane_basis = f"{text} {actor}".lower()
+    lane = "Custodian"
+    if any(k in lane_basis for k in ["researcher", "applicant"]):
+        lane = "Researcher"
+    elif any(k in lane_basis for k in ["hrec", "ethic", "committee", "governance", "approval"]):
+        lane = "EthicsRegulatory"
+
+    return {
+        "number": number,
+        "text": text.strip(),
+        "actor": actor.strip(),
+        "channel": channel.strip(),
+        "timeline": infer_step_timeline(text, actor, channel, timeline),
+        "lane": lane,
+    }
 
 
 def parse_pathway_steps(step_text: str) -> list[dict[str, Any]]:
@@ -129,7 +539,7 @@ def parse_pathway_steps(step_text: str) -> list[dict[str, Any]]:
             continue
         num = int(m.group(1))
         body = m.group(2).strip()
-        parts = re.split(r"\s+[—-]\s+", body)
+        parts = re.split(STEP_SPLIT_PATTERN, body)
         text = body
         actor = ""
         channel = ""
@@ -146,24 +556,37 @@ def parse_pathway_steps(step_text: str) -> list[dict[str, Any]]:
         elif len(parts) == 2:
             text = parts[0].strip()
             actor = parts[1].strip()
+        steps.append(build_step_record(num, text, actor, channel, timeline))
+    if steps:
+        return steps
 
-        lane_basis = f"{text} {actor}".lower()
-        lane = "Custodian"
-        if any(k in lane_basis for k in ["researcher", "applicant"]):
-            lane = "Researcher"
-        elif any(k in lane_basis for k in ["hrec", "ethic", "committee", "governance", "approval"]):
-            lane = "EthicsRegulatory"
+    compact = re.sub(r"\s+", " ", replace_dash_variants(step_text)).strip()
+    for match in re.finditer(r"Step\s*(\d+)\s*:\s*(.*?)(?=\s*Step\s*\d+\s*:|$)", compact, flags=re.IGNORECASE):
+        num = int(match.group(1))
+        body = match.group(2).strip(" |")
 
-        steps.append(
-            {
-                "number": num,
-                "text": text,
-                "actor": actor,
-                "channel": channel,
-                "timeline": timeline,
-                "lane": lane,
-            }
-        )
+        text = body
+        actor = ""
+        channel = ""
+        timeline = ""
+
+        text_match = re.match(r"^(.*?)(?=\s*\|\s*Actor\s*:|\s*\|\s*Form/Portal\s*:|\s*\|\s*Duration\s*:|$)", body, flags=re.IGNORECASE)
+        if text_match:
+            text = text_match.group(1).strip(" |")
+
+        actor_match = re.search(r"\|\s*Actor\s*:\s*(.*?)(?=\s*\|\s*Form/Portal\s*:|\s*\|\s*Duration\s*:|$)", body, flags=re.IGNORECASE)
+        if actor_match:
+            actor = actor_match.group(1).strip(" |")
+
+        channel_match = re.search(r"\|\s*Form/Portal\s*:\s*(.*?)(?=\s*\|\s*Duration\s*:|$)", body, flags=re.IGNORECASE)
+        if channel_match:
+            channel = channel_match.group(1).strip(" |")
+
+        timeline_match = re.search(r"\|\s*Duration\s*:\s*(.*)$", body, flags=re.IGNORECASE)
+        if timeline_match:
+            timeline = timeline_match.group(1).strip(" |")
+
+        steps.append(build_step_record(num, text, actor, channel, timeline))
     return steps
 
 
@@ -171,6 +594,30 @@ def parse_csv_datasets(key_datasets: str) -> list[dict[str, str]]:
     if not key_datasets:
         return []
     cleaned = key_datasets.replace("\n", " ").strip()
+    pipe_matches = list(
+        re.finditer(
+            r"(?P<name>[^|]+)\|(?P<description>[^|]+)\|(?P<identifiable>[^|]+)\|(?P<linkable>.*?)(?=(?:[A-Z0-9][^|]{1,160}\|[^|]{1,600}\|(?:De-identified|Identifiable|Identified|Yes|No|Aggregate|Aggregated|Not publicly available)\b)|$)",
+            cleaned,
+            flags=re.IGNORECASE,
+        )
+    )
+    if pipe_matches:
+        out: list[dict[str, str]] = []
+        for match in pipe_matches:
+            name = match.group("name").strip()
+            if not name:
+                continue
+            out.append(
+                {
+                    "name": name,
+                    "description": match.group("description").strip(),
+                    "identifiable": match.group("identifiable").strip(),
+                    "linkable": match.group("linkable").strip(),
+                    "source": "csv",
+                }
+            )
+        if out:
+            return out
     if ")," in cleaned:
         chunks = cleaned.split("),")
         entries: list[str] = []
@@ -201,12 +648,24 @@ def parse_csv_datasets(key_datasets: str) -> list[dict[str, str]]:
 
 def extract_md_cards(md_text: str) -> list[tuple[str, str]]:
     cards: list[tuple[str, str]] = []
-    matches = list(re.finditer(r"^## Pathway Card:\s*(.+)$", md_text, flags=re.MULTILINE))
-    for i, match in enumerate(matches):
+    legacy_matches = list(re.finditer(r"^## Pathway Card:\s*(.+)$", md_text, flags=re.MULTILINE))
+    if legacy_matches:
+        for i, match in enumerate(legacy_matches):
+            title = match.group(1).strip()
+            start = match.end()
+            end = legacy_matches[i + 1].start() if i + 1 < len(legacy_matches) else len(md_text)
+            cards.append((title, md_text[start:end].strip()))
+        return cards
+
+    section_matches = list(re.finditer(r"^##\s+(.+)$", md_text, flags=re.MULTILINE))
+    for i, match in enumerate(section_matches):
         title = match.group(1).strip()
         start = match.end()
-        end = matches[i + 1].start() if i + 1 < len(matches) else len(md_text)
-        cards.append((title, md_text[start:end].strip()))
+        end = section_matches[i + 1].start() if i + 1 < len(section_matches) else len(md_text)
+        body = md_text[start:end].strip()
+        if "| **Full Name** |" not in body:
+            continue
+        cards.append((title, body))
     return cards
 
 
@@ -241,6 +700,247 @@ def parse_md_dataset_rows(card_text: str) -> list[dict[str, str]]:
     return out
 
 
+def build_full_pathway_card_markdown(row: dict[str, str], datasets: list[dict[str, str]]) -> str:
+    lines = [
+        f"## Pathway Card: {row.get('Custodian Name', '').strip()}",
+        "",
+        f"**Custodian Type:** {row.get('Custodian Type', '').strip()}",
+        "",
+        f"**Jurisdiction:** {row.get('Jurisdiction', '').strip()}",
+        "",
+        f"**Primary Role:** {row.get('Primary Role', '').strip()}",
+        "",
+        "**Key Data Holdings:**",
+        "| Dataset Name | Description | Identifiable? | Linkable? |",
+        "|---|---|---|---|",
+    ]
+    for ds in datasets:
+        lines.append(
+            f"| {ds.get('name', '').strip()} | {ds.get('description', '').strip()} | "
+            f"{ds.get('identifiable', '').strip()} | {ds.get('linkable', '').strip()} |"
+        )
+    lines.extend(
+        [
+            "",
+            "**Data Access Pathway - Step by Step:**",
+            row.get("Access Pathway Steps", "").strip(),
+            "",
+            "**Ethics and Governance Requirements:**",
+            row.get("Ethics and Governance Requirements", "").strip(),
+            "",
+            "**Trusted Research Environment (TRE) / Secure Access:**",
+            row.get("TRE / Secure Access Platform", "").strip(),
+            "",
+            "**Contact and Application Portal:**",
+            row.get("Contact and Application Portal", "").strip(),
+            "",
+            "**Indicative Timeline:**",
+            row.get("Indicative Timeline", "").strip(),
+            "",
+            "**Connections to Other Custodians / Pathways:**",
+            row.get("Connections to Other Custodians", "").strip(),
+            "",
+            "**Known Gaps / Verify with Custodian:**",
+            row.get("Gaps / Verify with Custodian", "").strip(),
+            "",
+            "**Source URLs:**",
+            row.get("Source URLs", "").strip(),
+        ]
+    )
+    return "\n".join(lines).strip()
+
+
+def infer_dataset_identifiable(custodian: CustodianRow, dataset: dict[str, str]) -> str:
+    current = (dataset.get("identifiable") or "").strip()
+    if current and (dataset.get("source") == "remediation" or "verify with custodian" not in normalize_text(current)):
+        return current
+
+    basis = normalize_text(
+        " ".join(
+            [
+                dataset.get("name") or "",
+                dataset.get("description") or "",
+                custodian.row.get("Primary Role") or "",
+                custodian.row.get("Custodian Type") or "",
+            ]
+        )
+    )
+    if any(term in basis for term in ("aggregate", "aggregated", "statistics", "statistical", "dashboard", "table", "catalogue", "catalog", "metadata")):
+        return "No"
+    if "de identified" in basis:
+        return "No (de-identified)"
+    if any(
+        term in basis
+        for term in (
+            "patient",
+            "participant",
+            "person",
+            "people",
+            "individual",
+            "register",
+            "hospital",
+            "admitted",
+            "clinical",
+            "encounter",
+            "medicare",
+            "pbs",
+            "claim",
+            "payment",
+            "programme",
+            "program",
+            "death",
+            "morbidity",
+            "perinatal",
+            "screening",
+            "notifiable",
+        )
+    ):
+        return "Yes"
+    if "linkage" in basis or "integrat" in basis:
+        return "Yes (for linkage)"
+    if normalize_text(custodian.row.get("Custodian Type") or "") in {"statistical publisher", "data discovery service"}:
+        return "No"
+    if "tre sde" in normalize_text(custodian.row.get("Custodian Type") or ""):
+        return "Yes (indirectly)"
+    return "De-identified (verify with custodian)"
+
+
+def infer_dataset_linkable(custodian: CustodianRow, dataset: dict[str, str], identifiable: str) -> str:
+    current = (dataset.get("linkable") or "").strip()
+    if current and (dataset.get("source") == "remediation" or "verify with custodian" not in normalize_text(current)):
+        return current
+
+    basis = normalize_text(
+        " ".join(
+            [
+                dataset.get("name") or "",
+                dataset.get("description") or "",
+                custodian.row.get("Primary Role") or "",
+                custodian.row.get("Connections to Other Custodians") or "",
+            ]
+        )
+    )
+    if any(term in basis for term in ("aggregate", "aggregated", "statistics", "statistical", "dashboard", "table", "catalogue", "catalog", "metadata")):
+        return "No (aggregate only)"
+
+    platform = LINKAGE_PLATFORM_BY_NAME.get(custodian.name)
+    if platform:
+        return f"Yes (via {platform})"
+    if any(term in basis for term in ("linkage", "linked", "integrated")):
+        return "Yes"
+    if identifiable.startswith("No"):
+        return "No"
+    return "Yes"
+
+
+def dedupe_datasets(datasets: list[dict[str, str]]) -> list[dict[str, str]]:
+    deduped: dict[str, dict[str, str]] = {}
+    for dataset in datasets:
+        name = (dataset.get("name") or "").strip()
+        if not name:
+            continue
+        key = normalize_text(name)
+        existing = deduped.get(key)
+        if not existing:
+            deduped[key] = dataset.copy()
+            continue
+        for field in ("description", "identifiable", "linkable"):
+            if not existing.get(field) and dataset.get(field):
+                existing[field] = dataset[field]
+    return list(deduped.values())
+
+
+def ensure_dataset_coverage(custodian: CustodianRow, datasets: list[dict[str, str]]) -> list[dict[str, str]]:
+    enriched = [dataset.copy() for dataset in datasets]
+    for dataset in SPECIAL_DATASETS_BY_NAME.get(custodian.name, []):
+        enriched.append(dataset.copy())
+
+    if not enriched:
+        enriched.append(
+            {
+                "name": f"{custodian.name} data holdings",
+                "description": "(inferred from custodian role - verify)",
+                "identifiable": "",
+                "linkable": "",
+                "source": "inferred",
+            }
+        )
+
+    finalized: list[dict[str, str]] = []
+    for dataset in dedupe_datasets(enriched):
+        identifiable = infer_dataset_identifiable(custodian, dataset)
+        linkable = infer_dataset_linkable(custodian, dataset, identifiable)
+        finalized.append(
+            {
+                "name": (dataset.get("name") or "").strip(),
+                "description": (dataset.get("description") or "").strip(),
+                "identifiable": identifiable,
+                "linkable": linkable,
+                "source": dataset.get("source") or "csv",
+            }
+        )
+    return finalized
+
+
+def build_synthetic_dss_row(template_keys: list[str]) -> CustodianRow:
+    row = {key: "" for key in template_keys}
+    row["Subject"] = "Department of Social Services (DSS)"
+    row["Custodian Name"] = "Department of Social Services"
+    row["Custodian Type"] = "Commonwealth"
+    row["Jurisdiction"] = "Commonwealth"
+    row["Primary Role"] = SPECIAL_PRIMARY_ROLES_BY_NAME["Department of Social Services"]
+    row["Key Datasets"] = "DOMINO, DSS Payment and Programme Data, NDIS participant data"
+    row["Access Pathway Steps"] = SPECIAL_ACCESS_STEPS_BY_NAME["Department of Social Services"]
+    row["TRE / Secure Access Platform"] = "Most research access is mediated through AIHW Data Integration Services or another approved secure environment."
+    row["Contact and Application Portal"] = "DSS Data Governance team (specific contact to verify with custodian)."
+    row["Indicative Timeline"] = "Initial inquiry: 1-2 weeks; Governance and ethics review: 4-12 weeks; Data provision: 2-12 weeks."
+    row["Connections to Other Custodians"] = (
+        "Australian Institute of Health and Welfare (AIHW) (DOMINO accessible via AIHW Data Integration Services); "
+        "Services Australia (income support data overlap and operational alignment); "
+        "Department of Health and Aged Care (aged care policy and program linkage context)"
+    )
+    row["Gaps / Verify with Custodian"] = "Confirm the current DSS research data access contact point and any NDIA-specific approval requirements."
+    row["Source URLs"] = ""
+    dss_row = CustodianRow(custodian_id="custodian:department-of-social-services", name="Department of Social Services", row=row)
+    datasets = ensure_dataset_coverage(dss_row, [])
+    row["Full Pathway Card (Markdown)"] = build_full_pathway_card_markdown(row, datasets)
+    return dss_row
+
+
+def apply_iteration2_remediations(custodians: list[CustodianRow]) -> list[CustodianRow]:
+    if not custodians:
+        return []
+
+    remediated: list[CustodianRow] = []
+    template_keys = list(custodians[0].row.keys())
+
+    for custodian in custodians:
+        row = custodian.row.copy()
+        name = custodian.name
+        row["Custodian Type"] = normalize_custodian_type_name(SPECIAL_TYPES_BY_NAME.get(name, row.get("Custodian Type") or ""))
+        if name in SPECIAL_PRIMARY_ROLES_BY_NAME:
+            row["Primary Role"] = SPECIAL_PRIMARY_ROLES_BY_NAME[name]
+        if name in SPECIAL_ACCESS_STEPS_BY_NAME:
+            row["Access Pathway Steps"] = SPECIAL_ACCESS_STEPS_BY_NAME[name]
+        if name in SPECIAL_CONNECTIONS_BY_NAME:
+            row["Connections to Other Custodians"] = "; ".join(SPECIAL_CONNECTIONS_BY_NAME[name])
+        remediated.append(CustodianRow(custodian_id=custodian.custodian_id, name=name, row=row))
+
+    existing_ids = {custodian.custodian_id for custodian in remediated}
+    dss_row = build_synthetic_dss_row(template_keys)
+    if dss_row.custodian_id not in existing_ids:
+        remediated.append(dss_row)
+
+    final_rows: list[CustodianRow] = []
+    for custodian in remediated:
+        datasets = ensure_dataset_coverage(custodian, parse_csv_datasets(custodian.row.get("Key Datasets") or ""))
+        row = custodian.row.copy()
+        if custodian.name in SPECIAL_DATASETS_BY_NAME or custodian.name in SPECIAL_PRIMARY_ROLES_BY_NAME:
+            row["Full Pathway Card (Markdown)"] = build_full_pathway_card_markdown(row, datasets)
+        final_rows.append(CustodianRow(custodian_id=custodian.custodian_id, name=custodian.name, row=row))
+    return final_rows
+
+
 def extract_aliases(name: str, subject: str, title: str) -> set[str]:
     aliases = {name.strip()}
     subject_short = extract_subject_short(subject)
@@ -256,7 +956,10 @@ def extract_aliases(name: str, subject: str, title: str) -> set[str]:
             if 2 <= len(token) <= 40:
                 aliases.add(token)
         for token in re.findall(r"\b[A-Z]{2,10}\b", source):
+            if token in GENERIC_ACRONYM_ALIASES:
+                continue
             aliases.add(token)
+    aliases.update(EXTRA_ALIASES_BY_NAME.get(name, set()))
     return {a for a in aliases if a}
 
 
@@ -292,10 +995,11 @@ def build_connection_matches(
     custodians: list[CustodianRow],
     id_to_aliases: dict[str, set[str]],
     overrides: list[ConnectionOverrideRule],
-) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, str]]]:
     id_to_name = {c.custodian_id: c.name for c in custodians}
     accepted: list[dict[str, Any]] = []
     review: list[dict[str, Any]] = []
+    gaps: list[dict[str, str]] = [gap.copy() for gap in SEEDED_GAP_CUSTODIANS]
 
     for c in custodians:
         raw = (c.row.get("Connections to Other Custodians") or "").strip()
@@ -308,6 +1012,61 @@ def build_connection_matches(
 
         for idx, seg in enumerate(segments, start=1):
             seg_norm = normalize_text(seg)
+            leading_seg_norm = normalize_text(re.split(r"[:(]", seg, maxsplit=1)[0])
+
+            gap_name = next((name for pattern, name in GAP_ENTITY_PATTERNS.items() if pattern in seg_norm), "")
+            if gap_name:
+                gaps.append({"sourceId": c.custodian_id, "sourceName": c.name, "segment": seg, "gapName": gap_name})
+                review.append(
+                    {
+                        "id": f"review:{c.custodian_id}:{idx}:{slugify(seg)[:40]}:gap",
+                        "sourceId": c.custodian_id,
+                        "sourceName": c.name,
+                        "rawText": raw,
+                        "segment": seg,
+                        "candidateCustodian": "",
+                        "targetId": "",
+                        "score": 0.0,
+                        "matchType": "gap_custodian",
+                        "status": "rejected",
+                    }
+                )
+                continue
+
+            if any(pattern in seg_norm for pattern in NOT_A_CUSTODIAN_PATTERNS):
+                review.append(
+                    {
+                        "id": f"review:{c.custodian_id}:{idx}:{slugify(seg)[:40]}:not-custodian",
+                        "sourceId": c.custodian_id,
+                        "sourceName": c.name,
+                        "rawText": raw,
+                        "segment": seg,
+                        "candidateCustodian": "",
+                        "targetId": "",
+                        "score": 0.0,
+                        "matchType": "not_a_custodian",
+                        "status": "rejected",
+                    }
+                )
+                continue
+
+            if any(pattern in seg_norm for pattern in STRUCTURAL_NOTE_PATTERNS):
+                review.append(
+                    {
+                        "id": f"review:{c.custodian_id}:{idx}:{slugify(seg)[:40]}:structural",
+                        "sourceId": c.custodian_id,
+                        "sourceName": c.name,
+                        "rawText": raw,
+                        "segment": seg,
+                        "candidateCustodian": "",
+                        "targetId": "",
+                        "score": 0.0,
+                        "matchType": "structural_note",
+                        "status": "rejected",
+                    }
+                )
+                continue
+
             matched_rules = [
                 r
                 for r in overrides
@@ -330,7 +1089,7 @@ def build_connection_matches(
                             "targetId": "",
                             "score": 0.0,
                             "matchType": "override_force_reject",
-                            "status": "review_required",
+                            "status": "rejected",
                         }
                     )
                     continue
@@ -389,18 +1148,28 @@ def build_connection_matches(
 
                 full_name_norm = normalize_text(target.name)
                 full_name_hit = bool(full_name_norm and f" {full_name_norm} " in f" {seg_norm} ")
+                leading_name_hit = bool(full_name_norm and leading_seg_norm == full_name_norm)
                 alias_hit = None
                 alias_hit_len = 0
+                leading_alias_hit = None
                 for alias in aliases:
                     alias_norm = normalize_text(alias)
                     if len(alias_norm) < 3:
                         continue
+                    if leading_seg_norm == alias_norm:
+                        leading_alias_hit = alias
                     if f" {alias_norm} " in f" {seg_norm} ":
                         if len(alias_norm) > alias_hit_len:
                             alias_hit = alias
                             alias_hit_len = len(alias_norm)
 
-                if full_name_hit:
+                if leading_name_hit:
+                    score = 1.02
+                    match_type = "name_leading"
+                elif leading_alias_hit is not None:
+                    score = 1.01
+                    match_type = "alias_leading"
+                elif full_name_hit:
                     score = 1.0
                     match_type = "name_exact"
                 elif alias_hit is not None:
@@ -433,12 +1202,19 @@ def build_connection_matches(
                 continue
 
             ambiguous = second_score >= 0.8 and (best["score"] - second_score) < 0.03
+            if best["match_type"] in {"name_leading", "alias_leading"}:
+                ambiguous = False
             has_verify_placeholder = "verify with custodian" in seg_norm
             accepted_flag = (
-                (best["match_type"] in {"name_exact", "alias_exact"} and not ambiguous and not has_verify_placeholder)
-                or (best["score"] >= 0.9 and not ambiguous and not has_verify_placeholder)
+                (best["match_type"] in {"name_leading", "alias_leading", "name_exact", "alias_exact"} and not ambiguous and not has_verify_placeholder)
+                or (best["score"] >= FUZZY_ACCEPT_THRESHOLD and not ambiguous and not has_verify_placeholder)
             )
-            status = "accepted" if accepted_flag else "review_required"
+            review_required = (
+                not accepted_flag
+                and best["match_type"] in {"name_leading", "alias_leading", "name_exact", "alias_exact", "alias_short"}
+                and not has_verify_placeholder
+            )
+            status = "accepted" if accepted_flag else ("review_required" if review_required else "rejected")
 
             review_id = f"review:{c.custodian_id}:{idx}:{slugify(seg)[:40]}"
             review.append(
@@ -474,7 +1250,10 @@ def build_connection_matches(
         key = (edge["sourceId"], edge["targetId"])
         if key not in dedup or edge["score"] > dedup[key]["score"]:
             dedup[key] = edge
-    return list(dedup.values()), review
+    deduped_gaps: dict[tuple[str, str], dict[str, str]] = {}
+    for gap in gaps:
+        deduped_gaps[(gap["sourceId"], gap["gapName"])] = gap
+    return list(dedup.values()), review, list(deduped_gaps.values())
 
 
 def call_tool_text(result: Any) -> str:
@@ -571,7 +1350,7 @@ async def load_graph(
         row = c.row
         subject = (row.get("Subject") or "").strip()
         line_id = f"line:{c.custodian_id}"
-        md_card = md_cards_by_custodian_id.get(c.custodian_id, "")
+        md_card = (row.get("Full Pathway Card (Markdown)") or "").strip() or md_cards_by_custodian_id.get(c.custodian_id, "")
 
         custodian_nodes.append(
             {
@@ -592,7 +1371,7 @@ async def load_graph(
         )
 
         for t in split_delimited(row.get("Custodian Type") or ""):
-            custodian_types.append({"custodianId": c.custodian_id, "type": t})
+            custodian_types.append({"custodianId": c.custodian_id, "type": normalize_custodian_type_name(t)})
 
         for j in split_delimited(row.get("Jurisdiction") or ""):
             jurisdictions.append({"custodianId": c.custodian_id, "jurisdiction": j})
@@ -845,7 +1624,7 @@ async def load_graph(
 
 async def main() -> None:
     creds = parse_credentials(CRED_PATH)
-    custodians = read_csv_rows(CSV_PATH)
+    custodians = apply_iteration2_remediations(read_csv_rows(CSV_PATH))
     overrides = load_connection_overrides(OVERRIDE_PATH)
     md_text = MD_PATH.read_text(encoding="utf-8")
     cards = extract_md_cards(md_text)
@@ -870,7 +1649,8 @@ async def main() -> None:
         custodian_id = title_to_custodian_id.get(title)
         if not custodian_id:
             continue
-        md_cards_by_custodian_id[custodian_id] = card_body
+        if custodian_id not in md_cards_by_custodian_id:
+            md_cards_by_custodian_id[custodian_id] = card_body
         md_datasets_by_custodian_id[custodian_id] = parse_md_dataset_rows(card_body)
 
     datasets_by_custodian_id: dict[str, list[dict[str, str]]] = {}
@@ -878,7 +1658,7 @@ async def main() -> None:
     for c in custodians:
         csv_sets = parse_csv_datasets(c.row.get("Key Datasets") or "")
         md_sets = md_datasets_by_custodian_id.get(c.custodian_id, [])
-        datasets_by_custodian_id[c.custodian_id] = md_sets + csv_sets
+        datasets_by_custodian_id[c.custodian_id] = ensure_dataset_coverage(c, md_sets + csv_sets)
 
         title = ""
         for t, cid in title_to_custodian_id.items():
@@ -887,7 +1667,7 @@ async def main() -> None:
                 break
         aliases_by_id[c.custodian_id] = extract_aliases(c.name, c.row.get("Subject") or "", title)
 
-    accepted_connections, review_connections = build_connection_matches(custodians, aliases_by_id, overrides)
+    accepted_connections, review_connections, gap_custodians = build_connection_matches(custodians, aliases_by_id, overrides)
 
     validation = await validate_servers(creds)
     load_summary = await load_graph(
@@ -917,15 +1697,19 @@ async def main() -> None:
         writer.writeheader()
         writer.writerows(review_connections)
 
+    GAP_JSON.write_text(json.dumps(gap_custodians, indent=2), encoding="utf-8")
+
     summary = {
         "validation": validation,
         "load": load_summary,
         "matching": {
             "override_rule_count": len(overrides),
+            "gap_custodian_count": len(gap_custodians),
         },
         "artifacts": {
             "review_csv": str(REVIEW_CSV),
             "override_csv": str(OVERRIDE_PATH),
+            "gap_json": str(GAP_JSON),
         },
     }
     SUMMARY_JSON.write_text(json.dumps(summary, indent=2), encoding="utf-8")

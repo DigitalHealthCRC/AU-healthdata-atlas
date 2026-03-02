@@ -1,26 +1,33 @@
 source_custodian_id,pattern,action,target_custodian_id,notes
-custodian:aihw,department of social services dss,force_reject,,External entity not present as a custodian node
-custodian:australian-bureau-of-statistics,australian institute of health and welfare aihw,force_accept,custodian:aihw,Explicit named mention in connection text
+custodian:australian-bureau-of-statistics,australian institute of health and welfare aihw,force_accept,custodian:australian-institute-of-health-and-welfare,Explicit named mention in connection text
 custodian:australian-bureau-of-statistics,services australia,force_accept,custodian:services-australia,Explicit named mention in connection text
-custodian:department-of-health-and-aged-care,australian institute of health and welfare aihw,force_accept,custodian:aihw,Explicit named mention in connection text
-custodian:department-of-health-and-aged-care,services australia,force_accept,custodian:services-australia,Explicit named mention in connection text
-custodian:tga,verify with custodian,force_reject,,Placeholder content only
-custodian:cancer-institute-nsw,not explicitly stated,force_reject,,Insufficient evidence for a map edge
-custodian:act-health,centre for health record linkage cherel,force_accept,custodian:cherel,Explicit named mention in connection text
+custodian:australian-government-department-of-health-and-aged-care,australian institute of health and welfare aihw,force_accept,custodian:australian-institute-of-health-and-welfare,Explicit named mention in connection text
+custodian:australian-government-department-of-health-and-aged-care,services australia,force_accept,custodian:services-australia,Explicit named mention in connection text
+custodian:act-health,centre for health record linkage cherel,force_accept,custodian:centre-for-health-record-linkage,Explicit named mention in connection text
 custodian:nt-health-nt-health-research-governance-office,sa nt datalink,force_accept,custodian:sa-health-sa-nt-datalink,Explicit named mention in connection text
-custodian:sure-secure-unified-research-environment,population health research network phrn,force_accept,custodian:phrn,Explicit named mention in connection text
-custodian:sure-secure-unified-research-environment,aihw,force_accept,custodian:aihw,Explicit named mention in connection text
-custodian:sure-secure-unified-research-environment,cancer institute nsw,force_accept,custodian:cancer-institute-nsw,Explicit named mention in connection text
-custodian:medicineinsight-nps-medicinewise,not explicitly mentioned,force_reject,,Insufficient evidence for a map edge
-custodian:abs-datalab,other data custodians,force_reject,,Generic reference without specific custodian
-custodian:nhmrc-hrecs,aihw,force_accept,custodian:aihw,Explicit named mention in connection text
-custodian:nhmrc-hrecs,services australia,force_accept,custodian:services-australia,Explicit named mention in connection text
-custodian:acsqhc,aihw,force_accept,custodian:aihw,Explicit named mention in connection text
-custodian:acsqhc,services australia,force_accept,custodian:services-australia,Explicit named mention in connection text
-custodian:wa-health-data-linkage-services-wa,australian institute of health and welfare aihw,force_accept,custodian:aihw,Explicit named mention in connection text
-custodian:wa-health-data-linkage-services-wa,population health research network phrn,force_accept,custodian:phrn,Explicit named mention in connection text
-custodian:centre-for-victorian-data-linkage-cvdl,population health research network phrn,force_accept,custodian:phrn,Explicit named mention in connection text
-custodian:centre-for-victorian-data-linkage-cvdl,australian bureau of statistics abs,force_accept,custodian:australian-bureau-of-statistics,Explicit named mention in connection text
-custodian:services-australia,other state territory health departments,review_only,,Too broad for safe automatic linkage
-custodian:qcif,australian access federation aaf,force_reject,,External service not represented as a custodian node
-custodian:qcif,australian state and federal data custodians,force_reject,,Generic reference without specific custodian
+custodian:secure-unified-research-environment,population health research network phrn,force_accept,custodian:population-health-research-network,Explicit named mention in connection text
+custodian:secure-unified-research-environment,aihw,force_accept,custodian:australian-institute-of-health-and-welfare,Explicit named mention in connection text
+custodian:secure-unified-research-environment,cancer institute nsw,force_accept,custodian:cancer-institute-nsw,Explicit named mention in connection text
+custodian:secure-unified-research-environment,nsw health,force_accept,custodian:nsw-health-ministry-of-health-nsw,Explicit named mention in connection text
+custodian:national-health-and-medical-research-council-nhmrc-human-research-ethics-committees-hrecs,aihw,force_accept,custodian:australian-institute-of-health-and-welfare,Explicit named mention in connection text
+custodian:national-health-and-medical-research-council-nhmrc-human-research-ethics-committees-hrecs,services australia,force_accept,custodian:services-australia,Explicit named mention in connection text
+custodian:australian-commission-on-safety-and-quality-in-health-care,aihw,force_accept,custodian:australian-institute-of-health-and-welfare,Explicit named mention in connection text
+custodian:australian-commission-on-safety-and-quality-in-health-care,services australia,force_accept,custodian:services-australia,Explicit named mention in connection text
+custodian:wa-health-data-linkage-services-wa,australian institute of health and welfare aihw,force_accept,custodian:australian-institute-of-health-and-welfare,Explicit named mention in connection text
+custodian:wa-health-data-linkage-services-wa,population health research network phrn,force_accept,custodian:population-health-research-network,Explicit named mention in connection text
+custodian:centre-for-victorian-data-linkage,population health research network phrn,force_accept,custodian:population-health-research-network,Explicit named mention in connection text
+custodian:centre-for-victorian-data-linkage,australian bureau of statistics abs,force_accept,custodian:australian-bureau-of-statistics,Explicit named mention in connection text
+custodian:victorian-cancer-registry,department of health and human services victoria,force_accept,custodian:victorian-agency-for-health-information,Victorian DHHS should map to VAHI rather than Commonwealth DoH
+custodian:queensland-health,data linkage queensland,force_accept,custodian:population-health-research-network,DLQ is Queensland's linkage node within the PHRN ecosystem
+custodian:queensland-health,statistical analysis and linkage unit,force_accept,custodian:population-health-research-network,Queensland linkage unit should resolve to PHRN rather than SA Health
+custodian:sa-health-sa-nt-datalink,australian government data custodians,force_accept,custodian:services-australia,Generic federal custodians reference should resolve to Services Australia for MBS/PBS/Centrelink linkage
+custodian:australian-institute-of-aboriginal-and-torres-strait-islander-studies,other indigenous community organisations and research bodies,force_accept,custodian:national-aboriginal-community-controlled-health-organisation,AIATSIS governance relationship is with NACCHO rather than generic Indigenous organisations
+custodian:cancer-institute-nsw,nsw health,force_accept,custodian:nsw-health-ministry-of-health-nsw,Cancer Institute NSW sits within the NSW Health portfolio
+custodian:population-health-research-network,nsw health,force_accept,custodian:nsw-health-ministry-of-health-nsw,PHRN partner reference should resolve to NSW Health
+custodian:australian-institute-of-health-and-welfare-data-integration-services-centre,nsw health,force_accept,custodian:nsw-health-ministry-of-health-nsw,NHDH partner reference should resolve to NSW Health
+custodian:nsw-health-ministry-of-health-nsw,cherel,force_accept,custodian:centre-for-health-record-linkage,CHeReL is the named linkage partner for NSW Health
+custodian:nsw-health-ministry-of-health-nsw,bureau of health information,force_reject,,Bureau of Health Information is not represented as a custodian node in this graph
+custodian:centre-for-health-record-linkage,nsw health,force_accept,custodian:nsw-health-ministry-of-health-nsw,CHeReL works directly with NSW Health
+custodian:services-australia,other state territory health departments,review_only,,Still too broad for safe automatic linkage
+custodian:queensland-cyber-infrastructure-foundation,australian access federation aaf,force_reject,,External authentication service not represented as a custodian node
+custodian:queensland-cyber-infrastructure-foundation,australian state and federal data custodians,force_reject,,Generic structural note rather than a single custodian

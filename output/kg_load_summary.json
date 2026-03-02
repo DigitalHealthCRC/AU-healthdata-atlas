@@ -16,27 +16,29 @@
   },
   "load": {
     "loaded_counts": {
-      "custodians": 32,
-      "datasets": 180,
-      "pathwaySteps": 180,
-      "processLines": 32,
-      "sourceUrls": 146,
-      "connectedTo": 36,
-      "connectionReviews": 57
+      "custodians": 33,
+      "datasets": 231,
+      "pathwaySteps": 160,
+      "processLines": 33,
+      "sourceUrls": 161,
+      "connectedTo": 95,
+      "connectionReviews": 107
     },
     "input_counts": {
-      "custodians": 32,
-      "datasets": 180,
-      "pathway_steps": 180,
-      "accepted_connections": 36,
-      "review_connections": 57
+      "custodians": 33,
+      "datasets": 231,
+      "pathway_steps": 163,
+      "accepted_connections": 95,
+      "review_connections": 107
     }
   },
   "matching": {
-    "override_rule_count": 25
+    "override_rule_count": 32,
+    "gap_custodian_count": 1
   },
   "artifacts": {
     "review_csv": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\output\\connection_match_review.csv",
-    "override_csv": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\config\\connection_alias_overrides.csv"
+    "override_csv": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\config\\connection_alias_overrides.csv",
+    "gap_json": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\output\\gap_custodians.json"
   }
 }
