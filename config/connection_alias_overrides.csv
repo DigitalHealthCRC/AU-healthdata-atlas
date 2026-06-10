@@ -1,8 +1,8 @@
 source_custodian_id,pattern,action,target_custodian_id,notes
 custodian:australian-bureau-of-statistics,australian institute of health and welfare aihw,force_accept,custodian:australian-institute-of-health-and-welfare,Explicit named mention in connection text
 custodian:australian-bureau-of-statistics,services australia,force_accept,custodian:services-australia,Explicit named mention in connection text
-custodian:australian-government-department-of-health-and-aged-care,australian institute of health and welfare aihw,force_accept,custodian:australian-institute-of-health-and-welfare,Explicit named mention in connection text
-custodian:australian-government-department-of-health-and-aged-care,services australia,force_accept,custodian:services-australia,Explicit named mention in connection text
+custodian:australian-government-department-of-health-disability-and-ageing,australian institute of health and welfare aihw,force_accept,custodian:australian-institute-of-health-and-welfare,Explicit named mention in connection text
+custodian:australian-government-department-of-health-disability-and-ageing,services australia,force_accept,custodian:services-australia,Explicit named mention in connection text
 custodian:act-health,centre for health record linkage cherel,force_accept,custodian:centre-for-health-record-linkage,Explicit named mention in connection text
 custodian:nt-health-nt-health-research-governance-office,sa nt datalink,force_accept,custodian:sa-health-sa-nt-datalink,Explicit named mention in connection text
 custodian:secure-unified-research-environment,population health research network phrn,force_accept,custodian:population-health-research-network,Explicit named mention in connection text

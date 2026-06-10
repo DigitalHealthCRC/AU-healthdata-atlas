@@ -30,7 +30,7 @@ Each pathway card documents one data custodian with the following sections:
 - [Australian Bureau of Statistics DataLab (ABS DataLab)](#australian-bureau-of-statistics-datalab)
 - [Australian Commission on Safety and Quality in Health Care (ACSQHC)](#australian-commission-on-safety-and-quality-in-health-care)
 - [Australian Digital Health Agency (ADHA)](#australian-digital-health-agency)
-- [Australian Government Department of Health and Aged Care (DoHAC)](#australian-government-department-of-health-and-aged-care)
+- [Australian Government Department of Health, Disability and Ageing (DoHDA)](#australian-government-department-of-health-disability-and-ageing)
 - [Australian Institute of Aboriginal and Torres Strait Islander Studies (AIATSIS)](#australian-institute-of-aboriginal-and-torres-strait-islander-studies)
 - [Australian Institute of Health and Welfare (AIHW)](#australian-institute-of-health-and-welfare)
 - [Australian Institute of Health and Welfare Data Integration Services Centre (AIHW DISC)](#australian-institute-of-health-and-welfare-data-integration-services-centre)
@@ -140,7 +140,7 @@ mydataportal@abs.gov.au
 ### Connections to Other Custodians
 
 - Australian Institute of Health and Welfare (AIHW): The ABS and AIHW collaborate on a range of health and welfare statistics, including data linkage projects.
-- Department of Health and Aged Care: The ABS provides key health data that informs the Department's policy and program development.
+- Department of Health, Disability and Ageing: The ABS provides key health data that informs the Department's policy and program development.
 - Services Australia: The ABS links its data with data from Services Australia to create integrated datasets for research and statistical purposes.
 
 ### Source URLs
@@ -156,12 +156,12 @@ mydataportal@abs.gov.au
 
 <a name='australian-bureau-of-statistics-datalab'></a>
 
-| Field                    | Value                                         |
-| ------------------------ | --------------------------------------------- |
-| **Full Name**            | Australian Bureau of Statistics DataLab       |
-| **Short Name / Acronym** | ABS DataLab                                   |
-| **Custodian Type**       | TRE/SDE                                       |
-| **Jurisdiction**         | Commonwealth                                  |
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | Australian Bureau of Statistics DataLab |
+| **Short Name / Acronym** | ABS DataLab |
+| **Custodian Type**       | TRE/SDE |
+| **Jurisdiction**         | Commonwealth |
 | **Classification Note**  | TRE/SDE - Secure Microdata Access Environment |
 
 ### Role
@@ -170,17 +170,18 @@ The ABS DataLab provides a secure microdata access environment for high-end user
 
 ### Key Datasets
 
-| Dataset Name                                  | Description                                                                                                                   | Identifiable  | Linkable                     |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------- | ---------------------------- |
-| Person Level Integrated Data Asset (PLIDA)    | Combines information on health, education, government payments, income and taxation, employment, and population demographics. | De-identified | Yes via Person Linkage Spine |
-| Australian Census Longitudinal Dataset (ACLD) | A longitudinal dataset using data from successive Censuses, providing a 5% sample panel of people.                            | De-identified | Yes via Census linkage       |
-| ABS Survey Results                            | Detailed microdata from various ABS surveys covering topics like health, education, labour force, crime, and disabilities.    | De-identified | No                           |
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| Person Level Integrated Data Asset (PLIDA) | Secure linked data asset formerly known as MADIP, combining information on health, education, government payments, income and taxation, employment, and population demographics. Access is via the PLIDA Modular Product (PMP) in ABS DataLab for approved researchers. | De-identified | Yes via Person Linkage Spine |
+| Australian Immunisation Register in PLIDA | Australian Immunisation Register data linked to PLIDA and available for approved analysis under PLIDA governance. | De-identified | Yes via PLIDA |
+| Australian Census Longitudinal Dataset (ACLD) | A longitudinal dataset using data from successive Censuses, providing a 5% sample panel of people. | De-identified | Yes via Census linkage |
+| ABS Survey Results | Detailed microdata from various ABS surveys covering topics like health, education, labour force, crime, and disabilities. | De-identified | No |
 
 ### Data Access Pathway
 
 Step 1: Ensure you meet requirements | Actor: Applicant/ABS | Form/Portal: N/A | Duration: Not publicly available
 Step 2: Register and activate your account | Actor: Applicant | Form/Portal: myDATA Portal (https://mydataportal.abs.gov.au/) | Duration: Not publicly available
-Step 3: Submit project proposal | Actor: Applicant | Form/Portal: myDATA Portal (https://mydataportal.abs.gov.au/) | Duration: Not publicly available
+Step 3: Submit project proposal, including PLIDA Modular Product module requests where relevant | Actor: Applicant | Form/Portal: myDATA Portal (https://mydataportal.abs.gov.au/) | Duration: Not publicly available
 Step 4: Complete DataLab safe researcher training and onboarding | Actor: Applicant | Form/Portal: N/A | Duration: Approximately 4 weeks for training registration [7]
 
 ### Ethics and Governance Requirements
@@ -201,44 +202,48 @@ https://mydataportal.abs.gov.au/
 
 ### Connections to Other Custodians
 
-- Department of Health and Aged Care: Partner agency in PLIDA [4]
+- Department of Health, Disability and Ageing: Partner agency in PLIDA [4]
 - Services Australia: Partner agency in PLIDA [4]
 - Australian Institute of Health and Welfare: Observer on PLIDA Board [4]
 
 ### Source URLs
 
-- <https://www.abs.gov.au/statistics/microdata-tablebuilder/datalab [1]>
-- <https://www.abs.gov.au/about/data-services/data-integration/integrated-data/person-level-integrated-data-asset-plida [2]>
-- <https://mydataportal.abs.gov.au/ [3]>
-- <https://www.abs.gov.au/about/data-services/data-integration/integrated-data/person-level-integrated-data-asset-plida/plida-data-and-legislation [4]>
-- <https://www.abs.gov.au/statistics/microdata-tablebuilder/available-microdata-tablebuilder/australian-census-longitudinal-dataset [5]>
-- <https://www.abs.gov.au/about/data-services/data-integration/integrated-data/data-integration-service [6]>
-- <https://evaluation.treasury.gov.au/sites/evaluation.treasury.gov.au/files/2025-01/government-administrative-data-sources-for-evaluation-in-australia.docx [7]>
-
+- <https://www.abs.gov.au/statistics/microdata-tablebuilder/datalab>
+- <https://www.abs.gov.au/about/data-services/data-integration/integrated-data/person-level-integrated-data-asset-plida>
+- <https://mydataportal.abs.gov.au/>
+- <https://www.abs.gov.au/about/data-services/data-integration/integrated-data/person-level-integrated-data-asset-plida/plida-data-and-legislation>
+- <https://www.abs.gov.au/statistics/microdata-tablebuilder/available-microdata-tablebuilder/australian-census-longitudinal-dataset>
+- <https://www.abs.gov.au/about/data-services/data-integration/integrated-data/data-integration-service>
+- <https://evaluation.treasury.gov.au/sites/evaluation.treasury.gov.au/files/2025-01/government-administrative-data-sources-for-evaluation-in-australia.docx>
+- <https://www.abs.gov.au/statistics/data-integration/integrated-data/person-level-integrated-data-asset-plida>
+- <https://www.abs.gov.au/statistics/microdata-tablebuilder/available-microdata-tablebuilder/person-level-integrated-data-asset-plida>
+- <https://www.health.gov.au/our-work/australian-immunisation-register-linked-to-the-person-level-integrated-data-asset>
 ---
 
 ## Australian Commission on Safety and Quality in Health Care (ACSQHC)
 
 <a name='australian-commission-on-safety-and-quality-in-health-care'></a>
 
-| Field                    | Value                                                      |
-| ------------------------ | ---------------------------------------------------------- |
+| Field                    | Value |
+| ------------------------ | ----- |
 | **Full Name**            | Australian Commission on Safety and Quality in Health Care |
-| **Short Name / Acronym** | ACSQHC                                                     |
-| **Custodian Type**       | Commonwealth                                               |
-| **Jurisdiction**         | Commonwealth                                               |
+| **Short Name / Acronym** | ACSQHC |
+| **Custodian Type**       | Commonwealth |
+| **Jurisdiction**         | Commonwealth |
+| **Classification Note**  | Standard custodian — no special classification needed |
 
 ### Role
 
-The Australian Commission on Safety and Quality in Health Care (ACSQHC) is a national body responsible for leading and coordinating improvements in safety and quality in health care across Australia. It develops national standards, clinical care guidelines, and indicators to drive safer, higher quality care and better health outcomes. The ACSQHC also plays a key role in the National Clinical Quality Registry Program, supporting the collection and use of clinical data to monitor the safety and performance of treatments and devices.
+The Australian Commission on Safety and Quality in Health Care (ACSQHC) is a national body responsible for leading and coordinating improvements in safety and quality in health care across Australia. It develops national standards, clinical care guidelines, and indicators to drive safer, higher quality care and better health outcomes. The ACSQHC also plays a key role in the National Clinical Quality Registry Program, supporting the collection and use of clinical data to monitor the safety and performance of treatments and devices. It also maintains the Australian Register of Clinical Registries, a voluntary metadata register of self-nominated clinical registries.
 
 ### Key Datasets
 
-| Dataset Name                                         | Description                                                                  | Identifiable  | Linkable           |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------- | ------------- | ------------------ |
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| Australian Register of Clinical Registries (ARCR) | Voluntary metadata register of self-nominated clinical registries, providing summary registry information and registry contacts; listing is not ACSQHC endorsement as a clinical quality registry. | No (metadata register) | No |
 | Australasian Pelvic Floor Procedure Registry (APFPR) | Monitors the safety and quality of care relating to pelvic floor procedures. | De-identified | Yes via patient ID |
-| Australian Breast Device Registry                    | Monitors the safety and performance of breast implants.                      | De-identified | Yes via patient ID |
-| National Cardiac Registry                            | Collects data on cardiac procedures and outcomes to improve quality of care. | De-identified | Yes via patient ID |
+| Australian Breast Device Registry | Monitors the safety and performance of breast implants. | De-identified | Yes via patient ID |
+| National Cardiac Registry | Collects data on cardiac procedures and outcomes to improve quality of care. | De-identified | Yes via patient ID |
 
 ### Data Access Pathway
 
@@ -250,7 +255,7 @@ The ACSQHC operates under its Data Governance Framework, which specifies obligat
 
 ### Contact and Application Portal
 
-General inquiries: mail@safetyandquality.gov.au; Phone: (Australia) 02 9126 3600; MedicineInsight data access: MedicineInsight@safetyandquality.gov.au
+General inquiries: mail@safetyandquality.gov.au; Phone: (Australia) 02 9126 3600; MedicineInsight data access: MedicineInsight@safetyandquality.gov.au; Clinical Quality Registry enquiries: CQR@safetyandquality.gov.au
 
 ### Indicative End-to-End Timeline
 
@@ -259,7 +264,7 @@ General inquiries: mail@safetyandquality.gov.au; Phone: (Australia) 02 9126 3600
 ### Connections to Other Custodians
 
 - AIHW: Collaboration on data standards and national health data initiatives, as mentioned in the ACSQHC Data Plan 2024-2027.
-- Department of Health and Aged Care: Works in partnership on the National Clinical Quality Registry Program and other health initiatives.
+- Department of Health, Disability and Ageing: Works in partnership on the National Clinical Quality Registry Program and other health initiatives.
 - NHMRC/HRECs: Engages with Human Research Ethics Committees for ethical oversight of data use in clinical quality registries.
 
 ### Source URLs
@@ -269,7 +274,8 @@ General inquiries: mail@safetyandquality.gov.au; Phone: (Australia) 02 9126 3600
 - <https://www.safetyandquality.gov.au/our-work/indicators-measurement-and-reporting/medicineinsight/medicineinsight-privacy-security-and-governance>
 - <https://www.safetyandquality.gov.au/about-us/governance/data-governance>
 - <https://www.health.gov.au/our-work/national-clinical-quality-registry-program?language=en>
-
+- <https://www.safetyandquality.gov.au/data-and-measurement/clinical-quality-registries/australian-register-clinical-registries>
+- <https://www.safetyandquality.gov.au/data-and-measurement/clinical-quality-registries>
 ---
 
 ## Australian Digital Health Agency (ADHA)
@@ -319,7 +325,7 @@ Australian Digital Health Agency Contact form: https://www.digitalhealth.gov.au/
 ### Connections to Other Custodians
 
 - Australian Institute of Health and Welfare (AIHW): AIHW has been appointed as the Data Custodian to manage the use of My Health Record system data for research or public health purposes. [3]
-- Department of Health and Aged Care: The Department of Health and Aged Care is leading the implementation of the framework for secondary use of My Health Record data in partnership with ADHA and AIHW. [3]
+- Department of Health, Disability and Ageing: The Department of Health, Disability and Ageing is leading the implementation of the framework for secondary use of My Health Record data in partnership with ADHA and AIHW. [3]
 - Services Australia: ADHA collaborates with Services Australia for Healthcare Identifiers (HPI-Is, HPI-Os, IHIs) and eBusiness Service Centre support. [4]
 
 ### Source URLs
@@ -331,43 +337,44 @@ Australian Digital Health Agency Contact form: https://www.digitalhealth.gov.au/
 
 ---
 
-## Australian Government Department of Health and Aged Care (DoHAC)
+## Australian Government Department of Health, Disability and Ageing (DoHDA)
 
-<a name='australian-government-department-of-health-and-aged-care'></a>
+<a name='australian-government-department-of-health-disability-and-ageing'></a>
 
-| Field                    | Value                                                    |
-| ------------------------ | -------------------------------------------------------- |
-| **Full Name**            | Australian Government Department of Health and Aged Care |
-| **Short Name / Acronym** | DoHAC                                                    |
-| **Custodian Type**       | Commonwealth                                             |
-| **Jurisdiction**         | Commonwealth                                             |
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | Australian Government Department of Health, Disability and Ageing |
+| **Short Name / Acronym** | DoHDA |
+| **Custodian Type**       | Commonwealth |
+| **Jurisdiction**         | Commonwealth |
+| **Classification Note**  | Standard custodian — no special classification needed |
 
 ### Role
 
-The Australian Government Department of Health and Aged Care is responsible for funding and regulating health care and aged care services. Its primary role in the health data ecosystem is to collect, manage, and release health and aged care data to support research, policy development, and improve health outcomes for all Australians, while ensuring privacy and confidentiality.
+The Australian Government Department of Health, Disability and Ageing (formerly the Department of Health and Aged Care) is responsible for funding and regulating health care, aged care and disability services. Its primary role in the health data ecosystem is to collect, manage, and release health, aged care and disability data to support research, policy development, and improved outcomes for Australians, while ensuring privacy and confidentiality.
 
 ### Key Datasets
 
-| Dataset Name                                             | Description                                                                                                                                     | Identifiable  | Linkable                    |
-| -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | --------------------------- |
-| Private Hospital Data Bureau (PHDB) data                 | De-identified information from private hospitals including patient demographics, hospital episodes, clinical information, and hospital charges. | De-identified | Yes via patient ID          |
-| Hospital Casemix Protocol (HCP) data                     | Clinical, demographic, and financial information for privately insured admitted patients.                                                       | De-identified | Yes via patient ID          |
-| National Notifiable Diseases Surveillance System (NNDSS) | Coordinates data on more than 70 diseases that present a risk to public health in Australia.                                                    | De-identified | No                          |
-| Medicare data (MBS and PBS statistics)                   | Statistics on use of the Medicare Benefits Schedule (MBS) and Pharmaceutical Benefits Scheme (PBS).                                             | De-identified | No                          |
-| National Integrated Health Services Information (NIHSI)  | Brings together state, territory and national administrative datasets including MBS, PBS, residential aged care, and National Death Index.      | De-identified | Yes via unit record linkage |
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| Private Hospital Data Bureau (PHDB) data | De-identified information from private hospitals including patient demographics, hospital episodes, clinical information, and hospital charges. | De-identified | Yes via patient ID |
+| Hospital Casemix Protocol (HCP) data | Clinical, demographic, and financial information for privately insured admitted patients. | De-identified | Yes via patient ID |
+| National Notifiable Diseases Surveillance System (NNDSS) | Coordinates data on more than 70 diseases that present a risk to public health in Australia. | De-identified | No |
+| Medicare data (MBS and PBS statistics) | Statistics on use of the Medicare Benefits Schedule (MBS) and Pharmaceutical Benefits Scheme (PBS). | De-identified | No |
+| National Health Data Hub (NHDH, formerly NIHSI) | National de-identified linked data system bringing together state, territory and national health and welfare datasets, including hospital care, MBS, PBS, aged care, the National Death Index, AIR and NDIS where approved. | De-identified | Yes via unit record linkage |
 
 ### Data Access Pathway
 
 Step 1: Initial Request Form Submission | Actor: Researcher | Form/Portal: Health Data Extract Initial Request Form (PDF/Word versions available on dataportal.health.gov.au) | Duration: ~1 week
-Step 2: Detailed Assessment and Follow-up Form | Actor: Department of Health and Aged Care / Researcher | Form/Portal: Follow-up form emailed to researcher | Duration: Varies, depending on complexity; assessment panel meets monthly; ~3 weeks for governance stage; ~3 weeks for data extraction
-Step 3: Final Approval and Data Extraction | Actor: Department of Health and Aged Care | Form/Portal: N/A | Duration: N/A
+Step 2: Detailed Assessment and Follow-up Form | Actor: DoHDA / Researcher | Form/Portal: Follow-up form emailed to researcher | Duration: Varies, depending on complexity; assessment panel meets monthly; ~3 weeks for governance stage; ~3 weeks for data extraction
+Step 3: Final Approval and Data Extraction | Actor: DoHDA | Form/Portal: N/A | Duration: N/A
 Step 4: Data Extraction by Researcher | Actor: Researcher | Form/Portal: Health Data Portal (dataportal.health.gov.au) | Duration: N/A
 
 ### Ethics and Governance Requirements
 
 Legislation: National Health Act 1953, Health Insurance Act 1973, Privacy Act 1988, Freedom of Information Act 1982.
 HREC Requirements: Researchers require ethics review from their institution for any research involving humans or access to personal information, guided by the National Statement on Ethical Conduct in Human Research.
-Data Governance Frameworks: Department of Health and Aged Care Data Strategy 2022–25, Our Data Governance Framework Placemat 2025. Data release is governed by privacy, confidentiality and secrecy provisions in relevant legislation, with assessment considering purpose, anonymity, consent, and privacy compliance.
+Data Governance Frameworks: Department of Health, Disability and Ageing Data Strategy 2022–25, Our Data Governance Framework Placemat 2025. Data release is governed by privacy, confidentiality and secrecy provisions in relevant legislation, with assessment considering purpose, anonymity, consent, and privacy compliance.
 
 ### Secure Access Platform
 
@@ -384,9 +391,10 @@ Health Data Portal: https://dataportal.health.gov.au/
 
 ### Connections to Other Custodians
 
-- Australian Institute of Health and Welfare (AIHW): Collaboration on National Integrated Health Services Information (NIHSI) and data linkage requests.
+- Australian Institute of Health and Welfare (AIHW): Collaboration on the National Health Data Hub (NHDH, formerly NIHSI) and data linkage requests.
+- ABS: NHDH approved access includes AIHW Researcher Online Network (RON) and an AIHW-managed ABS Secure Environment for Access to Data (SEAD) instance.
 - Services Australia: Holds Medicare statistics that can be helpful for health professionals, researchers, journalists and the general public.
-- State and Territory Health Authorities: Collaboration on National Integrated Health Services Information (NIHSI).
+- State and Territory Health Authorities: Collaboration on the National Health Data Hub (NHDH, formerly NIHSI).
 
 ### Source URLs
 
@@ -395,7 +403,10 @@ Health Data Portal: https://dataportal.health.gov.au/
 - <https://dataportal.health.gov.au/wps/portal/dataportalcontent/registration/requeststatsanddata/!ut/p/z0/fY0xD4IwEIX_ig6M5hpCFUaiCxIGN7jFXKRiFVtoT6P_XspkYuL4vXvvO0CoAQ09dUesraF-4gbXR1mUhUhEXIpql4g8k_KQyUKk5Qb2gP8LkyF21bbqAAfiy0qbs4XaqU57dvObQONDefZM7Mm0LTGFnb6OI-aAJ2tYvRjqcBisY-oXc2Y4Ev7tWd0j8W0M9GscbtikPl9-ANjxOCw!/>
 - <https://www.health.gov.au/news/new-name-for-department?language=en>
 - <https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Community_Affairs/Budget_Estimates_202324/Abbreviations>
-
+- <https://www.pmc.gov.au/resources/aao-13-may-2025>
+- <https://www.directory.gov.au/portfolios/health-disability-and-ageing/department-health-disability-and-ageing>
+- <https://www.aihw.gov.au/reports-data/nhdh/frequently-asked-questions>
+- <https://www.abs.gov.au/statistics/secure-environment-analysing-data-sead>
 ---
 
 ## Australian Institute of Aboriginal and Torres Strait Islander Studies (AIATSIS)
@@ -541,12 +552,13 @@ Data on Request Page: https://www.aihw.gov.au/about-our-data/accessing-data-thro
 
 <a name='australian-institute-of-health-and-welfare-data-integration-services-centre'></a>
 
-| Field                    | Value                                                                       |
-| ------------------------ | --------------------------------------------------------------------------- |
+| Field                    | Value |
+| ------------------------ | ----- |
 | **Full Name**            | Australian Institute of Health and Welfare Data Integration Services Centre |
-| **Short Name / Acronym** | AIHW DISC                                                                   |
-| **Custodian Type**       | Statistical Publisher                                                       |
-| **Jurisdiction**         | Commonwealth                                                                |
+| **Short Name / Acronym** | AIHW DISC |
+| **Custodian Type**       | Statistical Publisher |
+| **Jurisdiction**         | Commonwealth |
+| **Classification Note**  | Standard custodian — no special classification needed |
 
 ### Role
 
@@ -554,20 +566,22 @@ The AIHW Data Integration Services Centre (DISC) is responsible for assisting re
 
 ### Key Datasets
 
-| Dataset Name                                                 | Description                                                                                                               | Identifiable  | Linkable |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- |
-| National Disability Data Asset (NDDA)                        | A nation-wide, multi-sector linked data asset for understanding needs, services, and outcomes for people with disability. | De-identified | Linkable |
-| Admitted Patient Care (APC) National Minimum Data Set (NMDS) | Data on admitted patient care in Australian hospitals.                                                                    | De-identified | Linkable |
-| Medicare Benefits Schedule (MBS)                             | Data on services provided by medical practitioners.                                                                       | De-identified | Linkable |
-| Pharmaceutical Benefits Scheme (PBS)                         | Data on subsidised medicines.                                                                                             | De-identified | Linkable |
-| National Bowel Cancer Screening Program                      | Data related to bowel cancer screening outcomes.                                                                          | De-identified | Linkable |
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| National Health Data Hub (NHDH, formerly NIHSI) | National de-identified linked data system for approved research and policy analysis, with access for government and non-government researchers. | De-identified | Linkable |
+| National Disability Data Asset (NDDA) | A nation-wide, multi-sector linked data asset for understanding needs, services, and outcomes for people with disability. | De-identified | Linkable |
+| Admitted Patient Care (APC) National Minimum Data Set (NMDS) | Data on admitted patient care in Australian hospitals. | De-identified | Linkable |
+| Medicare Benefits Schedule (MBS) | Data on services provided by medical practitioners. | De-identified | Linkable |
+| Pharmaceutical Benefits Scheme (PBS) | Data on subsidised medicines. | De-identified | Linkable |
+| National Cancer Screening Register (NCSR) | Bowel and cervical cancer screening data included in the National Health Data Hub where approved. | De-identified | Linkable |
+| Australian Immunisation Register (AIR) | Immunisation data included in the National Health Data Hub where approved. | De-identified | Linkable |
 
 ### Data Access Pathway
 
 Step 1: Submit project proposal form | Actor: Researcher | Form/Portal: Project proposal form (via AIHW website) | Duration: Not publicly available
 Step 2: Project proposal reviewed and assessed | Actor: AIHW Data Custodian, AIHW Ethics Committee secretary, NHDH Advisory Committee, other data custodians | Form/Portal: Internal review process | Duration: Not publicly available
 Step 3: Approval obtained | Actor: AIHW | Form/Portal: N/A | Duration: Not publicly available
-Step 4: Onboarding training and secure access setup | Actor: Researcher, AIHW | Form/Portal: N/A | Duration: Not publicly available
+Step 4: Onboarding training and secure access setup in RON or the AIHW-managed ABS SEAD instance | Actor: Researcher, AIHW | Form/Portal: N/A | Duration: Not publicly available
 Step 5: Submit Output Clearance Request Form for data release | Actor: Researcher | Form/Portal: Output Clearance Request Form (via AIHW website) | Duration: Not publicly available
 
 ### Ethics and Governance Requirements
@@ -575,6 +589,10 @@ Step 5: Submit Output Clearance Request Form for data release | Actor: Researche
 Legislation: Australian Institute of Health and Welfare Act 1987 (Section 16 for Ethics Committee), Privacy Act 1988, Data Availability and Transparency Act 2022.
 HREC Requirements: All projects using linked data systems must have ethical approval from the AIHW Ethics Committee. The Committee is recognized by the NHMRC as a properly constituted Human Research Ethics Committee as outlined in the National Statement on Ethical Conduct in Human Research.
 Frameworks: Five Safes Framework (embedded in data sharing and release decisions), AIHW Data Governance Framework.
+
+### Secure Access Platform
+
+**Platform:** AIHW secure linkage environment; National Health Data Hub access via AIHW Researcher Online Network (RON) and an AIHW-managed ABS Secure Environment for Access to Data (SEAD) instance.
 
 ### Contact and Application Portal
 
@@ -586,9 +604,9 @@ Email: linkage@aihw.gov.au (for data linkage inquiries); nhdh@aihw.gov.au (for N
 
 ### Connections to Other Custodians
 
-- ABS: Collaboration on National Disability Data Asset (NDDA) and data integration. ABS receives de-identified data from AIHW for NDDA preparation.
+- ABS: Collaboration on National Disability Data Asset (NDDA), data integration, and NHDH access via an AIHW-managed ABS SEAD instance.
 - Services Australia: Data from Medicare Consumer Directory and Centrelink Data Over Multiple Individual Occurrences (DOMINO) are linked by AIHW DISC.
-- Department of Health and Aged Care: Partner in the National Health Data Hub (NHDH).
+- Department of Health, Disability and Ageing: Partner in the National Health Data Hub (NHDH).
 - NSW Health: Partner in the National Health Data Hub (NHDH).
 - Queensland Health: Partner in the National Health Data Hub (NHDH).
 - Population Health Research Network (PHRN): Partner in the National Health Data Hub (NHDH).
@@ -603,7 +621,10 @@ Email: linkage@aihw.gov.au (for data linkage inquiries); nhdh@aihw.gov.au (for N
 - <https://www.aihw.gov.au/about-our-data/data-governance>
 - <https://www.aihw.gov.au/our-services/data-linkage/our-secure-linkage-environment>
 - <https://ardc.edu.au/project/linked-data-asset-australian-health-research/>
-
+- <https://www.aihw.gov.au/reports-data/nhdh>
+- <https://www.aihw.gov.au/reports-data/nhdh/frequently-asked-questions>
+- <https://www.aihw.gov.au/reports-data/nhdh/data>
+- <https://www.abs.gov.au/statistics/secure-environment-analysing-data-sead>
 ---
 
 ## Australian Prudential Regulation Authority (APRA)
@@ -715,7 +736,7 @@ HeSANDA Node Network Contact Details: https://documentation.ardc.edu.au/hda/hesa
 
 - AIHW: Collaboration on the National Health Data Hub (NHDH) to improve access to high-quality health data and a Memorandum of Understanding for a long-term partnership.
 - ABS: Collaboration on making ABS datasets available for research.
-- Department of Health and Aged Care: ARDC is supported by the Australian Government through the National Collaborative Research Infrastructure Strategy (NCRIS), which includes initiatives relevant to health data.
+- Department of Health, Disability and Ageing: ARDC is supported by the Australian Government through the National Collaborative Research Infrastructure Strategy (NCRIS), which includes initiatives relevant to health data.
 - NHMRC/HRECs: ARDC's Trusted Research Environments Framework provides principles and standards for governance, infrastructure, and practices to ensure ethical handling of sensitive data, which aligns with HREC requirements.
 
 ### Source URLs
@@ -733,12 +754,13 @@ HeSANDA Node Network Contact Details: https://documentation.ardc.edu.au/hda/hesa
 
 <a name='department-of-social-services'></a>
 
-| Field                    | Value                         |
-| ------------------------ | ----------------------------- |
+| Field                    | Value |
+| ------------------------ | ----- |
 | **Full Name**            | Department of Social Services |
-| **Short Name / Acronym** | DSS                           |
-| **Custodian Type**       | Commonwealth                  |
-| **Jurisdiction**         | Commonwealth                  |
+| **Short Name / Acronym** | DSS |
+| **Custodian Type**       | Commonwealth |
+| **Jurisdiction**         | Commonwealth |
+| **Classification Note**  | Standard custodian — no special classification needed |
 
 ### Role
 
@@ -746,9 +768,11 @@ The Department of Social Services (DSS) is responsible for a diverse range of po
 
 ### Key Datasets
 
-| Dataset Name                         | Description                                                                                                                                                                                                                            | Identifiable  | Linkable                |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------- |
-| DOMINO (External Analytical Version) | Integrated DataMart of DSS administrative analytical datasets, providing a detailed and longitudinal view of individuals' interactions with the welfare system. Does not contain identifiable information such as names and addresses. | De-identified | Yes via PLIDA;NDIS Data |
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| DOMINO (External Analytical Version) | Integrated DataMart of DSS administrative analytical datasets, providing a detailed and longitudinal view of individuals' interactions with the welfare system. Does not contain identifiable information such as names and addresses. | De-identified | Yes via PLIDA |
+| NDIS Data | Data related to participants, outcomes, demographics, payments, and provider data within the National Disability Insurance Scheme. | De-identified | Yes via PLIDA |
+| Data Exchange (DEX) | Curated dataset for sharing de-identified data for analytical projects, including data integration or program evaluation. | De-identified | Yes |
 
 ### Data Access Pathway
 
@@ -768,7 +792,9 @@ https://requestdata.dss.gov.au/ (Data Request Portal); Privacy@dss.gov.au (Priva
 
 ### Connections to Other Custodians
 
-- Services Australia: DSS administrative analytical datasets for DOMINO are sourced from the Services Australia Enterprise Data Warehouse, and personal information is stored on Services Australia's cloud storage;AIHW: DSS makes DOMINO accessible through the AIHW, and AIHW is listed as a contact point for data access;ABS: ABS is listed as a contact point for data integration, and NDIS data has been linked to the Multi-Agency Data Integration Project (MADIP) by ABS.
+- Services Australia: DSS administrative analytical datasets for DOMINO are sourced from the Services Australia Enterprise Data Warehouse, and personal information is stored on Services Australia's cloud storage.
+- AIHW: DSS makes DOMINO accessible through the AIHW, and AIHW is listed as a contact point for data access.
+- ABS: ABS is listed as a contact point for data integration, and NDIS data has been linked to the Person Level Integrated Data Asset (PLIDA, formerly MADIP) by ABS.
 
 ### Source URLs
 
@@ -777,7 +803,8 @@ https://requestdata.dss.gov.au/ (Data Request Portal); Privacy@dss.gov.au (Priva
 - <https://dss.aristotlecloud.io/steward/dss/>
 - <https://dss.aristotlecloud.io/item/1942>
 - <https://dataresearch.ndis.gov.au/>
-
+- <https://www.aihw.gov.au/our-services/data-on-request/dss-data/access-dss-data>
+- <https://www.abs.gov.au/statistics/data-integration/integrated-data/person-level-integrated-data-asset-plida>
 ---
 
 ## MedicineInsight (Australian Commission on Safety and Quality in Health Care) (MedicineInsight)
@@ -826,7 +853,7 @@ Phone: 1300 721 726
 
 ### Connections to Other Custodians
 
-- Department of Health and Aged Care: funding for the program
+- Department of Health, Disability and Ageing: funding for the program
 - RACGP: MedicineInsight is GP practice longitudinal prescribing and clinical data, RACGP is a key partner in general practice
 - ACSQHC: The Australian Commission on Safety and Quality in Health Care is the custodian of the MedicineInsight program
 
@@ -878,7 +905,7 @@ General inquiries: https://www.naccho.org.au/contact-us/ | Phone: 02 6246 9300 |
 
 ### Connections to Other Custodians
 
-- AIHW: collaboration on the review of Online Services Report (OSR) and National Key Performance Indicators (nKPIs);Department of Health and Aged Care: commissioned AIHW to review OSR and nKPIs, and NACCHO advocates for policy reforms with government departments;ACCHOs: NACCHO is the national peak body representing 148 ACCHOs, supporting their data collection and use;ICSPR: repository for Profile and Forces of Change data for researchers.
+- AIHW: collaboration on the review of Online Services Report (OSR) and National Key Performance Indicators (nKPIs);Department of Health, Disability and Ageing: commissioned AIHW to review OSR and nKPIs, and NACCHO advocates for policy reforms with government departments;ACCHOs: NACCHO is the national peak body representing 148 ACCHOs, supporting their data collection and use;ICSPR: repository for Profile and Forces of Change data for researchers.
 
 ### Source URLs
 
@@ -939,7 +966,7 @@ Application Portal: Human Research Ethics Application (HREA): https://hrea.gov.a
 
 - ABS: NHMRC utilizes ABS standards for research classifications and data definitions, such as the ABS 2020 Standard for sex and gender in health and medical research.
 - AIHW: NHMRC collaborates with AIHW and ABS on data integration initiatives, including the creation of pilot datasets.
-- Department of Health and Aged Care: As a Commonwealth entity, NHMRC works closely with the Department of Health and Aged Care on national health policy, research funding, and ethical guidelines.
+- Department of Health, Disability and Ageing: As a Commonwealth entity, NHMRC works closely with the Department of Health, Disability and Ageing on national health policy, research funding, and ethical guidelines.
 
 ### Source URLs
 
@@ -1002,7 +1029,7 @@ execoffice@phncooperative.org.au
 ### Connections to Other Custodians
 
 - Australian Institute of Health and Welfare (AIHW): AIHW is a Primary Health Insights participant and is required to maintain the same data governance requirements as PHNs for the data held in its secure lock box.
-- Department of Health and Aged Care: The development and implementation of Primary Health Insights was funded by the Australian Government Department of Health.
+- Department of Health, Disability and Ageing: The development and implementation of Primary Health Insights was funded by the Australian Government Department of Health.
 - Primary Health Networks (PHNs): Primary Health Insights is a collaborative initiative of the PHNs, and the platform is owned by them.
 
 ### Source URLs
@@ -1073,7 +1100,7 @@ General enquiries: phrn@uwa.edu.au
 - SA Health/SA NT DataLink: PHRN delivers coordinated data linkage infrastructure through partners in state governments, including SA Health.
 - Tasmanian DoH/TDLU: PHRN delivers coordinated data linkage infrastructure through partners in state governments, including Tasmanian Government Department of Health.
 - Queensland Health: PHRN delivers coordinated data linkage infrastructure through partners in state governments, including Queensland Government Department of Health.
-- Department of Health and Aged Care: PHRN receives core funding from the Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS) program, which is a Department of Health and Aged Care initiative.
+- Department of Health, Disability and Ageing: PHRN receives core funding from the Australian Government’s National Collaborative Research Infrastructure Strategy (NCRIS) program, which is a Department of Health, Disability and Ageing initiative.
 
 ### Source URLs
 
@@ -1135,7 +1162,7 @@ hospitaldata@aihw.gov.au (for PHDB data inquiries); info@aihw.gov.au (general AI
 ### Connections to Other Custodians
 
 - AIHW: The AIHW receives de-identified PHDB data from the Department of Health and makes it available for research and reporting.
-- Department of Health and Aged Care: The Department of Health collects PHDB data directly from private hospitals and supplies de-identified data to the AIHW.
+- Department of Health, Disability and Ageing: The Department of Health collects PHDB data directly from private hospitals and supplies de-identified data to the AIHW.
 - ABS: The AIHW partners with the ABS for secure data access environments like SEAM, which may be used for linked PHDB data.
 - PHRN: The Population Health Research Network (PHRN) supports researcher requests to access linked data, which could include PHDB data.
 
@@ -1201,7 +1228,7 @@ external.information.release@servicesaustralia.gov.au
 
 ### Connections to Other Custodians
 
-- Department of Health and Aged Care: Services Australia works with the Department of Health and Aged Care as the relevant policy department to ensure legislation and regulations allow the access, use, and disclosure of data. They also source MBS and PBS data from Services Australia for Medicare compliance purposes.
+- Department of Health, Disability and Ageing: Services Australia works with the Department of Health, Disability and Ageing as the relevant policy department to ensure legislation and regulations allow the access, use, and disclosure of data. They also source MBS and PBS data from Services Australia for Medicare compliance purposes.
 - AIHW: AIHW collects and publishes data related to MBS and PBS, often drawing on data originating from Services Australia.
 - ABS: Services Australia refers to the National Statistical Service website (which includes ABS) for integrating data from administrative or survey sources.
 
@@ -1262,7 +1289,7 @@ TGA Business Services (TBS): https://www.tga.gov.au/business-services/tga-busine
 ### Connections to Other Custodians
 
 - Australian Institute of Health and Welfare (AIHW): TGA plays a key role in the National Medicines Policy, which AIHW reports on.
-- Department of Health and Aged Care: TGA is part of the Australian Government Department of Health and Aged Care.
+- Department of Health, Disability and Ageing: TGA is part of the Australian Government Department of Health, Disability and Ageing.
 - NHMRC/HRECs: Human Research Ethics Committees (HRECs) register with the National Health and Medical Research Council (NHMRC) and are involved in TGA-regulated clinical trials.
 
 ### Source URLs
@@ -1529,7 +1556,7 @@ Application Form: https://www2.health.vic.gov.au/cvdl/applicationform
 ### Connections to Other Custodians
 
 - AIHW: CVDL assembles data for national reporting to AIHW [3]
-- Department of Health and Aged Care: HACC data for people aged 65+ transferred to Commonwealth Department of Health and Aged Care [3]
+- Department of Health, Disability and Ageing: HACC data for people aged 65+ transferred to Commonwealth Department of Health, Disability and Ageing [3]
 - Victorian Cancer Registry: VCR data is integrated into CVDL's Integrated Data Resource [3]
 
 ### Source URLs
@@ -1728,28 +1755,29 @@ For summary data: HlthStat@health.qld.gov.au; For linked and/or potentially iden
 
 <a name='wa-health--data-linkage-services-wa'></a>
 
-| Field                    | Value                                |
-| ------------------------ | ------------------------------------ |
+| Field                    | Value |
+| ------------------------ | ----- |
 | **Full Name**            | WA Health / Data Linkage Services WA |
-| **Short Name / Acronym** | WA Health DLS                        |
-| **Custodian Type**       | State - WA                           |
-| **Jurisdiction**         | Western Australia                    |
+| **Short Name / Acronym** | WA Health DLS |
+| **Custodian Type**       | State - WA |
+| **Jurisdiction**         | Western Australia |
+| **Classification Note**  | Standard custodian — no special classification needed |
 
 ### Role
 
-The Data Linkage Services team manages the Western Australian Data Linkage System, one of the most comprehensive linkage systems in the world. They facilitate access to linked data for approved purposes to improve outcomes for the Western Australian community by putting linked data at the core of decision-making and research.
+The Data Linkage Services team manages the Western Australian Data Linkage System, one of the most comprehensive linkage systems in the world. They facilitate access to linked data for approved purposes to improve outcomes for the Western Australian community by putting linked data at the core of decision-making and research. The public Data Linkage Services website migrated into the WA Health website in January 2026, with the former WordPress site retired on 22 January 2026.
 
 ### Key Datasets
 
-| Dataset Name                         | Description                                         | Identifiable  | Linkable             |
-| ------------------------------------ | --------------------------------------------------- | ------------- | -------------------- |
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
 | Emergency Department Data Collection | Contains data on emergency department presentations | De-identified | Yes via linkage keys |
-| Hospital Morbidity Data Collection   | Contains data on admitted patient activity          | De-identified | Yes via linkage keys |
-| WA Cancer Registry                   | Contains data on cancer diagnoses and treatments    | De-identified | Yes via linkage keys |
+| Hospital Morbidity Data Collection | Contains data on admitted patient activity | De-identified | Yes via linkage keys |
+| WA Cancer Registry | Contains data on cancer diagnoses and treatments | De-identified | Yes via linkage keys |
 
 ### Data Access Pathway
 
-Step 1: Initial Inquiry | Actor: Researcher | Form/Portal: ISPD Client Services team (Research data related enquiries) | Duration: Not publicly available
+Step 1: Initial Inquiry | Actor: Researcher | Form/Portal: ISPD Client Services team; research enquiries DataServ@health.wa.gov.au and non-research enquiries ISPDClientServices@health.wa.gov.au | Duration: Not publicly available
 Step 2: Application Submission | Actor: Researcher | Form/Portal: Data forms page (https://www.health.wa.gov.au/Articles/A_E/data-linkage/How-to-apply-for-data/data-forms) | Duration: Not publicly available
 Step 3: Prioritisation and Costing | Actor: WA Health DLS | Form/Portal: Not publicly available | Duration: Not publicly available
 Step 4: Approvals | Actor: WA Health DLS, HREC | Form/Portal: Not publicly available | Duration: Not publicly available
@@ -1765,7 +1793,7 @@ All research projects using health data require approval from a recognised ethic
 
 ### Contact and Application Portal
 
-https://www.health.wa.gov.au/Articles/A_E/data-linkage/How-to-apply-for-data
+Research enquiries: DataServ@health.wa.gov.au; non-research enquiries: ISPDClientServices@health.wa.gov.au; application portal: https://www.health.wa.gov.au/Articles/A_E/data-linkage/How-to-apply-for-data
 
 ### Indicative End-to-End Timeline
 
@@ -1784,7 +1812,8 @@ https://www.health.wa.gov.au/Articles/A_E/data-linkage/How-to-apply-for-data
 - <https://www.health.wa.gov.au/Articles/A_E/data-linkage/How-to-apply-for-data/data-collections>
 - <https://www.health.wa.gov.au/Articles/A_E/data-linkage/about/ethics>
 - <https://www.health.wa.gov.au/About-us/Policy-frameworks/Information-Management/Mandatory-requirements/Governance/Data-Linkage-Policy>
-
+- <https://www.health.wa.gov.au/News/2026/Data-linkage-has-a-new-home>
+- <https://www.health.wa.gov.au/Articles/A_E/data-linkage/Services-available>
 ---
 
 ## Tasmanian Department of Health / Tasmanian Data Linkage Unit (TDLU)
@@ -2071,24 +2100,25 @@ Email: MOH-CHeReL@health.nsw.gov.au; CheckApp portal: https://checkapp.cherel.or
 
 <a name='sa-health--sa-nt-datalink'></a>
 
-| Field                    | Value                                  |
-| ------------------------ | -------------------------------------- |
-| **Full Name**            | SA Health / SA NT DataLink             |
-| **Short Name / Acronym** | SA NT DataLink                         |
-| **Custodian Type**       | Cross-jurisdictional                   |
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | SA Health / SA NT DataLink |
+| **Short Name / Acronym** | SA NT DataLink |
+| **Custodian Type**       | Cross-jurisdictional |
 | **Jurisdiction**         | South Australia and Northern Territory |
+| **Classification Note**  | Standard custodian — no special classification needed |
 
 ### Role
 
-SA NT DataLink provides high quality data linkage services to support research, policy development, service planning and evaluation. It facilitates access to accurate and unbiased information held by Government agencies and other organisations to better inform research, policies and practices.
+SA NT DataLink provides high quality data linkage services to support research, policy development, service planning and evaluation. It facilitates access to accurate and unbiased information held by Government agencies and other organisations to better inform research, policies and practices. SA Treasury budget papers record that SA NT DataLink was relocated into SA Health and transitioned from UniSA into the Department for Health and Wellbeing from 1 January 2024.
 
 ### Key Datasets
 
-| Dataset Name                   | Description                                             | Identifiable  | Linkable               |
-| ------------------------------ | ------------------------------------------------------- | ------------- | ---------------------- |
-| NT Client Master Index         | Master index for clients in Northern Territory          | De-identified | Yes via SA NT DataLink |
-| SA Public Hospital Separations | Records of hospital separations in South Australia      | De-identified | Yes via SA NT DataLink |
-| SA Cancer Registry             | Cancer incidence and mortality data for South Australia | De-identified | Yes via SA NT DataLink |
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| NT Client Master Index | Master index for clients in Northern Territory | De-identified | Yes via SA NT DataLink |
+| SA Public Hospital Separations | Records of hospital separations in South Australia | De-identified | Yes via SA NT DataLink |
+| SA Cancer Registry | Cancer incidence and mortality data for South Australia | De-identified | Yes via SA NT DataLink |
 
 ### Data Access Pathway
 
@@ -2121,12 +2151,12 @@ PHRN online application system: https://oas.phrn.org.au
 - PHRN: SA NT DataLink is part of the Population Health Research Network (PHRN) and uses its online application system.
 - SA Health: SA NT DataLink is part of SA Health and collaborates with SA Department for Health and Wellbeing.
 - NT Health: SA NT DataLink collaborates with NT Health.
-- University of South Australia: Was the host institution for SA NT DataLink and is part of the consortium.
+- University of South Australia: Former host institution; SA Treasury budget papers record that the service transitioned from UniSA into the Department for Health and Wellbeing from 1 January 2024.
 - The University of Adelaide: Is part of the SA NT DataLink consortium.
 - Menzies School of Health Research: Is part of the SA NT DataLink consortium.
 - ABS: SA NT DataLink is an accredited Commonwealth Data Integrating Authority and can facilitate access to Australian Government data sources like the National Death Index.
 - Services Australia: SA NT DataLink can facilitate access to Centrelink records.
-- Department of Health and Aged Care: SA NT DataLink can facilitate access to Medicare Benefits Schedule (MBS) and Pharmaceutical Benefits Scheme (PBS).
+- Department of Health, Disability and Ageing: SA NT DataLink can facilitate access to Medicare Benefits Schedule (MBS) and Pharmaceutical Benefits Scheme (PBS).
 
 ### Source URLs
 
@@ -2135,7 +2165,7 @@ PHRN online application system: https://oas.phrn.org.au
 - <https://www.santdatalink.org.au/application_process>
 - <https://www.unisa.edu.au/siteassets/sa-nt-datalink/documents/santdatalinkinventorylinkeddatasets.pdf>
 - <https://www.phrn.org.au/data/how-to-apply/application/>
-
+- <https://www.treasury.sa.gov.au/__data/assets/pdf_file/0020/1014806/2024-25-Agency-Statements-Volume-3.pdf>
 ---
 
 ## Secure Unified Research Environment (SURE)
@@ -2190,7 +2220,7 @@ sure-admin@saxinstitute.org.au
 - PHRN: SURE is supported by the Population Health Research Network.
 - AIHW: AIHW data is accessed via SURE.
 - Cancer Institute NSW: Cancer Institute NSW data is accessed via SURE.
-- Department of Health and Aged Care: Australian Government National Collaborative Research Infrastructure Strategy (NCRIS) is an initiative of the Australian Government.
+- Department of Health, Disability and Ageing: Australian Government National Collaborative Research Infrastructure Strategy (NCRIS) is an initiative of the Australian Government.
 - NSW Health: NSW Government supports SURE.
 
 ### Source URLs

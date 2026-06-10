@@ -105,7 +105,13 @@ EXTRA_ALIASES_BY_NAME = {
     "Australian Bureau of Statistics": {"ABS"},
     "Australian Institute of Health and Welfare": {"AIHW"},
     "Australian Institute of Health and Welfare Data Integration Services Centre": {"AIHW DISC", "AIHW Data Integration Services", "Dataplace"},
-    "Australian Government Department of Health and Aged Care": {"Department of Health and Aged Care", "DoHAC"},
+    "Australian Government Department of Health, Disability and Ageing": {
+        "Australian Government Department of Health and Aged Care",
+        "Department of Health and Aged Care",
+        "Department of Health, Disability and Ageing",
+        "DoHAC",
+        "DoHDA",
+    },
     "Australian Research Data Commons": {"ARDC", "HeSANDA", "Health Data Australia"},
     "Centre for Health Record Linkage": {"CHeReL"},
     "National Aboriginal Community Controlled Health Organisation": {"NACCHO"},
@@ -164,14 +170,15 @@ SPECIAL_ACCESS_STEPS_BY_NAME = {
 }
 
 SPECIAL_CONNECTIONS_BY_NAME = {
-    "Department of Health and Aged Care": [
-        "Australian Institute of Health and Welfare (AIHW) (for NIHSI/NHDH, GTD data)",
+    "Australian Government Department of Health, Disability and Ageing": [
+        "Australian Institute of Health and Welfare (AIHW) (for NHDH, formerly NIHSI, and GTD data)",
+        "ABS (for AIHW-managed ABS SEAD access to NHDH)",
         "Services Australia (for Medicare statistics, MBS/PBS data)",
     ],
     "TGA": [
         "Services Australia (PBS adverse event linkage and pharmacovigilance context)",
         "AIHW (therapeutic goods reporting and linked health data context)",
-        "Department of Health and Aged Care (regulatory policy and portfolio oversight)",
+        "Department of Health, Disability and Ageing (regulatory policy and portfolio oversight)",
     ],
     "Cancer Institute NSW": [
         "NSW Health - Ministry of Health NSW (Cancer Institute NSW is a statutory body within the NSW Health portfolio)",
@@ -203,7 +210,7 @@ SPECIAL_CONNECTIONS_BY_NAME = {
         "AIHW (linked data projects via AIHW Data Integration Services)",
         "Services Australia (MBS, PBS, and Centrelink linkage in approved projects)",
         "PHRN (national data linkage ecosystem)",
-        "Department of Health and Aged Care (Commonwealth health data access context)",
+        "Department of Health, Disability and Ageing (Commonwealth health data access context)",
     ],
     "AIHW Data Integration Services": [
         "Services Australia (for MBS/PBS data)",
@@ -211,7 +218,7 @@ SPECIAL_CONNECTIONS_BY_NAME = {
     ],
     "MedicineInsight (NPS MedicineWise)": [
         "NHMRC / HRECs (ethics approval and governance requirements for research use)",
-        "Department of Health and Aged Care (primary care policy reporting)",
+        "Department of Health, Disability and Ageing (primary care policy reporting)",
         "PHN Cooperative / Primary Health Insights (PHN-level data aggregation and service planning)",
         "Services Australia (MBS/PBS cross-reference in primary care analysis)",
     ],
@@ -247,7 +254,7 @@ SPECIAL_CONNECTIONS_BY_NAME = {
     "Private Hospital Data Bureau (PHDB) via AIHW / Department of Health": [
         "Department of Social Services (DSS) (DOMINO upstream provider for linked work via AIHW)",
         "Australian Institute of Health and Welfare (AIHW) (PHDB management and access coordination)",
-        "Department of Health and Aged Care (policy and stewardship context)",
+        "Department of Health, Disability and Ageing (policy and stewardship context)",
     ],
 }
 
@@ -1017,7 +1024,7 @@ def build_synthetic_dss_row(template_keys: list[str]) -> CustodianRow:
     row["Connections to Other Custodians"] = (
         "Australian Institute of Health and Welfare (AIHW) (DOMINO accessible via AIHW Data Integration Services); "
         "Services Australia (income support data overlap and operational alignment); "
-        "Department of Health and Aged Care (aged care policy and program linkage context)"
+        "Department of Health, Disability and Ageing (aged care policy and program linkage context)"
     )
     row["Gaps / Verify with Custodian"] = "Confirm the current DSS research data access contact point and any NDIA-specific approval requirements."
     row["Source URLs"] = ""
