@@ -1,8 +1,14 @@
 Neo4j-credentials-*.txt
+Neo4j-*-Created-*.txt
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 raw_data/KG_Iteration2_Codex_Prompt.md
 queries/ACT_test.cypher
 output/kg_exports.zip
 output/kg_exports/*/
 scripts/__pycache__/
 **/__pycache__/
-*.pyc

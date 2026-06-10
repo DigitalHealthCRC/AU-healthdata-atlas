@@ -1,10 +1,13 @@
 import asyncio
 import csv
+import hashlib
 import json
 import os
 import re
+import subprocess
 import unicodedata
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
@@ -22,6 +25,24 @@ OUT_DIR = ROOT / "output"
 REVIEW_CSV = OUT_DIR / "connection_match_review.csv"
 SUMMARY_JSON = OUT_DIR / "kg_load_summary.json"
 GAP_JSON = OUT_DIR / "gap_custodians.json"
+SOURCE_METADATA_FIELDS = (
+    "sourceRegisterTitle",
+    "sourceRegisterVersion",
+    "sourceRegisterGenerated",
+    "sourceRegisterCustodianCount",
+    "sourceCsvPath",
+    "sourceMarkdownPath",
+    "sourceCsvModifiedAt",
+    "sourceMarkdownModifiedAt",
+    "sourceCsvSha256",
+    "sourceMarkdownSha256",
+    "sourceCustodianRowCount",
+    "sourceMarkdownCardCount",
+    "sourceOverrideRuleCount",
+    "sourceGitCommit",
+    "sourceProvenanceStatus",
+    "kgLoadedAt",
+)
 
 MOJIBAKE_EN_DASH = "\u00e2\u20ac\u201c"
 MOJIBAKE_EM_DASH = "\u00e2\u20ac\u201d"
@@ -330,6 +351,13 @@ CONSTRAINT_QUERIES = [
     "CREATE CONSTRAINT ConnectionReview_constraint IF NOT EXISTS FOR (n:ConnectionReview) REQUIRE (n.id) IS NODE KEY;",
 ]
 
+SOURCE_SET_CLAUSE = ",\n                    ".join(f"{{alias}}.{field} = row.{field}" for field in SOURCE_METADATA_FIELDS)
+
+
+def source_set_clause(alias: str, indent: int = 20) -> str:
+    spacing = " " * indent
+    return SOURCE_SET_CLAUSE.format(alias=alias).replace("\n                    ", "\n" + spacing)
+
 
 @dataclass
 class CustodianRow:
@@ -385,6 +413,92 @@ def parse_credentials(path: Path) -> dict[str, str]:
     if missing:
         raise ValueError(f"Missing credentials: {missing}")
     return creds
+
+
+def path_for_metadata(path: Path) -> str:
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+
+def file_modified_at(path: Path) -> str:
+    return datetime.fromtimestamp(path.stat().st_mtime, timezone.utc).isoformat()
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def current_git_commit() -> str:
+    try:
+        result = subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return ""
+    return result.stdout.strip()
+
+
+def extract_register_metadata(md_text: str) -> dict[str, str]:
+    title = ""
+    version = ""
+    generated = ""
+    custodians_documented = ""
+
+    title_match = re.search(r"^#\s+(.+)$", md_text, flags=re.MULTILINE)
+    if title_match:
+        title = title_match.group(1).strip()
+        version_match = re.search(r"Version\s+([A-Za-z0-9._-]+)", title)
+        if version_match:
+            version = version_match.group(1)
+
+    generated_match = re.search(r"\*\*Generated:\*\*\s*(.+?)\s*$", md_text, flags=re.MULTILINE)
+    if generated_match:
+        generated = generated_match.group(1).strip()
+
+    custodian_match = re.search(r"\*\*Custodians documented:\*\*\s*(\d+)", md_text, flags=re.MULTILINE)
+    if custodian_match:
+        custodians_documented = custodian_match.group(1)
+
+    return {
+        "sourceRegisterTitle": title,
+        "sourceRegisterVersion": version,
+        "sourceRegisterGenerated": generated,
+        "sourceRegisterCustodianCount": custodians_documented,
+    }
+
+
+def build_source_metadata(
+    md_text: str,
+    *,
+    custodian_row_count: int = 0,
+    markdown_card_count: int = 0,
+    override_rule_count: int = 0,
+) -> dict[str, str]:
+    return {
+        **extract_register_metadata(md_text),
+        "sourceCsvPath": path_for_metadata(CSV_PATH),
+        "sourceMarkdownPath": path_for_metadata(MD_PATH),
+        "sourceCsvModifiedAt": file_modified_at(CSV_PATH),
+        "sourceMarkdownModifiedAt": file_modified_at(MD_PATH),
+        "sourceCsvSha256": file_sha256(CSV_PATH),
+        "sourceMarkdownSha256": file_sha256(MD_PATH),
+        "sourceCustodianRowCount": str(custodian_row_count),
+        "sourceMarkdownCardCount": str(markdown_card_count),
+        "sourceOverrideRuleCount": str(override_rule_count),
+        "sourceGitCommit": current_git_commit(),
+        "sourceProvenanceStatus": "baseline_curated",
+    }
 
 
 def read_csv_rows(path: Path) -> list[CustodianRow]:
@@ -593,10 +707,16 @@ def parse_pathway_steps(step_text: str) -> list[dict[str, Any]]:
 def parse_csv_datasets(key_datasets: str) -> list[dict[str, str]]:
     if not key_datasets:
         return []
-    cleaned = key_datasets.replace("\n", " ").strip()
+    cleaned = re.sub(r"\s*\n\s*", ";", key_datasets).strip()
     pipe_matches = list(
         re.finditer(
-            r"(?P<name>[^|]+)\|(?P<description>[^|]+)\|(?P<identifiable>[^|]+)\|(?P<linkable>.*?)(?=(?:[A-Z0-9][^|]{1,160}\|[^|]{1,600}\|(?:De-identified|Identifiable|Identified|Yes|No|Aggregate|Aggregated|Not publicly available)\b)|$)",
+            (
+                r"(?:^|;\s*)"
+                r"(?P<name>[^|;\n]+?)\|"
+                r"(?P<description>[^|\n]+?)\|"
+                r"(?P<identifiable>[^|\n]+?)\|"
+                r"(?P<linkable>.*?)(?=(?:;\s*[^|;\n]+?\|[^|\n]+?\|[^|\n]+?\|)|$)"
+            ),
             cleaned,
             flags=re.IGNORECASE,
         )
@@ -612,7 +732,7 @@ def parse_csv_datasets(key_datasets: str) -> list[dict[str, str]]:
                     "name": name,
                     "description": match.group("description").strip(),
                     "identifiable": match.group("identifiable").strip(),
-                    "linkable": match.group("linkable").strip(),
+                    "linkable": match.group("linkable").strip(" ;"),
                     "source": "csv",
                 }
             )
@@ -663,7 +783,7 @@ def extract_md_cards(md_text: str) -> list[tuple[str, str]]:
         start = match.end()
         end = section_matches[i + 1].start() if i + 1 < len(section_matches) else len(md_text)
         body = md_text[start:end].strip()
-        if "| **Full Name** |" not in body:
+        if not re.search(r"^\|\s*\*\*Full Name\*\*\s*\|", body, flags=re.MULTILINE):
             continue
         cards.append((title, body))
     return cards
@@ -1325,6 +1445,7 @@ async def load_graph(
     datasets_by_custodian_id: dict[str, list[dict[str, str]]],
     connections_accepted: list[dict[str, Any]],
     connections_review: list[dict[str, Any]],
+    source_metadata: dict[str, str],
 ) -> dict[str, Any]:
     cypher = StdioServerParameters(
         command="uvx",
@@ -1333,6 +1454,8 @@ async def load_graph(
     )
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
+    kg_loaded_at = datetime.now(timezone.utc).isoformat()
+    source_props = {**source_metadata, "kgLoadedAt": kg_loaded_at}
 
     # Build node rows
     custodian_nodes: list[dict[str, Any]] = []
@@ -1366,17 +1489,18 @@ async def load_graph(
                     "gapsVerifyWithCustodian": row.get("Gaps / Verify with Custodian") or "",
                     "fullPathwayCardMarkdown": row.get("Full Pathway Card (Markdown)") or "",
                     "mdPathwayCardMarkdown": md_card,
+                    **source_props,
                 },
             }
         )
 
         for t in split_delimited(row.get("Custodian Type") or ""):
-            custodian_types.append({"custodianId": c.custodian_id, "type": normalize_custodian_type_name(t)})
+            custodian_types.append({"custodianId": c.custodian_id, "type": normalize_custodian_type_name(t), **source_props})
 
         for j in split_delimited(row.get("Jurisdiction") or ""):
-            jurisdictions.append({"custodianId": c.custodian_id, "jurisdiction": j})
+            jurisdictions.append({"custodianId": c.custodian_id, "jurisdiction": j, **source_props})
 
-        process_lines.append({"lineId": line_id, "name": c.name, "custodianId": c.custodian_id})
+        process_lines.append({"lineId": line_id, "name": c.name, "custodianId": c.custodian_id, **source_props})
 
         for step in parse_pathway_steps(row.get("Access Pathway Steps") or ""):
             step_id = f"step:{c.custodian_id}:{step['number']}"
@@ -1390,13 +1514,14 @@ async def load_graph(
                     "channel": step["channel"],
                     "timeline": step["timeline"],
                     "lane": step["lane"],
+                    **source_props,
                 }
             )
 
         urls = parse_urls(row.get("Source URLs") or "")
         for url in urls:
             source_urls.append({"url": url})
-            cust_source_urls.append({"custodianId": c.custodian_id, "url": url})
+            cust_source_urls.append({"custodianId": c.custodian_id, "url": url, **source_props})
 
         for ds in datasets_by_custodian_id.get(c.custodian_id, []):
             ds_name = ds["name"].strip()
@@ -1411,6 +1536,7 @@ async def load_graph(
                     "description": ds.get("description") or "",
                     "identifiable": ds.get("identifiable") or "",
                     "linkable": ds.get("linkable") or "",
+                    **source_props,
                 }
             else:
                 if not existing["description"] and ds.get("description"):
@@ -1424,11 +1550,14 @@ async def load_graph(
                     "custodianId": c.custodian_id,
                     "datasetId": ds_id,
                     "source": ds.get("source") or "csv",
+                    **source_props,
                 }
             )
 
     dataset_nodes = list(dataset_nodes_map.values())
-    source_urls = list({u["url"]: u for u in source_urls}.values())
+    source_urls = [{**u, **source_props} for u in {u["url"]: u for u in source_urls}.values()]
+    connections_accepted = [{**edge, **source_props} for edge in connections_accepted]
+    connections_review = [{**item, **source_props} for item in connections_review]
 
     async with stdio_client(cypher) as (rd, wr):
         async with ClientSession(rd, wr) as session:
@@ -1454,10 +1583,14 @@ async def load_graph(
                 """
                 UNWIND $rows AS row
                 MERGE (t:CustodianType {name: row.type})
+                SET __SOURCE_SET__
                 WITH row, t
                 MATCH (c:Custodian {id: row.custodianId})
-                MERGE (c)-[:HAS_TYPE]->(t)
-                """,
+                MERGE (c)-[r:HAS_TYPE]->(t)
+                SET __REL_SOURCE_SET__
+                """
+                .replace("__SOURCE_SET__", source_set_clause("t"))
+                .replace("__REL_SOURCE_SET__", source_set_clause("r")),
                 {"rows": custodian_types},
             )
 
@@ -1466,10 +1599,14 @@ async def load_graph(
                 """
                 UNWIND $rows AS row
                 MERGE (j:Jurisdiction {name: row.jurisdiction})
+                SET __SOURCE_SET__
                 WITH row, j
                 MATCH (c:Custodian {id: row.custodianId})
-                MERGE (c)-[:IN_JURISDICTION]->(j)
-                """,
+                MERGE (c)-[r:IN_JURISDICTION]->(j)
+                SET __REL_SOURCE_SET__
+                """
+                .replace("__SOURCE_SET__", source_set_clause("j"))
+                .replace("__REL_SOURCE_SET__", source_set_clause("r")),
                 {"rows": jurisdictions},
             )
 
@@ -1478,11 +1615,15 @@ async def load_graph(
                 """
                 UNWIND $rows AS row
                 MERGE (l:ProcessLine {id: row.lineId})
-                SET l.name = row.name
+                SET l.name = row.name,
+                    __LINE_SOURCE_SET__
                 WITH row, l
                 MATCH (c:Custodian {id: row.custodianId})
-                MERGE (c)-[:OFFERS_LINE]->(l)
-                """,
+                MERGE (c)-[r:OFFERS_LINE]->(l)
+                SET __REL_SOURCE_SET__
+                """
+                .replace("__LINE_SOURCE_SET__", source_set_clause("l"))
+                .replace("__REL_SOURCE_SET__", source_set_clause("r")),
                 {"rows": process_lines},
             )
 
@@ -1496,12 +1637,17 @@ async def load_graph(
                     s.actor = row.actor,
                     s.channel = row.channel,
                     s.timeline = row.timeline,
-                    s.lane = row.lane
+                    s.lane = row.lane,
+                    __STEP_SOURCE_SET__
                 WITH row, s
                 MATCH (l:ProcessLine {id: row.lineId})
                 MERGE (l)-[r:HAS_STEP]->(s)
-                SET r.order = row.stepNumber, r.lane = row.lane
-                """,
+                SET r.order = row.stepNumber,
+                    r.lane = row.lane,
+                    __REL_SOURCE_SET__
+                """
+                .replace("__STEP_SOURCE_SET__", source_set_clause("s"))
+                .replace("__REL_SOURCE_SET__", source_set_clause("r")),
                 {"rows": pathway_steps},
             )
 
@@ -1513,8 +1659,9 @@ async def load_graph(
                 SET d.name = row.name,
                     d.description = row.description,
                     d.identifiable = row.identifiable,
-                    d.linkable = row.linkable
-                """,
+                    d.linkable = row.linkable,
+                    __DATASET_SOURCE_SET__
+                """.replace("__DATASET_SOURCE_SET__", source_set_clause("d")),
                 {"rows": dataset_nodes},
             )
 
@@ -1525,8 +1672,9 @@ async def load_graph(
                 MATCH (c:Custodian {id: row.custodianId})
                 MATCH (d:Dataset {id: row.datasetId})
                 MERGE (c)-[r:HAS_DATASET]->(d)
-                SET r.source = row.source
-                """,
+                SET r.source = row.source,
+                    __REL_SOURCE_SET__
+                """.replace("__REL_SOURCE_SET__", source_set_clause("r")),
                 {"rows": cust_dataset_rels},
             )
 
@@ -1535,7 +1683,8 @@ async def load_graph(
                 """
                 UNWIND $rows AS row
                 MERGE (s:SourceURL {url: row.url})
-                """,
+                SET __SOURCE_SET__
+                """.replace("__SOURCE_SET__", source_set_clause("s")),
                 {"rows": source_urls},
             )
 
@@ -1545,8 +1694,9 @@ async def load_graph(
                 UNWIND $rows AS row
                 MATCH (c:Custodian {id: row.custodianId})
                 MATCH (s:SourceURL {url: row.url})
-                MERGE (c)-[:HAS_SOURCE]->(s)
-                """,
+                MERGE (c)-[r:HAS_SOURCE]->(s)
+                SET __REL_SOURCE_SET__
+                """.replace("__REL_SOURCE_SET__", source_set_clause("r")),
                 {"rows": cust_source_urls},
             )
 
@@ -1560,8 +1710,9 @@ async def load_graph(
                 SET r.segment = row.segment,
                     r.rawText = row.rawText,
                     r.matchScore = row.score,
-                    r.matchType = row.matchType
-                """,
+                    r.matchType = row.matchType,
+                    __REL_SOURCE_SET__
+                """.replace("__REL_SOURCE_SET__", source_set_clause("r")),
                 {"rows": connections_accepted},
             )
 
@@ -1575,17 +1726,23 @@ async def load_graph(
                     cr.candidateCustodian = row.candidateCustodian,
                     cr.score = row.score,
                     cr.matchType = row.matchType,
-                    cr.status = row.status
+                    cr.status = row.status,
+                    __REVIEW_SOURCE_SET__
                 WITH row, cr
                 MATCH (c:Custodian {id: row.sourceId})
-                MERGE (c)-[:HAS_CONNECTION_REVIEW]->(cr)
+                MERGE (c)-[hcr:HAS_CONNECTION_REVIEW]->(cr)
+                SET __HCR_SOURCE_SET__
                 WITH row, cr
                 OPTIONAL MATCH (t:Custodian {id: row.targetId})
                 FOREACH (_ IN CASE WHEN t IS NULL THEN [] ELSE [1] END |
                     MERGE (cr)-[r:REVIEW_SUGGESTS]->(t)
-                    SET r.score = row.score
+                    SET r.score = row.score,
+                        __REL_SOURCE_SET__
                 )
-                """,
+                """
+                .replace("__REVIEW_SOURCE_SET__", source_set_clause("cr"))
+                .replace("__HCR_SOURCE_SET__", source_set_clause("hcr"))
+                .replace("__REL_SOURCE_SET__", source_set_clause("r", indent=24)),
                 {"rows": connections_review},
             )
 
@@ -1628,6 +1785,12 @@ async def main() -> None:
     overrides = load_connection_overrides(OVERRIDE_PATH)
     md_text = MD_PATH.read_text(encoding="utf-8")
     cards = extract_md_cards(md_text)
+    source_metadata = build_source_metadata(
+        md_text,
+        custodian_row_count=len(custodians),
+        markdown_card_count=len(cards),
+        override_rule_count=len(overrides),
+    )
 
     # Map markdown card titles to CSV custodians.
     title_to_custodian_id: dict[str, str] = {}
@@ -1677,6 +1840,7 @@ async def main() -> None:
         datasets_by_custodian_id=datasets_by_custodian_id,
         connections_accepted=accepted_connections,
         connections_review=review_connections,
+        source_metadata=source_metadata,
     )
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -1692,8 +1856,9 @@ async def main() -> None:
             "score",
             "matchType",
             "status",
+            *SOURCE_METADATA_FIELDS,
         ]
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(review_connections)
 
@@ -1706,6 +1871,7 @@ async def main() -> None:
             "override_rule_count": len(overrides),
             "gap_custodian_count": len(gap_custodians),
         },
+        "source": source_metadata,
         "artifacts": {
             "review_csv": str(REVIEW_CSV),
             "override_csv": str(OVERRIDE_PATH),

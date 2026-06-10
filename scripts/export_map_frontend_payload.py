@@ -50,7 +50,10 @@ def main() -> None:
               l.name AS lineName,
               c.id AS custodianId,
               c.name AS custodianName,
-              count(s) AS stepCount
+              count(s) AS stepCount,
+              l.sourceRegisterGenerated AS sourceRegisterGenerated,
+              l.sourceProvenanceStatus AS sourceProvenanceStatus,
+              l.kgLoadedAt AS kgLoadedAt
             ORDER BY custodianName
             """,
         )
@@ -87,7 +90,9 @@ def main() -> None:
               l2.id AS toLineId,
               r.segment AS reasonSegment,
               r.matchType AS matchType,
-              r.matchScore AS matchScore
+              r.matchScore AS matchScore,
+              r.sourceRegisterGenerated AS sourceRegisterGenerated,
+              r.sourceProvenanceStatus AS sourceProvenanceStatus
             ORDER BY coalesce(r.matchScore, 0.0) DESC
             """,
         )
@@ -107,7 +112,10 @@ def main() -> None:
                   s.text AS title,
                   s.actor AS actor,
                   s.channel AS channel,
-                  s.timeline AS timeline
+                  s.timeline AS timeline,
+                  coalesce(s.sourceRegisterGenerated, hs.sourceRegisterGenerated) AS sourceRegisterGenerated,
+                  coalesce(s.sourceProvenanceStatus, hs.sourceProvenanceStatus) AS sourceProvenanceStatus,
+                  coalesce(s.kgLoadedAt, hs.kgLoadedAt) AS kgLoadedAt
                 ORDER BY stepOrder, id
                 """,
                 {"lineId": line_id},
@@ -143,6 +151,22 @@ def main() -> None:
                   c.contactAndApplicationPortal AS contactAndApplicationPortal,
                   c.indicativeTimeline AS indicativeTimeline,
                   c.gapsVerifyWithCustodian AS gapsVerifyWithCustodian,
+                  c.sourceRegisterTitle AS sourceRegisterTitle,
+                  c.sourceRegisterVersion AS sourceRegisterVersion,
+                  c.sourceRegisterGenerated AS sourceRegisterGenerated,
+                  c.sourceRegisterCustodianCount AS sourceRegisterCustodianCount,
+                  c.sourceCsvPath AS sourceCsvPath,
+                  c.sourceMarkdownPath AS sourceMarkdownPath,
+                  c.sourceCsvModifiedAt AS sourceCsvModifiedAt,
+                  c.sourceMarkdownModifiedAt AS sourceMarkdownModifiedAt,
+                  c.sourceCsvSha256 AS sourceCsvSha256,
+                  c.sourceMarkdownSha256 AS sourceMarkdownSha256,
+                  c.sourceCustodianRowCount AS sourceCustodianRowCount,
+                  c.sourceMarkdownCardCount AS sourceMarkdownCardCount,
+                  c.sourceOverrideRuleCount AS sourceOverrideRuleCount,
+                  c.sourceGitCommit AS sourceGitCommit,
+                  c.sourceProvenanceStatus AS sourceProvenanceStatus,
+                  c.kgLoadedAt AS kgLoadedAt,
                   collect(DISTINCT u.url) AS sourceUrls
                 """,
                 {"lineId": line_id},
@@ -152,13 +176,29 @@ def main() -> None:
             datasets = run_query(
                 session,
                 """
-                MATCH (l:ProcessLine {id: $lineId})<-[:OFFERS_LINE]-(c:Custodian)-[:HAS_DATASET]->(d:Dataset)
+                MATCH (l:ProcessLine {id: $lineId})<-[:OFFERS_LINE]-(c:Custodian)-[hd:HAS_DATASET]->(d:Dataset)
                 RETURN
                   d.id AS datasetId,
                   d.name AS datasetName,
                   d.description AS datasetDescription,
                   d.identifiable AS identifiable,
-                  d.linkable AS linkable
+                  d.linkable AS linkable,
+                  hd.source AS dataSource,
+                  coalesce(hd.sourceRegisterTitle, d.sourceRegisterTitle) AS sourceRegisterTitle,
+                  coalesce(hd.sourceRegisterVersion, d.sourceRegisterVersion) AS sourceRegisterVersion,
+                  coalesce(hd.sourceRegisterGenerated, d.sourceRegisterGenerated) AS sourceRegisterGenerated,
+                  coalesce(hd.sourceCsvPath, d.sourceCsvPath) AS sourceCsvPath,
+                  coalesce(hd.sourceMarkdownPath, d.sourceMarkdownPath) AS sourceMarkdownPath,
+                  coalesce(hd.sourceCsvModifiedAt, d.sourceCsvModifiedAt) AS sourceCsvModifiedAt,
+                  coalesce(hd.sourceMarkdownModifiedAt, d.sourceMarkdownModifiedAt) AS sourceMarkdownModifiedAt,
+                  coalesce(hd.sourceCsvSha256, d.sourceCsvSha256) AS sourceCsvSha256,
+                  coalesce(hd.sourceMarkdownSha256, d.sourceMarkdownSha256) AS sourceMarkdownSha256,
+                  coalesce(hd.sourceCustodianRowCount, d.sourceCustodianRowCount) AS sourceCustodianRowCount,
+                  coalesce(hd.sourceMarkdownCardCount, d.sourceMarkdownCardCount) AS sourceMarkdownCardCount,
+                  coalesce(hd.sourceOverrideRuleCount, d.sourceOverrideRuleCount) AS sourceOverrideRuleCount,
+                  coalesce(hd.sourceGitCommit, d.sourceGitCommit) AS sourceGitCommit,
+                  coalesce(hd.sourceProvenanceStatus, d.sourceProvenanceStatus) AS sourceProvenanceStatus,
+                  coalesce(hd.kgLoadedAt, d.kgLoadedAt) AS kgLoadedAt
                 ORDER BY datasetName
                 """,
                 {"lineId": line_id},
@@ -171,6 +211,9 @@ def main() -> None:
                     "stepCount": line["stepCount"],
                     "custodianId": line["custodianId"],
                     "custodianName": line["custodianName"],
+                    "sourceRegisterGenerated": line.get("sourceRegisterGenerated"),
+                    "sourceProvenanceStatus": line.get("sourceProvenanceStatus"),
+                    "kgLoadedAt": line.get("kgLoadedAt"),
                     "steps": steps,
                     "chainEdges": chain_edges,
                     "details": details,
@@ -178,8 +221,35 @@ def main() -> None:
                 }
             )
 
+        source_keys = [
+            "sourceRegisterTitle",
+            "sourceRegisterVersion",
+            "sourceRegisterGenerated",
+            "sourceRegisterCustodianCount",
+            "sourceCsvPath",
+            "sourceMarkdownPath",
+            "sourceCsvModifiedAt",
+            "sourceMarkdownModifiedAt",
+            "sourceCsvSha256",
+            "sourceMarkdownSha256",
+            "sourceCustodianRowCount",
+            "sourceMarkdownCardCount",
+            "sourceOverrideRuleCount",
+            "sourceGitCommit",
+            "sourceProvenanceStatus",
+            "kgLoadedAt",
+        ]
+        source = {}
+        for line_payload in line_payloads:
+            details = line_payload.get("details") or {}
+            source = {key: details.get(key) for key in source_keys if details.get(key)}
+            if source:
+                break
+
         payload = {
+            "schemaVersion": "2026-06-source-provenance-v1",
             "generatedAt": datetime.now(timezone.utc).isoformat(),
+            "source": source,
             "summary": {
                 "lineCount": len(lines),
                 "laneCount": len(lanes),

@@ -1,4 +1,5 @@
 # Australian Health Data Access Pathway Register — Version 2
+
 **Generated:** 01 March 2026  
 **Custodians documented:** 33  
 **Purpose:** Source document for the Australian Health Data Access Knowledge Graph (KG). Each card provides the structured information required to generate Custodian, Dataset, PathwayStep, and CONNECTED_TO nodes and relationships.
@@ -8,6 +9,7 @@
 ## How to Read This Register
 
 Each pathway card documents one data custodian with the following sections:
+
 - **Identity** — full name, acronym, type, jurisdiction
 - **Role** — what the custodian does in the health data ecosystem
 - **Datasets** — specific named datasets with identifiability and linkage status
@@ -23,6 +25,7 @@ Each pathway card documents one data custodian with the following sections:
 ## Table of Contents
 
 **Commonwealth**
+
 - [Australian Bureau of Statistics (ABS)](#australian-bureau-of-statistics)
 - [Australian Bureau of Statistics DataLab (ABS DataLab)](#australian-bureau-of-statistics-datalab)
 - [Australian Commission on Safety and Quality in Health Care (ACSQHC)](#australian-commission-on-safety-and-quality-in-health-care)
@@ -44,50 +47,61 @@ Each pathway card documents one data custodian with the following sections:
 - [Therapeutic Goods Administration (TGA)](#therapeutic-goods-administration)
 
 **New South Wales**
+
 - [Cancer Institute NSW (CINSW)](#cancer-institute-nsw)
 - [NSW Health / Ministry of Health NSW (NSW Health)](#nsw-health--ministry-of-health-nsw)
 
 **Victoria**
+
 - [Centre for Victorian Data Linkage (CVDL)](#centre-for-victorian-data-linkage)
 - [Victorian Agency for Health Information (VAHI)](#victorian-agency-for-health-information)
 - [Victorian Cancer Registry (VCR)](#victorian-cancer-registry)
 
 **Queensland**
+
 - [Queensland Cyber Infrastructure Foundation (QCIF)](#queensland-cyber-infrastructure-foundation)
 - [Queensland Health (SALUD/DLQ)](#queensland-health)
 
 **Western Australia**
+
 - [WA Health / Data Linkage Services WA (WA Health DLS)](#wa-health--data-linkage-services-wa)
 
 **Tasmania**
+
 - [Tasmanian Department of Health / Tasmanian Data Linkage Unit (TDLU)](#tasmanian-department-of-health--tasmanian-data-linkage-unit)
 
 **Australian Capital Territory**
+
 - [ACT Health](#act-health)
 
 **Northern Territory**
+
 - [NT Health / NT Health Research Governance Office (NT Health RGO)](#nt-health--nt-health-research-governance-office)
 
 **New South Wales and Australian Capital Territory**
+
 - [Centre for Health Record Linkage (CHeReL)](#centre-for-health-record-linkage)
 
 **South Australia and Northern Territory**
+
 - [SA Health / SA NT DataLink (SA NT DataLink)](#sa-health--sa-nt-datalink)
 
 **Cross-jurisdictional**
+
 - [Secure Unified Research Environment (SURE)](#secure-unified-research-environment)
 
 ---
 
 ## Australian Bureau of Statistics (ABS)
+
 <a name='australian-bureau-of-statistics'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Australian Bureau of Statistics |
-| **Short Name / Acronym** | ABS |
-| **Custodian Type** | Statistical Publisher |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                           |
+| ------------------------ | ------------------------------- |
+| **Full Name**            | Australian Bureau of Statistics |
+| **Short Name / Acronym** | ABS                             |
+| **Custodian Type**       | Statistical Publisher           |
+| **Jurisdiction**         | Commonwealth                    |
 
 ### Role
 
@@ -95,11 +109,11 @@ The Australian Bureau of Statistics (ABS) is Australia's national statistical ag
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| National Health Survey | A collection of information about the health of Australians, including long-term health conditions, health risk factors, and health system use. | De-identified | Yes via DataLab |
+| Dataset Name                                                 | Description                                                                                                                                                            | Identifiable  | Linkable        |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | --------------- |
+| National Health Survey                                       | A collection of information about the health of Australians, including long-term health conditions, health risk factors, and health system use.                        | De-identified | Yes via DataLab |
 | National Aboriginal and Torres Strait Islander Health Survey | Provides a range of information about Aboriginal and Torres Strait Islander people including health outcomes, health risk factors, and social and emotional wellbeing. | De-identified | Yes via DataLab |
-| Causes of Death, Australia | Provides statistics on the number of deaths, by sex, selected causes of death, and state or territory of usual residence. | De-identified | Yes via DataLab |
+| Causes of Death, Australia                                   | Provides statistics on the number of deaths, by sex, selected causes of death, and state or territory of usual residence.                                              | De-identified | Yes via DataLab |
 
 ### Data Access Pathway
 
@@ -139,15 +153,16 @@ mydataportal@abs.gov.au
 ---
 
 ## Australian Bureau of Statistics DataLab (ABS DataLab)
+
 <a name='australian-bureau-of-statistics-datalab'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Australian Bureau of Statistics DataLab |
-| **Short Name / Acronym** | ABS DataLab |
-| **Custodian Type** | TRE/SDE |
-| **Jurisdiction** | Commonwealth |
-| **Classification Note** | TRE/SDE - Secure Microdata Access Environment |
+| Field                    | Value                                         |
+| ------------------------ | --------------------------------------------- |
+| **Full Name**            | Australian Bureau of Statistics DataLab       |
+| **Short Name / Acronym** | ABS DataLab                                   |
+| **Custodian Type**       | TRE/SDE                                       |
+| **Jurisdiction**         | Commonwealth                                  |
+| **Classification Note**  | TRE/SDE - Secure Microdata Access Environment |
 
 ### Role
 
@@ -155,11 +170,11 @@ The ABS DataLab provides a secure microdata access environment for high-end user
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Person Level Integrated Data Asset (PLIDA) | Combines information on health, education, government payments, income and taxation, employment, and population demographics. | De-identified | Yes via Person Linkage Spine |
-| Australian Census Longitudinal Dataset (ACLD) | A longitudinal dataset using data from successive Censuses, providing a 5% sample panel of people. | De-identified | Yes via Census linkage |
-| ABS Survey Results | Detailed microdata from various ABS surveys covering topics like health, education, labour force, crime, and disabilities. | De-identified | No |
+| Dataset Name                                  | Description                                                                                                                   | Identifiable  | Linkable                     |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------- | ---------------------------- |
+| Person Level Integrated Data Asset (PLIDA)    | Combines information on health, education, government payments, income and taxation, employment, and population demographics. | De-identified | Yes via Person Linkage Spine |
+| Australian Census Longitudinal Dataset (ACLD) | A longitudinal dataset using data from successive Censuses, providing a 5% sample panel of people.                            | De-identified | Yes via Census linkage       |
+| ABS Survey Results                            | Detailed microdata from various ABS surveys covering topics like health, education, labour force, crime, and disabilities.    | De-identified | No                           |
 
 ### Data Access Pathway
 
@@ -203,14 +218,15 @@ https://mydataportal.abs.gov.au/
 ---
 
 ## Australian Commission on Safety and Quality in Health Care (ACSQHC)
+
 <a name='australian-commission-on-safety-and-quality-in-health-care'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Australian Commission on Safety and Quality in Health Care |
-| **Short Name / Acronym** | ACSQHC |
-| **Custodian Type** | Commonwealth |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                                                      |
+| ------------------------ | ---------------------------------------------------------- |
+| **Full Name**            | Australian Commission on Safety and Quality in Health Care |
+| **Short Name / Acronym** | ACSQHC                                                     |
+| **Custodian Type**       | Commonwealth                                               |
+| **Jurisdiction**         | Commonwealth                                               |
 
 ### Role
 
@@ -218,11 +234,11 @@ The Australian Commission on Safety and Quality in Health Care (ACSQHC) is a nat
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
+| Dataset Name                                         | Description                                                                  | Identifiable  | Linkable           |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------- | ------------- | ------------------ |
 | Australasian Pelvic Floor Procedure Registry (APFPR) | Monitors the safety and quality of care relating to pelvic floor procedures. | De-identified | Yes via patient ID |
-| Australian Breast Device Registry | Monitors the safety and performance of breast implants. | De-identified | Yes via patient ID |
-| National Cardiac Registry | Collects data on cardiac procedures and outcomes to improve quality of care. | De-identified | Yes via patient ID |
+| Australian Breast Device Registry                    | Monitors the safety and performance of breast implants.                      | De-identified | Yes via patient ID |
+| National Cardiac Registry                            | Collects data on cardiac procedures and outcomes to improve quality of care. | De-identified | Yes via patient ID |
 
 ### Data Access Pathway
 
@@ -257,14 +273,15 @@ General inquiries: mail@safetyandquality.gov.au; Phone: (Australia) 02 9126 3600
 ---
 
 ## Australian Digital Health Agency (ADHA)
+
 <a name='australian-digital-health-agency'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Australian Digital Health Agency |
-| **Short Name / Acronym** | ADHA |
-| **Custodian Type** | Commonwealth |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                            |
+| ------------------------ | -------------------------------- |
+| **Full Name**            | Australian Digital Health Agency |
+| **Short Name / Acronym** | ADHA                             |
+| **Custodian Type**       | Commonwealth                     |
+| **Jurisdiction**         | Commonwealth                     |
 
 ### Role
 
@@ -272,11 +289,11 @@ The Australian Digital Health Agency (ADHA) is a corporate Commonwealth entity r
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| My Health Record | A secure online summary of an individual's health information, including immunisations, medications, hospital discharge summaries, pathology and diagnostic imaging reports. | Yes | Yes |
-| Electronic Prescriptions | Digital versions of paper prescriptions, providing a secure and convenient alternative for prescribing and dispensing medicines. | Yes | Yes |
-| National Clinical Terminology Service (NCTS) | Provides national clinical terminologies and vocabularies (e.g., SNOMED CT-AU, AMT) to support consistent and accurate health information recording and exchange. | No | Yes |
+| Dataset Name                                 | Description                                                                                                                                                                  | Identifiable | Linkable |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------- |
+| My Health Record                             | A secure online summary of an individual's health information, including immunisations, medications, hospital discharge summaries, pathology and diagnostic imaging reports. | Yes          | Yes      |
+| Electronic Prescriptions                     | Digital versions of paper prescriptions, providing a secure and convenient alternative for prescribing and dispensing medicines.                                             | Yes          | Yes      |
+| National Clinical Terminology Service (NCTS) | Provides national clinical terminologies and vocabularies (e.g., SNOMED CT-AU, AMT) to support consistent and accurate health information recording and exchange.            | No           | Yes      |
 
 ### Data Access Pathway
 
@@ -315,14 +332,15 @@ Australian Digital Health Agency Contact form: https://www.digitalhealth.gov.au/
 ---
 
 ## Australian Government Department of Health and Aged Care (DoHAC)
+
 <a name='australian-government-department-of-health-and-aged-care'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Australian Government Department of Health and Aged Care |
-| **Short Name / Acronym** | DoHAC |
-| **Custodian Type** | Commonwealth |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                                                    |
+| ------------------------ | -------------------------------------------------------- |
+| **Full Name**            | Australian Government Department of Health and Aged Care |
+| **Short Name / Acronym** | DoHAC                                                    |
+| **Custodian Type**       | Commonwealth                                             |
+| **Jurisdiction**         | Commonwealth                                             |
 
 ### Role
 
@@ -330,13 +348,13 @@ The Australian Government Department of Health and Aged Care is responsible for 
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Private Hospital Data Bureau (PHDB) data | De-identified information from private hospitals including patient demographics, hospital episodes, clinical information, and hospital charges. | De-identified | Yes via patient ID |
-| Hospital Casemix Protocol (HCP) data | Clinical, demographic, and financial information for privately insured admitted patients. | De-identified | Yes via patient ID |
-| National Notifiable Diseases Surveillance System (NNDSS) | Coordinates data on more than 70 diseases that present a risk to public health in Australia. | De-identified | No |
-| Medicare data (MBS and PBS statistics) | Statistics on use of the Medicare Benefits Schedule (MBS) and Pharmaceutical Benefits Scheme (PBS). | De-identified | No |
-| National Integrated Health Services Information (NIHSI) | Brings together state, territory and national administrative datasets including MBS, PBS, residential aged care, and National Death Index. | De-identified | Yes via unit record linkage |
+| Dataset Name                                             | Description                                                                                                                                     | Identifiable  | Linkable                    |
+| -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | --------------------------- |
+| Private Hospital Data Bureau (PHDB) data                 | De-identified information from private hospitals including patient demographics, hospital episodes, clinical information, and hospital charges. | De-identified | Yes via patient ID          |
+| Hospital Casemix Protocol (HCP) data                     | Clinical, demographic, and financial information for privately insured admitted patients.                                                       | De-identified | Yes via patient ID          |
+| National Notifiable Diseases Surveillance System (NNDSS) | Coordinates data on more than 70 diseases that present a risk to public health in Australia.                                                    | De-identified | No                          |
+| Medicare data (MBS and PBS statistics)                   | Statistics on use of the Medicare Benefits Schedule (MBS) and Pharmaceutical Benefits Scheme (PBS).                                             | De-identified | No                          |
+| National Integrated Health Services Information (NIHSI)  | Brings together state, territory and national administrative datasets including MBS, PBS, residential aged care, and National Death Index.      | De-identified | Yes via unit record linkage |
 
 ### Data Access Pathway
 
@@ -381,15 +399,16 @@ Health Data Portal: https://dataportal.health.gov.au/
 ---
 
 ## Australian Institute of Aboriginal and Torres Strait Islander Studies (AIATSIS)
+
 <a name='australian-institute-of-aboriginal-and-torres-strait-islander-studies'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Australian Institute of Aboriginal and Torres Strait Islander Studies |
-| **Short Name / Acronym** | AIATSIS |
-| **Custodian Type** | Commonwealth |
-| **Jurisdiction** | Commonwealth |
-| **Classification Note** | Governance Body - primarily focused on ethical oversight and cultural heritage preservation, rather than large-scale health data provision. |
+| Field                    | Value                                                                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Full Name**            | Australian Institute of Aboriginal and Torres Strait Islander Studies                                                                       |
+| **Short Name / Acronym** | AIATSIS                                                                                                                                     |
+| **Custodian Type**       | Commonwealth                                                                                                                                |
+| **Jurisdiction**         | Commonwealth                                                                                                                                |
+| **Classification Note**  | Governance Body - primarily focused on ethical oversight and cultural heritage preservation, rather than large-scale health data provision. |
 
 ### Role
 
@@ -397,11 +416,11 @@ AIATSIS is Australia's only national institution focused exclusively on the dive
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| The AIATSIS Collection | A vast collection of print, audio, and visual materials on Aboriginal and Torres Strait Islander cultures, histories, and languages. Health-related information is embedded within broader cultural and social materials. | Yes | Yes, via specific research projects with ethics approval |
-| National Aboriginal and Torres Strait Islander Health Survey (NATSIHS) | A comprehensive survey conducted by the Australian Bureau of Statistics (ABS) covering a wide range of health topics. AIATSIS provides ethical guidance and resources for researchers using this data. | De-identified | Yes, via ABS DataLab |
-| Aboriginal and Torres Strait Islander Health Performance Framework (HPF) reports | A series of reports by the Australian Institute of Health and Welfare (AIHW) that monitor the health and wellbeing of Indigenous Australians. AIATSIS contributes to the evidence base and ethical considerations for this reporting. | De-identified | Yes, via AIHW |
+| Dataset Name                                                                     | Description                                                                                                                                                                                                                           | Identifiable  | Linkable                                                 |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------------------------------------------------------- |
+| The AIATSIS Collection                                                           | A vast collection of print, audio, and visual materials on Aboriginal and Torres Strait Islander cultures, histories, and languages. Health-related information is embedded within broader cultural and social materials.             | Yes           | Yes, via specific research projects with ethics approval |
+| National Aboriginal and Torres Strait Islander Health Survey (NATSIHS)           | A comprehensive survey conducted by the Australian Bureau of Statistics (ABS) covering a wide range of health topics. AIATSIS provides ethical guidance and resources for researchers using this data.                                | De-identified | Yes, via ABS DataLab                                     |
+| Aboriginal and Torres Strait Islander Health Performance Framework (HPF) reports | A series of reports by the Australian Institute of Health and Welfare (AIHW) that monitor the health and wellbeing of Indigenous Australians. AIATSIS contributes to the evidence base and ethical considerations for this reporting. | De-identified | Yes, via AIHW                                            |
 
 ### Data Access Pathway
 
@@ -448,14 +467,15 @@ General inquiries: ethics@aiatsis.gov.au
 ---
 
 ## Australian Institute of Health and Welfare (AIHW)
+
 <a name='australian-institute-of-health-and-welfare'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Australian Institute of Health and Welfare |
-| **Short Name / Acronym** | AIHW |
-| **Custodian Type** | Commonwealth |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                                      |
+| ------------------------ | ------------------------------------------ |
+| **Full Name**            | Australian Institute of Health and Welfare |
+| **Short Name / Acronym** | AIHW                                       |
+| **Custodian Type**       | Commonwealth                               |
+| **Jurisdiction**         | Commonwealth                               |
 
 ### Role
 
@@ -463,11 +483,11 @@ The Australian Institute of Health and Welfare (AIHW) is an independent statutor
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Australian Cancer Database | Contains data about all new cases of cancer diagnosed in Australia since 1 January 1982, excluding basal and squamous cell carcinomas of the skin. | Yes | Yes |
-| National Death Index | A listing of all deaths that have occurred in Australia since 1980, used for epidemiologists and clinicians in following up research cohorts using record linkage. | Yes | Yes via record linkage |
-| National Hospitals data collection | Includes major national hospital databases such as the National Hospital Morbidity Database (NHMD), National Public Hospital Establishments Database (NPHED), and National Non-Admitted Patient Emergency Department Care Database (NNAPEDCD). | Yes | Yes via record linkage |
+| Dataset Name                       | Description                                                                                                                                                                                                                                    | Identifiable | Linkable               |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------------- |
+| Australian Cancer Database         | Contains data about all new cases of cancer diagnosed in Australia since 1 January 1982, excluding basal and squamous cell carcinomas of the skin.                                                                                             | Yes          | Yes                    |
+| National Death Index               | A listing of all deaths that have occurred in Australia since 1980, used for epidemiologists and clinicians in following up research cohorts using record linkage.                                                                             | Yes          | Yes via record linkage |
+| National Hospitals data collection | Includes major national hospital databases such as the National Hospital Morbidity Database (NHMD), National Public Hospital Establishments Database (NPHED), and National Non-Admitted Patient Emergency Department Care Database (NNAPEDCD). | Yes          | Yes via record linkage |
 
 ### Data Access Pathway
 
@@ -518,14 +538,15 @@ Data on Request Page: https://www.aihw.gov.au/about-our-data/accessing-data-thro
 ---
 
 ## Australian Institute of Health and Welfare Data Integration Services Centre (AIHW DISC)
+
 <a name='australian-institute-of-health-and-welfare-data-integration-services-centre'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Australian Institute of Health and Welfare Data Integration Services Centre |
-| **Short Name / Acronym** | AIHW DISC |
-| **Custodian Type** | Statistical Publisher |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                                                                       |
+| ------------------------ | --------------------------------------------------------------------------- |
+| **Full Name**            | Australian Institute of Health and Welfare Data Integration Services Centre |
+| **Short Name / Acronym** | AIHW DISC                                                                   |
+| **Custodian Type**       | Statistical Publisher                                                       |
+| **Jurisdiction**         | Commonwealth                                                                |
 
 ### Role
 
@@ -533,13 +554,13 @@ The AIHW Data Integration Services Centre (DISC) is responsible for assisting re
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| National Disability Data Asset (NDDA) | A nation-wide, multi-sector linked data asset for understanding needs, services, and outcomes for people with disability. | De-identified | Linkable |
-| Admitted Patient Care (APC) National Minimum Data Set (NMDS) | Data on admitted patient care in Australian hospitals. | De-identified | Linkable |
-| Medicare Benefits Schedule (MBS) | Data on services provided by medical practitioners. | De-identified | Linkable |
-| Pharmaceutical Benefits Scheme (PBS) | Data on subsidised medicines. | De-identified | Linkable |
-| National Bowel Cancer Screening Program | Data related to bowel cancer screening outcomes. | De-identified | Linkable |
+| Dataset Name                                                 | Description                                                                                                               | Identifiable  | Linkable |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- |
+| National Disability Data Asset (NDDA)                        | A nation-wide, multi-sector linked data asset for understanding needs, services, and outcomes for people with disability. | De-identified | Linkable |
+| Admitted Patient Care (APC) National Minimum Data Set (NMDS) | Data on admitted patient care in Australian hospitals.                                                                    | De-identified | Linkable |
+| Medicare Benefits Schedule (MBS)                             | Data on services provided by medical practitioners.                                                                       | De-identified | Linkable |
+| Pharmaceutical Benefits Scheme (PBS)                         | Data on subsidised medicines.                                                                                             | De-identified | Linkable |
+| National Bowel Cancer Screening Program                      | Data related to bowel cancer screening outcomes.                                                                          | De-identified | Linkable |
 
 ### Data Access Pathway
 
@@ -586,14 +607,15 @@ Email: linkage@aihw.gov.au (for data linkage inquiries); nhdh@aihw.gov.au (for N
 ---
 
 ## Australian Prudential Regulation Authority (APRA)
+
 <a name='australian-prudential-regulation-authority'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Australian Prudential Regulation Authority |
-| **Short Name / Acronym** | APRA |
-| **Custodian Type** | Statistical Publisher |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                                      |
+| ------------------------ | ------------------------------------------ |
+| **Full Name**            | Australian Prudential Regulation Authority |
+| **Short Name / Acronym** | APRA                                       |
+| **Custodian Type**       | Statistical Publisher                      |
+| **Jurisdiction**         | Commonwealth                               |
 
 ### Role
 
@@ -601,11 +623,11 @@ The Australian Prudential Regulation Authority (APRA) is Australia's prudential 
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Quarterly private health insurance statistics | Membership, coverage, benefits paid, medical gap, medical devices or human tissue products, and medical services | De-identified | No |
-| Annual private health insurance statistics | Industry aggregate summaries and data on operations of private health insurers | De-identified | No |
-| Private Health Insurance Annual Coverage Survey | Snapshot of insured persons by age, gender, and state | De-identified | No |
+| Dataset Name                                    | Description                                                                                                      | Identifiable  | Linkable |
+| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------- | -------- |
+| Quarterly private health insurance statistics   | Membership, coverage, benefits paid, medical gap, medical devices or human tissue products, and medical services | De-identified | No       |
+| Annual private health insurance statistics      | Industry aggregate summaries and data on operations of private health insurers                                   | De-identified | No       |
+| Private Health Insurance Annual Coverage Survey | Snapshot of insured persons by age, gender, and state                                                            | De-identified | No       |
 
 ### Data Access Pathway
 
@@ -644,15 +666,16 @@ Email: dataanalytics@apra.gov.au
 ---
 
 ## Australian Research Data Commons (ARDC)
+
 <a name='australian-research-data-commons'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Australian Research Data Commons |
-| **Short Name / Acronym** | ARDC |
-| **Custodian Type** | Data Discovery Service |
-| **Jurisdiction** | Commonwealth |
-| **Classification Note** | ARDC is primarily a national research infrastructure provider and a data discovery service, facilitating access to data held by other custodians. |
+| Field                    | Value                                                                                                                                             |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Full Name**            | Australian Research Data Commons                                                                                                                  |
+| **Short Name / Acronym** | ARDC                                                                                                                                              |
+| **Custodian Type**       | Data Discovery Service                                                                                                                            |
+| **Jurisdiction**         | Commonwealth                                                                                                                                      |
+| **Classification Note**  | ARDC is primarily a national research infrastructure provider and a data discovery service, facilitating access to data held by other custodians. |
 
 ### Role
 
@@ -660,11 +683,11 @@ The Australian Research Data Commons (ARDC) accelerates Australian research and 
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Clinical Trial Data | Descriptions of clinical trials data from various Australian health research organizations. | De-identified | Yes via trial ID |
-| HeSANDA Datasets | Health Studies Australian National Data Asset datasets, including clinical trials and other health and medical data. | De-identified | Yes via HeSANDA framework |
-| Research Data Australia | A national catalogue for finding, accessing, reusing, and attributing data from over 100 Australian research organizations. | Varies by dataset | Varies by dataset |
+| Dataset Name            | Description                                                                                                                 | Identifiable      | Linkable                  |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------- |
+| Clinical Trial Data     | Descriptions of clinical trials data from various Australian health research organizations.                                 | De-identified     | Yes via trial ID          |
+| HeSANDA Datasets        | Health Studies Australian National Data Asset datasets, including clinical trials and other health and medical data.        | De-identified     | Yes via HeSANDA framework |
+| Research Data Australia | A national catalogue for finding, accessing, reusing, and attributing data from over 100 Australian research organizations. | Varies by dataset | Varies by dataset         |
 
 ### Data Access Pathway
 
@@ -707,14 +730,15 @@ HeSANDA Node Network Contact Details: https://documentation.ardc.edu.au/hda/hesa
 ---
 
 ## Department of Social Services (DSS)
+
 <a name='department-of-social-services'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Department of Social Services |
-| **Short Name / Acronym** | DSS |
-| **Custodian Type** | Commonwealth |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                         |
+| ------------------------ | ----------------------------- |
+| **Full Name**            | Department of Social Services |
+| **Short Name / Acronym** | DSS                           |
+| **Custodian Type**       | Commonwealth                  |
+| **Jurisdiction**         | Commonwealth                  |
 
 ### Role
 
@@ -722,8 +746,8 @@ The Department of Social Services (DSS) is responsible for a diverse range of po
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
+| Dataset Name                         | Description                                                                                                                                                                                                                            | Identifiable  | Linkable                |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------- |
 | DOMINO (External Analytical Version) | Integrated DataMart of DSS administrative analytical datasets, providing a detailed and longitudinal view of individuals' interactions with the welfare system. Does not contain identifiable information such as names and addresses. | De-identified | Yes via PLIDA;NDIS Data |
 
 ### Data Access Pathway
@@ -757,14 +781,15 @@ https://requestdata.dss.gov.au/ (Data Request Portal); Privacy@dss.gov.au (Priva
 ---
 
 ## MedicineInsight (Australian Commission on Safety and Quality in Health Care) (MedicineInsight)
+
 <a name='medicineinsight-australian-commission-on-safety-and-quality-in-health-care'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | MedicineInsight (Australian Commission on Safety and Quality in Health Care) |
-| **Short Name / Acronym** | MedicineInsight |
-| **Custodian Type** | Cross-jurisdictional |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                                                                        |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| **Full Name**            | MedicineInsight (Australian Commission on Safety and Quality in Health Care) |
+| **Short Name / Acronym** | MedicineInsight                                                              |
+| **Custodian Type**       | Cross-jurisdictional                                                         |
+| **Jurisdiction**         | Commonwealth                                                                 |
 
 ### Role
 
@@ -772,11 +797,11 @@ MedicineInsight is a primary care quality improvement program managed by the Aus
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| MedicineInsight data | Longitudinal de-identified electronic health records (EHRs) from Australian general practices, including prescribing and clinical data. | De-identified | Yes via patient ID (within the de-identified dataset) |
-| General Practice Insights Reports | Aggregated data and insights from participating MedicineInsight practices, covering various health issues like cardiovascular disease, diabetes, COVID-19, and bushfires. | De-identified | No |
-| MedicineInsight GP Snapshot on Chronic Obstructive Pulmonary Disease (COPD) Pharmacological Management | Provides essential data and practical insights to help GPs improve the management of COPD. | De-identified | No |
+| Dataset Name                                                                                           | Description                                                                                                                                                               | Identifiable  | Linkable                                              |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------------------------------------------------- |
+| MedicineInsight data                                                                                   | Longitudinal de-identified electronic health records (EHRs) from Australian general practices, including prescribing and clinical data.                                   | De-identified | Yes via patient ID (within the de-identified dataset) |
+| General Practice Insights Reports                                                                      | Aggregated data and insights from participating MedicineInsight practices, covering various health issues like cardiovascular disease, diabetes, COVID-19, and bushfires. | De-identified | No                                                    |
+| MedicineInsight GP Snapshot on Chronic Obstructive Pulmonary Disease (COPD) Pharmacological Management | Provides essential data and practical insights to help GPs improve the management of COPD.                                                                                | De-identified | No                                                    |
 
 ### Data Access Pathway
 
@@ -815,14 +840,15 @@ Phone: 1300 721 726
 ---
 
 ## National Aboriginal Community Controlled Health Organisation (NACCHO)
+
 <a name='national-aboriginal-community-controlled-health-organisation'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | National Aboriginal Community Controlled Health Organisation |
-| **Short Name / Acronym** | NACCHO |
-| **Custodian Type** | NGO |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                                                        |
+| ------------------------ | ------------------------------------------------------------ |
+| **Full Name**            | National Aboriginal Community Controlled Health Organisation |
+| **Short Name / Acronym** | NACCHO                                                       |
+| **Custodian Type**       | NGO                                                          |
+| **Jurisdiction**         | Commonwealth                                                 |
 
 ### Role
 
@@ -830,8 +856,8 @@ NACCHO is the national peak body representing 148 Aboriginal Community Controlle
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
+| Dataset Name                 | Description                                                                                                                                                        | Identifiable  | Linkable                                                 |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | -------------------------------------------------------- |
 | Online Services Report (OSR) | Collects data from organisations funded by the Australian Government to deliver primary health care services to Aboriginal and Torres Strait Islander Australians. | De-identified | Yes via AIHW;National Key Performance Indicators (nKPIs) |
 
 ### Data Access Pathway
@@ -861,14 +887,15 @@ General inquiries: https://www.naccho.org.au/contact-us/ | Phone: 02 6246 9300 |
 ---
 
 ## National Health and Medical Research Council (NHMRC) / Human Research Ethics Committees (HRECs) (NHMRC / HRECs)
+
 <a name='national-health-and-medical-research-council-nhmrc--human-research-ethics-committees-hrecs'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | National Health and Medical Research Council (NHMRC) / Human Research Ethics Committees (HRECs) |
-| **Short Name / Acronym** | NHMRC / HRECs |
-| **Custodian Type** | Ethics Body |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                                                                                           |
+| ------------------------ | ----------------------------------------------------------------------------------------------- |
+| **Full Name**            | National Health and Medical Research Council (NHMRC) / Human Research Ethics Committees (HRECs) |
+| **Short Name / Acronym** | NHMRC / HRECs                                                                                   |
+| **Custodian Type**       | Ethics Body                                                                                     |
+| **Jurisdiction**         | Commonwealth                                                                                    |
 
 ### Role
 
@@ -876,11 +903,11 @@ The National Health and Medical Research Council (NHMRC) is Australia's leading 
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| NHMRC Funding Outcomes Data | Statistics on grants awarded by NHMRC, including research area, funding amount, and recipient institution. | De-identified | No |
-| NHMRC Expenditure by Former National Health Priority Areas | Annual expenditure data by NHMRC across various health priority areas. | De-identified | No |
-| NHMRC Expenditure for Disease, Research and Health Areas | Annual expenditure data by NHMRC across various disease, research, and health topics. | De-identified | No |
+| Dataset Name                                               | Description                                                                                                | Identifiable  | Linkable |
+| ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------- | -------- |
+| NHMRC Funding Outcomes Data                                | Statistics on grants awarded by NHMRC, including research area, funding amount, and recipient institution. | De-identified | No       |
+| NHMRC Expenditure by Former National Health Priority Areas | Annual expenditure data by NHMRC across various health priority areas.                                     | De-identified | No       |
+| NHMRC Expenditure for Disease, Research and Health Areas   | Annual expenditure data by NHMRC across various disease, research, and health topics.                      | De-identified | No       |
 
 ### Data Access Pathway
 
@@ -929,15 +956,16 @@ Application Portal: Human Research Ethics Application (HREA): https://hrea.gov.a
 ---
 
 ## PHN Cooperative / Primary Health Insights (PHI/PHN Cooperative)
+
 <a name='phn-cooperative--primary-health-insights'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | PHN Cooperative / Primary Health Insights |
-| **Short Name / Acronym** | PHI/PHN Cooperative |
-| **Custodian Type** | NGO |
-| **Jurisdiction** | Commonwealth |
-| **Classification Note** | Data Aggregator and Secure Platform for Primary Health Networks. |
+| Field                    | Value                                                            |
+| ------------------------ | ---------------------------------------------------------------- |
+| **Full Name**            | PHN Cooperative / Primary Health Insights                        |
+| **Short Name / Acronym** | PHI/PHN Cooperative                                              |
+| **Custodian Type**       | NGO                                                              |
+| **Jurisdiction**         | Commonwealth                                                     |
+| **Classification Note**  | Data Aggregator and Secure Platform for Primary Health Networks. |
 
 ### Role
 
@@ -945,11 +973,11 @@ Primary Health Insights is a secure national data platform for using de-identifi
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Practice Incentives Program Quality Improvement (PIP QI) data | De-identified aggregate data from general practices on specified quality improvement measures. | De-identified | Yes via Primary Health Insights |
-| General Practice Data | De-identified data from general practices, including patient demographics, diagnoses, and treatments. | De-identified | Yes via Primary Health Insights |
-| Commissioned Services Data | Data from primary healthcare services commissioned by PHNs. | De-identified | Yes via Primary Health Insights |
+| Dataset Name                                                  | Description                                                                                           | Identifiable  | Linkable                        |
+| ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------- | ------------------------------- |
+| Practice Incentives Program Quality Improvement (PIP QI) data | De-identified aggregate data from general practices on specified quality improvement measures.        | De-identified | Yes via Primary Health Insights |
+| General Practice Data                                         | De-identified data from general practices, including patient demographics, diagnoses, and treatments. | De-identified | Yes via Primary Health Insights |
+| Commissioned Services Data                                    | Data from primary healthcare services commissioned by PHNs.                                           | De-identified | Yes via Primary Health Insights |
 
 ### Data Access Pathway
 
@@ -988,14 +1016,15 @@ execoffice@phncooperative.org.au
 ---
 
 ## Population Health Research Network (PHRN)
+
 <a name='population-health-research-network'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Population Health Research Network |
-| **Short Name / Acronym** | PHRN |
-| **Custodian Type** | Cross-jurisdictional |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                              |
+| ------------------------ | ---------------------------------- |
+| **Full Name**            | Population Health Research Network |
+| **Short Name / Acronym** | PHRN                               |
+| **Custodian Type**       | Cross-jurisdictional               |
+| **Jurisdiction**         | Commonwealth                       |
 
 ### Role
 
@@ -1003,15 +1032,15 @@ The Population Health Research Network (PHRN) is a national research infrastruct
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Administrative data | Information collected as part of service delivery, generally required or authorised by law | De-identified | Yes |
-| Clinical data | Detailed patient records collected and used by health professionals during patient care | De-identified | Yes |
-| Clinical registry data | Systematically collected health-related information on individuals with specific devices, illnesses, or healthcare resources | De-identified | Yes |
-| Project-specific data | Information collected for a particular purpose, such as a survey or specific research project | De-identified | Yes |
-| National Health Data Hub | A linked data asset supported by PHRN | De-identified | Yes |
-| National Disability Data Asset (NDDA) | A linked data asset supported by PHRN | De-identified | Yes |
-| COVID-19 Register | A linked data asset supported by PHRN | De-identified | Yes |
+| Dataset Name                          | Description                                                                                                                  | Identifiable  | Linkable |
+| ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- |
+| Administrative data                   | Information collected as part of service delivery, generally required or authorised by law                                   | De-identified | Yes      |
+| Clinical data                         | Detailed patient records collected and used by health professionals during patient care                                      | De-identified | Yes      |
+| Clinical registry data                | Systematically collected health-related information on individuals with specific devices, illnesses, or healthcare resources | De-identified | Yes      |
+| Project-specific data                 | Information collected for a particular purpose, such as a survey or specific research project                                | De-identified | Yes      |
+| National Health Data Hub              | A linked data asset supported by PHRN                                                                                        | De-identified | Yes      |
+| National Disability Data Asset (NDDA) | A linked data asset supported by PHRN                                                                                        | De-identified | Yes      |
+| COVID-19 Register                     | A linked data asset supported by PHRN                                                                                        | De-identified | Yes      |
 
 ### Data Access Pathway
 
@@ -1056,14 +1085,15 @@ General enquiries: phrn@uwa.edu.au
 ---
 
 ## Private Hospital Data Bureau (PHDB)
+
 <a name='private-hospital-data-bureau'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Private Hospital Data Bureau |
-| **Short Name / Acronym** | PHDB |
-| **Custodian Type** | Commonwealth |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                        |
+| ------------------------ | ---------------------------- |
+| **Full Name**            | Private Hospital Data Bureau |
+| **Short Name / Acronym** | PHDB                         |
+| **Custodian Type**       | Commonwealth                 |
+| **Jurisdiction**         | Commonwealth                 |
 
 ### Role
 
@@ -1071,11 +1101,11 @@ The Private Hospital Data Bureau (PHDB) data collection is a legislated data col
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Private Hospital Data Bureau data collection | De-identified information on patient demographics, hospital episodes, clinical information, and hospital charges for private hospital separations | De-identified | Yes via sex/gender |
-| Hospital Casemix Protocol (HCP) data | Data related to hospital casemix, used in conjunction with PHDB data for submission and analysis | De-identified | Yes via episode ID |
-| National Hospitals data collection | Major national hospitals databases held by the AIHW, which may integrate or link with PHDB data | De-identified | Yes via various identifiers |
+| Dataset Name                                 | Description                                                                                                                                       | Identifiable  | Linkable                    |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | --------------------------- |
+| Private Hospital Data Bureau data collection | De-identified information on patient demographics, hospital episodes, clinical information, and hospital charges for private hospital separations | De-identified | Yes via sex/gender          |
+| Hospital Casemix Protocol (HCP) data         | Data related to hospital casemix, used in conjunction with PHDB data for submission and analysis                                                  | De-identified | Yes via episode ID          |
+| National Hospitals data collection           | Major national hospitals databases held by the AIHW, which may integrate or link with PHDB data                                                   | De-identified | Yes via various identifiers |
 
 ### Data Access Pathway
 
@@ -1120,13 +1150,14 @@ hospitaldata@aihw.gov.au (for PHDB data inquiries); info@aihw.gov.au (general AI
 ---
 
 ## Services Australia
+
 <a name='services-australia'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Services Australia |
-| **Custodian Type** | Commonwealth |
-| **Jurisdiction** | Commonwealth |
+| Field              | Value              |
+| ------------------ | ------------------ |
+| **Full Name**      | Services Australia |
+| **Custodian Type** | Commonwealth       |
+| **Jurisdiction**   | Commonwealth       |
 
 ### Role
 
@@ -1134,15 +1165,15 @@ Services Australia supports researchers and the public to access data it holds a
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Medicare Benefits Schedule (MBS) data | Information on services that qualify for a benefit under the Health Insurance Act 1973. | De-identified/Identifiable | Linkable(Yes via identification number or consent studies) |
+| Dataset Name                              | Description                                                                                     | Identifiable               | Linkable                                                   |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------- | -------------------------- | ---------------------------------------------------------- |
+| Medicare Benefits Schedule (MBS) data     | Information on services that qualify for a benefit under the Health Insurance Act 1973.         | De-identified/Identifiable | Linkable(Yes via identification number or consent studies) |
 | Pharmaceutical Benefits Scheme (PBS) data | Information on prescription medicines that qualify for a benefit under the National Health Act. | De-identified/Identifiable | Linkable(Yes via identification number or consent studies) |
-| Centrelink payment statistics | Data related to Centrelink payments and services. | De-identified | Linkable(Yes via consent studies) |
-| Child Support statistics | Historical data about Child Support transactions. | De-identified | No |
-| Australian Organ Donor Register (AODR) | Data related to organ donation. | Identifiable | No |
-| Practice Incentives Program (PIP) | Data related to incentives for general practices. | De-identified | No |
-| Australian Immunisation Register (AIR) | Data related to immunisations. | Identifiable | No |
+| Centrelink payment statistics             | Data related to Centrelink payments and services.                                               | De-identified              | Linkable(Yes via consent studies)                          |
+| Child Support statistics                  | Historical data about Child Support transactions.                                               | De-identified              | No                                                         |
+| Australian Organ Donor Register (AODR)    | Data related to organ donation.                                                                 | Identifiable               | No                                                         |
+| Practice Incentives Program (PIP)         | Data related to incentives for general practices.                                               | De-identified              | No                                                         |
+| Australian Immunisation Register (AIR)    | Data related to immunisations.                                                                  | Identifiable               | No                                                         |
 
 ### Data Access Pathway
 
@@ -1185,14 +1216,15 @@ external.information.release@servicesaustralia.gov.au
 ---
 
 ## Therapeutic Goods Administration (TGA)
+
 <a name='therapeutic-goods-administration'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Therapeutic Goods Administration |
-| **Short Name / Acronym** | TGA |
-| **Custodian Type** | Commonwealth |
-| **Jurisdiction** | Commonwealth |
+| Field                    | Value                            |
+| ------------------------ | -------------------------------- |
+| **Full Name**            | Therapeutic Goods Administration |
+| **Short Name / Acronym** | TGA                              |
+| **Custodian Type**       | Commonwealth                     |
+| **Jurisdiction**         | Commonwealth                     |
 
 ### Role
 
@@ -1200,11 +1232,11 @@ The Therapeutic Goods Administration (TGA) is Australia's government authority r
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Australian Register of Therapeutic Goods (ARTG) | Public database of therapeutic goods legally supplied in Australia, including medicines and medical devices. | De-identified | No |
-| Database of Adverse Event Notifications (DAEN) | Contains information from suspected adverse events reported for medicines, medical devices, and biologicals. | De-identified | No |
-| Medicine Shortage Reports Database | Information on current medicine shortage alerts and reports, including projected stock unavailability. | De-identified | No |
+| Dataset Name                                    | Description                                                                                                  | Identifiable  | Linkable |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------- | -------- |
+| Australian Register of Therapeutic Goods (ARTG) | Public database of therapeutic goods legally supplied in Australia, including medicines and medical devices. | De-identified | No       |
+| Database of Adverse Event Notifications (DAEN)  | Contains information from suspected adverse events reported for medicines, medical devices, and biologicals. | De-identified | No       |
+| Medicine Shortage Reports Database              | Information on current medicine shortage alerts and reports, including projected stock unavailability.       | De-identified | No       |
 
 ### Data Access Pathway
 
@@ -1248,14 +1280,15 @@ TGA Business Services (TBS): https://www.tga.gov.au/business-services/tga-busine
 ---
 
 ## Cancer Institute NSW (CINSW)
+
 <a name='cancer-institute-nsw'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Cancer Institute NSW |
-| **Short Name / Acronym** | CINSW |
-| **Custodian Type** | State - NSW |
-| **Jurisdiction** | New South Wales |
+| Field                    | Value                |
+| ------------------------ | -------------------- |
+| **Full Name**            | Cancer Institute NSW |
+| **Short Name / Acronym** | CINSW                |
+| **Custodian Type**       | State - NSW          |
+| **Jurisdiction**         | New South Wales      |
 
 ### Role
 
@@ -1263,11 +1296,11 @@ The Cancer Institute NSW is NSW's cancer control agency, established under the C
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| NSW Cancer Registry (NSWCR) | Maintains records of people with cancer in NSW, including demographic, incidence, death details, and clinical data on cancer stage, treatment, and quality of care. | Identifiable (potentially re-identifiable) or De-identified | Yes via CHeReL or AIHW |
-| BreastScreen NSW | Data related to breast cancer screening. | Identifiable (potentially re-identifiable) or De-identified | Yes via CHeReL or AIHW |
-| NSW Clinical Cancer Registry (2008–2012) | Clinical data relating to episodes of care for people treated for cancer in NSW for the specified period. | Identifiable (potentially re-identifiable) or De-identified | Yes via CHeReL or AIHW |
+| Dataset Name                             | Description                                                                                                                                                         | Identifiable                                                | Linkable               |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ---------------------- |
+| NSW Cancer Registry (NSWCR)              | Maintains records of people with cancer in NSW, including demographic, incidence, death details, and clinical data on cancer stage, treatment, and quality of care. | Identifiable (potentially re-identifiable) or De-identified | Yes via CHeReL or AIHW |
+| BreastScreen NSW                         | Data related to breast cancer screening.                                                                                                                            | Identifiable (potentially re-identifiable) or De-identified | Yes via CHeReL or AIHW |
+| NSW Clinical Cancer Registry (2008–2012) | Clinical data relating to episodes of care for people treated for cancer in NSW for the specified period.                                                           | Identifiable (potentially re-identifiable) or De-identified | Yes via CHeReL or AIHW |
 
 ### Data Access Pathway
 
@@ -1305,14 +1338,15 @@ Phone: 02 8374 5600
 ---
 
 ## NSW Health / Ministry of Health NSW (NSW Health)
+
 <a name='nsw-health--ministry-of-health-nsw'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | NSW Health / Ministry of Health NSW |
-| **Short Name / Acronym** | NSW Health |
-| **Custodian Type** | State - NSW |
-| **Jurisdiction** | New South Wales |
+| Field                    | Value                               |
+| ------------------------ | ----------------------------------- |
+| **Full Name**            | NSW Health / Ministry of Health NSW |
+| **Short Name / Acronym** | NSW Health                          |
+| **Custodian Type**       | State - NSW                         |
+| **Jurisdiction**         | New South Wales                     |
 
 ### Role
 
@@ -1320,11 +1354,11 @@ NSW Health, through its Data Governance Framework, is responsible for the effect
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Emergency department data | Information collected on a person's visit to a NSW public emergency department | De-identified | Yes via CHeReL |
-| Hospital data | Information collected on a person's stay in hospital (including patient services provided by NSW public hospitals, public psychiatric hospitals, multi-purpose services, private hospitals, and private day procedure centres) | De-identified | Yes via CHeReL |
-| Perinatal data | Information collected around the time of birth and includes information on NSW mothers and babies | De-identified | Yes via CHeReL |
+| Dataset Name              | Description                                                                                                                                                                                                                    | Identifiable  | Linkable       |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | -------------- |
+| Emergency department data | Information collected on a person's visit to a NSW public emergency department                                                                                                                                                 | De-identified | Yes via CHeReL |
+| Hospital data             | Information collected on a person's stay in hospital (including patient services provided by NSW public hospitals, public psychiatric hospitals, multi-purpose services, private hospitals, and private day procedure centres) | De-identified | Yes via CHeReL |
+| Perinatal data            | Information collected around the time of birth and includes information on NSW mothers and babies                                                                                                                              | De-identified | Yes via CHeReL |
 
 ### Data Access Pathway
 
@@ -1374,14 +1408,15 @@ Formal Access Application (GIPA): https://www.health.nsw.gov.au/gipaa/Pages/appl
 ---
 
 ## Centre for Victorian Data Linkage (CVDL)
+
 <a name='centre-for-victorian-data-linkage'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Centre for Victorian Data Linkage |
-| **Short Name / Acronym** | CVDL |
-| **Custodian Type** | State - VIC |
-| **Jurisdiction** | Victoria |
+| Field                    | Value                             |
+| ------------------------ | --------------------------------- |
+| **Full Name**            | Centre for Victorian Data Linkage |
+| **Short Name / Acronym** | CVDL                              |
+| **Custodian Type**       | State - VIC                       |
+| **Jurisdiction**         | Victoria                          |
 
 ### Role
 
@@ -1389,11 +1424,11 @@ The Centre for Victorian Data Linkage (CVDL) is a specialist data linkage unit e
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Victorian Admitted Episode Database (VAED) | Comprehensive dataset of causes, effects, nature of illness, treatment outcomes, and hospital health services use in Victoria. | De-identified | Yes via VLM |
+| Dataset Name                               | Description                                                                                                                                 | Identifiable  | Linkable    |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------- |
+| Victorian Admitted Episode Database (VAED) | Comprehensive dataset of causes, effects, nature of illness, treatment outcomes, and hospital health services use in Victoria.              | De-identified | Yes via VLM |
 | Victorian Emergency Minimum Dataset (VEMD) | Demographic, administrative, and clinical data detailing presentations at Victorian public hospitals with designated emergency departments. | De-identified | Yes via VLM |
-| Victorian Cancer Registry (VCR) | Population-based cancer registry providing comprehensive, accurate, and timely information for cancer control. | De-identified | Yes via VLM |
+| Victorian Cancer Registry (VCR)            | Population-based cancer registry providing comprehensive, accurate, and timely information for cancer control.                              | De-identified | Yes via VLM |
 
 ### Data Access Pathway
 
@@ -1440,14 +1475,15 @@ cvdl@vahi.vic.gov.au
 ---
 
 ## Victorian Agency for Health Information (VAHI)
+
 <a name='victorian-agency-for-health-information'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Victorian Agency for Health Information |
-| **Short Name / Acronym** | VAHI |
-| **Custodian Type** | State - VIC |
-| **Jurisdiction** | Victoria |
+| Field                    | Value                                   |
+| ------------------------ | --------------------------------------- |
+| **Full Name**            | Victorian Agency for Health Information |
+| **Short Name / Acronym** | VAHI                                    |
+| **Custodian Type**       | State - VIC                             |
+| **Jurisdiction**         | Victoria                                |
 
 ### Role
 
@@ -1455,12 +1491,12 @@ The Victorian Agency for Health Information (VAHI) is Victoria’s end-to-end he
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Victorian Admitted Episode Dataset (VAED) | Collects morbidity data on all admitted patients from Victorian public and private acute hospitals. | De-identified | Yes via Linkage ID |
+| Dataset Name                               | Description                                                                                                                                          | Identifiable  | Linkable           |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------ |
+| Victorian Admitted Episode Dataset (VAED)  | Collects morbidity data on all admitted patients from Victorian public and private acute hospitals.                                                  | De-identified | Yes via Linkage ID |
 | Victorian Emergency Minimum Dataset (VEMD) | Comprises demographic, administrative and clinical data detailing presentations at Victorian public hospitals with designated emergency departments. | De-identified | Yes via Linkage ID |
-| Victorian Cancer Registry (VCR) | A population-based cancer registry aiming to provide comprehensive, accurate and timely information for cancer control. | De-identified | Yes via Linkage ID |
-| Elective Surgery Information System (ESIS) | A patient-level collection of elective surgery waiting list data from approved Victorian public healthcare services. | De-identified | Yes via Linkage ID |
+| Victorian Cancer Registry (VCR)            | A population-based cancer registry aiming to provide comprehensive, accurate and timely information for cancer control.                              | De-identified | Yes via Linkage ID |
+| Elective Surgery Information System (ESIS) | A patient-level collection of elective surgery waiting list data from approved Victorian public healthcare services.                                 | De-identified | Yes via Linkage ID |
 
 ### Data Access Pathway
 
@@ -1507,14 +1543,15 @@ Application Form: https://www2.health.vic.gov.au/cvdl/applicationform
 ---
 
 ## Victorian Cancer Registry (VCR)
+
 <a name='victorian-cancer-registry'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Victorian Cancer Registry |
-| **Short Name / Acronym** | VCR |
-| **Custodian Type** | State - VIC |
-| **Jurisdiction** | Victoria |
+| Field                    | Value                     |
+| ------------------------ | ------------------------- |
+| **Full Name**            | Victorian Cancer Registry |
+| **Short Name / Acronym** | VCR                       |
+| **Custodian Type**       | State - VIC               |
+| **Jurisdiction**         | Victoria                  |
 
 ### Role
 
@@ -1522,11 +1559,11 @@ The Victorian Cancer Registry is a population-based cancer registry that collect
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Victorian Cancer Registry Data | Population-based cancer incidence, mortality, and survival data for Victoria | Yes/De-identified | Yes via ethics approval |
-| VCR Annual Statistics & Trends Report | Aggregated statistical reports on cancer trends in Victoria | De-identified | No |
-| VCR Data Explorer | Interactive online tool providing access to aggregated cancer statistics | De-identified | No |
+| Dataset Name                          | Description                                                                  | Identifiable      | Linkable                |
+| ------------------------------------- | ---------------------------------------------------------------------------- | ----------------- | ----------------------- |
+| Victorian Cancer Registry Data        | Population-based cancer incidence, mortality, and survival data for Victoria | Yes/De-identified | Yes via ethics approval |
+| VCR Annual Statistics & Trends Report | Aggregated statistical reports on cancer trends in Victoria                  | De-identified     | No                      |
+| VCR Data Explorer                     | Interactive online tool providing access to aggregated cancer statistics     | De-identified     | No                      |
 
 ### Data Access Pathway
 
@@ -1564,15 +1601,16 @@ vcr@cancervic.org.au
 ---
 
 ## Queensland Cyber Infrastructure Foundation (QCIF)
+
 <a name='queensland-cyber-infrastructure-foundation'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Queensland Cyber Infrastructure Foundation |
-| **Short Name / Acronym** | QCIF |
-| **Custodian Type** | State - QLD |
-| **Jurisdiction** | Queensland |
-| **Classification Note** | TRE/SDE (Trusted Research Environment/Secure Data Environment) provider |
+| Field                    | Value                                                                   |
+| ------------------------ | ----------------------------------------------------------------------- |
+| **Full Name**            | Queensland Cyber Infrastructure Foundation                              |
+| **Short Name / Acronym** | QCIF                                                                    |
+| **Custodian Type**       | State - QLD                                                             |
+| **Jurisdiction**         | Queensland                                                              |
+| **Classification Note**  | TRE/SDE (Trusted Research Environment/Secure Data Environment) provider |
 
 ### Role
 
@@ -1580,11 +1618,11 @@ QCIF is a non-profit organization that provides cutting-edge digital infrastruct
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Clinical Trial Data (HeSANDA Queensland Node) | Health research data generated by the Queensland research community, initially clinical trials, expanding to cohort and other studies. | De-identified | Yes via Health Data Australia |
-| Chronic Disease Data (NINA Project) | Data related to chronic diseases such as diabetes, rheumatoid arthritis, osteoarthritis, and cancer, analyzed using federated learning. | De-identified | No (federated learning keeps data in-situ) |
-| General Research Data (KeyPoint TRE) | Sensitive research data from various domains, managed and shared with approved end-users in a secure environment. | De-identified | Yes (within the TRE, subject to custodian approval) |
+| Dataset Name                                  | Description                                                                                                                             | Identifiable  | Linkable                                            |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------- | --------------------------------------------------- |
+| Clinical Trial Data (HeSANDA Queensland Node) | Health research data generated by the Queensland research community, initially clinical trials, expanding to cohort and other studies.  | De-identified | Yes via Health Data Australia                       |
+| Chronic Disease Data (NINA Project)           | Data related to chronic diseases such as diabetes, rheumatoid arthritis, osteoarthritis, and cancer, analyzed using federated learning. | De-identified | No (federated learning keeps data in-situ)          |
+| General Research Data (KeyPoint TRE)          | Sensitive research data from various domains, managed and shared with approved end-users in a secure environment.                       | De-identified | Yes (within the TRE, subject to custodian approval) |
 
 ### Data Access Pathway
 
@@ -1622,14 +1660,15 @@ enquiries@qcif.edu.au
 ---
 
 ## Queensland Health (SALUD/DLQ)
+
 <a name='queensland-health'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Queensland Health |
-| **Short Name / Acronym** | SALUD/DLQ |
-| **Custodian Type** | State - QLD |
-| **Jurisdiction** | Queensland |
+| Field                    | Value             |
+| ------------------------ | ----------------- |
+| **Full Name**            | Queensland Health |
+| **Short Name / Acronym** | SALUD/DLQ         |
+| **Custodian Type**       | State - QLD       |
+| **Jurisdiction**         | Queensland        |
 
 ### Role
 
@@ -1637,14 +1676,14 @@ Queensland Health is the state's largest healthcare provider, committed to ensur
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Queensland Hospital Admitted Patient Data Collection (QHAPDC) | Hospital admissions data | Potentially Identifiable | Yes via project-specific patient identifiers |
-| Queensland Health Non-Admitted Patient Data Collection (QHNAPDC) | Non-admitted patient data | Potentially Identifiable | Yes via project-specific patient identifiers |
-| Emergency Data Collection (EDC) | Emergency department data | Potentially Identifiable | Yes via project-specific patient identifiers |
-| Perinatal Data Collection (PDC) | Perinatal data | Potentially Identifiable | Yes via project-specific patient identifiers |
-| Registry of Births, Deaths and Marriages data | Births, deaths, and marriages data (by proxy for QH and research requests) | Potentially Identifiable | Yes via project-specific patient identifiers |
-| Queensland Trauma Registry (QTR) | Trauma-related data | Potentially Identifiable | Yes via project-specific patient identifiers |
+| Dataset Name                                                     | Description                                                                | Identifiable             | Linkable                                     |
+| ---------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
+| Queensland Hospital Admitted Patient Data Collection (QHAPDC)    | Hospital admissions data                                                   | Potentially Identifiable | Yes via project-specific patient identifiers |
+| Queensland Health Non-Admitted Patient Data Collection (QHNAPDC) | Non-admitted patient data                                                  | Potentially Identifiable | Yes via project-specific patient identifiers |
+| Emergency Data Collection (EDC)                                  | Emergency department data                                                  | Potentially Identifiable | Yes via project-specific patient identifiers |
+| Perinatal Data Collection (PDC)                                  | Perinatal data                                                             | Potentially Identifiable | Yes via project-specific patient identifiers |
+| Registry of Births, Deaths and Marriages data                    | Births, deaths, and marriages data (by proxy for QH and research requests) | Potentially Identifiable | Yes via project-specific patient identifiers |
+| Queensland Trauma Registry (QTR)                                 | Trauma-related data                                                        | Potentially Identifiable | Yes via project-specific patient identifiers |
 
 ### Data Access Pathway
 
@@ -1686,14 +1725,15 @@ For summary data: HlthStat@health.qld.gov.au; For linked and/or potentially iden
 ---
 
 ## WA Health / Data Linkage Services WA (WA Health DLS)
+
 <a name='wa-health--data-linkage-services-wa'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | WA Health / Data Linkage Services WA |
-| **Short Name / Acronym** | WA Health DLS |
-| **Custodian Type** | State - WA |
-| **Jurisdiction** | Western Australia |
+| Field                    | Value                                |
+| ------------------------ | ------------------------------------ |
+| **Full Name**            | WA Health / Data Linkage Services WA |
+| **Short Name / Acronym** | WA Health DLS                        |
+| **Custodian Type**       | State - WA                           |
+| **Jurisdiction**         | Western Australia                    |
 
 ### Role
 
@@ -1701,11 +1741,11 @@ The Data Linkage Services team manages the Western Australian Data Linkage Syste
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
+| Dataset Name                         | Description                                         | Identifiable  | Linkable             |
+| ------------------------------------ | --------------------------------------------------- | ------------- | -------------------- |
 | Emergency Department Data Collection | Contains data on emergency department presentations | De-identified | Yes via linkage keys |
-| Hospital Morbidity Data Collection | Contains data on admitted patient activity | De-identified | Yes via linkage keys |
-| WA Cancer Registry | Contains data on cancer diagnoses and treatments | De-identified | Yes via linkage keys |
+| Hospital Morbidity Data Collection   | Contains data on admitted patient activity          | De-identified | Yes via linkage keys |
+| WA Cancer Registry                   | Contains data on cancer diagnoses and treatments    | De-identified | Yes via linkage keys |
 
 ### Data Access Pathway
 
@@ -1748,14 +1788,15 @@ https://www.health.wa.gov.au/Articles/A_E/data-linkage/How-to-apply-for-data
 ---
 
 ## Tasmanian Department of Health / Tasmanian Data Linkage Unit (TDLU)
+
 <a name='tasmanian-department-of-health--tasmanian-data-linkage-unit'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Tasmanian Department of Health / Tasmanian Data Linkage Unit |
-| **Short Name / Acronym** | TDLU |
-| **Custodian Type** | State - TAS |
-| **Jurisdiction** | Tasmania |
+| Field                    | Value                                                        |
+| ------------------------ | ------------------------------------------------------------ |
+| **Full Name**            | Tasmanian Department of Health / Tasmanian Data Linkage Unit |
+| **Short Name / Acronym** | TDLU                                                         |
+| **Custodian Type**       | State - TAS                                                  |
+| **Jurisdiction**         | Tasmania                                                     |
 
 ### Role
 
@@ -1763,22 +1804,22 @@ The Tasmanian Data Linkage Unit (TDLU), part of the Menzies Institute for Medica
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| The Tasmanian Public Hospital Admitted Patient Care Data Collection | Contains all patient episodes where the episode of care took place within or was contracted by a Tasmanian public facility. | De-identified | Yes via PPID |
-| The Tasmanian Private Hospital Admitted Patient Care Data Collection | Contains all patient episodes where the episode of care took place within a licensed Tasmanian private Acute/Sub Acute, overnight or same day facility providing admitted patient care. | De-identified | Yes via PPID |
-| The Tasmanian Emergency Department Dataset | Contains all patient episodes where the episode of care took place wholly within one of the four Tasmanian Emergency Departments. | De-identified | Yes via PPID |
-| RBDM Death registrations | Includes any person who died in Tasmania; stillbirths and foetal deaths are not recorded. | De-identified | Yes via PPID |
-| Cause of Death (Tasmania) | A compilation of death records from State and Territory Registries of Births, Deaths and Marriages and from State and Chief Coroners. | De-identified | Yes via PPID |
-| The Tasmanian Perinatal Data Collection (TPDC) | Collects information on demographic, medical and obstetric information on the mother, and information on the labour, birth and condition of the infant relating to every birth in Tasmania. | De-identified | Yes via PPID |
-| RBDM Birth registrations | Includes all children born and registered in the State of Tasmania, including stillbirths, or deaths in utero occurring after 20 weeks gestation, or with a body mass of at least 400 gm at birth. | De-identified | Yes via PPID |
-| Australian Early Development Census (AEDC) | A full population census of children’s health and development in their first year of formal full-time schooling. | De-identified | Yes via PPID |
-| Tasmanian Cancer Registry (TCR) | Provides population-based statistics about cancer incidence and mortality for Tasmanian residents. | De-identified | Yes via PPID |
-| Tasmanian Cancer Registry Non-Melanoma Skin Cancer (NMSC)* | Incidence rates of NMSCs in Australia are understood to be the highest in the world. Tasmania routinely receives notifications of NMSCs in the population from reporting pathology notifiers. | De-identified | Yes via PPID |
-| The Tasmanian Mental Health Services Collection | Comprises all episodes of mental health treatment in the public system for consumers that occurred in various settings. | De-identified | Yes via PPID |
-| Ambulance Tasmania Emergency Incidents* | Contains Tasmanian emergency ambulance care incidents extracted from the Victorian Ambulance Clinical Information System (VACIS). | De-identified | Yes via PPID |
-| Prostate Cancer Outcomes Registry - Tasmania (PCOR-TAS)* | Collects information about treatments and outcomes for men diagnosed with prostate cancer in Tasmania since 2015. | De-identified | Yes via PPID |
-| Australia New Zealand Dialysis and Transplant Registry (ANZDATA)* | Data is contributed from all adult and paediatric Renal Units in Australia and New Zealand. This encompasses all patients receiving renal replacement therapy (RRT), either dialysis or kidney transplantation, for the treatment of end stage kidney disease (ESKD). | De-identified | Yes via PPID |
+| Dataset Name                                                         | Description                                                                                                                                                                                                                                                           | Identifiable  | Linkable     |
+| -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------ |
+| The Tasmanian Public Hospital Admitted Patient Care Data Collection  | Contains all patient episodes where the episode of care took place within or was contracted by a Tasmanian public facility.                                                                                                                                           | De-identified | Yes via PPID |
+| The Tasmanian Private Hospital Admitted Patient Care Data Collection | Contains all patient episodes where the episode of care took place within a licensed Tasmanian private Acute/Sub Acute, overnight or same day facility providing admitted patient care.                                                                               | De-identified | Yes via PPID |
+| The Tasmanian Emergency Department Dataset                           | Contains all patient episodes where the episode of care took place wholly within one of the four Tasmanian Emergency Departments.                                                                                                                                     | De-identified | Yes via PPID |
+| RBDM Death registrations                                             | Includes any person who died in Tasmania; stillbirths and foetal deaths are not recorded.                                                                                                                                                                             | De-identified | Yes via PPID |
+| Cause of Death (Tasmania)                                            | A compilation of death records from State and Territory Registries of Births, Deaths and Marriages and from State and Chief Coroners.                                                                                                                                 | De-identified | Yes via PPID |
+| The Tasmanian Perinatal Data Collection (TPDC)                       | Collects information on demographic, medical and obstetric information on the mother, and information on the labour, birth and condition of the infant relating to every birth in Tasmania.                                                                           | De-identified | Yes via PPID |
+| RBDM Birth registrations                                             | Includes all children born and registered in the State of Tasmania, including stillbirths, or deaths in utero occurring after 20 weeks gestation, or with a body mass of at least 400 gm at birth.                                                                    | De-identified | Yes via PPID |
+| Australian Early Development Census (AEDC)                           | A full population census of children’s health and development in their first year of formal full-time schooling.                                                                                                                                                      | De-identified | Yes via PPID |
+| Tasmanian Cancer Registry (TCR)                                      | Provides population-based statistics about cancer incidence and mortality for Tasmanian residents.                                                                                                                                                                    | De-identified | Yes via PPID |
+| Tasmanian Cancer Registry Non-Melanoma Skin Cancer (NMSC)*           | Incidence rates of NMSCs in Australia are understood to be the highest in the world. Tasmania routinely receives notifications of NMSCs in the population from reporting pathology notifiers.                                                                         | De-identified | Yes via PPID |
+| The Tasmanian Mental Health Services Collection                      | Comprises all episodes of mental health treatment in the public system for consumers that occurred in various settings.                                                                                                                                               | De-identified | Yes via PPID |
+| Ambulance Tasmania Emergency Incidents*                              | Contains Tasmanian emergency ambulance care incidents extracted from the Victorian Ambulance Clinical Information System (VACIS).                                                                                                                                     | De-identified | Yes via PPID |
+| Prostate Cancer Outcomes Registry - Tasmania (PCOR-TAS)*             | Collects information about treatments and outcomes for men diagnosed with prostate cancer in Tasmania since 2015.                                                                                                                                                     | De-identified | Yes via PPID |
+| Australia New Zealand Dialysis and Transplant Registry (ANZDATA)*    | Data is contributed from all adult and paediatric Renal Units in Australia and New Zealand. This encompasses all patients receiving renal replacement therapy (RRT), either dialysis or kidney transplantation, for the treatment of end stage kidney disease (ESKD). | De-identified | Yes via PPID |
 
 ### Data Access Pathway
 
@@ -1823,13 +1864,14 @@ Department of Health Research Governance Email: research.governance@health.tas.g
 ---
 
 ## ACT Health
+
 <a name='act-health'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | ACT Health |
-| **Custodian Type** | State - ACT |
-| **Jurisdiction** | Australian Capital Territory |
+| Field              | Value                        |
+| ------------------ | ---------------------------- |
+| **Full Name**      | ACT Health                   |
+| **Custodian Type** | State - ACT                  |
+| **Jurisdiction**   | Australian Capital Territory |
 
 ### Role
 
@@ -1837,19 +1879,19 @@ ACT Health serves as the primary health data custodian for the Australian Capita
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| ACT Admitted Patient Collection | Contains information on patients admitted to ACT hospitals | Identifiable | Yes via CHeReL |
-| ACT Cancer Registry | Records cancer diagnoses and related data in the ACT | Identifiable | Yes via CHeReL |
-| ACT Emergency Department Information System | Data on presentations to emergency departments in the ACT | Identifiable | Yes via CHeReL |
-| ACT Maternal Perinatal Data Collection | Information related to maternal and perinatal health outcomes in the ACT | Identifiable | Yes via CHeReL |
-| ACT Notifiable Diseases Management System | Data on infectious diseases reported in the ACT | Identifiable | Yes via CHeReL |
-| ACT Births, Deaths and Marriages birth registrations | Official records of births in the ACT | Identifiable | Yes via CHeReL |
-| ACT Births, Deaths and Marriages death registrations | Official records of deaths in the ACT | Identifiable | Yes via CHeReL |
-| Australian Early Development Census | Data on early childhood development in the ACT | De-identified | Yes via CHeReL |
-| ACT Kindergarten Health Check | Health check data for kindergarten children in the ACT | Identifiable | Yes via CHeReL |
-| ACT Australia and New Zealand Dialysis and Transplant Registry | Data on dialysis and transplant patients in the ACT | Identifiable | Yes via CHeReL |
-| ACT Ambulance Service data | Records of ambulance service attendances in the ACT | Identifiable | Yes via CHeReL |
+| Dataset Name                                                   | Description                                                              | Identifiable  | Linkable       |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------- | -------------- |
+| ACT Admitted Patient Collection                                | Contains information on patients admitted to ACT hospitals               | Identifiable  | Yes via CHeReL |
+| ACT Cancer Registry                                            | Records cancer diagnoses and related data in the ACT                     | Identifiable  | Yes via CHeReL |
+| ACT Emergency Department Information System                    | Data on presentations to emergency departments in the ACT                | Identifiable  | Yes via CHeReL |
+| ACT Maternal Perinatal Data Collection                         | Information related to maternal and perinatal health outcomes in the ACT | Identifiable  | Yes via CHeReL |
+| ACT Notifiable Diseases Management System                      | Data on infectious diseases reported in the ACT                          | Identifiable  | Yes via CHeReL |
+| ACT Births, Deaths and Marriages birth registrations           | Official records of births in the ACT                                    | Identifiable  | Yes via CHeReL |
+| ACT Births, Deaths and Marriages death registrations           | Official records of deaths in the ACT                                    | Identifiable  | Yes via CHeReL |
+| Australian Early Development Census                            | Data on early childhood development in the ACT                           | De-identified | Yes via CHeReL |
+| ACT Kindergarten Health Check                                  | Health check data for kindergarten children in the ACT                   | Identifiable  | Yes via CHeReL |
+| ACT Australia and New Zealand Dialysis and Transplant Registry | Data on dialysis and transplant patients in the ACT                      | Identifiable  | Yes via CHeReL |
+| ACT Ambulance Service data                                     | Records of ambulance service attendances in the ACT                      | Identifiable  | Yes via CHeReL |
 
 ### Data Access Pathway
 
@@ -1896,14 +1938,15 @@ Email: HealthInfo@act.gov.au; Data Linkage Request Form: https://act-health.atla
 ---
 
 ## NT Health / NT Health Research Governance Office (NT Health RGO)
+
 <a name='nt-health--nt-health-research-governance-office'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | NT Health / NT Health Research Governance Office |
-| **Short Name / Acronym** | NT Health RGO |
-| **Custodian Type** | State - NT |
-| **Jurisdiction** | Northern Territory |
+| Field                    | Value                                            |
+| ------------------------ | ------------------------------------------------ |
+| **Full Name**            | NT Health / NT Health Research Governance Office |
+| **Short Name / Acronym** | NT Health RGO                                    |
+| **Custodian Type**       | State - NT                                       |
+| **Jurisdiction**         | Northern Territory                               |
 
 ### Role
 
@@ -1911,13 +1954,13 @@ The NT Health Research Governance Office (RGO) ensures research adheres to estab
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Northern Territory Cancer Registry | Database of all reported instances of cancer | De-identified | Yes |
-| Perinatal registry | Collection of information on all births in hospital or home settings in the NT | De-identified | Yes |
-| NT notifiable diseases register | Databases containing information about reported instances of 90 notifiable conditions | De-identified | Yes |
-| Emergency department data | Collection of all presentations to emergency departments at NT public hospitals, containing activity, patient episode and waiting time data and measures | De-identified | Yes |
-| Inpatient care data | Collection of all attendances at inpatient departments at NT public hospitals based on date of discharge | De-identified | Yes |
+| Dataset Name                       | Description                                                                                                                                              | Identifiable  | Linkable |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- |
+| Northern Territory Cancer Registry | Database of all reported instances of cancer                                                                                                             | De-identified | Yes      |
+| Perinatal registry                 | Collection of information on all births in hospital or home settings in the NT                                                                           | De-identified | Yes      |
+| NT notifiable diseases register    | Databases containing information about reported instances of 90 notifiable conditions                                                                    | De-identified | Yes      |
+| Emergency department data          | Collection of all presentations to emergency departments at NT public hospitals, containing activity, patient episode and waiting time data and measures | De-identified | Yes      |
+| Inpatient care data                | Collection of all attendances at inpatient departments at NT public hospitals based on date of discharge                                                 | De-identified | Yes      |
 
 ### Data Access Pathway
 
@@ -1959,14 +2002,15 @@ rgo.health@nt.gov.au; datareleaserequests.doh@nt.gov.au; Phone: (08) 8999 2770; 
 ---
 
 ## Centre for Health Record Linkage (CHeReL)
+
 <a name='centre-for-health-record-linkage'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Centre for Health Record Linkage |
-| **Short Name / Acronym** | CHeReL |
-| **Custodian Type** | Cross-jurisdictional |
-| **Jurisdiction** | New South Wales and Australian Capital Territory |
+| Field                    | Value                                            |
+| ------------------------ | ------------------------------------------------ |
+| **Full Name**            | Centre for Health Record Linkage                 |
+| **Short Name / Acronym** | CHeReL                                           |
+| **Custodian Type**       | Cross-jurisdictional                             |
+| **Jurisdiction**         | New South Wales and Australian Capital Territory |
 
 ### Role
 
@@ -1974,10 +2018,10 @@ The Centre for Health Record Linkage (CHeReL) is dedicated to helping researcher
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| NSW Admitted Patient Data Collection (APDC) | Records all admitted patient services provided by NSW Public Hospitals. | De-identified | Yes via CHeReL MLK |
-| ACT Admitted Patient Care (APC) | Records all inpatient separations (discharges, transfers and deaths) from all public hospitals in ACT. | De-identified | Yes via CHeReL MLK |
+| Dataset Name                                                              | Description                                                                                                     | Identifiable  | Linkable           |
+| ------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------- | ------------------ |
+| NSW Admitted Patient Data Collection (APDC)                               | Records all admitted patient services provided by NSW Public Hospitals.                                         | De-identified | Yes via CHeReL MLK |
+| ACT Admitted Patient Care (APC)                                           | Records all inpatient separations (discharges, transfers and deaths) from all public hospitals in ACT.          | De-identified | Yes via CHeReL MLK |
 | The Australian and New Zealand Dialysis and Transplant Registry (ANZDATA) | Collects detailed information on the incidence, prevalence, and outcomes of dialysis and transplant treatments. | De-identified | Yes via CHeReL MLK |
 
 ### Data Access Pathway
@@ -2024,14 +2068,15 @@ Email: MOH-CHeReL@health.nsw.gov.au; CheckApp portal: https://checkapp.cherel.or
 ---
 
 ## SA Health / SA NT DataLink (SA NT DataLink)
+
 <a name='sa-health--sa-nt-datalink'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | SA Health / SA NT DataLink |
-| **Short Name / Acronym** | SA NT DataLink |
-| **Custodian Type** | Cross-jurisdictional |
-| **Jurisdiction** | South Australia and Northern Territory |
+| Field                    | Value                                  |
+| ------------------------ | -------------------------------------- |
+| **Full Name**            | SA Health / SA NT DataLink             |
+| **Short Name / Acronym** | SA NT DataLink                         |
+| **Custodian Type**       | Cross-jurisdictional                   |
+| **Jurisdiction**         | South Australia and Northern Territory |
 
 ### Role
 
@@ -2039,11 +2084,11 @@ SA NT DataLink provides high quality data linkage services to support research, 
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| NT Client Master Index | Master index for clients in Northern Territory | De-identified | Yes via SA NT DataLink |
-| SA Public Hospital Separations | Records of hospital separations in South Australia | De-identified | Yes via SA NT DataLink |
-| SA Cancer Registry | Cancer incidence and mortality data for South Australia | De-identified | Yes via SA NT DataLink |
+| Dataset Name                   | Description                                             | Identifiable  | Linkable               |
+| ------------------------------ | ------------------------------------------------------- | ------------- | ---------------------- |
+| NT Client Master Index         | Master index for clients in Northern Territory          | De-identified | Yes via SA NT DataLink |
+| SA Public Hospital Separations | Records of hospital separations in South Australia      | De-identified | Yes via SA NT DataLink |
+| SA Cancer Registry             | Cancer incidence and mortality data for South Australia | De-identified | Yes via SA NT DataLink |
 
 ### Data Access Pathway
 
@@ -2094,14 +2139,15 @@ PHRN online application system: https://oas.phrn.org.au
 ---
 
 ## Secure Unified Research Environment (SURE)
+
 <a name='secure-unified-research-environment'></a>
 
-| Field | Value |
-|---|---|
-| **Full Name** | Secure Unified Research Environment |
-| **Short Name / Acronym** | SURE |
-| **Custodian Type** | TRE/SDE |
-| **Jurisdiction** | Cross-jurisdictional |
+| Field                    | Value                               |
+| ------------------------ | ----------------------------------- |
+| **Full Name**            | Secure Unified Research Environment |
+| **Short Name / Acronym** | SURE                                |
+| **Custodian Type**       | TRE/SDE                             |
+| **Jurisdiction**         | Cross-jurisdictional                |
 
 ### Role
 
@@ -2109,12 +2155,12 @@ SURE (Secure Unified Research Environment) is a secure and powerful platform for
 
 ### Key Datasets
 
-| Dataset Name | Description | Identifiable | Linkable |
-|---|---|---|---|
-| Hospitals data | Linked health data from various hospitals | De-identified | Yes via project linkage |
+| Dataset Name                        | Description                                                                  | Identifiable  | Linkable                |
+| ----------------------------------- | ---------------------------------------------------------------------------- | ------------- | ----------------------- |
+| Hospitals data                      | Linked health data from various hospitals                                    | De-identified | Yes via project linkage |
 | Medicare Benefits Scheme (MBS) data | Medicare claims data, including Department of Veteran Affairs (DVA) Medicare | De-identified | Yes via project linkage |
-| Cancer Registries data | Data from various cancer registries | De-identified | Yes via project linkage |
-| 45 and Up Study data | Data from the 45 and Up Study | De-identified | Yes via project linkage |
+| Cancer Registries data              | Data from various cancer registries                                          | De-identified | Yes via project linkage |
+| 45 and Up Study data                | Data from the 45 and Up Study                                                | De-identified | Yes via project linkage |
 
 ### Data Access Pathway
 

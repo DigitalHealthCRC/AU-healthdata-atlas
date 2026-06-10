@@ -142,11 +142,18 @@ RETURN
   c.contactAndApplicationPortal AS contactAndApplicationPortal,
   c.indicativeTimeline AS indicativeTimeline,
   c.gapsVerifyWithCustodian AS gapsVerifyWithCustodian,
+  c.sourceRegisterTitle AS sourceRegisterTitle,
+  c.sourceRegisterVersion AS sourceRegisterVersion,
+  c.sourceRegisterGenerated AS sourceRegisterGenerated,
+  c.sourceCsvPath AS sourceCsvPath,
+  c.sourceMarkdownPath AS sourceMarkdownPath,
+  c.sourceProvenanceStatus AS sourceProvenanceStatus,
+  c.kgLoadedAt AS kgLoadedAt,
   collect(DISTINCT u.url) AS sourceUrls;
 
 // 10) Datasets for one line/custodian
 // Params: $lineId
-MATCH (l:ProcessLine {id: $lineId})<-[:OFFERS_LINE]-(c:Custodian)-[:HAS_DATASET]->(d:Dataset)
+MATCH (l:ProcessLine {id: $lineId})<-[:OFFERS_LINE]-(c:Custodian)-[hd:HAS_DATASET]->(d:Dataset)
 RETURN
   l.id AS lineId,
   c.id AS custodianId,
@@ -154,7 +161,23 @@ RETURN
   d.name AS datasetName,
   d.description AS datasetDescription,
   d.identifiable AS identifiable,
-  d.linkable AS linkable
+  d.linkable AS linkable,
+  hd.source AS dataSource,
+  coalesce(hd.sourceRegisterTitle, d.sourceRegisterTitle) AS sourceRegisterTitle,
+  coalesce(hd.sourceRegisterVersion, d.sourceRegisterVersion) AS sourceRegisterVersion,
+  coalesce(hd.sourceRegisterGenerated, d.sourceRegisterGenerated) AS sourceRegisterGenerated,
+  coalesce(hd.sourceCsvPath, d.sourceCsvPath) AS sourceCsvPath,
+  coalesce(hd.sourceMarkdownPath, d.sourceMarkdownPath) AS sourceMarkdownPath,
+  coalesce(hd.sourceCsvModifiedAt, d.sourceCsvModifiedAt) AS sourceCsvModifiedAt,
+  coalesce(hd.sourceMarkdownModifiedAt, d.sourceMarkdownModifiedAt) AS sourceMarkdownModifiedAt,
+  coalesce(hd.sourceCsvSha256, d.sourceCsvSha256) AS sourceCsvSha256,
+  coalesce(hd.sourceMarkdownSha256, d.sourceMarkdownSha256) AS sourceMarkdownSha256,
+  coalesce(hd.sourceCustodianRowCount, d.sourceCustodianRowCount) AS sourceCustodianRowCount,
+  coalesce(hd.sourceMarkdownCardCount, d.sourceMarkdownCardCount) AS sourceMarkdownCardCount,
+  coalesce(hd.sourceOverrideRuleCount, d.sourceOverrideRuleCount) AS sourceOverrideRuleCount,
+  coalesce(hd.sourceGitCommit, d.sourceGitCommit) AS sourceGitCommit,
+  coalesce(hd.sourceProvenanceStatus, d.sourceProvenanceStatus) AS sourceProvenanceStatus,
+  coalesce(hd.kgLoadedAt, d.kgLoadedAt) AS kgLoadedAt
 ORDER BY datasetName;
 
 // 11) All map lines as frontend-ready objects (without branch links)
