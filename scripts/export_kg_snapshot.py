@@ -27,30 +27,15 @@ from load_au_health_kg_via_mcp import (
     slugify,
     split_delimited,
 )
+from neo4j_credentials import DEFAULT_CRED_PATH, parse_credentials, resolve_credential_path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_CRED_PATH = ROOT / "Neo4j-e0662ca0-Created-2026-02-27.txt"
 DEFAULT_EXPORT_ROOT = ROOT / "output" / "kg_exports"
 
 
 class Neo4jExportError(RuntimeError):
     pass
-
-
-def parse_credentials(path: Path) -> dict[str, str]:
-    creds: dict[str, str] = {}
-    text = path.read_text(encoding="utf-8")
-    for line in text.splitlines():
-        match = re.match(r"^(NEO4J_[A-Z_]+)=(.+)$", line.strip())
-        if match:
-            creds[match.group(1)] = match.group(2)
-
-    required = ["NEO4J_URI", "NEO4J_USERNAME", "NEO4J_PASSWORD", "NEO4J_DATABASE"]
-    missing = [key for key in required if key not in creds]
-    if missing:
-        raise ValueError(f"Missing credentials in {path}: {missing}")
-    return creds
 
 
 def run_query(session, query: str) -> list[dict[str, Any]]:
@@ -609,7 +594,11 @@ def export_from_sources(export_dir: Path) -> dict[str, Any]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Export the Neo4j KG to local JSON and CSV snapshots")
-    parser.add_argument("--cred-path", default=str(DEFAULT_CRED_PATH))
+    parser.add_argument(
+        "--cred-path",
+        default=None,
+        help=f"Neo4j credential file path. Defaults to {DEFAULT_CRED_PATH.name} or NEO4J_CREDENTIAL_FILE.",
+    )
     parser.add_argument("--out-dir", default="")
     parser.add_argument(
         "--source-mode",
@@ -621,14 +610,15 @@ def main() -> None:
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     export_dir = Path(args.out_dir).resolve() if args.out_dir else (DEFAULT_EXPORT_ROOT / timestamp).resolve()
+    cred_path = resolve_credential_path(args.cred_path)
 
     if args.source_mode == "neo4j":
-        manifest = export_from_neo4j(export_dir=export_dir, cred_path=Path(args.cred_path).resolve())
+        manifest = export_from_neo4j(export_dir=export_dir, cred_path=cred_path)
     elif args.source_mode == "source":
         manifest = export_from_sources(export_dir=export_dir)
     else:
         try:
-            manifest = export_from_neo4j(export_dir=export_dir, cred_path=Path(args.cred_path).resolve())
+            manifest = export_from_neo4j(export_dir=export_dir, cred_path=cred_path)
         except (OSError, Neo4jExportError):
             manifest = export_from_sources(export_dir=export_dir)
 

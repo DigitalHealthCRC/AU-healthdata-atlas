@@ -1,0 +1,44 @@
+{
+  "validation": {
+    "data_modeling": {
+      "resource_count": 12,
+      "tool_count": 16,
+      "example_call_ok": true
+    },
+    "cypher": {
+      "tools": [
+        "get_neo4j_schema",
+        "read_neo4j_cypher",
+        "write_neo4j_cypher"
+      ],
+      "read_probe": "[{\"ok\": 1}]"
+    }
+  },
+  "load": {
+    "loaded_counts": {
+      "custodians": 33,
+      "datasets": 231,
+      "pathwaySteps": 160,
+      "processLines": 33,
+      "sourceUrls": 161,
+      "connectedTo": 96,
+      "connectionReviews": 107
+    },
+    "input_counts": {
+      "custodians": 33,
+      "datasets": 231,
+      "pathway_steps": 163,
+      "accepted_connections": 96,
+      "review_connections": 107
+    }
+  },
+  "matching": {
+    "override_rule_count": 41,
+    "gap_custodian_count": 1
+  },
+  "artifacts": {
+    "review_csv": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\output\\connection_match_review.csv",
+    "override_csv": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\config\\connection_alias_overrides.csv",
+    "gap_json": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\output\\gap_custodians.json"
+  }
+}

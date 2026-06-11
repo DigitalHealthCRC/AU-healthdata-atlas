@@ -15,11 +15,11 @@ from typing import Any
 from mcp import ClientSession
 from mcp.client.stdio import StdioServerParameters, stdio_client
 
+from neo4j_credentials import parse_credentials
 
 ROOT = Path(__file__).resolve().parents[1]
 CSV_PATH = ROOT / "raw_data" / "pathway_cards.csv"
 MD_PATH = ROOT / "raw_data" / "AU_Health_Data_Pathway_Register.md"
-CRED_PATH = ROOT / "Neo4j-e0662ca0-Created-2026-02-27.txt"
 OVERRIDE_PATH = ROOT / "config" / "connection_alias_overrides.csv"
 OUT_DIR = ROOT / "output"
 REVIEW_CSV = OUT_DIR / "connection_match_review.csv"
@@ -406,20 +406,6 @@ def slugify(value: str) -> str:
 
 def similarity(a: str, b: str) -> float:
     return SequenceMatcher(None, normalize_text(a), normalize_text(b)).ratio()
-
-
-def parse_credentials(path: Path) -> dict[str, str]:
-    creds: dict[str, str] = {}
-    text = path.read_text(encoding="utf-8")
-    for line in text.splitlines():
-        m = re.match(r"^(NEO4J_[A-Z_]+)=(.+)$", line.strip())
-        if m:
-            creds[m.group(1)] = m.group(2)
-    required = ["NEO4J_URI", "NEO4J_USERNAME", "NEO4J_PASSWORD", "NEO4J_DATABASE"]
-    missing = [k for k in required if k not in creds]
-    if missing:
-        raise ValueError(f"Missing credentials: {missing}")
-    return creds
 
 
 def path_for_metadata(path: Path) -> str:
@@ -1787,7 +1773,7 @@ async def load_graph(
 
 
 async def main() -> None:
-    creds = parse_credentials(CRED_PATH)
+    creds = parse_credentials()
     custodians = apply_iteration2_remediations(read_csv_rows(CSV_PATH))
     overrides = load_connection_overrides(OVERRIDE_PATH)
     md_text = MD_PATH.read_text(encoding="utf-8")

@@ -1,0 +1,16 @@
+node_element_id,name
+CustodianType|Commonwealth,Commonwealth
+CustodianType|State — NSW,State — NSW
+CustodianType|State — ACT,State — ACT
+CustodianType|Cross-jurisdictional,Cross-jurisdictional
+CustodianType|State - NSW,State - NSW
+CustodianType|State - VIC,State - VIC
+CustodianType|Private,Private
+CustodianType|NGO,NGO
+CustodianType|State - QLD,State - QLD
+CustodianType|TRE,TRE
+CustodianType|SDE,SDE
+CustodianType|State — WA,State — WA
+CustodianType|State — TAS,State — TAS
+CustodianType|State — NT,State — NT
+CustodianType|Ethics Body,Ethics Body

@@ -1,0 +1,37 @@
+relationship_element_id,start_node_element_id,end_node_element_id
+IN_JURISDICTION|Custodian|custodian:aihw|Jurisdiction|Commonwealth,Custodian|custodian:aihw,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:australian-bureau-of-statistics|Jurisdiction|Commonwealth,Custodian|custodian:australian-bureau-of-statistics,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:services-australia|Jurisdiction|Commonwealth,Custodian|custodian:services-australia,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:department-of-health-and-aged-care|Jurisdiction|Commonwealth,Custodian|custodian:department-of-health-and-aged-care,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:tga|Jurisdiction|Commonwealth,Custodian|custodian:tga,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:apra|Jurisdiction|Commonwealth,Custodian|custodian:apra,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:nsw-health-ministry-of-health-nsw|Jurisdiction|New South Wales,Custodian|custodian:nsw-health-ministry-of-health-nsw,Jurisdiction|New South Wales
+IN_JURISDICTION|Custodian|custodian:cherel|Jurisdiction|New South Wales,Custodian|custodian:cherel,Jurisdiction|New South Wales
+IN_JURISDICTION|Custodian|custodian:cherel|Jurisdiction|Australian Capital Territory,Custodian|custodian:cherel,Jurisdiction|Australian Capital Territory
+IN_JURISDICTION|Custodian|custodian:cancer-institute-nsw|Jurisdiction|New South Wales,Custodian|custodian:cancer-institute-nsw,Jurisdiction|New South Wales
+IN_JURISDICTION|Custodian|custodian:vahi|Jurisdiction|Victoria,Custodian|custodian:vahi,Jurisdiction|Victoria
+IN_JURISDICTION|Custodian|custodian:victorian-cancer-registry|Jurisdiction|Victoria,Custodian|custodian:victorian-cancer-registry,Jurisdiction|Victoria
+IN_JURISDICTION|Custodian|custodian:centre-for-victorian-data-linkage-cvdl|Jurisdiction|Victoria,Custodian|custodian:centre-for-victorian-data-linkage-cvdl,Jurisdiction|Victoria
+IN_JURISDICTION|Custodian|custodian:queensland-health|Jurisdiction|Queensland,Custodian|custodian:queensland-health,Jurisdiction|Queensland
+IN_JURISDICTION|Custodian|custodian:qcif|Jurisdiction|Queensland,Custodian|custodian:qcif,Jurisdiction|Queensland
+IN_JURISDICTION|Custodian|custodian:wa-health-data-linkage-services-wa|Jurisdiction|Western Australia,Custodian|custodian:wa-health-data-linkage-services-wa,Jurisdiction|Western Australia
+IN_JURISDICTION|Custodian|custodian:sa-health-sa-nt-datalink|Jurisdiction|South Australia,Custodian|custodian:sa-health-sa-nt-datalink,Jurisdiction|South Australia
+IN_JURISDICTION|Custodian|custodian:sa-health-sa-nt-datalink|Jurisdiction|Northern Territory,Custodian|custodian:sa-health-sa-nt-datalink,Jurisdiction|Northern Territory
+IN_JURISDICTION|Custodian|custodian:tasmanian-department-of-health-tasmanian-data-linkage-unit-tdlu|Jurisdiction|Tasmania,Custodian|custodian:tasmanian-department-of-health-tasmanian-data-linkage-unit-tdlu,Jurisdiction|Tasmania
+IN_JURISDICTION|Custodian|custodian:act-health|Jurisdiction|Australian Capital Territory,Custodian|custodian:act-health,Jurisdiction|Australian Capital Territory
+IN_JURISDICTION|Custodian|custodian:nt-health-nt-health-research-governance-office|Jurisdiction|Northern Territory,Custodian|custodian:nt-health-nt-health-research-governance-office,Jurisdiction|Northern Territory
+IN_JURISDICTION|Custodian|custodian:phrn|Jurisdiction|Commonwealth,Custodian|custodian:phrn,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:sure-secure-unified-research-environment|Jurisdiction|New South Wales,Custodian|custodian:sure-secure-unified-research-environment,Jurisdiction|New South Wales
+IN_JURISDICTION|Custodian|custodian:sure-secure-unified-research-environment|Jurisdiction|Cross-jurisdictional,Custodian|custodian:sure-secure-unified-research-environment,Jurisdiction|Cross-jurisdictional
+IN_JURISDICTION|Custodian|custodian:abs-datalab|Jurisdiction|Commonwealth,Custodian|custodian:abs-datalab,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:aihw-data-integration-services|Jurisdiction|Commonwealth,Custodian|custodian:aihw-data-integration-services,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:adha|Jurisdiction|Commonwealth,Custodian|custodian:adha,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:phn-cooperative-primary-health-insights|Jurisdiction|Commonwealth,Custodian|custodian:phn-cooperative-primary-health-insights,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:medicineinsight-nps-medicinewise|Jurisdiction|Commonwealth,Custodian|custodian:medicineinsight-nps-medicinewise,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:nhmrc-hrecs|Jurisdiction|Commonwealth,Custodian|custodian:nhmrc-hrecs,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:aiatsis|Jurisdiction|Commonwealth,Custodian|custodian:aiatsis,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:naccho-aboriginal-community-controlled-health-organisations-acchos|Jurisdiction|National (Australia),Custodian|custodian:naccho-aboriginal-community-controlled-health-organisations-acchos,Jurisdiction|National (Australia)
+IN_JURISDICTION|Custodian|custodian:naccho-aboriginal-community-controlled-health-organisations-acchos|Jurisdiction|with operations across all states and territories,Custodian|custodian:naccho-aboriginal-community-controlled-health-organisations-acchos,Jurisdiction|with operations across all states and territories
+IN_JURISDICTION|Custodian|custodian:acsqhc|Jurisdiction|Commonwealth,Custodian|custodian:acsqhc,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:ardc|Jurisdiction|Commonwealth,Custodian|custodian:ardc,Jurisdiction|Commonwealth
+IN_JURISDICTION|Custodian|custodian:private-hospital-data-bureau-phdb-via-aihw-department-of-health|Jurisdiction|Commonwealth,Custodian|custodian:private-hospital-data-bureau-phdb-via-aihw-department-of-health,Jurisdiction|Commonwealth

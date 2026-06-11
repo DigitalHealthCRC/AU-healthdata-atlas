@@ -15,10 +15,10 @@ The process has two delivery layers:
   - Long-form source; used to extract per-custodian card markdown and detailed dataset tables.
 - `config/connection_alias_overrides.csv`
   - Rule file to force accept/reject/review specific custodian connection matches.
-- `Neo4j-e0662ca0-Created-2026-02-27.txt`
-  - Neo4j connection settings parsed by scripts in this local checkout. Credential files matching `Neo4j-*-Created-*.txt` and `Neo4j-credentials-*.txt` are ignored for future local use.
+- Local Neo4j credential file
+  - Credential files are local secrets and are not tracked. Set `NEO4J_CREDENTIAL_FILE`, pass `--cred-path` where supported, or keep an ignored local credential file in the repo root.
 - `output/`
-  - Generated QA and load artefacts.
+  - Generated QA and load artefacts. Historical March 2026 generated outputs were moved to `archive/2026-06-11-repo-cleanup/`.
 
 ## 2) Prerequisites
 
@@ -36,18 +36,25 @@ Do not install project dependencies globally with `pip`.
 
 ## 3) Configure the platform target (Neo4j Aura)
 
-`scripts/load_au_health_kg_via_mcp.py` reads only these keys from `Neo4j-e0662ca0-Created-2026-02-27.txt`:
+The Neo4j scripts read only these keys from the resolved local credential file:
 
 - `NEO4J_URI`
 - `NEO4J_USERNAME`
 - `NEO4J_PASSWORD`
 - `NEO4J_DATABASE`
 
+Credential path resolution:
+
+1. `--cred-path` for scripts that expose the option, such as `scripts/export_kg_snapshot.py`.
+2. `NEO4J_CREDENTIAL_FILE`.
+3. The ignored repo-root default `Neo4j-credentials.txt`.
+4. Existing ignored legacy local files matching `Neo4j-credentials-*.txt` or `Neo4j-*-Created-*.txt`.
+
 Important:
 
 - Keep this file out of public repos for production use.
 - Rotate credentials if they were exposed.
-- Script path is hardcoded; if the file name/path changes, update `CRED_PATH` in the script.
+- Credential files matching `Neo4j-credentials.txt`, `Neo4j-*-Created-*.txt`, and `Neo4j-credentials-*.txt` are ignored.
 
 ## 4) Run the raw-data to graph pipeline
 
@@ -136,11 +143,11 @@ Intentional exclusions:
 
 - References to collective groups or sectors such as `State and Territory Health Authorities`, `Primary Health Networks (PHNs)`, `ACCHOs`, and `Private Health Insurers` are not converted to `CONNECTED_TO` when there is no single target custodian node.
 - References to partner organisations or external institutions not represented as custodian nodes, such as `RACGP`, `Reserve Bank of Australia`, `University of Queensland`, `Bureau of Health Information`, `Registry of Births Deaths and Marriages`, and `ICSPR`, are explicitly rejected in `config/connection_alias_overrides.csv`.
-- These exclusions still appear in `output/connection_match_review.csv` for auditability, but they are expected rejects rather than unresolved matching failures.
+- These exclusions still appear in `output/connection_match_review.csv` after a live loader run for auditability, but they are expected rejects rather than unresolved matching failures.
 
 ## 7) Output artefacts (QA and audit)
 
-After a successful run:
+After a successful live load run:
 
 - `output/kg_load_summary.json`
   - MCP validation status
@@ -155,7 +162,7 @@ After a successful run:
 - `output/source_audit/source_claims.jsonl`
   - Claim-level baseline records for custodian fields, datasets, pathway checks, and source URLs.
 
-Latest sample summary in this repo shows:
+The archived March 2026 live-run summary in `archive/2026-06-11-repo-cleanup/output/kg_load_summary.json` recorded:
 
 - 33 custodians
 - 231 datasets
@@ -208,6 +215,8 @@ Then consume endpoints:
 
 The exporter writes `output/frontend/map_bundle.json`, which is the platform bundle for downstream UI/API use.
 
+Historical frontend and KG export snapshots are archived under `archive/2026-06-11-repo-cleanup/`; regenerate active copies when needed instead of treating the archived files as current data.
+
 If these files are currently deleted locally, restore before running:
 
 ```powershell
@@ -248,9 +257,10 @@ uv run python .\scripts\export_kg_snapshot.py --source-mode auto
 2. Update `config/connection_alias_overrides.csv` for new known matching edge cases.
 3. Run `uv run python .\scripts\build_source_audit.py --check`.
 4. Run `uv run python .\scripts\export_kg_snapshot.py --source-mode source`.
-5. Review `output/source_audit/source_audit.csv` and `output/connection_match_review.csv`, then adjust source data and overrides.
+5. Review `output/source_audit/source_audit.csv`, then adjust source data and overrides.
 6. Run `uv run python .\scripts\load_au_health_kg_via_mcp.py` only after the review gate is acceptable.
-7. Export/serve frontend payload if frontend scripts are in use.
+7. Review `output/connection_match_review.csv` after the live load.
+8. Export/serve frontend payload if frontend scripts are in use.
 
 ## 11) Provenance fields
 
@@ -280,7 +290,7 @@ These fields are intended to support deep-search refresh reviews and downstream 
 ## 12) Troubleshooting
 
 - `Missing credentials`:
-  - Ensure all required `NEO4J_*` keys exist in the credential file.
+  - Ensure all required `NEO4J_*` keys exist in the credential file selected by `--cred-path`, `NEO4J_CREDENTIAL_FILE`, the ignored repo-root default, or a legacy ignored local credential file.
 - `uvx not found`:
   - Install `uv` and ensure it is in `PATH`.
 - MCP validation fails:

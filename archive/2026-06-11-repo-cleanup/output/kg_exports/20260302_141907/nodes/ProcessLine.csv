@@ -1,0 +1,34 @@
+node_element_id,id,name
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:672,line:custodian:act-health,ACT Health
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:659,line:custodian:australian-bureau-of-statistics,Australian Bureau of Statistics
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:662,line:custodian:australian-bureau-of-statistics-datalab,Australian Bureau of Statistics DataLab
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:1053,line:custodian:australian-commission-on-safety-and-quality-in-health-care,Australian Commission on Safety and Quality in Health Care
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:1054,line:custodian:australian-digital-health-agency,Australian Digital Health Agency
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:1055,line:custodian:australian-government-department-of-health-and-aged-care,Australian Government Department of Health and Aged Care
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:1056,line:custodian:australian-institute-of-aboriginal-and-torres-strait-islander-studies,Australian Institute of Aboriginal and Torres Strait Islander Studies
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:1057,line:custodian:australian-institute-of-health-and-welfare,Australian Institute of Health and Welfare
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:660,line:custodian:australian-institute-of-health-and-welfare-data-integration-services-centre,Australian Institute of Health and Welfare Data Integration Services Centre
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:661,line:custodian:australian-prudential-regulation-authority,Australian Prudential Regulation Authority
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:1064,line:custodian:australian-research-data-commons,Australian Research Data Commons
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:663,line:custodian:cancer-institute-nsw,Cancer Institute NSW
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:674,line:custodian:centre-for-health-record-linkage,Centre for Health Record Linkage
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:665,line:custodian:centre-for-victorian-data-linkage,Centre for Victorian Data Linkage
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:1058,line:custodian:department-of-social-services,Department of Social Services
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:1062,line:custodian:medicineinsight-australian-commission-on-safety-and-quality-in-health-care,MedicineInsight (Australian Commission on Safety and Quality in Health Care)
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:657,line:custodian:national-aboriginal-community-controlled-health-organisation,National Aboriginal Community Controlled Health Organisation
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:656,line:custodian:national-health-and-medical-research-council-nhmrc-human-research-ethics-committees-hrecs,National Health and Medical Research Council (NHMRC) / Human Research Ethics Committees (HRECs)
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:664,line:custodian:nsw-health-ministry-of-health-nsw,NSW Health / Ministry of Health NSW
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:673,line:custodian:nt-health-nt-health-research-governance-office,NT Health / NT Health Research Governance Office
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:658,line:custodian:phn-cooperative-primary-health-insights,PHN Cooperative / Primary Health Insights
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:1063,line:custodian:population-health-research-network,Population Health Research Network
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:1059,line:custodian:private-hospital-data-bureau,Private Hospital Data Bureau
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:668,line:custodian:queensland-cyber-infrastructure-foundation,Queensland Cyber Infrastructure Foundation
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:669,line:custodian:queensland-health,Queensland Health
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:675,line:custodian:sa-health-sa-nt-datalink,SA Health / SA NT DataLink
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:676,line:custodian:secure-unified-research-environment,Secure Unified Research Environment
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:1060,line:custodian:services-australia,Services Australia
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:671,line:custodian:tasmanian-department-of-health-tasmanian-data-linkage-unit,Tasmanian Department of Health / Tasmanian Data Linkage Unit
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:1061,line:custodian:therapeutic-goods-administration,Therapeutic Goods Administration
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:666,line:custodian:victorian-agency-for-health-information,Victorian Agency for Health Information
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:667,line:custodian:victorian-cancer-registry,Victorian Cancer Registry
+4:699adb08-f1e5-4be8-b17b-792b62a6747d:670,line:custodian:wa-health-data-linkage-services-wa,WA Health / Data Linkage Services WA

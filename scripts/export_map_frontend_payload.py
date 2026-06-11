@@ -1,29 +1,14 @@
 import json
-import re
 from datetime import datetime, timezone
 from pathlib import Path
 
 from neo4j import GraphDatabase
 
+from neo4j_credentials import parse_credentials
 
 ROOT = Path(__file__).resolve().parents[1]
-CRED_PATH = ROOT / "Neo4j-e0662ca0-Created-2026-02-27.txt"
 OUT_DIR = ROOT / "output" / "frontend"
 OUT_FILE = OUT_DIR / "map_bundle.json"
-
-
-def parse_credentials(path: Path) -> dict[str, str]:
-    creds: dict[str, str] = {}
-    text = path.read_text(encoding="utf-8")
-    for line in text.splitlines():
-        m = re.match(r"^(NEO4J_[A-Z_]+)=(.+)$", line.strip())
-        if m:
-            creds[m.group(1)] = m.group(2)
-    required = ["NEO4J_URI", "NEO4J_USERNAME", "NEO4J_PASSWORD", "NEO4J_DATABASE"]
-    missing = [k for k in required if k not in creds]
-    if missing:
-        raise ValueError(f"Missing credentials in {path}: {missing}")
-    return creds
 
 
 def run_query(session, query: str, params: dict | None = None) -> list[dict]:
@@ -32,7 +17,7 @@ def run_query(session, query: str, params: dict | None = None) -> list[dict]:
 
 
 def main() -> None:
-    creds = parse_credentials(CRED_PATH)
+    creds = parse_credentials()
 
     driver = GraphDatabase.driver(
         creds["NEO4J_URI"],
