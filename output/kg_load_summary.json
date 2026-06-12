@@ -1,0 +1,67 @@
+{
+  "validation": {
+    "data_modeling": {
+      "resource_count": 12,
+      "tool_count": 16,
+      "example_call_ok": true
+    },
+    "cypher": {
+      "tools": [
+        "get_neo4j_schema",
+        "read_neo4j_cypher",
+        "write_neo4j_cypher"
+      ],
+      "read_probe": "[{\"ok\": 1}]"
+    }
+  },
+  "backup": {
+    "status": "completed",
+    "path": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\output\\kg_exports\\prewipe_20260612T023240Z",
+    "nodeCount": 671,
+    "relationshipCount": 898
+  },
+  "load": {
+    "loaded_counts": {
+      "custodians": 33,
+      "datasets": 137,
+      "pathwaySteps": 160,
+      "processLines": 33,
+      "sourceUrls": 176,
+      "connectedTo": 97,
+      "connectionReviews": 107
+    },
+    "input_counts": {
+      "custodians": 33,
+      "datasets": 137,
+      "pathway_steps": 163,
+      "accepted_connections": 97,
+      "review_connections": 107
+    }
+  },
+  "matching": {
+    "override_rule_count": 41,
+    "gap_custodian_count": 1
+  },
+  "source": {
+    "sourceRegisterTitle": "Australian Health Data Access Pathway Register \u2014 Version 2",
+    "sourceRegisterVersion": "2",
+    "sourceRegisterGenerated": "01 March 2026",
+    "sourceRegisterCustodianCount": "33",
+    "sourceCsvPath": "raw_data\\pathway_cards.csv",
+    "sourceMarkdownPath": "raw_data\\AU_Health_Data_Pathway_Register.md",
+    "sourceCsvModifiedAt": "2026-06-10T23:37:43.414063+00:00",
+    "sourceMarkdownModifiedAt": "2026-06-10T23:38:03.795139+00:00",
+    "sourceCsvSha256": "2ef13236b9cbda4698fa0d383cfe7a929c5abeaaf876add3afd706f2d715f415",
+    "sourceMarkdownSha256": "01a7c2b569b14fa2f0e2d51c252f1fe56d165eb803d5c46d5ba7a422a849e7fe",
+    "sourceCustodianRowCount": "33",
+    "sourceMarkdownCardCount": "33",
+    "sourceOverrideRuleCount": "41",
+    "sourceGitCommit": "4ba2cb0ec264823a162e55ee15ac34b8468283cc",
+    "sourceProvenanceStatus": "baseline_curated"
+  },
+  "artifacts": {
+    "review_csv": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\output\\connection_match_review.csv",
+    "override_csv": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\config\\connection_alias_overrides.csv",
+    "gap_json": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\output\\gap_custodians.json"
+  }
+}

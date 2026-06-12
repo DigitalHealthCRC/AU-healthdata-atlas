@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AU Health Data Atlas</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="app-header">
+  <div class="header-left">
+    <h1>AU Health Data Atlas</h1>
+    <p id="freshness" class="freshness"></p>
+  </div>
+  <nav class="view-switcher" id="view-switcher" aria-label="Views">
+    <button type="button" class="tab active" data-view="network">Network</button>
+    <button type="button" class="tab" data-view="pathways">Pathways</button>
+    <button type="button" class="tab" data-view="datasets">Datasets</button>
+  </nav>
+</header>
+
+<main class="app-main" id="app">
+  <section class="content">
+    <div id="view-network" class="view"></div>
+    <div id="view-pathways" class="view hidden"></div>
+    <div id="view-datasets" class="view hidden"></div>
+  </section>
+  <aside class="detail-panel" id="detail-panel">
+    <button type="button" id="panel-toggle" class="panel-toggle" title="Collapse / expand detail panel">&#x276F;</button>
+    <div class="panel-body" id="panel-body"></div>
+  </aside>
+</main>
+
+<div id="tooltip" class="tooltip hidden" role="tooltip"></div>
+
+<footer class="app-footer" id="footer"></footer>
+
+<script src="data/atlas_data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

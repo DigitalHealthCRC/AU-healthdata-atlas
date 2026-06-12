@@ -64,6 +64,20 @@ From repo root:
 uv run python .\scripts\load_au_health_kg_via_mcp.py
 ```
 
+Options:
+
+```powershell
+# Offline rehearsal: runs the full local parse/match pipeline and writes QA artefacts
+# (suffixed _dryrun) without spawning MCP servers, reading credentials, or touching the database
+uv run python .\scripts\load_au_health_kg_via_mcp.py --dry-run
+
+# Explicit credential file (same convention as export_kg_snapshot.py)
+uv run python .\scripts\load_au_health_kg_via_mcp.py --cred-path .\Neo4j-credentials.txt
+
+# Skip the pre-wipe backup export (e.g. first-ever load into an empty instance)
+uv run python .\scripts\load_au_health_kg_via_mcp.py --skip-backup
+```
+
 What this run does, in order:
 
 1. Reads credentials and validates required keys.
@@ -87,11 +101,14 @@ What this run does, in order:
    - Applies manual overrides first (`force_accept`, `force_reject`, `review_only`)
    - Uses exact/alias/fuzzy matching otherwise
    - Sends uncertain/ambiguous matches to review
-11. Validates MCP servers:
+11. Exports a pre-wipe backup of the live graph to `output/kg_exports/prewipe_<UTC timestamp>/` (skip with `--skip-backup`; the load aborts before any database writes if the backup fails).
+12. Validates MCP servers:
    - `mcp-neo4j-data-modeling@0.8.2`
    - `mcp-neo4j-cypher@0.5.3`
-12. Loads graph to Neo4j via MCP write tool.
-13. Writes QA artefacts to `output/`.
+13. Loads graph to Neo4j via MCP write tool.
+14. Writes QA artefacts to `output/`.
+
+With `--dry-run`, the run stops after step 10: it writes `output/connection_match_review_dryrun.csv`, `output/gap_custodians_dryrun.json`, and `output/kg_load_summary_dryrun.json` (with `"dryRun": true`), prints input counts, and never contacts MCP servers or the database.
 
 ## 5) Graph model created in Neo4j
 
@@ -223,6 +240,23 @@ If these files are currently deleted locally, restore before running:
 git checkout -- scripts/export_map_frontend_payload.py scripts/serve_map_api.py queries/map_frontend_queries.cypher
 ```
 
+### C) Atlas viewer (static, database-free)
+
+`frontend/atlas/` is a self-contained interactive viewer (network map, metro-style pathway diagrams, dataset explorer) with zero external dependencies. It does not need Neo4j: the data bundle is reconstructed from the local curated sources.
+
+Regenerate the data bundle (writes `frontend/atlas/data/atlas_data.json` and `atlas_data.js`):
+
+```powershell
+uv run python .\scripts\export_atlas_bundle.py
+```
+
+Options: `--kg-json <path>` to reuse an existing `output/kg_exports/<ts>/kg.json`, `--source-mode auto` to prefer live Neo4j with clean fallback to source reconstruction.
+
+Open the viewer either way:
+
+- Double-click `frontend\atlas\index.html` (works directly from `file://`), or
+- `uv run python -m http.server 8788 --directory frontend\atlas` and browse to `http://127.0.0.1:8788/`.
+
 ## 9) Source audit and refresh workflow
 
 Before a deep data refresh, generate the local baseline audit:
@@ -295,6 +329,8 @@ These fields are intended to support deep-search refresh reviews and downstream 
   - Install `uv` and ensure it is in `PATH`.
 - MCP validation fails:
   - Confirm network access and Aura credentials.
+- Load aborts with `Pre-wipe backup failed`:
+  - The loader exports the live graph to `output/kg_exports/prewipe_<timestamp>/` before wiping and aborts if that export fails; fix connectivity/credentials and re-run, or pass `--skip-backup` to proceed without a backup (an empty database is not a failure — it backs up as 0 nodes).
 - Graph is empty after run:
   - Check script logs for failed writes after the initial wipe step.
 - Frontend bundle missing:

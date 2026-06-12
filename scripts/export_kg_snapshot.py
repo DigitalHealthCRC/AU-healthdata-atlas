@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from load_au_health_kg_via_mcp import (
+from register_parsing import (
     CSV_PATH,
     MD_PATH,
     OVERRIDE_PATH,

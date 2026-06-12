@@ -1,0 +1,23 @@
+{
+  "export_manifest.json": "ae629bb01223634dd149b46edd24cc4a344a545c8662e9e7e9be2e9ba987f605",
+  "kg.json": "bcadb08f494f56ccc23860aa9259b7f6e580192bfc3d8da3eff22cab1b1b6044",
+  "nodes/ConnectionReview.csv": "082781a26be06db6b57b4d5ed00d754dbee2b0218b43dd13384133da3cae6322",
+  "nodes/Custodian.csv": "58ef1d1cca9c22c9ec1b9ba9e4287653864e2fdf6f481c6de597429dd1ee55c1",
+  "nodes/CustodianType.csv": "8b944f2614244dc9795a7c6dedef3763aa65ef03ac37c8c68bf7bba666b47171",
+  "nodes/Dataset.csv": "b42468f5105703a1c8ee1242169c3c31c85245aee7d84d30b968dbb678cc6532",
+  "nodes/Jurisdiction.csv": "a6d75e26c277218475ebcd1eb7387ef17a6ba97e173b5995aeda0244d22241f2",
+  "nodes/PathwayStep.csv": "93b42cbd7b8e4195d79569ca380e790b918f9900fc91632d002517268d056c8d",
+  "nodes/ProcessLine.csv": "98421a05f6553fb0384ad4360eefa2dd4bc011456b03440ea42f09f4ba755e63",
+  "nodes/SourceURL.csv": "4c2dbca76b41f2d91412a8b8334145b49d60c2f881086429df6679cb98c7de65",
+  "nodes/all_nodes.csv": "dd65d9bc61842e920e1a053823ad0acff2a91ec9c7abb6a192c8356b73bd0ca1",
+  "relationships/CONNECTED_TO.csv": "251103f1277bd5bed0a76af5ba71817cf4a770e23ca61dae9e3b3c483a58e35f",
+  "relationships/HAS_CONNECTION_REVIEW.csv": "a0c978609f8763f0c016b4fd8ae584d8d6b3e38dc3e35e33da54be6433dc42a8",
+  "relationships/HAS_DATASET.csv": "0ed5d1e7d81f94f0fdacc4b4daf32a070d494cebd0d4d8ccec9cd53d81281c00",
+  "relationships/HAS_SOURCE.csv": "223b6a80ea61d1a17f2c04c7063b0d3a45b51423ff3f20f883dc7e4f866e755e",
+  "relationships/HAS_STEP.csv": "389838cbee0a5671bcf550cd1e3bbdea1a96e5764b0ccee470f5aa9301f67389",
+  "relationships/HAS_TYPE.csv": "1013bc00a2e2fecc05b9dbdd07730205af8ebd91d07801b9369115332dd5243e",
+  "relationships/IN_JURISDICTION.csv": "f7cd4feda75edafea4ae9852de2cc67a533001c66f161dfad6ca29ec809f1011",
+  "relationships/OFFERS_LINE.csv": "44df2480d0adaaad9be2d9b563ddbcc13c2609c2e4a21ff7f80bca86093d58c3",
+  "relationships/REVIEW_SUGGESTS.csv": "893797c2eaf716927eba39f7f4f4fda44916a05570c6055f1ea25e7672f08779",
+  "relationships/all_relationships.csv": "227784fab8fbbb301c8d1c26e5ea2b245136dbd17a0c57253381b6362846d748"
+}

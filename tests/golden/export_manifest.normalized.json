@@ -1,0 +1,34 @@
+{
+  "exportDir": "<path>",
+  "files": {
+    "allNodesCsv": "<path>",
+    "allRelationshipsCsv": "<path>",
+    "kgJson": "<path>"
+  },
+  "generatedAt": "<volatile>",
+  "summary": {
+    "labelCounts": {
+      "ConnectionReview": 107,
+      "Custodian": 33,
+      "CustodianType": 14,
+      "Dataset": 137,
+      "Jurisdiction": 11,
+      "PathwayStep": 160,
+      "ProcessLine": 33,
+      "SourceURL": 176
+    },
+    "nodeCount": 671,
+    "relationshipCount": 898,
+    "relationshipTypeCounts": {
+      "CONNECTED_TO": 97,
+      "HAS_CONNECTION_REVIEW": 107,
+      "HAS_DATASET": 145,
+      "HAS_SOURCE": 192,
+      "HAS_STEP": 160,
+      "HAS_TYPE": 33,
+      "IN_JURISDICTION": 33,
+      "OFFERS_LINE": 33,
+      "REVIEW_SUGGESTS": 98
+    }
+  }
+}

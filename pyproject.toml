@@ -8,5 +8,16 @@ dependencies = [
     "neo4j>=5.0",
 ]
 
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
 [tool.uv]
 package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "golden: golden snapshot of export_from_sources; if raw_data/config changed intentionally, regenerate via 'uv run python tests/regenerate_golden.py'",
+]

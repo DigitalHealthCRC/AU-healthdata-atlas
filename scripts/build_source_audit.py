@@ -1,18 +1,27 @@
 import argparse
 import csv
 import json
-import re
-import unicodedata
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 
+from register_parsing import (
+    CSV_PATH,
+    MD_PATH,
+    extract_md_cards,
+    extract_register_metadata,
+    file_modified_at,
+    looks_like_placeholder,
+    parse_csv_datasets,
+    parse_pathway_steps,
+    parse_urls,
+    read_csv_rows,
+    slugify,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
-CSV_PATH = ROOT / "raw_data" / "pathway_cards.csv"
-MD_PATH = ROOT / "raw_data" / "AU_Health_Data_Pathway_Register.md"
 DEFAULT_OUT_DIR = ROOT / "output" / "source_audit"
 
 CORE_FIELDS = [
@@ -43,157 +52,15 @@ REQUIRED_FIELDS = [
     "Source URLs",
 ]
 
-PLACEHOLDER_PATTERNS = (
-    "not specified",
-    "not publicly available",
-    "not explicitly stated",
-    "not explicitly mentioned",
-    "not applicable",
-    "to be verified",
-    "verify with custodian",
-    "tbc",
-    "unknown",
-)
 
-
-def iso_mtime(path: Path) -> str:
-    return datetime.fromtimestamp(path.stat().st_mtime, timezone.utc).isoformat()
-
-
-def normalise_text(value: str) -> str:
-    value = unicodedata.normalize("NFKD", value or "")
-    value = value.encode("ascii", "ignore").decode("ascii")
-    value = value.lower()
-    value = re.sub(r"[^a-z0-9]+", " ", value)
-    return re.sub(r"\s+", " ", value).strip()
-
-
-def slugify(value: str) -> str:
-    return re.sub(r"\s+", "-", normalise_text(value)).strip("-")
-
-
-def read_csv_rows(path: Path) -> list[dict[str, str]]:
-    with path.open("r", encoding="utf-8-sig", newline="") as handle:
-        return list(csv.DictReader(handle))
-
-
-def parse_urls(value: str) -> list[str]:
-    urls = []
-    for raw_url in re.findall(r"https?://[^\s,;]+", value or ""):
-        url = raw_url.rstrip(").],")
-        if url not in urls:
-            urls.append(url)
-    return urls
-
-
-def parse_register_metadata(md_text: str) -> dict[str, str]:
-    title = ""
-    generated = ""
-    custodians_documented = ""
-    version = ""
-
-    title_match = re.search(r"^#\s+(.+)$", md_text, flags=re.MULTILINE)
-    if title_match:
-        title = title_match.group(1).strip()
-        version_match = re.search(r"Version\s+([A-Za-z0-9._-]+)", title)
-        if version_match:
-            version = version_match.group(1)
-
-    generated_match = re.search(r"\*\*Generated:\*\*\s*(.+?)\s*$", md_text, flags=re.MULTILINE)
-    if generated_match:
-        generated = generated_match.group(1).strip()
-
-    custodian_match = re.search(r"\*\*Custodians documented:\*\*\s*(\d+)", md_text, flags=re.MULTILINE)
-    if custodian_match:
-        custodians_documented = custodian_match.group(1)
-
+def register_metadata_summary(md_text: str) -> dict[str, str]:
+    metadata = extract_register_metadata(md_text)
     return {
-        "register_title": title,
-        "register_version": version,
-        "register_generated": generated,
-        "custodians_documented": custodians_documented,
+        "register_title": metadata["sourceRegisterTitle"],
+        "register_version": metadata["sourceRegisterVersion"],
+        "register_generated": metadata["sourceRegisterGenerated"],
+        "custodians_documented": metadata["sourceRegisterCustodianCount"],
     }
-
-
-def extract_md_cards(md_text: str) -> list[dict[str, str]]:
-    cards: list[dict[str, str]] = []
-    section_matches = list(re.finditer(r"^##\s+(.+)$", md_text, flags=re.MULTILINE))
-    for index, match in enumerate(section_matches):
-        title = match.group(1).strip()
-        start = match.end()
-        end = section_matches[index + 1].start() if index + 1 < len(section_matches) else len(md_text)
-        body = md_text[start:end].strip()
-        if not re.search(r"^\|\s*\*\*Full Name\*\*\s*\|", body, flags=re.MULTILINE):
-            continue
-        cards.append({"title": title, "body": body})
-    return cards
-
-
-def parse_dataset_rows(value: str) -> list[dict[str, str]]:
-    datasets: list[dict[str, str]] = []
-    pipe_text = re.sub(r"\s*\n\s*", ";", value or "").strip()
-    pipe_matches = list(
-        re.finditer(
-            (
-                r"(?:^|;\s*)"
-                r"(?P<name>[^|;\n]+?)\|"
-                r"(?P<description>[^|\n]+?)\|"
-                r"(?P<identifiable>[^|\n]+?)\|"
-                r"(?P<linkable>.*?)(?=(?:;\s*[^|;\n]+?\|[^|\n]+?\|[^|\n]+?\|)|$)"
-            ),
-            pipe_text,
-            flags=re.IGNORECASE,
-        )
-    )
-    if pipe_matches:
-        for match in pipe_matches:
-            name = match.group("name").strip()
-            if not name:
-                continue
-            datasets.append(
-                {
-                    "name": name,
-                    "description": match.group("description").strip(),
-                    "identifiable": match.group("identifiable").strip(),
-                    "linkable": match.group("linkable").strip(" ;"),
-                }
-            )
-        return datasets
-
-    for line in (value or "").splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        if "|" in line:
-            parts = [part.strip() for part in line.split("|")]
-            if len(parts) >= 4:
-                datasets.append(
-                    {
-                        "name": parts[0],
-                        "description": parts[1],
-                        "identifiable": parts[2],
-                        "linkable": parts[3],
-                    }
-                )
-            elif parts[0]:
-                datasets.append({"name": parts[0], "description": "", "identifiable": "", "linkable": ""})
-            continue
-
-        for name in [part.strip() for part in line.split(",") if part.strip()]:
-            datasets.append({"name": name, "description": "", "identifiable": "", "linkable": ""})
-    return datasets
-
-
-def parse_step_numbers(value: str) -> list[int]:
-    numbers = []
-    for match in re.finditer(r"(?:^|\n)\s*(?:Step\s*)?(\d+)\s*[:.]", value or "", flags=re.IGNORECASE):
-        numbers.append(int(match.group(1)))
-    return numbers
-
-
-def has_placeholder(value: str) -> bool:
-    norm = normalise_text(value)
-    return any(pattern in norm for pattern in PLACEHOLDER_PATTERNS)
 
 
 def path_for_claim(field_name: str) -> str:
@@ -305,9 +172,9 @@ def build_audit() -> tuple[dict[str, Any], list[dict[str, Any]], list[str]]:
     if errors:
         return {}, [], errors
 
-    rows = read_csv_rows(CSV_PATH)
+    custodians = read_csv_rows(CSV_PATH)
     md_text = MD_PATH.read_text(encoding="utf-8")
-    register_metadata = parse_register_metadata(md_text)
+    register_metadata = register_metadata_summary(md_text)
     md_cards = extract_md_cards(md_text)
 
     run_id = f"source-audit-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}"
@@ -316,7 +183,7 @@ def build_audit() -> tuple[dict[str, Any], list[dict[str, Any]], list[str]]:
     dataset_updates: list[dict[str, Any]] = []
     source_evidence: dict[str, dict[str, Any]] = {}
     manual_review_items: list[dict[str, Any]] = []
-    duplicate_name_counts = Counter((row.get("Custodian Name") or "").strip() for row in rows)
+    duplicate_name_counts = Counter(custodian.name for custodian in custodians)
     duplicate_names = sorted(name for name, count in duplicate_name_counts.items() if name and count > 1)
     if duplicate_names:
         errors.append(f"Duplicate custodian names: {', '.join(duplicate_names)}")
@@ -324,12 +191,13 @@ def build_audit() -> tuple[dict[str, Any], list[dict[str, Any]], list[str]]:
     field_issue_counts: Counter[str] = Counter()
     source_domains: Counter[str] = Counter()
 
-    for row in rows:
-        custodian_name = (row.get("Custodian Name") or "").strip()
-        custodian_id = f"custodian:{slugify(custodian_name)}"
+    for custodian in custodians:
+        row = custodian.row
+        custodian_name = custodian.name
+        custodian_id = custodian.custodian_id
         source_urls = parse_urls(row.get("Source URLs") or "")
-        datasets = parse_dataset_rows(row.get("Key Datasets") or "")
-        step_numbers = parse_step_numbers(row.get("Access Pathway Steps") or "")
+        datasets = parse_csv_datasets(row.get("Key Datasets") or "")
+        step_numbers = [step["number"] for step in parse_pathway_steps(row.get("Access Pathway Steps") or "")]
 
         if not source_urls:
             audit_rows.append(
@@ -389,7 +257,7 @@ def build_audit() -> tuple[dict[str, Any], list[dict[str, Any]], list[str]]:
                 issue_type = "missing_required"
             elif not value:
                 issue_type = "blank_optional"
-            elif has_placeholder(value):
+            elif looks_like_placeholder(value):
                 issue_type = "placeholder"
             else:
                 issue_type = "ok"
@@ -505,13 +373,13 @@ def build_audit() -> tuple[dict[str, Any], list[dict[str, Any]], list[str]]:
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "inputs": {
             "csv_path": str(CSV_PATH),
-            "csv_modified_at": iso_mtime(CSV_PATH),
+            "csv_modified_at": file_modified_at(CSV_PATH),
             "markdown_path": str(MD_PATH),
-            "markdown_modified_at": iso_mtime(MD_PATH),
+            "markdown_modified_at": file_modified_at(MD_PATH),
             **register_metadata,
         },
         "counts": {
-            "custodians": len(rows),
+            "custodians": len(custodians),
             "markdown_cards": len(md_cards),
             "datasets": len(dataset_updates),
             "unique_source_urls": len(source_evidence),
