@@ -16,26 +16,26 @@
   },
   "backup": {
     "status": "completed",
-    "path": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\output\\kg_exports\\prewipe_20260612T073433Z",
-    "nodeCount": 671,
-    "relationshipCount": 898
+    "path": "C:\\Users\\Amir\\OneDrive - Digital Health CRC Limited\\Projects\\AU_healthdata_map\\AU_Healthdata_map_repo\\output\\kg_exports\\prewipe_20260612T074814Z",
+    "nodeCount": 750,
+    "relationshipCount": 1008
   },
   "load": {
     "loaded_counts": {
-      "custodians": 42,
-      "datasets": 149,
+      "custodians": 43,
+      "datasets": 150,
       "pathwaySteps": 173,
-      "processLines": 42,
-      "sourceUrls": 192,
-      "connectedTo": 110,
-      "connectionReviews": 121
+      "processLines": 43,
+      "sourceUrls": 196,
+      "connectedTo": 112,
+      "connectionReviews": 123
     },
     "input_counts": {
-      "custodians": 42,
-      "datasets": 149,
+      "custodians": 43,
+      "datasets": 150,
       "pathway_steps": 176,
-      "accepted_connections": 110,
-      "review_connections": 121
+      "accepted_connections": 112,
+      "review_connections": 123
     }
   },
   "matching": {
@@ -46,17 +46,17 @@
     "sourceRegisterTitle": "Australian Health Data Access Pathway Register \u2014 Version 3",
     "sourceRegisterVersion": "3",
     "sourceRegisterGenerated": "12 June 2026",
-    "sourceRegisterCustodianCount": "42",
+    "sourceRegisterCustodianCount": "43",
     "sourceCsvPath": "raw_data\\pathway_cards.csv",
     "sourceMarkdownPath": "raw_data\\AU_Health_Data_Pathway_Register.md",
-    "sourceCsvModifiedAt": "2026-06-12T07:32:25.028441+00:00",
-    "sourceMarkdownModifiedAt": "2026-06-12T07:32:25.031593+00:00",
-    "sourceCsvSha256": "ea1561bc7a69f8d8f5af8816699484bdfc929b415a75c4ec450f080554abb62e",
-    "sourceMarkdownSha256": "40d4dcb177a7bebd3164c8c98342f169561ba95b55ce885df9a2a930e852ec08",
-    "sourceCustodianRowCount": "42",
-    "sourceMarkdownCardCount": "42",
+    "sourceCsvModifiedAt": "2026-06-12T07:45:55.196590+00:00",
+    "sourceMarkdownModifiedAt": "2026-06-12T07:46:43.553602+00:00",
+    "sourceCsvSha256": "55b4b86db0d3aa3ed2425ca788a2b0fd9d76b3c147c5bd50fe4ad95908159b29",
+    "sourceMarkdownSha256": "30d8828023cb5609fcdb7bf2306c611770ec6feaba577241c09f9df22d004e1b",
+    "sourceCustodianRowCount": "43",
+    "sourceMarkdownCardCount": "43",
     "sourceOverrideRuleCount": "43",
-    "sourceGitCommit": "f21b602159bd74d49cf05a7ef1cf3fe6710b033f",
+    "sourceGitCommit": "152b1d5fd4f062ddf28899d47e05727b99a1b2cc",
     "sourceProvenanceStatus": "baseline_curated"
   },
   "artifacts": {

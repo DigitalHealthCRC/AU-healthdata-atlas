@@ -1,7 +1,7 @@
 # Australian Health Data Access Pathway Register — Version 3
 
 **Generated:** 12 June 2026  
-**Custodians documented:** 42  
+**Custodians documented:** 43  
 **Purpose:** Source document for the Australian Health Data Access Knowledge Graph (KG). Each card provides the structured information required to generate Custodian, Dataset, PathwayStep, and CONNECTED_TO nodes and relationships.
 
 ---
@@ -67,6 +67,7 @@ Each pathway card documents one data custodian with the following sections:
 **Western Australia**
 
 - [WA Health / Data Linkage Services WA (WA Health DLS)](#wa-health--data-linkage-services-wa)
+- [WA Primary Health Alliance (WAPHA)](#wa-primary-health-alliance)
 
 **Tasmania**
 
@@ -1006,7 +1007,7 @@ Application Portal: Human Research Ethics Application (HREA): https://hrea.gov.a
 
 ### Role
 
-Primary Health Insights is a secure national data platform for using de-identified general practice and other primary health information and analytics to improve primary health care delivery and outcomes. It hosts the de-identified general practice and other primary health data of most of the Primary Health Networks (PHNs) across Australia. The PHN Cooperative is a collective of all 31 PHNs in Australia, facilitating activities and engagement at a national level.
+Primary Health Insights is a secure national data platform for using de-identified general practice and other primary health information and analytics to improve primary health care delivery and outcomes. It hosts the de-identified general practice and other primary health data of most of the Primary Health Networks (PHNs) across Australia. The PHN Cooperative is a collective of all 31 PHNs in Australia, facilitating activities and engagement at a national level. The platform was designed and built with WA Primary Health Alliance (WAPHA) as lead agency, and a dedicated WAPHA team operates it on behalf of the PHN Cooperative. De-identified Primary Sense general practice data extracts are stored in Primary Health Insights.
 
 ### Key Datasets
 
@@ -1041,6 +1042,7 @@ execoffice@phncooperative.org.au
 - Australian Institute of Health and Welfare (AIHW): AIHW is a Primary Health Insights participant and is required to maintain the same data governance requirements as PHNs for the data held in its secure lock box.
 - Department of Health, Disability and Ageing: The development and implementation of Primary Health Insights was funded by the Australian Government Department of Health.
 - Primary Health Networks (PHNs): Primary Health Insights is a collaborative initiative of the PHNs, and the platform is owned by them.
+- WA Primary Health Alliance (WAPHA): lead agency that built Primary Health Insights and operates the platform on behalf of the PHN Cooperative.
 
 ### Source URLs
 
@@ -2741,5 +2743,64 @@ https://www.maiamnayriwingara.org/ and https://idnau.org/
 
 - <https://www.maiamnayriwingara.org/mnw-principles>
 - <https://idnau.org/>
+
+---
+
+## WA Primary Health Alliance (WAPHA)
+
+<a name='wa-primary-health-alliance'></a>
+
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | WA Primary Health Alliance |
+| **Short Name / Acronym** | WAPHA |
+| **Custodian Type**       | Primary Care Data Program |
+| **Jurisdiction**         | Western Australia |
+| **Sector**               | nfp |
+| **Research Access**      | member_only |
+| **Reverify Cadence**     | frequent |
+| **Classification Note**  | PHN operator and national delivery agency for Primary Sense and Primary Health Insights - member_only access (approved non-PHN organisations may join PHI under the PHNs National Data Governance Framework). Added from the June 2026 v3 audit follow-up. |
+
+### Role
+
+WA Primary Health Alliance (WAPHA) is the not-for-profit organisation that operates Western Australia's three Primary Health Networks (Perth North, Perth South and Country WA). In the national data landscape it is the delivery agency for Primary Sense, the PHN-owned population health management, clinical decision support and data extraction tool developed by Gold Coast PHN in 2018, with WAPHA leading its expansion to a national capability since 2021 (15 PHNs and more than 1,900 general practices, around 53 per cent of the Australian population, per the June 2026 v3 audit). WAPHA was also the lead agency for the design and build of Primary Health Insights, the PHN cooperative secure cloud platform, and a dedicated WAPHA team operates the platform on behalf of the PHN Cooperative. Primary Sense data are de-identified, stored in Primary Health Insights, not commercialised and remain in Australia.
+
+### Key Datasets
+
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| Primary Sense general practice data extracts | De-identified general practice data extracted from participating practices by the Primary Sense population health management and clinical decision support tool, delivered nationally by WAPHA and funded by participating PHNs. ACCC granted full authorisation of the latest version in March 2022. Data are stored in Primary Health Insights, are not sold or commercialised and remain in Australia. | De-identified | Yes via Primary Health Insights |
+
+### Data Access Pathway
+
+No general public researcher pathway. Primary Sense is available only to participating PHNs and their general practices. Approved non-PHN organisations (universities, research bodies, government) may seek to join Primary Health Insights under the PHNs National Data Governance Framework.
+
+### Ethics and Governance Requirements
+
+Primary Sense operates under the Primary Sense Data Governance Framework and the PHNs National Data Governance Framework. Data are de-identified at extraction, stored in Primary Health Insights with each PHN retaining custodianship of its own lockbox, and are not sold or commercialised. The ACCC granted full authorisation of Primary Sense in March 2022, confirming the cooperative arrangement complies with Australian competition law. Primary Sense is exempt clinical decision support software under TGA regulations.
+
+### Trusted Research Environment (TRE) / Secure Access
+
+**Platform:** Primary Health Insights (PHN cooperative secure cloud platform), operated by a dedicated WAPHA team on behalf of the PHN Cooperative.
+
+### Contact and Application Portal
+
+https://www.wapha.org.au/ and https://www.primarysense.org.au/
+
+### Indicative End-to-End Timeline
+
+> **Not applicable - no general public researcher pathway (engagement is via participating PHNs and the PHI governance framework).**
+
+### Connections to Other Custodians
+
+- PHN Cooperative / Primary Health Insights: WAPHA was the lead agency for the design and build of Primary Health Insights and operates the platform on behalf of the PHN Cooperative - Primary Sense data are stored in PHI.
+
+### Source URLs
+
+- <https://www.wapha.org.au/health-professionals/primary-sense/>
+- <https://www.primarysense.org.au/about>
+- <https://www.wapha.org.au/health-professionals/general-practice-support/data-hosting/>
+- <https://www.primaryhealthinsights.org.au/about>
+- <https://www.wapha.org.au/about-us/digital-innovation/>
 
 ---
