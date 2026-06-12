@@ -98,6 +98,132 @@
     return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s;
   }
 
+  // ------------------------------------------------------------------
+  // Aurora backdrop (network view)
+  // ------------------------------------------------------------------
+  // Noise-driven aurora of soft vertical gradient streaks, painted on a
+  // <canvas> behind the graph. Ported from the canvas-aurora reference and
+  // recoloured to the DHCRC brand: red #FD0100 → pink #FD01DE → blue #008FFF.
+  // Kept light: rendered at 1x (the look is diffuse, so no hi-dpi cost),
+  // per-x colours cached, ~30fps cap, and the loop pauses when the view is
+  // hidden/scrolled away (IntersectionObserver), the tab is backgrounded, or
+  // the user prefers reduced motion (one static frame). Recolours per theme.
+  function startAuroraBackground(canvas) {
+    if (canvas.__auroraStarted) return;
+    canvas.__auroraStarted = true;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const reduce = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Brand gradient stops: red → pink → blue.
+    const A = [0xfd, 0x01, 0x00], B = [0xfd, 0x01, 0xde], C = [0x00, 0x8f, 0xff];
+    const AMP = 0.30, FREQ = 0.01, SPEED = 0.005, LAYERS = 3;
+
+    let cssW = 0, cssH = 0, step = 6;
+    let colorCache = [];
+    let rafId = 0, running = false, visible = true;
+    let time = 0, lastDraw = 0;
+
+    function mix(c1, c2, f) {
+      return 'rgb(' + Math.round(c1[0] + (c2[0] - c1[0]) * f) + ',' +
+        Math.round(c1[1] + (c2[1] - c1[1]) * f) + ',' +
+        Math.round(c1[2] + (c2[2] - c1[2]) * f) + ')';
+    }
+
+    function buildColorCache() {
+      // Colour depends only on x (constant per frame) — precompute once.
+      colorCache = [];
+      for (let x = 0; x <= cssW; x += step) {
+        const f = x / (cssW || 1);
+        colorCache.push(f < 0.5 ? mix(A, B, f * 2) : mix(B, C, (f - 0.5) * 2));
+      }
+    }
+
+    // Same compact noise as the reference (sin/cos layers), range ~0..1.
+    function noise(x, y, t) {
+      const n = Math.sin(x * FREQ + t) * Math.cos(y * FREQ + t * 0.8) +
+        Math.sin(x * FREQ * 2 - t * 1.2) * Math.cos(y * FREQ * 3 + t) * 0.5 +
+        Math.sin(x * FREQ * 3 + t * 0.5) * Math.cos(y * FREQ - t * 1.5) * 0.25;
+      return (n + 1.5) / 3;
+    }
+
+    function resize() {
+      const w = canvas.clientWidth, h = canvas.clientHeight;
+      if (!w || !h) return;
+      cssW = w; cssH = h;
+      step = Math.max(5, Math.round(cssW / 180)); // ~180 slices regardless of width
+      canvas.width = Math.round(w);   // 1x backing — diffuse art needs no hi-dpi
+      canvas.height = Math.round(h);
+      buildColorCache();
+      if (reduce) draw(); // refresh the single static frame
+    }
+
+    function draw() {
+      const light = document.body.classList.contains('theme-light');
+      ctx.clearRect(0, 0, cssW, cssH);
+      ctx.globalAlpha = light ? 0.12 : 0.26;
+      const layerGap = cssH * 0.06;
+      for (let layer = 0; layer < LAYERS; layer++) {
+        let ci = 0;
+        for (let x = 0; x <= cssW; x += step, ci++) {
+          const h = noise(x, layer * 100, time) * cssH * AMP;
+          const y = cssH * 0.32 + h + layer * layerGap;
+          const g = ctx.createLinearGradient(0, y - h, 0, y + h);
+          g.addColorStop(0, 'transparent');
+          g.addColorStop(0.5, colorCache[ci] || colorCache[colorCache.length - 1]);
+          g.addColorStop(1, 'transparent');
+          ctx.fillStyle = g;
+          ctx.fillRect(x, y - h, step + 1, h * 2);
+        }
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function frame(ms) {
+      rafId = 0;
+      if (!running) return;
+      if (ms - lastDraw >= 32) { lastDraw = ms; time += SPEED; draw(); } // ~30fps
+      rafId = requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (running || reduce || !visible || document.hidden) return;
+      if (!cssW) resize();
+      running = true;
+      rafId = requestAnimationFrame(frame);
+    }
+    function stop() {
+      running = false;
+      if (rafId) { cancelAnimationFrame(rafId); rafId = 0; }
+    }
+
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(() => resize()).observe(canvas);
+    } else {
+      window.addEventListener('resize', resize);
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        visible = !!(entries[0] && entries[0].isIntersecting);
+        if (visible) start(); else stop();
+      }, { threshold: 0 }).observe(canvas);
+    }
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stop(); else start();
+    });
+
+    resize();
+    if (reduce) {
+      if (cssW) draw();
+      else requestAnimationFrame(() => { resize(); draw(); });
+    } else {
+      start();
+      if (!cssW) requestAnimationFrame(() => { resize(); start(); });
+    }
+  }
+
   const URL_RE = /https?:\/\/[^\s<>"')\],;]+/g;
 
   function linkify(text) {
@@ -992,6 +1118,12 @@
     function renderSvg() {
       const wrap = document.createElement('div');
       wrap.className = 'network-wrap';
+      // Soft brand-coloured aurora backdrop, drawn behind the graph.
+      const bgCanvas = document.createElement('canvas');
+      bgCanvas.className = 'network-bg';
+      bgCanvas.setAttribute('aria-hidden', 'true');
+      wrap.appendChild(bgCanvas);
+      startAuroraBackground(bgCanvas);
       svg = svgEl('svg', { class: 'network-svg', role: 'img', 'aria-label': 'Custodian network map' });
       wrap.appendChild(svg);
       const hint = document.createElement('div');

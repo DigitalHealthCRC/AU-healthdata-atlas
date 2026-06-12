@@ -633,7 +633,26 @@ details.conn > summary:hover { color: var(--accent-bright); }
   box-shadow: var(--shadow);
   overflow: hidden;
   position: relative;
+  isolation: isolate; /* keep the aurora backdrop's stacking inside this card */
 }
+
+/* ---------- Aurora backdrop (behind the graph) ----------
+ * Soft brand-coloured aurora (red → pink → blue) painted on a <canvas> by
+ * app.js (startAuroraBackground), behind the SVG. Ignores pointer events so
+ * graph pan/zoom is unaffected; the animation pauses when the view is hidden,
+ * scrolled away, or the tab is backgrounded, and honours prefers-reduced-motion. */
+.network-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Keep the graph (and its controls) above the backdrop. */
+.network-svg { position: relative; z-index: 1; }
 
 .net-geo-corner {
   position: absolute;
@@ -733,6 +752,7 @@ details.conn > summary:hover { color: var(--accent-bright); }
 
 .network-hintbar {
   position: absolute;
+  z-index: 2;
   bottom: 8px;
   left: 12px;
   font-size: 11px;
