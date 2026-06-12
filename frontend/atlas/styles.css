@@ -38,6 +38,15 @@
   --hint-bg: rgba(0, 0, 0, 0.65);
   --chip-fg: #d9d8d6;
   --placeholder: #77767c;
+
+  /* Aurora backdrop behind the network graph — drifting ribbons in the
+   * brand gradient palette. Dark theme: luminous over near-black surface. */
+  --aurora-1: rgba(0, 143, 255, 0.22);   /* blue   #008fff */
+  --aurora-2: rgba(194, 0, 255, 0.17);   /* purple #c200ff */
+  --aurora-3: rgba(253, 1, 222, 0.13);   /* magenta#fd01de */
+  --aurora-4: rgba(0, 196, 178, 0.12);   /* teal — the green in the source art */
+  --aurora-blur: 46px;
+  --aurora-opacity: 1;
 }
 
 /* Light theme — DHCRC light-content combo: background grey #D9D8D6,
@@ -71,6 +80,15 @@ body.theme-light {
   --hint-bg: rgba(255, 255, 255, 0.85);
   --chip-fg: #3a3a38;
   --placeholder: #8a8a86;
+
+  /* Light theme: the same ribbons, but as faint pastel tints washing over
+   * the grey #D9D8D6 surface — present enough to feel alive, never noisy. */
+  --aurora-1: rgba(0, 143, 255, 0.13);
+  --aurora-2: rgba(194, 0, 255, 0.10);
+  --aurora-3: rgba(253, 1, 222, 0.07);
+  --aurora-4: rgba(0, 168, 152, 0.09);
+  --aurora-blur: 52px;
+  --aurora-opacity: 0.85;
 }
 
 * { box-sizing: border-box; }
@@ -633,6 +651,62 @@ details.conn > summary:hover { color: var(--accent-bright); }
   box-shadow: var(--shadow);
   overflow: hidden;
   position: relative;
+  isolation: isolate; /* contain the aurora's stacking to this card */
+}
+
+/* ---------- Aurora backdrop (behind the graph) ----------
+ * Two soft gradient-ribbon layers drifting in opposite directions evoke the
+ * flowing-light source art. Pure CSS: each layer animates only `transform`,
+ * so the whole effect is GPU-composited — one paint, then free to animate. */
+.network-wrap::before,
+.network-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -25%;          /* oversized so blurred edges never reveal a seam */
+  z-index: 0;
+  pointer-events: none;
+  opacity: var(--aurora-opacity);
+  filter: blur(var(--aurora-blur));
+  will-change: transform;
+}
+
+/* Layer 1 — the dominant blue/purple ribbons. */
+.network-wrap::before {
+  background:
+    radial-gradient(42% 55% at 22% 32%, var(--aurora-1), transparent 70%),
+    radial-gradient(46% 50% at 78% 26%, var(--aurora-2), transparent 70%),
+    radial-gradient(52% 60% at 62% 82%, var(--aurora-3), transparent 72%);
+  animation: aurora-drift-a 26s ease-in-out infinite alternate;
+}
+
+/* Layer 2 — the teal/green counter-flow, slower and offset for depth. */
+.network-wrap::after {
+  background:
+    radial-gradient(48% 52% at 32% 72%, var(--aurora-4), transparent 70%),
+    radial-gradient(40% 46% at 84% 64%, var(--aurora-2), transparent 72%),
+    radial-gradient(38% 44% at 14% 56%, var(--aurora-1), transparent 70%);
+  animation: aurora-drift-b 34s ease-in-out infinite alternate;
+}
+
+/* Keep the graph (and its controls) above the backdrop. */
+.network-svg { position: relative; z-index: 1; }
+
+@keyframes aurora-drift-a {
+  0%   { transform: translate3d(-3%, -2%, 0) scale(1.06) rotate(-1deg); }
+  50%  { transform: translate3d(2%,  3%, 0) scale(1.12) rotate(1.5deg); }
+  100% { transform: translate3d(3%, -1%, 0) scale(1.07) rotate(-0.5deg); }
+}
+
+@keyframes aurora-drift-b {
+  0%   { transform: translate3d(2%,  2%, 0) scale(1.10) rotate(1deg); }
+  50%  { transform: translate3d(-3%, -2%, 0) scale(1.05) rotate(-1.5deg); }
+  100% { transform: translate3d(-1%, 3%, 0) scale(1.11) rotate(0.5deg); }
+}
+
+/* Respect users who opt out of motion — keep the colour wash, drop the drift. */
+@media (prefers-reduced-motion: reduce) {
+  .network-wrap::before,
+  .network-wrap::after { animation: none; }
 }
 
 .net-geo-corner {
@@ -733,6 +807,7 @@ details.conn > summary:hover { color: var(--accent-bright); }
 
 .network-hintbar {
   position: absolute;
+  z-index: 2;
   bottom: 8px;
   left: 12px;
   font-size: 11px;
