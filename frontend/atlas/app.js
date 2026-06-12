@@ -27,17 +27,20 @@
   // ------------------------------------------------------------------
   // Palette + jurisdiction grouping
   // ------------------------------------------------------------------
+  // DHCRC brand palette: the five gradient colours (#FD0100 → #FD01DE →
+  // #C200FF → #008FFF, plus gold #F9B505) and interpolations along the
+  // gradient; brand grey #D9D8D6 for cross-jurisdictional.
   const GROUPS = [
-    { key: 'Commonwealth', label: 'Commonwealth', color: '#2563eb' },
-    { key: 'Cross-jurisdictional', label: 'Cross-jurisdictional', color: '#9333ea' },
-    { key: 'ACT', label: 'ACT', color: '#0d9488' },
-    { key: 'NSW', label: 'NSW', color: '#0ea5e9' },
-    { key: 'NT', label: 'NT', color: '#ea580c' },
-    { key: 'QLD', label: 'QLD', color: '#be185d' },
-    { key: 'SA', label: 'SA', color: '#dc2626' },
-    { key: 'TAS', label: 'TAS', color: '#16a34a' },
-    { key: 'VIC', label: 'VIC', color: '#1e3a8a' },
-    { key: 'WA', label: 'WA', color: '#ca8a04' }
+    { key: 'Commonwealth', label: 'Commonwealth', color: '#008fff' },
+    { key: 'Cross-jurisdictional', label: 'Cross-jurisdictional', color: '#d9d8d6' },
+    { key: 'ACT', label: 'ACT', color: '#c200ff' },
+    { key: 'NSW', label: 'NSW', color: '#4fb1ff' },
+    { key: 'NT', label: 'NT', color: '#f9b505' },
+    { key: 'QLD', label: 'QLD', color: '#fd0163' },
+    { key: 'SA', label: 'SA', color: '#fd0100' },
+    { key: 'TAS', label: 'TAS', color: '#9b2fff' },
+    { key: 'VIC', label: 'VIC', color: '#6f5bff' },
+    { key: 'WA', label: 'WA', color: '#fd01de' }
   ];
   const GROUP_BY_KEY = new Map(GROUPS.map((g) => [g.key, g]));
   const STATE_NAMES = {
@@ -62,13 +65,13 @@
 
   function groupColor(key) {
     const g = GROUP_BY_KEY.get(key);
-    return g ? g.color : '#64748b';
+    return g ? g.color : '#a9a8a6';
   }
 
   const LANES = [
-    { key: 'Researcher', label: 'Researcher', tint: '#e9f2fc' },
-    { key: 'EthicsRegulatory', label: 'Ethics & Regulatory', tint: '#f4ecfa' },
-    { key: 'Custodian', label: 'Custodian', tint: '#e9f6ee' }
+    { key: 'Researcher', label: 'Researcher', tint: 'rgba(0, 143, 255, 0.10)' },
+    { key: 'EthicsRegulatory', label: 'Ethics & Regulatory', tint: 'rgba(194, 0, 255, 0.10)' },
+    { key: 'Custodian', label: 'Custodian', tint: 'rgba(253, 1, 222, 0.07)' }
   ];
   const LANE_INDEX = new Map(LANES.map((l, i) => [l.key, i]));
 
@@ -303,6 +306,7 @@
       ].filter(Boolean).join('  ·  ');
 
     document.getElementById('footer').textContent =
+      '© 2025 Digital Health CRC Limited. Confidential · ' +
       'Provenance: ' + (prov.registerTitle || 'register') +
       (prov.registerVersion ? ' (v' + prov.registerVersion + ')' : '') +
       (prov.registerGenerated ? ' · register generated ' + prov.registerGenerated : '') +
@@ -684,7 +688,7 @@
         '<div class="tt-title">' + esc(d.sourceName) + ' → ' + esc(d.targetName) + '</div>' +
         '<div>' + esc(truncate(d.segment || 'No reason text', 240)) + '</div>' +
         '<div class="tt-muted">' + esc(d.matchType || 'unknown') + ' · score ' + fmtScore(d.matchScore) + '</div>'
-      ).join('<hr style="border:none;border-top:1px solid #3c4b5d;margin:6px 0">');
+      ).join('<hr style="border:none;border-top:1px solid #2c2c34;margin:6px 0">');
     }
 
     function renderSvg() {

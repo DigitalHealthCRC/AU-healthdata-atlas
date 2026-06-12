@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 230" role="img" aria-label="Digital Health CRC">
+  <!-- Vector recreation of the DHCRC logo mark (official raster assets are not
+       shipped with this repo). Replace with the official logo file if available:
+       brand guide variant "4__DHCRC_Logo_Colour_ICON_Transparent.png". -->
+  <defs>
+    <linearGradient id="dhcrc-right" x1="118" y1="180" x2="288" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fd01de"/>
+      <stop offset="0.5" stop-color="#c200ff"/>
+      <stop offset="1" stop-color="#008fff"/>
+    </linearGradient>
+    <linearGradient id="dhcrc-left" x1="20" y1="95" x2="232" y2="137" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fd0100"/>
+      <stop offset="1" stop-color="#fd01de"/>
+    </linearGradient>
+  </defs>
+  <path d="M 118 95 L 203 10 L 288 95 L 203 180 Z" fill="none" stroke="url(#dhcrc-right)" stroke-width="16" stroke-linejoin="round"/>
+  <path d="M 190 95 L 105 180 L 20 95 L 105 10 L 232 137" fill="none" stroke="url(#dhcrc-left)" stroke-width="16" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M 232 137 L 269 174 L 232 211 L 195 174 Z" fill="none" stroke="#fd01de" stroke-width="16" stroke-linejoin="round"/>
+</svg>
