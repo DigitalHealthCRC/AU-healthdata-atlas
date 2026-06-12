@@ -520,7 +520,7 @@
       for (const c of custodians) {
         for (const conn of c.connectionsOut) {
           if (!nodeById.has(conn.targetId)) continue;
-          const key = [c.id, conn.targetId].sort().join(' ');
+          const key = [c.id, conn.targetId].sort().join(' ');
           if (!merged.has(key)) {
             merged.set(key, { a: nodeById.get(c.id), b: nodeById.get(conn.targetId), dirs: [] });
           }
@@ -1166,9 +1166,102 @@
   })();
 
   // ------------------------------------------------------------------
+  // Theme (dark is the DHCRC signature look; light uses the brand
+  // background grey #D9D8D6 with black text and red/blue accents)
+  // ------------------------------------------------------------------
+  (function () {
+    const STORAGE_KEY = 'atlasTheme';
+    const btn = document.getElementById('theme-toggle');
+
+    function apply(name) {
+      document.body.classList.toggle('theme-light', name === 'light');
+      btn.textContent = name === 'light' ? '☾' : '☼';
+      btn.title = 'Switch to ' + (name === 'light' ? 'dark' : 'light') + ' theme';
+    }
+
+    let initial = 'dark';
+    // localStorage can throw on file:// or in private browsing.
+    try { if (window.localStorage.getItem(STORAGE_KEY) === 'light') initial = 'light'; }
+    catch (err) { /* ignore */ }
+    if (window.location.hash === '#light') initial = 'light';
+    else if (window.location.hash === '#dark') initial = 'dark';
+    apply(initial);
+
+    btn.addEventListener('click', () => {
+      const next = document.body.classList.contains('theme-light') ? 'dark' : 'light';
+      apply(next);
+      try { window.localStorage.setItem(STORAGE_KEY, next); } catch (err) { /* ignore */ }
+    });
+  })();
+
+  // ------------------------------------------------------------------
+  // Intro / about modal
+  // ------------------------------------------------------------------
+  const intro = (function () {
+    const STORAGE_KEY = 'atlasIntroDismissed';
+    const overlay = document.getElementById('intro-overlay');
+    const dontShow = document.getElementById('intro-dontshow');
+
+    // localStorage can throw on file:// or in private browsing — degrade
+    // to always showing the intro rather than breaking the page.
+    function getDismissed() {
+      try { return window.localStorage.getItem(STORAGE_KEY) === '1'; }
+      catch (err) { return false; }
+    }
+    function setDismissed(value) {
+      try {
+        if (value) window.localStorage.setItem(STORAGE_KEY, '1');
+        else window.localStorage.removeItem(STORAGE_KEY);
+      } catch (err) { /* ignore */ }
+    }
+
+    function fillDynamicText() {
+      const meta = DATA.meta || {};
+      const counts = meta.counts || {};
+      if (counts.custodians) {
+        document.getElementById('intro-counts').textContent =
+          counts.custodians + ' data custodians';
+      }
+      const prov = meta.provenance || {};
+      const bundleDate = (meta.generatedAt || '').slice(0, 10);
+      const bits = [];
+      if (prov.registerGenerated) bits.push('register dated ' + prov.registerGenerated);
+      if (bundleDate) bits.push('this bundle was generated on ' + bundleDate);
+      if (bits.length) {
+        document.getElementById('intro-freshness').textContent =
+          ' (' + bits.join('; ') + ')';
+      }
+    }
+
+    function open() {
+      dontShow.checked = getDismissed();
+      overlay.classList.remove('hidden');
+      document.getElementById('intro-start').focus();
+    }
+    function close() {
+      setDismissed(dontShow.checked);
+      overlay.classList.add('hidden');
+    }
+
+    document.getElementById('about-btn').addEventListener('click', open);
+    document.getElementById('intro-close').addEventListener('click', close);
+    document.getElementById('intro-start').addEventListener('click', close);
+    overlay.addEventListener('click', (evt) => {
+      if (evt.target === overlay) close();
+    });
+    document.addEventListener('keydown', (evt) => {
+      if (evt.key === 'Escape' && !overlay.classList.contains('hidden')) close();
+    });
+
+    fillDynamicText();
+    return { open, getDismissed };
+  })();
+
+  // ------------------------------------------------------------------
   // Init
   // ------------------------------------------------------------------
   renderChrome();
   renderDetail();
   network.onShow();
+  if (!intro.getDismissed()) intro.open();
 })();

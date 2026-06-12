@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AU Health Data Atlas</title>
-<link rel="icon" type="image/svg+xml" href="assets/dhcrc-logo.svg">
+<link rel="icon" type="image/svg+xml" href="assets/dhcrc-logo.webp">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,7 +18,11 @@
     <button type="button" class="tab" data-view="pathways">Pathways</button>
     <button type="button" class="tab" data-view="datasets">Datasets</button>
   </nav>
-  <img class="brand-logo" src="assets/dhcrc-logo.svg" alt="Digital Health CRC">
+  <div class="header-right">
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch light / dark theme">&#9788;</button>
+    <button type="button" id="about-btn" class="about-btn" title="About this tool">About</button>
+    <img class="brand-logo" src="assets/dhcrc-logo.webp" alt="Digital Health CRC">
+  </div>
 </header>
 
 <main class="app-main" id="app">
@@ -34,6 +38,49 @@
 </main>
 
 <div id="tooltip" class="tooltip hidden" role="tooltip"></div>
+
+<div id="intro-overlay" class="intro-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+  <div class="intro-modal">
+    <button type="button" id="intro-close" class="intro-close" aria-label="Close">&times;</button>
+    <div class="intro-header">
+      <img src="assets/dhcrc-logo.webp" alt="Digital Health CRC">
+      <h2 id="intro-title">Welcome to the AU Health Data Atlas</h2>
+    </div>
+    <div class="intro-body">
+      <p>The Atlas maps Australia's health data landscape: <span id="intro-counts">the custodians</span>
+      that hold health datasets, how researchers can apply for access, and how custodians connect to
+      one another through data flows and linkage arrangements.</p>
+
+      <h3>What you can do here</h3>
+      <ul class="intro-features">
+        <li><span class="intro-feature-name">Network</span> — an interactive map of data custodians,
+        coloured by jurisdiction and sized by their dataset holdings. Hover to highlight a custodian's
+        connections; click a node for its full profile, including governance, timelines and contacts.</li>
+        <li><span class="intro-feature-name">Pathways</span> — each custodian's data access process drawn
+        as a metro-style line across three lanes: what the <em>researcher</em> does, what
+        <em>ethics &amp; regulatory</em> bodies require, and what the <em>custodian</em> handles.</li>
+        <li><span class="intro-feature-name">Datasets</span> — a searchable catalogue of the datasets each
+        custodian holds, with flags for whether data is identifiable and linkable.</li>
+      </ul>
+
+      <h3>Where the data comes from</h3>
+      <p>Content is hand-curated by the Digital Health CRC from publicly available custodian
+      sources — websites, application portals, governance documents and published data dictionaries —
+      and compiled into a structured pathway register. That register is parsed into a knowledge graph,
+      cross-checked (connections between custodians are matched and manually reviewed before they appear
+      as links), and exported as the static bundle this page reads. Every custodian profile lists the
+      source URLs it was built from<span id="intro-freshness"></span>.</p>
+
+      <p class="intro-caveat">This is a navigational guide, not an authoritative register. Access
+      requirements, timelines and contacts change — always verify details with the custodian before
+      relying on them.</p>
+    </div>
+    <div class="intro-footer">
+      <label class="intro-dontshow"><input type="checkbox" id="intro-dontshow"> Don't show this again</label>
+      <button type="button" id="intro-start" class="intro-start">Explore the Atlas</button>
+    </div>
+  </div>
+</div>
 
 <footer class="app-footer" id="footer"></footer>
 
