@@ -34,7 +34,7 @@
     { key: 'Commonwealth', label: 'Commonwealth', color: '#008fff' },
     { key: 'Cross-jurisdictional', label: 'Cross-jurisdictional', color: '#d9d8d6' },
     { key: 'ACT', label: 'ACT', color: '#c200ff' },
-    { key: 'NSW', label: 'NSW', color: '#4fb1ff' },
+    { key: 'NSW', label: 'NSW', color: '#0a3d8c' },
     { key: 'NT', label: 'NT', color: '#f9b505' },
     { key: 'QLD', label: 'QLD', color: '#fd0163' },
     { key: 'SA', label: 'SA', color: '#fd0100' },
@@ -329,6 +329,7 @@
     if (view === 'network') network.onShow();
     if (view === 'pathways') pathways.render();
     if (view === 'datasets') datasets.render();
+    updateTabCues(false);
   }
 
   document.getElementById('view-switcher').addEventListener('click', (evt) => {
@@ -342,9 +343,53 @@
   function selectCustodian(id, opts) {
     state.selectedId = id;
     if (!opts || !opts.keepStep) state.selectedStep = null;
+    // Selecting a custodian anywhere pre-filters the other views to it, so
+    // the Pathways and Datasets tabs open already scoped to the selection
+    // (the user can still change those filters afterwards).
+    if (custodianById.has(id)) {
+      state.pw.custodianId = id;
+      state.ds.custodian = id;
+      state.ds.q = '';
+    }
     renderDetail();
     network.applyClasses();
     if (state.view === 'pathways') pathways.syncSelection();
+    if (state.view === 'datasets') datasets.render();
+    updateTabCues(true);
+  }
+
+  // Light up the Pathways / Datasets tabs when a custodian is selected, so
+  // it is obvious they now open pre-filtered to that custodian.
+  function updateTabCues(pulse) {
+    const c = custodianById.get(state.selectedId);
+    for (const view of ['pathways', 'datasets']) {
+      const btn = document.querySelector('#view-switcher .tab[data-view="' + view + '"]');
+      if (!btn) continue;
+      let dot = btn.querySelector('.tab-dot');
+      if (!c) {
+        if (dot) dot.remove();
+        btn.classList.remove('cue', 'cue-pulse');
+        btn.removeAttribute('title');
+        continue;
+      }
+      if (!dot) {
+        dot = document.createElement('span');
+        dot.className = 'tab-dot';
+        btn.appendChild(dot);
+      }
+      dot.style.background = c._color;
+      dot.style.color = c._color;
+      btn.title = (view === 'pathways'
+        ? 'See the access pathway for '
+        : 'See the datasets held by ') + c.name;
+      const isActive = state.view === view;
+      btn.classList.toggle('cue', !isActive);
+      btn.classList.remove('cue-pulse');
+      if (pulse && !isActive) {
+        void btn.offsetWidth; // force reflow so the pulse animation restarts
+        btn.classList.add('cue-pulse');
+      }
+    }
   }
 
   // ------------------------------------------------------------------
