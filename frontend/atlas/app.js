@@ -911,8 +911,20 @@
         transform: 'rotate(45)', stroke: color
       }));
       if (withLabel) {
-        const t = svgEl('text', { y: 20 });
-        t.textContent = truncate(d.name, 24);
+        // Lay the label out radially along the child's spoke so each name
+        // occupies its own angular wedge instead of stacking under the
+        // diamond (which overlapped badly once a node had several datasets).
+        const len = Math.hypot(dx, dy) || 1;
+        const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+        const onLeft = Math.abs(angle) > 90; // flip so text never reads upside-down
+        const off = 12; // clear of the diamond
+        const t = svgEl('text', {
+          transform: 'rotate(' + (onLeft ? angle + 180 : angle) + ')',
+          x: onLeft ? -off : off,
+          'dominant-baseline': 'middle'
+        });
+        t.style.textAnchor = onLeft ? 'end' : 'start';
+        t.textContent = truncate(d.name, 26);
         g.appendChild(t);
       }
 
@@ -952,7 +964,7 @@
       let ring = 0;
       while (placed < list.length) {
         const ringItems = list.slice(placed, placed + 12 + ring * 6);
-        const radius = n.r + 38 + ring * 32;
+        const radius = n.r + 44 + ring * 32;
         ringItems.forEach((d, i) => {
           const angle = -Math.PI / 2 + ring * 0.4 + (i / ringItems.length) * 2 * Math.PI;
           addChild(n, d, radius * Math.cos(angle), radius * Math.sin(angle), showLabels);
