@@ -265,7 +265,7 @@
     view: 'network',
     selectedId: null,
     selectedStep: null, // {custodianId, order}
-    net: { groups: new Set(), type: '', tre: false, q: '' },
+    net: { groups: new Set(), type: '', tre: false, q: '', geo: false },
     pw: { q: '', custodianId: null },
     ds: { q: '', custodian: '', identifiable: '', linkable: '' }
   };
@@ -500,7 +500,35 @@
     let nodeById = new Map();
     let edges = [];          // merged undirected: {a, b, dirs: [...]}
     let zoom = { x: 0, y: 0, k: 1 };
-    let svg, gZoom, gEdges, gNodes;
+    let svg, gZoom, gGeo, gEdges, gNodes;
+
+    // Conceptual Australia: anchor per jurisdiction group on the W×H canvas.
+    // Not geographically exact — just enough that WA reads west, QLD
+    // north-east, etc. Commonwealth and cross-jurisdictional custodians
+    // share a central "national" hub.
+    const GEO_HUB = { x: 520, y: 295 };
+    const GEO_ANCHORS = {
+      'WA': { x: 175, y: 330 },
+      'NT': { x: 400, y: 150 },
+      'SA': { x: 450, y: 410 },
+      'QLD': { x: 690, y: 155 },
+      'NSW': { x: 805, y: 330 },
+      'ACT': { x: 850, y: 415 },
+      'VIC': { x: 705, y: 485 },
+      'TAS': { x: 750, y: 580 },
+      'Commonwealth': GEO_HUB,
+      'Cross-jurisdictional': GEO_HUB
+    };
+    const layouts = { force: null, geo: null, geoLabels: null };
+    let animId = 0;
+
+    function geoAnchor(group) {
+      return GEO_ANCHORS[group] || GEO_HUB;
+    }
+
+    function snapshotPositions() {
+      return nodes.map((n) => ({ x: n.x, y: n.y }));
+    }
 
     function buildGraph() {
       nodes = custodians.map((c, i) => {
@@ -531,14 +559,19 @@
         }
       }
       edges = Array.from(merged.values());
-      runSimulation();
+      runSimulation(false);
+      layouts.force = snapshotPositions();
     }
 
-    function runSimulation() {
+    // geo=true pulls each node toward its jurisdiction anchor instead of the
+    // shared canvas centre, with edge springs weakened so connections don't
+    // drag nodes out of their state cluster.
+    function runSimulation(geo) {
       const REPULSION = 26000;
-      const SPRING_K = 0.03;
+      const SPRING_K = geo ? 0.006 : 0.03;
       const SPRING_LEN = 165;
       const CENTER_K = 0.012;
+      const GEO_K = 0.045;
       const DAMPING = 0.85;
       const MAX_SPEED = 14;
       const TICKS = 380;
@@ -565,8 +598,14 @@
           e.b.vx -= (dx / d) * f; e.b.vy -= (dy / d) * f;
         }
         for (const n of nodes) {
-          n.vx += (W / 2 - n.x) * CENTER_K;
-          n.vy += (H / 2 - n.y) * CENTER_K;
+          if (geo) {
+            const a = geoAnchor(n.c._group);
+            n.vx += (a.x - n.x) * GEO_K;
+            n.vy += (a.y - n.y) * GEO_K;
+          } else {
+            n.vx += (W / 2 - n.x) * CENTER_K;
+            n.vy += (H / 2 - n.y) * CENTER_K;
+          }
           n.vx *= DAMPING; n.vy *= DAMPING;
           const speed = Math.sqrt(n.vx * n.vx + n.vy * n.vy);
           if (speed > MAX_SPEED) { n.vx = (n.vx / speed) * MAX_SPEED; n.vy = (n.vy / speed) * MAX_SPEED; }
@@ -589,6 +628,81 @@
       }
     }
 
+    function computeGeoLayout() {
+      // Seed each node on a small spiral around its jurisdiction anchor so
+      // the simulation starts from (and settles into) clean state clusters.
+      const seen = new Map();
+      for (const n of nodes) {
+        const i = seen.get(n.c._group) || 0;
+        seen.set(n.c._group, i + 1);
+        const a = geoAnchor(n.c._group);
+        const angle = i * 2.39996323;
+        const radius = 14 * Math.sqrt(i + 0.5);
+        n.x = a.x + radius * Math.cos(angle);
+        n.y = a.y + radius * Math.sin(angle);
+        n.vx = 0; n.vy = 0;
+      }
+      runSimulation(true);
+    }
+
+    function computeGeoLabels() {
+      // Label each cluster at its settled centroid (anchors move slightly
+      // during the simulation and frame-fit rescale).
+      const acc = new Map();
+      for (const n of nodes) {
+        const a = geoAnchor(n.c._group);
+        const label = a === GEO_HUB ? 'National' : n.c._group;
+        if (!acc.has(label)) acc.set(label, { x: 0, y: 0, count: 0 });
+        const slot = acc.get(label);
+        slot.x += n.x; slot.y += n.y; slot.count++;
+      }
+      return Array.from(acc, ([label, s]) =>
+        ({ label, x: s.x / s.count, y: s.y / s.count }));
+    }
+
+    function renderGeoLabels() {
+      while (gGeo.firstChild) gGeo.removeChild(gGeo.firstChild);
+      for (const l of layouts.geoLabels) {
+        const t = svgEl('text', { class: 'geo-label', x: l.x, y: l.y });
+        t.textContent = l.label;
+        gGeo.appendChild(t);
+      }
+    }
+
+    function animateTo(targets) {
+      const from = snapshotPositions();
+      const startTime = performance.now();
+      const DURATION = 700;
+      cancelAnimationFrame(animId);
+      const step = (now) => {
+        const t = Math.min((now - startTime) / DURATION, 1);
+        const e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        for (let i = 0; i < nodes.length; i++) {
+          nodes[i].x = from[i].x + (targets[i].x - from[i].x) * e;
+          nodes[i].y = from[i].y + (targets[i].y - from[i].y) * e;
+        }
+        positionAll();
+        if (t < 1) animId = requestAnimationFrame(step);
+      };
+      animId = requestAnimationFrame(step);
+    }
+
+    function setGeoLayout(on) {
+      if (on && !layouts.geo) {
+        const current = snapshotPositions();
+        computeGeoLayout();
+        layouts.geo = snapshotPositions();
+        layouts.geoLabels = computeGeoLabels();
+        renderGeoLabels();
+        for (let i = 0; i < nodes.length; i++) {
+          nodes[i].x = current[i].x;
+          nodes[i].y = current[i].y;
+        }
+      }
+      gGeo.classList.toggle('visible', on);
+      animateTo(on ? layouts.geo : layouts.force);
+    }
+
     function typeOptions() {
       const types = new Set();
       for (const c of custodians) for (const t of (c.types || [])) if (t) types.add(t);
@@ -607,7 +721,9 @@
         '<select id="net-type" aria-label="Custodian type"><option value="">All types</option>' +
         typeOptions().map((t) => '<option value="' + esc(t) + '">' + esc(t) + '</option>').join('') +
         '</select>' +
-        '<button type="button" class="filter-chip" id="net-tre">Has TRE</button>';
+        '<button type="button" class="filter-chip" id="net-tre">Has TRE</button>' +
+        '<button type="button" class="filter-chip" id="net-geo" ' +
+        'title="Arrange custodians by their home state or territory">Geo layout</button>';
       container.appendChild(bar);
 
       bar.querySelector('#net-search').addEventListener('input', (evt) => {
@@ -622,6 +738,11 @@
         state.net.tre = !state.net.tre;
         evt.currentTarget.classList.toggle('active', state.net.tre);
         applyClasses();
+      });
+      bar.querySelector('#net-geo').addEventListener('click', (evt) => {
+        state.net.geo = !state.net.geo;
+        evt.currentTarget.classList.toggle('active', state.net.geo);
+        setGeoLayout(state.net.geo);
       });
       bar.addEventListener('click', (evt) => {
         const chip = evt.target.closest('[data-group]');
@@ -703,8 +824,10 @@
       container.appendChild(wrap);
 
       gZoom = svgEl('g');
+      gGeo = svgEl('g', { class: 'geo-labels' });
       gEdges = svgEl('g');
       gNodes = svgEl('g');
+      gZoom.appendChild(gGeo);
       gZoom.appendChild(gEdges);
       gZoom.appendChild(gNodes);
       svg.appendChild(gZoom);
