@@ -1051,12 +1051,9 @@
           applyClasses();
           hideTooltip();
         });
-        g.addEventListener('dblclick', (evt) => {
-          evt.preventDefault();
-          hideTooltip();
-          if (expand && expand.id === n.c.id) collapseExpand();
-          else expandNode(n);
-        });
+        // Double-click fan-out is handled manually in attachInteractions'
+        // pointerup handler — the native dblclick event is unreliable here
+        // because of setPointerCapture (see note there).
       }
 
       positionAll();
@@ -1081,6 +1078,11 @@
       let dragNode = null;
       let start = null;
       let moved = 0;
+      // Manual double-click detection. We can't rely on the native `dblclick`
+      // event here: setPointerCapture() on pointerdown suppresses the
+      // synthesized click/dblclick events on the captured target in some
+      // browsers, so a real double-click would silently never fan out.
+      let lastClick = { id: null, t: 0 };
 
       svg.addEventListener('pointerdown', (evt) => {
         // Dataset children handle their own plain click events.
@@ -1115,10 +1117,22 @@
 
       svg.addEventListener('pointerup', (evt) => {
         if (mode === 'drag' && dragNode && moved < 5) {
-          // Clicking a different node (or re-clicking) keeps selection
-          // behaviour, but an open fan-out closes unless it's the same node.
-          if (expand && expand.id !== dragNode.c.id) collapseExpand();
-          selectCustodian(dragNode.c.id);
+          const now = Date.now();
+          const isDouble = lastClick.id === dragNode.c.id && (now - lastClick.t) < 350;
+          if (isDouble) {
+            // Second click on the same node within the threshold: fan out (or
+            // collapse) its datasets instead of just re-selecting.
+            hideTooltip();
+            if (expand && expand.id === dragNode.c.id) collapseExpand();
+            else expandNode(dragNode);
+            lastClick = { id: null, t: 0 };
+          } else {
+            // Clicking a different node (or re-clicking) keeps selection
+            // behaviour, but an open fan-out closes unless it's the same node.
+            if (expand && expand.id !== dragNode.c.id) collapseExpand();
+            selectCustodian(dragNode.c.id);
+            lastClick = { id: dragNode.c.id, t: now };
+          }
         } else if (mode === 'pan' && moved < 5) {
           collapseExpand(); // plain click on empty background
         }
