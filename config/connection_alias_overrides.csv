@@ -40,3 +40,5 @@ custodian:queensland-cyber-infrastructure-foundation,university of queensland,fo
 custodian:services-australia,other state territory health departments,review_only,,Still too broad for safe automatic linkage
 custodian:queensland-cyber-infrastructure-foundation,australian access federation aaf,force_reject,,External authentication service not represented as a custodian node
 custodian:queensland-cyber-infrastructure-foundation,australian state and federal data custodians,force_reject,,Generic structural note rather than a single custodian
+custodian:medadvisor,pharmacy guild of australia,force_reject,,"Industry body and shareholder, not a register custodian; expected reject from v3 audit"
+,sax institute sure,force_accept,custodian:secure-unified-research-environment,"Segments naming Sax Institute (SURE) refer to the SURE platform, not the Sax Institute custodian added in v3"

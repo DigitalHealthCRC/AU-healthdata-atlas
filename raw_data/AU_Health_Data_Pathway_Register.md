@@ -1,7 +1,7 @@
-# Australian Health Data Access Pathway Register — Version 2
+# Australian Health Data Access Pathway Register — Version 3
 
-**Generated:** 01 March 2026  
-**Custodians documented:** 33  
+**Generated:** 12 June 2026  
+**Custodians documented:** 42  
 **Purpose:** Source document for the Australian Health Data Access Knowledge Graph (KG). Each card provides the structured information required to generate Custodian, Dataset, PathwayStep, and CONNECTED_TO nodes and relationships.
 
 ---
@@ -19,6 +19,7 @@ Each pathway card documents one data custodian with the following sections:
 - **Timeline** — indicative end-to-end duration
 - **Connections** — named custodians this entity works with and why
 - **Sources** — URLs used to verify the information
+- **Classification** — sector (government / statutory / nfp / academic / commercial), research access (open / application / restricted / member_only / commercial_negotiation / not_researcher_facing) and re-verification cadence (standard / frequent) tags introduced by the June 2026 v3 audit
 
 ---
 
@@ -50,6 +51,7 @@ Each pathway card documents one data custodian with the following sections:
 
 - [Cancer Institute NSW (CINSW)](#cancer-institute-nsw)
 - [NSW Health / Ministry of Health NSW (NSW Health)](#nsw-health--ministry-of-health-nsw)
+- [Sax Institute (Sax)](#sax-institute)
 
 **Victoria**
 
@@ -88,6 +90,14 @@ Each pathway card documents one data custodian with the following sections:
 
 **Cross-jurisdictional**
 
+- [Australian Longitudinal Study on Women's Health (ALSWH)](#australian-longitudinal-study-on-womens-health)
+- [Beamtree (Beamtree)](#beamtree)
+- [Health Roundtable (HRT)](#health-roundtable)
+- [Indigenous Data Network / Maiam nayri Wingara (IDN/MnW)](#indigenous-data-network---maiam-nayri-wingara)
+- [IQVIA Australia (IQVIA)](#iqvia-australia)
+- [MedAdvisor (MedAdvisor)](#medadvisor)
+- [NostraData (NostraData)](#nostradata)
+- [Outcome Health (POLAR)](#outcome-health)
 - [Secure Unified Research Environment (SURE)](#secure-unified-research-environment)
 
 ---
@@ -2229,5 +2239,507 @@ sure-admin@saxinstitute.org.au
 - <https://www.saxinstitute.org.au/solutions/sure/conducting-research-in-sure/>
 - <https://www.saxinstitute.org.au/solutions/sure/apply-for-access-to-sure/>
 - <https://www.saxinstitute.org.au/solutions/sure/safely-share-data-with-sure/>
+
+---
+
+## Sax Institute (Sax)
+
+<a name='sax-institute'></a>
+
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | Sax Institute |
+| **Short Name / Acronym** | Sax |
+| **Custodian Type**       | Cohort Study Custodian |
+| **Jurisdiction**         | New South Wales |
+| **Sector**               | nfp |
+| **Research Access**      | application |
+| **Reverify Cadence**     | standard |
+| **Classification Note**  | Cohort study custodian and TRE operator (45 and Up Study, CUPL, SURE). Added from the June 2026 v3 deep-search audit. |
+
+### Role
+
+The Sax Institute is an independent not-for-profit research organisation that owns and runs the 45 and Up Study, Australia's largest ongoing cohort study of healthy ageing (267,357 participants recruited 2005-2009; 212,050 alive and enrolled as at June 2021; Wave 4 survey conducted from 2023 with progressive data releases). It acts as cohort data custodian and linkage intermediary: researchers apply to the Institute, external linkages are performed via the Centre for Health Record Linkage (CHeReL), and analysis is undertaken in the Institute's Secure Unified Research Environment (SURE). The CUPL program (Centralised Linkage of 45 and Up Study Data) provides the cohort pre-linked to 10 administrative health datasets under a single NSW Population and Health Services Research Ethics Committee (PHSREC) approved process, cutting project set-up time by around 80 per cent.
+
+### Key Datasets
+
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| 45 and Up Study | Australia's largest ongoing cohort study of healthy ageing: 267,357 participants recruited 2005-2009 in NSW; Wave 4 survey conducted from 2023 with survey data from more than 17,000 participants already available. | De-identified | Yes (via CHeReL for external linkages) |
+| CUPL (Centralised Linkage of 45 and Up Study Data) | 45 and Up Study data pre-linked to 10 administrative health datasets under a single NSW PHSREC-approved process; access in approximately 2-3 months. | De-identified | Yes (pre-linked) |
+
+### Data Access Pathway
+
+Step 1: Submit Expression of Interest for 45 and Up Study or CUPL data | Actor: Researcher | Form/Portal: 45andUp.Research@saxinstitute.org.au | Duration: 1-4 weeks
+Step 2: Scientific review under the Five Safes framework | Actor: Sax Institute | Form/Portal: Sax Institute scientific review | Duration: Up to 4 weeks
+Step 3: Ethics approval (Australian HREC; CUPL projects use the pre-approved NSW PHSREC process) | Actor: Researcher and HREC | Form/Portal: HREC submission | Duration: 4-12 weeks
+Step 4: External data linkage where required | Actor: CHeReL | Form/Portal: CHeReL linkage application | Duration: 3-6 months
+Step 5: SURE workspace setup, deeds and training | Actor: Sax Institute (TRE operator) | Form/Portal: SURE onboarding | Duration: 1-2 weeks
+Step 6: Mandatory pre-publication technical review of outputs | Actor: Sax Institute | Form/Portal: 45andUp.Research@saxinstitute.org.au | Duration: 2-8 weeks
+
+### Ethics and Governance Requirements
+
+Australian HREC approval is required for 45 and Up Study projects; CUPL operates under a single NSW Population and Health Services Research Ethics Committee (PHSREC) approved process. Scientific review applies the Five Safes framework. All outputs are subject to mandatory pre-publication technical review by the Sax Institute.
+
+### Trusted Research Environment (TRE) / Secure Access
+
+**Platform:** SURE (Secure Unified Research Environment), operated by the Sax Institute.
+
+### Contact and Application Portal
+
+45andUp.Research@saxinstitute.org.au (45 and Up Study and CUPL applications); sure-admin@saxinstitute.org.au (SURE); https://www.saxinstitute.org.au/
+
+### Indicative End-to-End Timeline
+
+> **CUPL access in approximately 2-3 months end to end; bespoke 45 and Up Study linkage projects take longer where CHeReL linkage is required.**
+
+### Connections to Other Custodians
+
+- Centre for Health Record Linkage (CHeReL): performs external data linkages for the 45 and Up Study.
+- Secure Unified Research Environment (SURE): operated by the Sax Institute - all 45 and Up Study and CUPL analyses occur in SURE.
+- NSW Health - Ministry of Health NSW: study partner and source of linked NSW administrative health datasets.
+
+### Source URLs
+
+- <https://www.saxinstitute.org.au/solutions/45-and-up-study/use-the-45-and-up-study/apply-for-access/>
+- <https://www.saxinstitute.org.au/solutions/45-and-up-study/use-the-45-and-up-study/cupl/>
+- <https://www.saxinstitute.org.au/solutions/sure/>
+- <https://pmc.ncbi.nlm.nih.gov/articles/PMC9908035/>
+
+---
+
+## Australian Longitudinal Study on Women's Health (ALSWH)
+
+<a name='australian-longitudinal-study-on-womens-health'></a>
+
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | Australian Longitudinal Study on Women's Health |
+| **Short Name / Acronym** | ALSWH |
+| **Custodian Type**       | Cohort Study Custodian |
+| **Jurisdiction**         | Cross-jurisdictional |
+| **Sector**               | academic |
+| **Research Access**      | application |
+| **Reverify Cadence**     | standard |
+| **Classification Note**  | National women's health cohort study (Women's Health Australia). Added from the June 2026 v3 deep-search audit. |
+
+### Role
+
+The Australian Longitudinal Study on Women's Health (ALSWH, Women's Health Australia) is run jointly by the University of Newcastle and the University of Queensland with funding from the Australian Government Department of Health, Disability and Ageing. It follows four national cohorts of Australian women and links survey data to MBS, PBS, the National Death Index, cancer registries, hospital, perinatal and aged care collections. More than 780 researchers have used the data. Access is by application to the ALSWH Data Access Committee; commercial use is not permitted and linked data are not accessible from overseas.
+
+### Key Datasets
+
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| ALSWH cohorts and linked data | Longitudinal survey data from four national cohorts of Australian women, linked to MBS, PBS, National Death Index, cancer registry, hospital, perinatal and aged care collections. | De-identified | Yes (linked; analysed in SURE) |
+
+### Data Access Pathway
+
+Step 1: Submit a data access application / Expression of Interest | Actor: Researcher | Form/Portal: https://alswh.org.au/ | Duration: 1-4 weeks
+Step 2: Data Access Committee review | Actor: ALSWH Data Access Committee | Form/Portal: ALSWH data access process | Duration: 2-8 weeks
+Step 3: Ethics approvals where linked data are requested | Actor: Researcher and HREC | Form/Portal: HREC submission | Duration: 4-12 weeks
+Step 4: Data provision; linked data analysed in SURE | Actor: ALSWH and TRE operator | Form/Portal: SURE | Duration: 2-12 weeks
+
+### Ethics and Governance Requirements
+
+Applications are reviewed by the ALSWH Data Access Committee. HREC approval is required for projects using linked administrative data. Commercial use of the data is not permitted, and linked data cannot be accessed from overseas.
+
+### Trusted Research Environment (TRE) / Secure Access
+
+**Platform:** Linked ALSWH data are analysed in SURE (Secure Unified Research Environment).
+
+### Contact and Application Portal
+
+https://alswh.org.au/ (data access pages and application forms)
+
+### Indicative End-to-End Timeline
+
+> **Data Access Committee review 2-8 weeks; linked data projects additionally require HREC approval (4-12 weeks) and secure environment onboarding.**
+
+### Connections to Other Custodians
+
+- Secure Unified Research Environment (SURE): linked ALSWH data are analysed in SURE.
+- Services Australia: provides MBS and PBS data for linkage to the ALSWH cohorts.
+- Australian Institute of Health and Welfare (AIHW): provides National Death Index and aged care data linkages.
+
+### Source URLs
+
+- <https://alswh.org.au/>
+- <https://alswh.org.au/for-data-users/applying-to-use-the-data/>
+
+---
+
+## Outcome Health (POLAR)
+
+<a name='outcome-health'></a>
+
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | Outcome Health |
+| **Short Name / Acronym** | POLAR |
+| **Custodian Type**       | Primary Care Data Program |
+| **Jurisdiction**         | Cross-jurisdictional |
+| **Sector**               | nfp |
+| **Research Access**      | application |
+| **Reverify Cadence**     | frequent |
+| **Classification Note**  | Not-for-profit GP data extraction and analytics program (POLAR/AURORA); PHN-owned data. Added from the June 2026 v3 deep-search audit. |
+
+### Role
+
+Outcome Health is a not-for-profit organisation that develops and operates POLAR (Population Level Analysis and Reporting), a general practice data extraction and analytics platform used by Primary Health Networks across the eastern states. The POLAR research asset holds de-identified, SNOMED-mapped general practice electronic health record data covering approximately 18 million patient records from around 600 practices across the eastern half of Australia. The data are owned by the participating PHNs; research access is provided through the AURORA research consortium and data space with PHN consent and RACGP NREEC ethics approval.
+
+### Key Datasets
+
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| POLAR general practice data asset | De-identified, SNOMED-mapped general practice EHR data: approximately 18 million patient records from around 600 practices across the eastern half of Australia (peer-reviewed POLAR project description). | De-identified | Yes (via PHN or project-specific linkage) |
+| AURORA Data Space | Research data space through which POLAR general practice data are made available to the AURORA research consortium with PHN consent. | De-identified | Yes (project-specific) |
+
+### Data Access Pathway
+
+Step 1: Scope the project with the data-owning PHNs or Outcome Health | Actor: Researcher | Form/Portal: https://outcomehealth.org.au/services/polar/research-analytics/ | Duration: 1-4 weeks
+Step 2: Ethics approval via the RACGP National Research and Evaluation Ethics Committee (NREEC) | Actor: Researcher and RACGP NREEC | Form/Portal: RACGP NREEC submission | Duration: 4-12 weeks
+Step 3: PHN consent and data release into the AURORA Data Space | Actor: PHNs and Outcome Health | Form/Portal: AURORA Data Space | Duration: 2-8 weeks
+
+### Ethics and Governance Requirements
+
+POLAR research operates under RACGP National Research and Evaluation Ethics Committee (NREEC) approval, in place since August 2017. Data release requires the consent of the data-owning PHNs.
+
+### Trusted Research Environment (TRE) / Secure Access
+
+**Platform:** AURORA Data Space (research data environment for POLAR data).
+
+### Contact and Application Portal
+
+https://outcomehealth.org.au/ and via the participating Primary Health Networks
+
+### Indicative End-to-End Timeline
+
+> **Project scoping, RACGP NREEC ethics and PHN consent: indicatively 2-6 months.**
+
+### Connections to Other Custodians
+
+- PHN Cooperative / Primary Health Insights: POLAR data are owned by participating Primary Health Networks, which act as data custodians and grant research access (a PHN data program operating alongside Primary Sense).
+
+### Source URLs
+
+- <https://outcomehealth.org.au/services/polar/research-analytics/>
+- <https://pmc.ncbi.nlm.nih.gov/articles/PMC7252962/>
+
+---
+
+## Health Roundtable (HRT)
+
+<a name='health-roundtable'></a>
+
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | Health Roundtable |
+| **Short Name / Acronym** | HRT |
+| **Custodian Type**       | Benchmarking Collaborative |
+| **Jurisdiction**         | Cross-jurisdictional |
+| **Sector**               | nfp |
+| **Research Access**      | member_only |
+| **Reverify Cadence**     | frequent |
+| **Classification Note**  | Member-only hospital benchmarking collaborative; no public researcher pathway. Included as part of the landscape view (June 2026 v3 deep-search audit). |
+
+### Role
+
+The Health Roundtable is a not-for-profit membership collaborative of around 177 hospitals across some 90 health services in Australia and New Zealand. It provides comparative benchmarking of hospital activity and outcomes to member health services. Access to benchmarking data is member-only and there is no researcher-facing pathway. Its data platform and analytics are operated by Beamtree (ASX:BMT) under a contract running to July 2031.
+
+### Key Datasets
+
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| Health Roundtable benchmarking collections | Comparative hospital activity and outcome benchmarking data contributed by around 177 member hospitals across Australia and New Zealand. | De-identified | No (member benchmarking only) |
+
+### Data Access Pathway
+
+Member-only benchmarking collaborative. No public researcher-facing access pathway; access to benchmarking data is limited to member health services.
+
+### Ethics and Governance Requirements
+
+Member-only governance; benchmarking data are shared between member health services under membership terms. No researcher-facing data release.
+
+### Trusted Research Environment (TRE) / Secure Access
+
+**Platform:** Beamtree-operated Health Roundtable platform (member access only).
+
+### Contact and Application Portal
+
+https://platform.healthroundtable.org/
+
+### Indicative End-to-End Timeline
+
+> **Not applicable - no public researcher pathway.**
+
+### Connections to Other Custodians
+
+- Beamtree: operates the Health Roundtable data platform and analytics under a contract running to July 2031.
+
+### Source URLs
+
+- <https://platform.healthroundtable.org/>
+- <https://www.healthcareitnews.com/news/anz/beamtree-secures-contract-build-health-roundtables-data-platform>
+
+---
+
+## Beamtree
+
+<a name='beamtree'></a>
+
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | Beamtree |
+| **Short Name / Acronym** | Beamtree |
+| **Custodian Type**       | Commercial Analytics Provider |
+| **Jurisdiction**         | Cross-jurisdictional |
+| **Sector**               | commercial |
+| **Research Access**      | not_researcher_facing |
+| **Reverify Cadence**     | frequent |
+| **Classification Note**  | Commercial operator of the Health Roundtable platform; not researcher-facing. Included as part of the landscape view (June 2026 v3 deep-search audit). |
+
+### Role
+
+Beamtree is an ASX-listed health data analytics company (ASX:BMT) that operates the Health Roundtable's data platform and analytics under a contract running to July 2031. It holds and processes hospital benchmarking data in its role as operating partner but does not release research data directly.
+
+### Key Datasets
+
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| Health Roundtable platform analytics | Analytics and platform services operated for the Health Roundtable benchmarking collaborative; Beamtree does not release research data directly. | De-identified | No |
+
+### Data Access Pathway
+
+No public researcher-facing pathway. Beamtree is the operating partner for the Health Roundtable platform and does not release research data directly.
+
+### Ethics and Governance Requirements
+
+Operates under its contract with the Health Roundtable and member terms; no researcher-facing data governance pathway.
+
+### Contact and Application Portal
+
+https://beamtree.com.au/
+
+### Indicative End-to-End Timeline
+
+> **Not applicable - no public researcher pathway.**
+
+### Connections to Other Custodians
+
+- Health Roundtable: Beamtree operates the Health Roundtable benchmarking platform and analytics (contract to July 2031).
+
+### Source URLs
+
+- <https://beamtree.com.au/>
+
+---
+
+## MedAdvisor
+
+<a name='medadvisor'></a>
+
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | MedAdvisor |
+| **Short Name / Acronym** | MedAdvisor |
+| **Custodian Type**       | Commercial Data Aggregator |
+| **Jurisdiction**         | Cross-jurisdictional |
+| **Sector**               | commercial |
+| **Research Access**      | commercial_negotiation |
+| **Reverify Cadence**     | frequent |
+| **Classification Note**  | Commercial pharmacy software and dispensing data holder (acquired GuildLink in July 2022); no public researcher pathway. Included as part of the landscape view (June 2026 v3 deep-search audit). |
+
+### Role
+
+MedAdvisor (ASX:MDR) is a medication management software company that acquired GuildLink in July 2022, bringing the GuildCare pharmacy software and its dispensing and medication adherence data under commercial ownership. The Guild Group (Pharmacy Guild of Australia) is the largest shareholder at approximately 17.5 per cent, and a 10-year master services agreement includes the supply of de-identified dispensing data to the Pharmacy Guild for health economics modelling. Its holdings capture private, non-PBS and S2/S3 medicine sales that do not appear in PBS data (exact capture needs verification). There is no public researcher access pathway.
+
+### Key Datasets
+
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| GuildCare pharmacy program and dispensing data | Pharmacy software (GuildCare) program, dispensing and medication adherence data; de-identified extracts are provided to the Pharmacy Guild of Australia for health economics modelling. Captures private, non-PBS and S2/S3 sales not present in PBS data (needs verification). | De-identified | No (no public researcher pathway) |
+
+### Data Access Pathway
+
+No public researcher pathway. Access to dispensing or adherence data is by commercial negotiation only.
+
+### Ethics and Governance Requirements
+
+No published researcher-facing governance pathway; data use is governed by commercial agreements, including the master services agreement with the Pharmacy Guild of Australia.
+
+### Contact and Application Portal
+
+https://www.medadvisorsolutions.com/
+
+### Indicative End-to-End Timeline
+
+> **Not applicable - commercial negotiation only.**
+
+### Connections to Other Custodians
+
+- Pharmacy Guild of Australia: Guild Group is the largest shareholder (approximately 17.5 per cent) and receives de-identified dispensing data for health economics modelling under a 10-year master services agreement.
+
+### Source URLs
+
+- <https://www.medadvisorsolutions.com/>
+- <https://www.guildgroup.com.au/>
+
+---
+
+## NostraData
+
+<a name='nostradata'></a>
+
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | NostraData |
+| **Short Name / Acronym** | NostraData |
+| **Custodian Type**       | Commercial Data Aggregator |
+| **Jurisdiction**         | Cross-jurisdictional |
+| **Sector**               | commercial |
+| **Research Access**      | commercial_negotiation |
+| **Reverify Cadence**     | frequent |
+| **Classification Note**  | Commercial pharmacy dispensing aggregator; no public researcher pathway. Included as part of the landscape view (June 2026 v3 deep-search audit). |
+
+### Role
+
+NostraData is a commercial pharmacy data aggregator based in Kew, Victoria, collecting dispensing data from more than 4,500 Australian pharmacies, including private, non-PBS and over-the-counter sales that are not captured in PBS data. There is no public researcher pathway; ad hoc academic collaborations (for example with Monash University, the University of Melbourne and RMIT) are arranged by negotiation. Its dispensing asset is distributed by IQVIA as the 'IQVIA NostraData Pharmacy Dispense Data: Australia' product.
+
+### Key Datasets
+
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| NostraData pharmacy dispense data | Dispensing data aggregated from more than 4,500 Australian pharmacies, including private, non-PBS and over-the-counter sales not captured in PBS data (exact capture per category needs verification). | De-identified | No (no public researcher pathway) |
+
+### Data Access Pathway
+
+No public researcher pathway. Ad hoc academic collaborations (for example with Monash University, the University of Melbourne and RMIT) are arranged by negotiation.
+
+### Ethics and Governance Requirements
+
+No published researcher-facing governance pathway; collaborations are governed by negotiated agreements.
+
+### Contact and Application Portal
+
+https://www.nostradata.com.au/
+
+### Indicative End-to-End Timeline
+
+> **Not applicable - commercial negotiation only.**
+
+### Connections to Other Custodians
+
+- IQVIA Australia: distributes the IQVIA NostraData Pharmacy Dispense Data: Australia asset.
+
+### Source URLs
+
+- <https://www.nostradata.com.au/>
+- <https://www.iqvia.com/insights/the-iqvia-institute/available-iqvia-data>
+
+---
+
+## IQVIA Australia (IQVIA)
+
+<a name='iqvia-australia'></a>
+
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | IQVIA Australia |
+| **Short Name / Acronym** | IQVIA |
+| **Custodian Type**       | Commercial Data Aggregator |
+| **Jurisdiction**         | Cross-jurisdictional |
+| **Sector**               | commercial |
+| **Research Access**      | commercial_negotiation |
+| **Reverify Cadence**     | frequent |
+| **Classification Note**  | Commercial real-world data aggregator; no public researcher pathway. Included as part of the landscape view (June 2026 v3 deep-search audit). |
+
+### Role
+
+IQVIA Australia is the Australian arm of the global real-world data and analytics company IQVIA. It aggregates and licenses commercial real-world health data, including the 'IQVIA NostraData Pharmacy Dispense Data: Australia' pharmacy dispensing asset, which captures private, non-PBS and over-the-counter medicine sales that do not appear in PBS data. There is no public researcher access pathway; access is by commercial negotiation.
+
+### Key Datasets
+
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| IQVIA NostraData Pharmacy Dispense Data: Australia | Commercial pharmacy dispensing aggregation covering private, non-PBS and over-the-counter medicine sales sourced from NostraData. | De-identified | No (no public researcher pathway) |
+
+### Data Access Pathway
+
+No public researcher pathway. Commercial real-world data services are available by negotiation.
+
+### Ethics and Governance Requirements
+
+No published researcher-facing governance pathway; data licensing is governed by commercial agreements.
+
+### Contact and Application Portal
+
+https://www.iqvia.com/
+
+### Indicative End-to-End Timeline
+
+> **Not applicable - commercial negotiation only.**
+
+### Connections to Other Custodians
+
+- NostraData: source of the IQVIA NostraData Pharmacy Dispense Data: Australia dispensing asset.
+
+### Source URLs
+
+- <https://www.iqvia.com/insights/the-iqvia-institute/available-iqvia-data>
+
+---
+
+## Indigenous Data Network / Maiam nayri Wingara (IDN/MnW)
+
+<a name='indigenous-data-network---maiam-nayri-wingara'></a>
+
+| Field                    | Value |
+| ------------------------ | ----- |
+| **Full Name**            | Indigenous Data Network / Maiam nayri Wingara |
+| **Short Name / Acronym** | IDN/MnW |
+| **Custodian Type**       | Governance Body |
+| **Jurisdiction**         | Cross-jurisdictional |
+| **Sector**               | academic |
+| **Research Access**      | not_researcher_facing |
+| **Reverify Cadence**     | standard |
+| **Classification Note**  | Indigenous data sovereignty and governance reference bodies, not dataset custodians. Added from the June 2026 v3 deep-search audit. |
+
+### Role
+
+The Indigenous Data Network (IDN, hosted at the University of Melbourne) and Maiam nayri Wingara (the Australian Indigenous Data Sovereignty Collective) are national governance and sovereignty bodies for Indigenous data. The Maiam nayri Wingara Indigenous Data Sovereignty Principles (asserted at the 2018 Indigenous Data Sovereignty Summit), the AIATSIS Code of Ethics and the CARE Principles together frame the governance requirements that apply to research involving Indigenous data, alongside jurisdictional Aboriginal HRECs such as WAAHEC and AH&MRC. They are governance reference bodies, not dataset custodians.
+
+### Key Datasets
+
+| Dataset Name | Description | Identifiable | Linkable |
+| ------------ | ----------- | ------------ | -------- |
+| Maiam nayri Wingara Indigenous Data Sovereignty Principles | Governance framework asserting Indigenous data sovereignty rights (2018 Indigenous Data Sovereignty Summit); a reference framework for Indigenous data governance rather than a dataset. | No (governance framework) | No |
+| Indigenous Data Network resources | University of Melbourne-hosted network supporting Indigenous community data governance and capability; not a researcher-facing data custodian. | No | No |
+
+### Data Access Pathway
+
+Governance reference bodies, not a dataset access pathway. Researchers working with Indigenous data apply the Maiam nayri Wingara principles, the AIATSIS Code of Ethics and the CARE Principles, and obtain approval from jurisdictional Aboriginal HRECs (for example WAAHEC and AH&MRC) where required.
+
+### Ethics and Governance Requirements
+
+Maiam nayri Wingara Indigenous Data Sovereignty Principles (2018); AIATSIS Code of Ethics; CARE Principles; jurisdictional Aboriginal HRECs (for example WAAHEC in WA and AH&MRC in NSW) for research involving Aboriginal and Torres Strait Islander peoples' data.
+
+### Contact and Application Portal
+
+https://www.maiamnayriwingara.org/ and https://idnau.org/
+
+### Indicative End-to-End Timeline
+
+> **Not applicable - governance reference bodies.**
+
+### Connections to Other Custodians
+
+- Australian Institute of Aboriginal and Torres Strait Islander Studies (AIATSIS): the AIATSIS Code of Ethics underpins Indigenous data governance requirements referenced by IDN and Maiam nayri Wingara.
+- National Aboriginal Community Controlled Health Organisation (NACCHO): sector partner in Indigenous data sovereignty and governance.
+
+### Source URLs
+
+- <https://www.maiamnayriwingara.org/mnw-principles>
+- <https://idnau.org/>
 
 ---

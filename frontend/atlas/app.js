@@ -258,6 +258,7 @@
     c._label = shortLabel(c);
     c._hasTre = hasTre(c);
     c._haystack = (c.name + ' ' + c.subject + ' ' +
+      (c.sector || '') + ' ' + (c.researchAccess || '') + ' ' +
       c.datasets.map((d) => d.name).join(' ')).toLowerCase();
   }
 
@@ -265,7 +266,7 @@
     view: 'network',
     selectedId: null,
     selectedStep: null, // {custodianId, order}
-    net: { groups: new Set(), type: '', tre: false, q: '', geo: true },
+    net: { groups: new Set(), type: '', sector: '', access: '', tre: false, q: '', geo: true },
     pw: { q: '', custodianId: null },
     ds: { q: '', custodian: '', identifiable: '', linkable: '' }
   };
@@ -471,6 +472,12 @@
       '<div class="chip-row">' +
       (c.type ? '<span class="chip">' + esc(c.type) + '</span>' : '') +
       jurisdictionChip(c) +
+      (c.sector ? '<span class="chip" title="Sector classification (v3 audit)">' +
+        esc((c.sector || '').replace(/_/g, ' ')) + '</span>' : '') +
+      (c.researchAccess ? '<span class="chip" title="Research access classification (v3 audit)">' +
+        esc((c.researchAccess || '').replace(/_/g, ' ')) + '</span>' : '') +
+      (c.reverify ? '<span class="chip" title="Re-verification cadence (v3 audit)">' +
+        (c.reverify === 'frequent' ? 'Re-verify: 6-monthly' : 'Re-verify: annual') + '</span>' : '') +
       (c._hasTre ? '<span class="chip">TRE / secure access</span>' : '') +
       (c.reviewCount ? '<span class="chip" title="Connection mentions held for manual review (not shown as edges)">' +
         c.reviewCount + ' connection reviews</span>' : '') +
@@ -755,6 +762,16 @@
       return Array.from(types).sort();
     }
 
+    function fieldOptions(field) {
+      const values = new Set();
+      for (const c of custodians) if (c[field]) values.add(c[field]);
+      return Array.from(values).sort();
+    }
+
+    function tagLabel(value) {
+      return (value || '').replace(/_/g, ' ');
+    }
+
     function renderControls() {
       const groupsInUse = new Set(custodians.map((c) => c._group));
       const bar = document.createElement('div');
@@ -767,6 +784,12 @@
         '<select id="net-type" aria-label="Custodian type"><option value="">All types</option>' +
         typeOptions().map((t) => '<option value="' + esc(t) + '">' + esc(t) + '</option>').join('') +
         '</select>' +
+        '<select id="net-sector" aria-label="Sector"><option value="">All sectors</option>' +
+        fieldOptions('sector').map((s) => '<option value="' + esc(s) + '">' + esc(tagLabel(s)) + '</option>').join('') +
+        '</select>' +
+        '<select id="net-access" aria-label="Research access"><option value="">All research access</option>' +
+        fieldOptions('researchAccess').map((a) => '<option value="' + esc(a) + '">' + esc(tagLabel(a)) + '</option>').join('') +
+        '</select>' +
         '<button type="button" class="filter-chip" id="net-tre">Has TRE</button>';
       container.appendChild(bar);
 
@@ -776,6 +799,14 @@
       });
       bar.querySelector('#net-type').addEventListener('change', (evt) => {
         state.net.type = evt.target.value;
+        applyClasses();
+      });
+      bar.querySelector('#net-sector').addEventListener('change', (evt) => {
+        state.net.sector = evt.target.value;
+        applyClasses();
+      });
+      bar.querySelector('#net-access').addEventListener('change', (evt) => {
+        state.net.access = evt.target.value;
         applyClasses();
       });
       bar.querySelector('#net-tre').addEventListener('click', (evt) => {
@@ -798,6 +829,8 @@
       const f = state.net;
       if (f.groups.size && !f.groups.has(c._group)) return false;
       if (f.type && !(c.types || []).includes(f.type)) return false;
+      if (f.sector && c.sector !== f.sector) return false;
+      if (f.access && c.researchAccess !== f.access) return false;
       if (f.tre && !c._hasTre) return false;
       if (f.q && !c._haystack.includes(f.q)) return false;
       return true;

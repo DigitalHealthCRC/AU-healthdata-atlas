@@ -8,27 +8,27 @@
   "generatedAt": "<volatile>",
   "summary": {
     "labelCounts": {
-      "ConnectionReview": 107,
-      "Custodian": 33,
-      "CustodianType": 14,
-      "Dataset": 137,
+      "ConnectionReview": 121,
+      "Custodian": 42,
+      "CustodianType": 20,
+      "Dataset": 149,
       "Jurisdiction": 11,
-      "PathwayStep": 160,
-      "ProcessLine": 33,
-      "SourceURL": 176
+      "PathwayStep": 173,
+      "ProcessLine": 42,
+      "SourceURL": 192
     },
-    "nodeCount": 671,
-    "relationshipCount": 898,
+    "nodeCount": 750,
+    "relationshipCount": 1008,
     "relationshipTypeCounts": {
-      "CONNECTED_TO": 97,
-      "HAS_CONNECTION_REVIEW": 107,
-      "HAS_DATASET": 145,
-      "HAS_SOURCE": 192,
-      "HAS_STEP": 160,
-      "HAS_TYPE": 33,
-      "IN_JURISDICTION": 33,
-      "OFFERS_LINE": 33,
-      "REVIEW_SUGGESTS": 98
+      "CONNECTED_TO": 110,
+      "HAS_CONNECTION_REVIEW": 121,
+      "HAS_DATASET": 157,
+      "HAS_SOURCE": 210,
+      "HAS_STEP": 173,
+      "HAS_TYPE": 42,
+      "IN_JURISDICTION": 42,
+      "OFFERS_LINE": 42,
+      "REVIEW_SUGGESTS": 111
     }
   }
 }
