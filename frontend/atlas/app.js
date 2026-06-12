@@ -265,7 +265,7 @@
     view: 'network',
     selectedId: null,
     selectedStep: null, // {custodianId, order}
-    net: { groups: new Set(), type: '', tre: false, q: '', geo: false },
+    net: { groups: new Set(), type: '', tre: false, q: '', geo: true },
     pw: { q: '', custodianId: null },
     ds: { q: '', custodian: '', identifiable: '', linkable: '' }
   };
@@ -766,9 +766,7 @@
         '<select id="net-type" aria-label="Custodian type"><option value="">All types</option>' +
         typeOptions().map((t) => '<option value="' + esc(t) + '">' + esc(t) + '</option>').join('') +
         '</select>' +
-        '<button type="button" class="filter-chip" id="net-tre">Has TRE</button>' +
-        '<button type="button" class="filter-chip" id="net-geo" ' +
-        'title="Arrange custodians by their home state or territory">Geo layout</button>';
+        '<button type="button" class="filter-chip" id="net-tre">Has TRE</button>';
       container.appendChild(bar);
 
       bar.querySelector('#net-search').addEventListener('input', (evt) => {
@@ -783,11 +781,6 @@
         state.net.tre = !state.net.tre;
         evt.currentTarget.classList.toggle('active', state.net.tre);
         applyClasses();
-      });
-      bar.querySelector('#net-geo').addEventListener('click', (evt) => {
-        state.net.geo = !state.net.geo;
-        evt.currentTarget.classList.toggle('active', state.net.geo);
-        setGeoLayout(state.net.geo);
       });
       bar.addEventListener('click', (evt) => {
         const chip = evt.target.closest('[data-group]');
@@ -866,6 +859,20 @@
       hint.className = 'network-hintbar';
       hint.textContent = 'Scroll to zoom · drag background to pan · drag nodes to rearrange · click a node for details';
       wrap.appendChild(hint);
+
+      // Geo-layout toggle, pinned to the top-right corner of the graph.
+      const geoBtn = document.createElement('button');
+      geoBtn.type = 'button';
+      geoBtn.id = 'net-geo';
+      geoBtn.className = 'filter-chip net-geo-corner' + (state.net.geo ? ' active' : '');
+      geoBtn.title = 'Arrange custodians by their home state or territory';
+      geoBtn.textContent = 'Geo layout';
+      geoBtn.addEventListener('click', () => {
+        state.net.geo = !state.net.geo;
+        geoBtn.classList.toggle('active', state.net.geo);
+        setGeoLayout(state.net.geo);
+      });
+      wrap.appendChild(geoBtn);
       container.appendChild(wrap);
 
       gZoom = svgEl('g');
@@ -1008,6 +1015,7 @@
         renderControls();
         renderSvg();
         built = true;
+        if (state.net.geo) setGeoLayout(true);
         requestAnimationFrame(fitToContainer);
       }
       applyClasses();
@@ -1184,7 +1192,16 @@
         svg.appendChild(g);
       }
 
+      const title = document.createElement('div');
+      title.className = 'diagram-title';
+      title.innerHTML =
+        '<span class="dot" style="background:' + esc(color) + '"></span>' +
+        '<span class="diagram-title-name">' + esc(c.name) + '</span>' +
+        '<span class="diagram-title-meta">' + esc(c.jurisdiction || '') +
+        ' · ' + steps.length + ' step' + (steps.length === 1 ? '' : 's') + '</span>';
+
       diagramEl.innerHTML = '';
+      diagramEl.appendChild(title);
       diagramEl.appendChild(svg);
     }
 

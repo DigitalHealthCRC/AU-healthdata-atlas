@@ -179,13 +179,37 @@ input::placeholder { color: var(--placeholder); }
 }
 
 .view-switcher .tab.cue-pulse {
-  animation: tab-cue 1s ease-out 2;
+  position: relative;
+  overflow: hidden;
+  animation: tab-cue 0.9s ease-out 3;
+}
+
+/* Shine sweep: a light band sweeps across the tab when the selection
+ * changes, on top of the blink, so the cue is hard to miss. */
+.view-switcher .tab.cue-pulse::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -80%;
+  width: 55%;
+  background: linear-gradient(105deg,
+    transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: skewX(-20deg);
+  animation: tab-shine 0.9s ease-out 3;
+  pointer-events: none;
 }
 
 @keyframes tab-cue {
-  0%   { box-shadow: 0 0 0 1px var(--gold), 0 0 0 0 rgba(249, 181, 5, 0.55); }
-  70%  { box-shadow: 0 0 0 1px var(--gold), 0 0 0 8px rgba(249, 181, 5, 0); }
+  0%   { background: rgba(249, 181, 5, 0.35);
+         box-shadow: 0 0 0 1px var(--gold), 0 0 0 0 rgba(249, 181, 5, 0.6); }
+  70%  { background: transparent;
+         box-shadow: 0 0 0 1px var(--gold), 0 0 0 9px rgba(249, 181, 5, 0); }
   100% { box-shadow: 0 0 0 1px var(--gold), 0 0 9px rgba(249, 181, 5, 0.35); }
+}
+
+@keyframes tab-shine {
+  to { left: 130%; }
 }
 
 .header-right {
@@ -611,6 +635,15 @@ details.conn > summary:hover { color: var(--accent-bright); }
   position: relative;
 }
 
+.net-geo-corner {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
 .network-svg { display: block; width: 100%; height: calc(100vh - 245px); min-height: 420px; cursor: grab; }
 .network-svg.panning { cursor: grabbing; }
 
@@ -757,13 +790,44 @@ details.conn > summary:hover { color: var(--accent-bright); }
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .pathways-diagram .diagram-empty {
   padding: 48px 24px;
   color: var(--text-muted);
   text-align: center;
+}
+
+/* Heading above the metro diagram naming the selected custodian.
+ * Sticky so it stays in view while the diagram scrolls horizontally. */
+.diagram-title {
+  position: sticky;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 16px 4px;
+  font-size: 16.5px;
+  color: var(--text);
+}
+
+.diagram-title .dot {
+  flex: none;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.diagram-title-name {
+  min-width: 0;
+}
+
+.diagram-title-meta {
+  flex: none;
+  margin-left: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
 }
 
 .metro-lane-band { opacity: 1; }
