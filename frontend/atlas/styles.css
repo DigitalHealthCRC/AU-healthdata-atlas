@@ -679,6 +679,45 @@ details.conn > summary:hover { color: var(--accent-bright); }
 }
 .net-node.selected text { fill: var(--label-accent); }
 
+/* Dataset fan-out: temporary diamond children around a double-clicked
+ * node, outlined in the custodian's colour. */
+.net-child {
+  cursor: pointer;
+  animation: child-in 0.25s ease-out;
+}
+
+.net-child rect {
+  fill: var(--station-fill);
+  stroke-width: 1.8;
+}
+
+.net-child:hover rect {
+  stroke-width: 3;
+  filter: drop-shadow(0 0 4px currentColor);
+}
+
+.net-child text {
+  font-size: 9px;
+  fill: var(--node-label);
+  text-anchor: middle;
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: var(--node-halo);
+  stroke-width: 3px;
+}
+
+.net-child-spoke {
+  stroke-width: 1.1;
+  stroke-opacity: 0.5;
+  stroke-dasharray: 2 3;
+  animation: child-in 0.25s ease-out;
+}
+
+@keyframes child-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .geo-labels { display: none; }
 .geo-labels.visible { display: block; }
 .geo-label {

@@ -545,7 +545,8 @@
     let nodeById = new Map();
     let edges = [];          // merged undirected: {a, b, dirs: [...]}
     let zoom = { x: 0, y: 0, k: 1 };
-    let svg, gZoom, gGeo, gEdges, gNodes;
+    let svg, gZoom, gGeo, gEdges, gNodes, gExpand;
+    let expand = null; // expanded node: {id, node, items: [{el, spoke, dx, dy}]}
 
     // Conceptual Australia: anchor per jurisdiction group on the W×H canvas.
     // Not geographically exact — just enough that WA reads west, QLD
@@ -814,17 +815,20 @@
           if (e.b.c.id === hoverId) neighbor.add(e.a.c.id);
         }
       }
+      // While a node's datasets are fanned out, everything else recedes so
+      // the cluster reads clearly; hover highlighting pauses until collapse.
       for (const n of nodes) {
         const g = n.el;
         const pass = matches(n.c);
-        const dimmedByHover = hoverId && !neighbor.has(n.c.id);
-        g.classList.toggle('dim', !pass || dimmedByHover);
+        const dimmedByExpand = expand && n.c.id !== expand.id;
+        const dimmedByHover = !expand && hoverId && !neighbor.has(n.c.id);
+        g.classList.toggle('dim', !pass || dimmedByExpand || dimmedByHover);
         g.classList.toggle('selected', n.c.id === state.selectedId);
       }
       for (const e of edges) {
         const passes = matches(e.a.c) && matches(e.b.c);
-        const touchesHover = hoverId && (e.a.c.id === hoverId || e.b.c.id === hoverId);
-        e.el.classList.toggle('dim', !passes || (hoverId && !touchesHover));
+        const touchesHover = !expand && hoverId && (e.a.c.id === hoverId || e.b.c.id === hoverId);
+        e.el.classList.toggle('dim', !passes || !!expand || (!expand && hoverId && !touchesHover));
         e.el.classList.toggle('hl', !!touchesHover);
       }
     }
@@ -850,6 +854,96 @@
       ).join('<hr style="border:none;border-top:1px solid #2c2c34;margin:6px 0">');
     }
 
+    // ---- Dataset fan-out (double-click a node) ----------------------
+    // Children are temporary SVG elements, not force-layout participants:
+    // they sit on static rings around the parent and follow it via
+    // positionExpand() if the parent is dragged or the layout animates.
+
+    function collapseExpand() {
+      if (!expand) return;
+      while (gExpand.firstChild) gExpand.removeChild(gExpand.firstChild);
+      expand = null;
+      hideTooltip();
+      applyClasses();
+    }
+
+    function addChild(n, d, dx, dy, withLabel) {
+      const color = n.c._color;
+      const spoke = svgEl('line', { class: 'net-child-spoke', stroke: color });
+      gExpand.appendChild(spoke);
+
+      const g = svgEl('g', { class: 'net-child' });
+      g.appendChild(svgEl('rect', {
+        x: -6.5, y: -6.5, width: 13, height: 13, rx: 2,
+        transform: 'rotate(45)', stroke: color
+      }));
+      if (withLabel) {
+        const t = svgEl('text', { y: 20 });
+        t.textContent = truncate(d.name, 24);
+        g.appendChild(t);
+      }
+
+      const flags = [];
+      if (d.identifiable) flags.push('Identifiable: ' + d.identifiable);
+      if (d.linkable) flags.push('Linkable: ' + d.linkable);
+      g.addEventListener('mouseenter', (evt) => showTooltip(
+        '<div class="tt-title">' + esc(d.name) + '</div>' +
+        (d.description ? '<div>' + esc(truncate(d.description, 200)) + '</div>' : '') +
+        (flags.length ? '<div class="tt-muted">' + esc(flags.join(' · ')) + '</div>' : '') +
+        '<div class="tt-muted">Click to open in the Datasets tab</div>', evt));
+      g.addEventListener('mousemove', moveTooltip);
+      g.addEventListener('mouseleave', hideTooltip);
+      g.addEventListener('click', () => {
+        collapseExpand();
+        state.ds.custodian = n.c.id;
+        state.ds.q = (d.name || '').toLowerCase();
+        state.ds.identifiable = '';
+        state.ds.linkable = '';
+        switchView('datasets');
+      });
+
+      gExpand.appendChild(g);
+      expand.items.push({ el: g, spoke, dx, dy });
+    }
+
+    function expandNode(n) {
+      collapseExpand();
+      const list = n.c.datasets;
+      if (!list.length) return;
+      expand = { id: n.c.id, node: n, items: [] };
+      // Concentric rings growing in capacity (12, 18, 24, …); per-item
+      // labels only when the fan-out is small enough to stay readable —
+      // beyond that the hover tooltip carries the name.
+      const showLabels = list.length <= 12;
+      let placed = 0;
+      let ring = 0;
+      while (placed < list.length) {
+        const ringItems = list.slice(placed, placed + 12 + ring * 6);
+        const radius = n.r + 38 + ring * 32;
+        ringItems.forEach((d, i) => {
+          const angle = -Math.PI / 2 + ring * 0.4 + (i / ringItems.length) * 2 * Math.PI;
+          addChild(n, d, radius * Math.cos(angle), radius * Math.sin(angle), showLabels);
+        });
+        placed += ringItems.length;
+        ring++;
+      }
+      positionExpand();
+      applyClasses();
+    }
+
+    function positionExpand() {
+      if (!expand) return;
+      const p = expand.node;
+      for (const it of expand.items) {
+        it.el.setAttribute('transform',
+          'translate(' + (p.x + it.dx) + ',' + (p.y + it.dy) + ')');
+        it.spoke.setAttribute('x1', p.x);
+        it.spoke.setAttribute('y1', p.y);
+        it.spoke.setAttribute('x2', p.x + it.dx);
+        it.spoke.setAttribute('y2', p.y + it.dy);
+      }
+    }
+
     function renderSvg() {
       const wrap = document.createElement('div');
       wrap.className = 'network-wrap';
@@ -857,7 +951,8 @@
       wrap.appendChild(svg);
       const hint = document.createElement('div');
       hint.className = 'network-hintbar';
-      hint.textContent = 'Scroll to zoom · drag background to pan · drag nodes to rearrange · click a node for details';
+      hint.textContent = 'Scroll to zoom · drag background to pan · drag nodes to rearrange · ' +
+        'click a node for details · double-click to fan out its datasets (Esc to close)';
       wrap.appendChild(hint);
 
       // Geo-layout toggle, pinned to the top-right corner of the graph.
@@ -879,9 +974,11 @@
       gGeo = svgEl('g', { class: 'geo-labels' });
       gEdges = svgEl('g');
       gNodes = svgEl('g');
+      gExpand = svgEl('g'); // dataset fan-out, drawn above everything
       gZoom.appendChild(gGeo);
       gZoom.appendChild(gEdges);
       gZoom.appendChild(gNodes);
+      gZoom.appendChild(gExpand);
       svg.appendChild(gZoom);
 
       for (const e of edges) {
@@ -921,6 +1018,12 @@
           applyClasses();
           hideTooltip();
         });
+        g.addEventListener('dblclick', (evt) => {
+          evt.preventDefault();
+          hideTooltip();
+          if (expand && expand.id === n.c.id) collapseExpand();
+          else expandNode(n);
+        });
       }
 
       positionAll();
@@ -937,6 +1040,7 @@
       for (const n of nodes) {
         n.el.setAttribute('transform', 'translate(' + n.x + ',' + n.y + ')');
       }
+      positionExpand();
     }
 
     function attachInteractions() {
@@ -946,6 +1050,8 @@
       let moved = 0;
 
       svg.addEventListener('pointerdown', (evt) => {
+        // Dataset children handle their own plain click events.
+        if (evt.target.closest('.net-child')) return;
         const nodeG = evt.target.closest('.net-node');
         start = { x: evt.clientX, y: evt.clientY, zx: zoom.x, zy: zoom.y };
         moved = 0;
@@ -976,12 +1082,25 @@
 
       svg.addEventListener('pointerup', (evt) => {
         if (mode === 'drag' && dragNode && moved < 5) {
+          // Clicking a different node (or re-clicking) keeps selection
+          // behaviour, but an open fan-out closes unless it's the same node.
+          if (expand && expand.id !== dragNode.c.id) collapseExpand();
           selectCustodian(dragNode.c.id);
+        } else if (mode === 'pan' && moved < 5) {
+          collapseExpand(); // plain click on empty background
         }
         mode = null;
         dragNode = null;
         svg.classList.remove('panning');
         try { svg.releasePointerCapture(evt.pointerId); } catch (err) { /* already released */ }
+      });
+
+      document.addEventListener('keydown', (evt) => {
+        if (evt.key !== 'Escape' || !expand) return;
+        // The intro modal owns Escape while it is open.
+        const overlay = document.getElementById('intro-overlay');
+        if (overlay && !overlay.classList.contains('hidden')) return;
+        collapseExpand();
       });
 
       svg.addEventListener('wheel', (evt) => {
