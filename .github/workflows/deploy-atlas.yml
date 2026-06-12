@@ -37,6 +37,23 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      # GitHub Pages serves app.js/styles.css/atlas_data.js with plain filenames
+      # and a 10-minute cache, so returning visitors can run a stale bundle after
+      # a deploy. Stamp the commit SHA onto the asset references in the *artifact*
+      # copy only — the committed index.html stays query-string-free so the page
+      # still works when opened locally via file://.
+      - name: Cache-bust asset references
+        run: |
+          v="${GITHUB_SHA::8}"
+          f="frontend/atlas/index.html"
+          sed -i \
+            -e "s|href=\"styles.css\"|href=\"styles.css?v=${v}\"|g" \
+            -e "s|src=\"app.js\"|src=\"app.js?v=${v}\"|g" \
+            -e "s|src=\"data/atlas_data.js\"|src=\"data/atlas_data.js?v=${v}\"|g" \
+            "$f"
+          echo "Stamped version ${v}:"
+          grep -nE 'styles\.css|app\.js|atlas_data\.js' "$f"
+
       - name: Upload Atlas as Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
