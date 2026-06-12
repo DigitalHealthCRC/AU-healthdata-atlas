@@ -633,27 +633,7 @@ details.conn > summary:hover { color: var(--accent-bright); }
   box-shadow: var(--shadow);
   overflow: hidden;
   position: relative;
-  isolation: isolate; /* contain the ribbon backdrop's stacking to this card */
 }
-
-/* ---------- Ribbon backdrop (behind the graph) ----------
- * A flowing "silk" of fine gradient lines, drawn on a <canvas> by app.js
- * (startRibbonBackground). The canvas sits behind the SVG and ignores pointer
- * events, so panning/zooming the graph is unaffected. The animation pauses
- * itself when the view is hidden, scrolled away, or the tab is backgrounded,
- * and honours prefers-reduced-motion (renders one static frame). */
-.network-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-/* Keep the graph (and its controls) above the backdrop. */
-.network-svg { position: relative; z-index: 1; }
 
 .net-geo-corner {
   position: absolute;
@@ -753,7 +733,6 @@ details.conn > summary:hover { color: var(--accent-bright); }
 
 .network-hintbar {
   position: absolute;
-  z-index: 2;
   bottom: 8px;
   left: 12px;
   font-size: 11px;
