@@ -1,0 +1,47 @@
+name: Deploy Atlas to GitHub Pages
+
+# Publishes ONLY the static Atlas viewer (frontend/atlas/) to GitHub Pages.
+# The Neo4j pipeline, loader, credentials and output/ are never deployed —
+# only the contents of frontend/atlas/ are uploaded as the Pages artifact.
+
+on:
+  push:
+    branches: [master]
+    # Only redeploy when the published site actually changes.
+    paths:
+      - 'frontend/atlas/**'
+      - '.github/workflows/deploy-atlas.yml'
+  workflow_dispatch: {}
+
+# Allow this workflow to publish to Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time; let an in-progress run finish (don't cancel mid-publish).
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Atlas as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/atlas
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
