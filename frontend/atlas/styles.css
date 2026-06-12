@@ -38,10 +38,6 @@
   --hint-bg: rgba(0, 0, 0, 0.65);
   --chip-fg: #d9d8d6;
   --placeholder: #77767c;
-
-  /* Wave backdrop behind the network graph — thin brand-coloured lines
-   * drifting slowly. Dark theme: faintly luminous over near-black. */
-  --wave-opacity: 0.5;
 }
 
 /* Light theme — DHCRC light-content combo: background grey #D9D8D6,
@@ -75,9 +71,6 @@ body.theme-light {
   --hint-bg: rgba(255, 255, 255, 0.85);
   --chip-fg: #3a3a38;
   --placeholder: #8a8a86;
-
-  /* Light theme: the same lines, fainter, over the grey #D9D8D6 surface. */
-  --wave-opacity: 0.28;
 }
 
 * { box-sizing: border-box; }
@@ -640,52 +633,27 @@ details.conn > summary:hover { color: var(--accent-bright); }
   box-shadow: var(--shadow);
   overflow: hidden;
   position: relative;
-  isolation: isolate; /* contain the aurora's stacking to this card */
+  isolation: isolate; /* contain the ribbon backdrop's stacking to this card */
 }
 
-/* ---------- Wave backdrop (behind the graph) ----------
- * Thin brand-coloured sine lines that drift slowly sideways — the flowing
- * source art reduced to quiet line-work, so nodes stay crisp on top. The
- * SVG tiles seamlessly every 600px; each layer animates only `transform`
- * (GPU-composited), translating by exactly one tile so the loop is invisible. */
-.network-wrap::before,
-.network-wrap::after {
-  content: '';
+/* ---------- Ribbon backdrop (behind the graph) ----------
+ * A flowing "silk" of fine gradient lines, drawn on a <canvas> by app.js
+ * (startRibbonBackground). The canvas sits behind the SVG and ignores pointer
+ * events, so panning/zooming the graph is unaffected. The animation pauses
+ * itself when the view is hidden, scrolled away, or the tab is backgrounded,
+ * and honours prefers-reduced-motion (renders one static frame). */
+.network-bg {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -600px;                       /* slack so the slide never bares an edge */
-  width: calc(100% + 1200px);
+  inset: 0;
   z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  opacity: var(--wave-opacity);
-  background-repeat: repeat-x;
-  background-size: 600px 100%;        /* one tile wide; stretched to card height */
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='600'%20height='600'%20viewBox='0%200%20600%20600'%20fill='none'%20stroke-width='1.2'%3E%3Cpath%20d='M0,80%20q75,-16%20150,0%20t150,0%20t150,0%20t150,0'%20stroke='%23008fff'%20stroke-opacity='0.55'/%3E%3Cpath%20d='M0,180%20q75,20%20150,0%20t150,0%20t150,0%20t150,0'%20stroke='%23c200ff'%20stroke-opacity='0.5'/%3E%3Cpath%20d='M0,280%20q75,-14%20150,0%20t150,0%20t150,0%20t150,0'%20stroke='%23fd01de'%20stroke-opacity='0.45'/%3E%3Cpath%20d='M0,380%20q75,18%20150,0%20t150,0%20t150,0%20t150,0'%20stroke='%23008fff'%20stroke-opacity='0.5'/%3E%3Cpath%20d='M0,480%20q75,-20%20150,0%20t150,0%20t150,0%20t150,0'%20stroke='%2300c4b2'%20stroke-opacity='0.5'/%3E%3Cpath%20d='M0,560%20q75,14%20150,0%20t150,0%20t150,0%20t150,0'%20stroke='%23c200ff'%20stroke-opacity='0.4'/%3E%3C/svg%3E");
-  will-change: transform;
 }
-
-/* Second layer: same lines, offset and counter-drifting much slower, for a
- * gentle parallax. Fainter so it reads as depth, not clutter. */
-.network-wrap::after {
-  background-position: 300px -34px;
-  opacity: calc(var(--wave-opacity) * 0.55);
-  animation: wave-b 150s linear infinite;
-}
-
-.network-wrap::before { animation: wave-a 90s linear infinite; }
 
 /* Keep the graph (and its controls) above the backdrop. */
 .network-svg { position: relative; z-index: 1; }
-
-@keyframes wave-a { to { transform: translateX(-600px); } }   /* one tile left  */
-@keyframes wave-b { to { transform: translateX(600px); } }    /* one tile right */
-
-/* Respect users who opt out of motion — keep the lines, drop the drift. */
-@media (prefers-reduced-motion: reduce) {
-  .network-wrap::before,
-  .network-wrap::after { animation: none; }
-}
 
 .net-geo-corner {
   position: absolute;

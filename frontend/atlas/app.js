@@ -98,6 +98,175 @@
     return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s;
   }
 
+  // ------------------------------------------------------------------
+  // Animated ribbon backdrop (network view)
+  // ------------------------------------------------------------------
+  // A flowing band of fine gradient lines — the "silk" / sound-wave look —
+  // painted on a <canvas> behind the graph. Lightweight: ~42 polylines
+  // redrawn at a 30fps cap, additive blending for the luminous bundle.
+  // Self-throttling: pauses when the view is hidden/scrolled away (an
+  // IntersectionObserver catches the tab's display:none), when the browser
+  // tab is backgrounded, or when the user prefers reduced motion (one
+  // static frame). Reads the theme live, so it recolours on toggle.
+  function startRibbonBackground(canvas) {
+    if (canvas.__ribbonStarted) return;
+    canvas.__ribbonStarted = true;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const reduce = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const LINES = 42;   // stacked lines forming the ribbon
+    const STEP = 14;    // px between sample points along each line
+
+    let cssW = 0, cssH = 0, dpr = 1;
+    let gradient = null;
+    let particles = [];
+    let rafId = 0, running = false, visible = true;
+    let t0 = 0, lastDraw = 0;
+
+    function palette(light) {
+      // green → teal → cyan → blue → purple → pink, echoing the source art.
+      const g = ctx.createLinearGradient(0, 0, cssW || 1, 0);
+      if (light) {
+        g.addColorStop(0.00, '#16b36a'); g.addColorStop(0.22, '#0f9fb0');
+        g.addColorStop(0.44, '#1f7fe0'); g.addColorStop(0.66, '#6a4cf0');
+        g.addColorStop(0.84, '#a32fd6'); g.addColorStop(1.00, '#d63aa8');
+      } else {
+        g.addColorStop(0.00, '#16e07a'); g.addColorStop(0.20, '#16e0c8');
+        g.addColorStop(0.42, '#2ac4ff'); g.addColorStop(0.62, '#4f7cff');
+        g.addColorStop(0.80, '#b24bff'); g.addColorStop(1.00, '#ff4fd8');
+      }
+      return g;
+    }
+
+    function seedParticles() {
+      const n = Math.round(Math.min(32, Math.max(12, cssW / 44)));
+      particles = [];
+      for (let i = 0; i < n; i++) {
+        particles.push({
+          x: ((i * 97) % 100) / 100 * cssW,
+          y: ((i * 53) % 100) / 100 * cssH,
+          r: 0.6 + (i % 5) * 0.3,
+          sp: 4 + (i % 7),
+          ph: ((i * 29) % 100) / 100 * Math.PI * 2,
+          vx: (((i % 3) - 1)) * 0.04,
+          vy: ((i % 2) ? 1 : -1) * 0.03
+        });
+      }
+    }
+
+    function resize() {
+      const w = canvas.clientWidth, h = canvas.clientHeight;
+      if (!w || !h) return;
+      cssW = w; cssH = h;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      gradient = palette(document.body.classList.contains('theme-light'));
+      seedParticles();
+      if (reduce) draw(0); // refresh the single static frame
+    }
+
+    function draw(t) {
+      const light = document.body.classList.contains('theme-light');
+      ctx.clearRect(0, 0, cssW, cssH);
+
+      // --- Ribbon: stacked lines, bunching into a bright waist then fanning.
+      ctx.globalCompositeOperation = light ? 'source-over' : 'lighter';
+      ctx.strokeStyle = gradient;
+      ctx.lineWidth = 1;
+      ctx.lineJoin = 'round';
+      ctx.globalAlpha = light ? 0.13 : 0.09;
+
+      const midY = cssH * 0.52;
+      const maxHalf = cssH * 0.27;
+      const cols = Math.max(8, Math.ceil(cssW / STEP));
+
+      for (let li = 0; li < LINES; li++) {
+        const p = (li / (LINES - 1)) * 2 - 1; // -1..1 position across the band
+        ctx.beginPath();
+        for (let c = 0; c <= cols; c++) {
+          const x = (c / cols) * cssW;
+          const u = x / (cssW || 1);
+          // spine — the ribbon's slow diagonal undulation
+          const spine = midY
+            + Math.sin(u * Math.PI * 1.4 + t * 0.16) * cssH * 0.16
+            + Math.sin(u * Math.PI * 2.7 - t * 0.11 + 1.0) * cssH * 0.08;
+          // twist — band rotates; zero-crossings collapse the lines into a
+          // thin luminous waist, |twist|→1 fans them to full width
+          const twist = Math.sin(u * Math.PI * 1.7 - t * 0.21 + 0.5);
+          const wobble = Math.sin(u * Math.PI * 7 + t * 0.5 + p * 1.6) * 2.4;
+          const y = spine + p * maxHalf * twist + wobble;
+          if (c === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+
+      // --- Particles: faint drifting "dust" that twinkles.
+      for (const pt of particles) {
+        const tw = 0.35 + 0.65 * (0.5 + 0.5 * Math.sin(t * (pt.sp * 0.12) + pt.ph));
+        ctx.globalAlpha = (light ? 0.18 : 0.5) * tw;
+        ctx.fillStyle = light ? '#5566aa' : '#bfe9ff';
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, pt.r, 0, Math.PI * 2);
+        ctx.fill();
+        pt.x += pt.vx; pt.y += pt.vy;
+        if (pt.x < -4) pt.x = cssW + 4; else if (pt.x > cssW + 4) pt.x = -4;
+        if (pt.y < -4) pt.y = cssH + 4; else if (pt.y > cssH + 4) pt.y = -4;
+      }
+
+      ctx.globalAlpha = 1;
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    function frame(ms) {
+      rafId = 0;
+      if (!running) return;
+      if (!t0) t0 = ms / 1000;
+      const t = ms / 1000 - t0;
+      if (ms - lastDraw >= 32) { lastDraw = ms; draw(t); } // ~30fps cap
+      rafId = requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (running || reduce || !visible || document.hidden) return;
+      if (!cssW) resize();
+      running = true;
+      rafId = requestAnimationFrame(frame);
+    }
+    function stop() {
+      running = false;
+      if (rafId) { cancelAnimationFrame(rafId); rafId = 0; }
+    }
+
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(() => resize()).observe(canvas);
+    } else {
+      window.addEventListener('resize', resize);
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        visible = !!(entries[0] && entries[0].isIntersecting);
+        if (visible) start(); else stop();
+      }, { threshold: 0 }).observe(canvas);
+    }
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stop(); else start();
+    });
+
+    resize();
+    if (reduce) {
+      if (cssW) draw(0);
+      else requestAnimationFrame(() => { resize(); draw(0); });
+    } else {
+      start();
+      if (!cssW) requestAnimationFrame(() => { resize(); start(); });
+    }
+  }
+
   const URL_RE = /https?:\/\/[^\s<>"')\],;]+/g;
 
   function linkify(text) {
@@ -992,6 +1161,12 @@
     function renderSvg() {
       const wrap = document.createElement('div');
       wrap.className = 'network-wrap';
+      // Animated "silk ribbon" backdrop, drawn behind the graph.
+      const bgCanvas = document.createElement('canvas');
+      bgCanvas.className = 'network-bg';
+      bgCanvas.setAttribute('aria-hidden', 'true');
+      wrap.appendChild(bgCanvas);
+      startRibbonBackground(bgCanvas);
       svg = svgEl('svg', { class: 'network-svg', role: 'img', 'aria-label': 'Custodian network map' });
       wrap.appendChild(svg);
       const hint = document.createElement('div');
